@@ -1,0 +1,35 @@
+name: Tennis Auto-Update (ATP + WTA)
+
+on:
+  schedule:
+    - cron: '0 6 * * *'   # Cada día a las 6am UTC
+  workflow_dispatch:
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install deps
+        run: pip install requests pandas beautifulsoup4 lxml
+
+      - name: Run Scraper
+        run: python scraper.py
+
+      - name: Commit and Push
+        run: |
+          git config --global user.name "TennisBot"
+          git config --global user.email "bot@tennis.com"
+          git add *.csv
+          git commit -m "Auto-update ATP+WTA $(date +'%Y-%m-%d %H:%M')" || echo "No changes"
+          git push
