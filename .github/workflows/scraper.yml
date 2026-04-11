@@ -38,7 +38,13 @@ jobs:
         run: |
           git config --global user.email "scraperbot@github.com"
           git config --global user.name "TennisScraperBot"
-          git add *.csv
+          # Solo intenta agregar CSVs si existen
+          if ls *.csv 1> /dev/null 2>&1; then
+            git add *.csv
+          else
+            echo "No se encontraron archivos CSV. Nada que commitear."
+            exit 0
+          fi
           # Solo hace commit si hay cambios reales; si no, termina sin error
           git diff --staged --quiet && echo "Sin cambios nuevos." || git commit -m "Update tennis data $(date +'%Y-%m-%d')"
           git push
