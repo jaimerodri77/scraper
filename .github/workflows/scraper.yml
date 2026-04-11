@@ -39,10 +39,10 @@ jobs:
           git config --global user.email "scraperbot@github.com"
           git config --global user.name "TennisScraperBot"
           # Solo intenta agregar CSVs si existen
-          if ls *.csv 1> /dev/null 2>&1; then
-            git add *.csv
+          if ls datos/*.csv 1> /dev/null 2>&1; then
+            git add datos/*.csv
           else
-            echo "No se encontraron archivos CSV. Nada que commitear."
+            echo "No se encontraron archivos CSV en datos/. Nada que commitear."
             exit 0
           fi
           # Solo hace commit si hay cambios reales; si no, termina sin error
