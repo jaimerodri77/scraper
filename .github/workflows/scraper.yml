@@ -31,6 +31,30 @@ jobs:
           python -m playwright install chromium
           python -m playwright install-deps chromium
 
+      - name: Ejecutar scraper (modo debug)
+        run: |
+          python - <<'EOF'
+          from scraper import get_html
+          from bs4 import BeautifulSoup
+          import os
+
+          html = get_html()
+          if not html:
+              print("ERROR: get_html() devolvio None")
+          else:
+              os.makedirs("datos", exist_ok=True)
+              with open("datos/debug.html", "w", encoding="utf-8") as f:
+                  f.write(html)
+              soup = BeautifulSoup(html, "html.parser")
+              tables = soup.find_all("table", {"class": "results"})
+              print(f"Tablas 'results' encontradas: {len(tables)}")
+              if not tables:
+                  all_tables = soup.find_all("table")
+                  print(f"Total de tablas en el HTML: {len(all_tables)}")
+                  for i, t in enumerate(all_tables[:5]):
+                      print(f"  Tabla {i}: clases={t.get('class')}")
+          EOF
+
       - name: Ejecutar scraper
         run: python scraper.py
 
@@ -39,10 +63,9 @@ jobs:
           git config --global user.email "scraperbot@github.com"
           git config --global user.name "TennisScraperBot"
           # Solo intenta agregar CSVs si existen
-          if ls datos/*.csv 1> /dev/null 2>&1; then
-            git add datos/*.csv
-          else
-            echo "No se encontraron archivos CSV en datos/. Nada que commitear."
+          git add datos/
+          if git diff --staged --quiet; then
+            echo "Sin cambios nuevos."
             exit 0
           fi
           # Solo hace commit si hay cambios reales; si no, termina sin error
