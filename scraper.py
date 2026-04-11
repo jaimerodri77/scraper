@@ -12,7 +12,8 @@ logging.basicConfig(
 )
 
 URL_BASE = "https://www.tennis-abstract.com/results.html"
-ARCHIVO_SALIDA = f"tml_{datetime.now().year}.csv"
+CARPETA_SALIDA = "datos"
+ARCHIVO_SALIDA = os.path.join(CARPETA_SALIDA, f"tml_{datetime.now().year}.csv")
 
 
 def get_html():
@@ -103,6 +104,7 @@ def save_to_csv(matches):
         logging.warning("No se encontraron partidos nuevos.")
         return
 
+    os.makedirs(CARPETA_SALIDA, exist_ok=True)
     df = pd.DataFrame(matches)
 
     if os.path.exists(ARCHIVO_SALIDA):
