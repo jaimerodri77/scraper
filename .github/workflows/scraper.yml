@@ -1,4 +1,4 @@
-"name: Tennis Scraper Diario
+name: Tennis Scraper Diario
 
 on:
   schedule:
@@ -28,8 +28,8 @@ jobs:
 
       - name: Guardar datos en repositorio
         run: |
-          git config --global user.email "scraperbot@github.com"
-          git config --global user.name "TennisScraperBot"
+          git config --global user.email scraperbot@github.com
+          git config --global user.name TennisScraperBot
           git add *.csv
-          git diff --staged --quiet || git commit -m "Update tennis data $(date +'%Y-%m-%d %H:%M')"
-          git push"
+          git diff --staged --quiet || git commit -m 'Update tennis data'
+          git push
