@@ -18,16 +18,11 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Instalar dependencias del sistema
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y libwoff1 libopus0 libwebp6 libwebpdemux2 libenchant-2-2 libgudev-1.0-0 libsecret-1-0 libhyphen0 libgdk-pixbuf2.0-0 libegl1 libgles2 libevent-2.1-7
-
-      - name: Instalar dependencias de Python
+      - name: Instalar dependencias de Python y sistema
         run: |
           pip install pandas beautifulsoup4 playwright
           playwright install chromium
-          playwright install-deps chromium
+          sudo playwright install-deps chromium
 
       - name: Ejecutar scraper
         run: python scraper.py
