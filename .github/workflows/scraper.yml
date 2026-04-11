@@ -26,6 +26,17 @@ jobs:
       - name: Ejecutar scraper
         run: python scraper.py
 
+      - name: Verificar archivos creados
+        run: |
+          echo "=== Directorio de trabajo ==="
+          pwd
+          echo "=== Contenido raiz ==="
+          ls -la
+          echo "=== Carpeta datos (si existe) ==="
+          ls -la datos/ 2>/dev/null || echo "La carpeta datos NO existe"
+          echo "=== Logs del scraper ==="
+          find . -name "*.csv" 2>/dev/null || echo "No se encontro ningun CSV"
+
       - name: Guardar datos en repositorio
         run: |
           git config --global user.email "scraperbot@github.com"
