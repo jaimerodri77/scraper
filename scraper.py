@@ -72,18 +72,30 @@ def procesar_eventos(eventos: list[dict], fecha: str) -> list[dict]:
 
     # Filtrar solo ATP/WTA terminados primero
     candidatos = []
+    estados_vistos = {}
+    categorias_vistas = set()
+
     for evento in eventos:
         try:
             categoria_id = evento.get("tournament", {}).get("category", {}).get("id")
+            categoria_nombre = evento.get("tournament", {}).get("category", {}).get("name", "?")
+            categorias_vistas.add(f"{categoria_nombre}(id={categoria_id})")
+
             circuito_nombre = next((n for n, cid in CIRCUITOS.items() if categoria_id == cid), None)
+            estado = evento.get("status", {}).get("type", {}).get("name", "unknown")
+            estados_vistos[estado] = estados_vistos.get(estado, 0) + 1
+
             if not circuito_nombre:
                 continue
-            estado = evento.get("status", {}).get("type", {}).get("name", "")
             if estado != "finished":
                 continue
             candidatos.append((evento, circuito_nombre))
         except Exception:
             continue
+
+    logging.info(f"[{fecha}] Categorias encontradas (muestra): {list(categorias_vistas)[:10]}")
+    logging.info(f"[{fecha}] Estados de partidos: {estados_vistos}")
+    logging.info(f"[{fecha}] Candidatos ATP/WTA terminados: {len(candidatos)}")
 
     total = len(candidatos)
     logging.info(f"[{fecha}] Partidos ATP/WTA terminados: {total}")
