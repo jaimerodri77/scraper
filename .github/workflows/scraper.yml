@@ -13,7 +13,6 @@ jobs:
       - name: Checkout repositorio
         uses: actions/checkout@v4
         with:
-          # Token con permisos de escritura para poder hacer push
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup Python 3.11
@@ -22,38 +21,12 @@ jobs:
           python-version: '3.11'
 
       - name: Instalar dependencias de Python
-        run: |
-          pip install pandas beautifulsoup4 playwright
+        run: pip install pandas beautifulsoup4 playwright
 
       - name: Instalar Chromium y dependencias del sistema
         run: |
-          # Usar python -m playwright para garantizar que usa el PATH correcto
           python -m playwright install chromium
           python -m playwright install-deps chromium
-
-      - name: Ejecutar scraper (modo debug)
-        run: |
-          python - <<'EOF'
-          from scraper import get_html
-          from bs4 import BeautifulSoup
-          import os
-
-          html = get_html()
-          if not html:
-              print("ERROR: get_html() devolvio None")
-          else:
-              os.makedirs("datos", exist_ok=True)
-              with open("datos/debug.html", "w", encoding="utf-8") as f:
-                  f.write(html)
-              soup = BeautifulSoup(html, "html.parser")
-              tables = soup.find_all("table", {"class": "results"})
-              print(f"Tablas 'results' encontradas: {len(tables)}")
-              if not tables:
-                  all_tables = soup.find_all("table")
-                  print(f"Total de tablas en el HTML: {len(all_tables)}")
-                  for i, t in enumerate(all_tables[:5]):
-                      print(f"  Tabla {i}: clases={t.get('class')}")
-          EOF
 
       - name: Ejecutar scraper
         run: python scraper.py
@@ -62,7 +35,6 @@ jobs:
         run: |
           git config --global user.email "scraperbot@github.com"
           git config --global user.name "TennisScraperBot"
-          # Crear la carpeta si no existe para que git add no falle
           mkdir -p datos
           git add --all datos/
           if git diff --staged --quiet; then
