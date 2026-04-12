@@ -1,114 +1,118 @@
 import pandas as pd
-from datetime import datetime
+from datetime import datetime, timedelta
 import os
+import requests
 import time
-from playwright.sync_api import sync_playwright
-from bs4 import BeautifulSoup
 
-URL_BASE = "https://www.tennis-abstract.com/results.html"
 ARCHIVO_SALIDA = f"tml_{datetime.now().year}.csv"
 
-def get_html():
-    with sync_playwright() as p:
-        browser = p.chromium.launch(
-            headless=True,
-            args=[
-                "--disable-blink-features=AutomationControlled",
-                "--no-sandbox",
-                "--disable-dev-shm-usage",
-                "--disable-gpu",
-                "--window-size=1920,1080",
-            ]
-        )
-        context = browser.new_context(
-            user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
-            viewport={"width": 1920, "height": 1080},
-            locale="en-US",
-            java_script_enabled=True,
-        )
-        page = context.new_page()
+def get_matches(date_str):
+    """Obtiene partidos de tenis de Sofascore para una fecha dada."""
+    url = f"https://api.sofascore.com/api/v1/sport/tennis/scheduled-events/{date_str}"
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "Accept": "application/json",
+    }
+    for attempt in range(3):
+        try:
+            print(f"Intento {attempt+1} para fecha {date_str}...")
+            response = requests.get(url, headers=headers, timeout=30)
+            print(f"Status: {response.status_code}")
+            if response.status_code == 200:
+                data = response.json()
+                events = data.get("events", [])
+                print(f"Eventos encontrados: {len(events)}")
+                return events
+            else:
+                print(f"Error HTTP: {response.status_code}")
+        except Exception as e:
+            print(f"Intento {attempt+1} fallido: {e}")
+            time.sleep(3)
+    return []
 
-        # Ocultar automatizacion
-        page.add_init_script("""
-            Object.defineProperty(navigator, "webdriver", {get: () => undefined});
-            window.chrome = {runtime: {}};
-            Object.defineProperty(navigator, "plugins", {get: () => [1, 2, 3, 4, 5]});
-            Object.defineProperty(navigator, "languages", {get: () => ["en-US", "en"]});
-        """)
+def parse_events(events):
+    """Convierte los eventos de Sofascore en partidos para el CSV."""
+    matches = []
+    for event in events:
+        try:
+            tournament = event.get("tournament", {})
+            tournament_name = tournament.get("name", "Unknown Tournament")
+            category = tournament.get("category", {})
+            category_name = category.get("name", "")
 
-        page.set_default_timeout(60000)
-        for attempt in range(3):
-            try:
-                print(f"Intento {attempt+1} de conexion...")
-                page.goto(URL_BASE, wait_until="domcontentloaded", timeout=60000)
-                page.wait_for_timeout(8000)
-                html = page.content()
-                browser.close()
-                print(f"HTML obtenido: {len(html)} caracteres")
-                return html
-            except Exception as e:
-                print(f"Intento {attempt+1} fallido: {e}")
-                if attempt < 2:
-                    time.sleep(5)
-        browser.close()
-        return None
-
-def parse_matches():
-    html = get_html()
-    if not html:
-        print("No se pudo obtener el HTML de la pagina")
-        return []
-
-    soup = BeautifulSoup(html, "html.parser")
-
-    # Debug: ver que tablas encuentra
-    all_tables = soup.find_all("table")
-    print(f"Tablas encontradas: {len(all_tables)}")
-    results_tables = soup.find_all("table", {"class": "results"})
-    print(f"Tablas con clase results: {len(results_tables)}")
-
-    all_matches = []
-    for table in results_tables:
-        tourney_name = table.find_previous("b")
-        t_name = tourney_name.text.strip() if tourney_name else "Unknown Tournament"
-
-        rows = table.find_all("tr")
-        for row in rows:
-            cols = row.find_all("td")
-            if len(cols) < 3:
+            # Filtrar solo ATP y WTA
+            if "ATP" not in category_name and "WTA" not in category_name and "Grand Slam" not in category_name:
                 continue
 
-            try:
-                winner = cols[0].text.strip()
-                loser = cols[1].text.strip()
-                score = cols[2].text.strip()
-                if winner == "Winner" or winner == "":
-                    continue
+            home_team = event.get("homeTeam", {})
+            away_team = event.get("awayTeam", {})
+            home_name = home_team.get("name", "")
+            away_name = away_team.get("name", "")
 
-                all_matches.append({
-                    "tourney_id": "S_LIVE",
-                    "tourney_name": t_name,
-                    "surface": "Unknown",
-                    "draw_size": None,
-                    "tourney_level": "A",
-                    "indoor": "O",
-                    "tourney_date": datetime.now().strftime("%Y%m%d"),
-                    "match_num": None,
-                    "winner_name": winner,
-                    "loser_name": loser,
-                    "score": score,
-                    "best_of": 3,
-                    "round": "Unknown",
-                    "minutes": None
-                })
-            except Exception as e:
+            if not home_name or not away_name:
                 continue
 
-    return all_matches
+            # Resultado
+            home_score = event.get("homeScore", {})
+            away_score = event.get("awayScore", {})
+            scores = []
+            for i in range(1, 6):
+                hs = home_score.get(f"period{i}")
+                aws = away_score.get(f"period{i}")
+                if hs is not None and aws is not None:
+                    scores.append(f"{hs}-{aws}")
+            score_str = " ".join(scores) if scores else ""
+
+            # Estado del partido
+            status = event.get("status", {})
+            status_type = status.get("type", "unknown")
+            if status_type != "finished":
+                continue  # Solo partidos terminados
+
+            # Superficie
+            surface = "Unknown"
+            ground = event.get("ground", {})
+            if ground:
+                surface = ground.get("name", "Unknown")
+
+            # Ronda
+            round_info = event.get("roundInfo", {})
+            round_name = round_info.get("round", "Unknown")
+
+            # Determinar ganador y perdedor
+            winner = event.get("winner", None)
+            if winner is not None:
+                winner_name = home_name if winner.get("id") == home_team.get("id") else away_name
+                loser_name = away_name if winner.get("id") == home_team.get("id") else home_name
+            else:
+                winner_name = home_name
+                loser_name = away_name
+
+            matches.append({
+                "tourney_id": "S_LIVE",
+                "tourney_name": tournament_name,
+                "surface": surface,
+                "draw_size": None,
+                "tourney_level": category_name,
+                "indoor": "O",
+                "tourney_date": date_str.replace("-", ""),
+                "match_num": event.get("id", None),
+                "winner_name": winner_name,
+                "loser_name": loser_name,
+                "score": score_str,
+                "best_of": 3,
+                "round": str(round_name),
+                "minutes": None
+            })
+        except Exception as e:
+            print(f"Error parseando evento: {e}")
+            continue
+
+    return matches
 
 def save_to_csv(matches):
     if not matches:
-        print("No se encontraron partidos nuevos.")
+        print("No se encontraron partidos terminados de ATP/WTA.")
         return
 
     df = pd.DataFrame(matches)
@@ -120,5 +124,16 @@ def save_to_csv(matches):
     print(f"Guardados {len(matches)} partidos en {ARCHIVO_SALIDA}")
 
 if __name__ == "__main__":
-    matches_data = parse_matches()
-    save_to_csv(matches_data)
+    # Obtener partidos de hoy y ayer
+    today = datetime.now().strftime("%Y-%m-%d")
+    yesterday = (datetime.now() - timedelta(days=1)).strftime("%Y-%m-%d")
+
+    all_matches = []
+    for date in [yesterday, today]:
+        print(f"Buscando partidos para {date}...")
+        events = get_matches(date)
+        matches = parse_events(events)
+        print(f"Partidos ATP/WTA terminados encontrados: {len(matches)}")
+        all_matches.extend(matches)
+
+    save_to_csv(all_matches)
