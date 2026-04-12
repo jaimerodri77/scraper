@@ -21,21 +21,21 @@ jobs:
           python-version: '3.11'
 
       - name: Instalar dependencias
-        run: pip install pandas requests
+        run: pip install pandas playwright
+
+      - name: Instalar Chromium
+        run: |
+          python -m playwright install chromium
+          python -m playwright install-deps chromium
 
       - name: Ejecutar scraper
         run: python scraper.py
 
       - name: Verificar archivos creados
         run: |
-          echo "=== Directorio de trabajo ==="
-          pwd
-          echo "=== Contenido raiz ==="
-          ls -la
-          echo "=== Carpeta datos (si existe) ==="
-          ls -la datos/ 2>/dev/null || echo "La carpeta datos NO existe"
-          echo "=== Logs del scraper ==="
-          find . -name "*.csv" 2>/dev/null || echo "No se encontro ningun CSV"
+          echo "=== Carpeta datos ==="
+          ls -lh datos/ 2>/dev/null || echo "La carpeta datos NO existe"
+          find . -name "*.csv" 2>/dev/null
 
       - name: Guardar datos en repositorio
         run: |
@@ -45,7 +45,7 @@ jobs:
           mkdir -p datos
           git add --all datos/ || true
           if git diff --staged --quiet; then
-            echo "Sin cambios nuevos, nada que commitear."
+            echo "Sin cambios nuevos."
             exit 0
           fi
           git commit -m "Update tennis data $(date +'%Y-%m-%d')"
