@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 import logging
 import os
 import time
-import requests
-import sys
+import json
+from playwright.sync_api import sync_playwright
 
 logging.basicConfig(
     level=logging.INFO,
@@ -16,43 +16,37 @@ ANO = datetime.now().year
 FECHA_HOY = datetime.now().strftime("%Y-%m-%d")
 FECHA_AYER = (datetime.now() - timedelta(days=1)).strftime("%Y-%m-%d")
 
-HEADERS = {
-    "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
-    "Accept": "application/json",
-    "Referer": "https://www.sofascore.com/",
-}
-
-CIRCUITOS = {
-    "ATP": 2,
-    "WTA": 6,
-}
+CIRCUITOS = {"ATP": 2, "WTA": 6}
 
 
-def get_eventos_del_dia(fecha: str) -> list[dict]:
-    url = f"https://api.sofascore.com/api/v1/sport/tennis/scheduled-events/{fecha}"
+def api_get(page, url: str) -> dict:
+    """Hace una request a la API de Sofascore usando el contexto del navegador."""
     try:
-        r = requests.get(url, headers=HEADERS, timeout=30)
-        r.raise_for_status()
-        eventos = r.json().get("events", [])
-        logging.info(f"[{fecha}] Eventos encontrados: {len(eventos)}")
-        return eventos
-    except Exception as e:
-        logging.error(f"Error obteniendo eventos para {fecha}: {e}")
-        return []
-
-
-def get_estadisticas(event_id: int) -> dict:
-    url = f"https://api.sofascore.com/api/v1/event/{event_id}/statistics"
-    try:
-        time.sleep(0.2)  # Reducido de 0.5 a 0.2
-        r = requests.get(url, headers=HEADERS, timeout=30)
-        if r.status_code == 404:
+        time.sleep(0.3)
+        response = page.request.get(
+            url,
+            headers={
+                "Accept": "application/json",
+                "Referer": "https://www.sofascore.com/tennis",
+            },
+            timeout=30000,
+        )
+        if response.status == 200:
+            return response.json()
+        else:
+            logging.warning(f"HTTP {response.status} para {url}")
             return {}
-        r.raise_for_status()
-        return r.json()
     except Exception as e:
-        logging.warning(f"Error stats evento {event_id}: {e}")
+        logging.warning(f"Error en {url}: {e}")
         return {}
+
+
+def get_eventos_del_dia(page, fecha: str) -> list[dict]:
+    url = f"https://api.sofascore.com/api/v1/sport/tennis/scheduled-events/{fecha}"
+    data = api_get(page, url)
+    eventos = data.get("events", [])
+    logging.info(f"[{fecha}] Eventos encontrados: {len(eventos)}")
+    return eventos
 
 
 def parsear_estadisticas(stats_data: dict) -> dict:
@@ -67,39 +61,26 @@ def parsear_estadisticas(stats_data: dict) -> dict:
     return resultado
 
 
-def procesar_eventos(eventos: list[dict], fecha: str) -> list[dict]:
-    partidos = []
-
-    # Filtrar solo ATP/WTA terminados primero
+def procesar_eventos(page, eventos: list[dict], fecha: str) -> list[dict]:
     candidatos = []
     estados_vistos = {}
-    categorias_vistas = set()
 
     for evento in eventos:
         try:
             categoria_id = evento.get("tournament", {}).get("category", {}).get("id")
-            categoria_nombre = evento.get("tournament", {}).get("category", {}).get("name", "?")
-            categorias_vistas.add(f"{categoria_nombre}(id={categoria_id})")
-
             circuito_nombre = next((n for n, cid in CIRCUITOS.items() if categoria_id == cid), None)
             estado = evento.get("status", {}).get("type", {}).get("name", "unknown")
             estados_vistos[estado] = estados_vistos.get(estado, 0) + 1
-
-            if not circuito_nombre:
-                continue
-            if estado != "finished":
+            if not circuito_nombre or estado != "finished":
                 continue
             candidatos.append((evento, circuito_nombre))
         except Exception:
             continue
 
-    logging.info(f"[{fecha}] Categorias encontradas (muestra): {list(categorias_vistas)[:10]}")
-    logging.info(f"[{fecha}] Estados de partidos: {estados_vistos}")
-    logging.info(f"[{fecha}] Candidatos ATP/WTA terminados: {len(candidatos)}")
+    logging.info(f"[{fecha}] Estados: {estados_vistos} | ATP/WTA terminados: {len(candidatos)}")
 
+    partidos = []
     total = len(candidatos)
-    logging.info(f"[{fecha}] Partidos ATP/WTA terminados: {total}")
-
     for i, (evento, circuito_nombre) in enumerate(candidatos, 1):
         try:
             event_id = evento.get("id")
@@ -109,38 +90,31 @@ def procesar_eventos(eventos: list[dict], fecha: str) -> list[dict]:
             away_score = evento.get("awayScore", {}).get("current", 0)
             winner, loser = (home, away) if home_score > away_score else (away, home)
 
-            torneo = evento.get("tournament", {})
-            ronda = evento.get("roundInfo", {}).get("name", "Unknown")
-            superficie = evento.get("groundType", None)
-
             partido = {
                 "event_id": event_id,
                 "circuito": circuito_nombre,
-                "tourney_name": torneo.get("name", "Unknown"),
+                "tourney_name": evento.get("tournament", {}).get("name", "Unknown"),
                 "tourney_date": fecha,
-                "round": ronda,
-                "surface": superficie,
+                "round": evento.get("roundInfo", {}).get("name", "Unknown"),
+                "surface": evento.get("groundType", None),
                 "winner_name": winner,
                 "loser_name": loser,
                 "scrape_date": datetime.now().strftime("%Y%m%d"),
             }
 
-            # Barra de progreso en log
-            pct = int((i / total) * 20)
-            barra = "█" * pct + "░" * (20 - pct)
-            print(f"\r  [{barra}] {i}/{total} — {winner} vs {loser}", end="", flush=True)
+            print(f"\r  [{i}/{total}] {winner} vs {loser}", end="", flush=True)
 
-            stats_raw = get_estadisticas(event_id)
+            stats_raw = api_get(page, f"https://api.sofascore.com/api/v1/event/{event_id}/statistics")
             if stats_raw:
                 partido.update(parsear_estadisticas(stats_raw))
 
             partidos.append(partido)
-
         except Exception as e:
-            logging.warning(f"Error procesando evento {evento.get('id')}: {e}")
+            logging.warning(f"Error evento {evento.get('id')}: {e}")
             continue
 
-    print()  # Salto de línea tras la barra
+    if candidatos:
+        print()
     logging.info(f"[{fecha}] Partidos procesados: {len(partidos)}")
     return partidos
 
@@ -149,60 +123,37 @@ def save_to_csv(partidos: list[dict], archivo: str):
     if not partidos:
         logging.warning("No hay partidos para guardar.")
         return
-
     os.makedirs(CARPETA_SALIDA, exist_ok=True)
     df_nuevo = pd.DataFrame(partidos)
-
     if os.path.exists(archivo):
         df_viejo = pd.read_csv(archivo)
         df = pd.concat([df_viejo, df_nuevo]).drop_duplicates(subset=["event_id"])
     else:
         df = df_nuevo
-
     df.to_csv(archivo, index=False)
     logging.info(f"Total registros: {len(df)} → {archivo}")
 
 
-def recolectar_rango(fecha_inicio: str, fecha_fin: str, archivo_salida: str):
-    """Recolecta partidos entre dos fechas (formato YYYY-MM-DD)."""
-    inicio = datetime.strptime(fecha_inicio, "%Y-%m-%d")
-    fin = datetime.strptime(fecha_fin, "%Y-%m-%d")
-    total_dias = (fin - inicio).days + 1
-    logging.info(f"Recolectando {total_dias} días: {fecha_inicio} → {fecha_fin}")
-
-    todos = []
-    dia_actual = inicio
-    for d in range(total_dias):
-        fecha_str = dia_actual.strftime("%Y-%m-%d")
-        logging.info(f"── Día {d+1}/{total_dias}: {fecha_str}")
-        eventos = get_eventos_del_dia(fecha_str)
-        partidos = procesar_eventos(eventos, fecha_str)
-        todos.extend(partidos)
-        # Guardar progreso cada 7 días por si se interrumpe
-        if (d + 1) % 7 == 0 and todos:
-            save_to_csv(todos, archivo_salida)
-            todos = []
-        dia_actual += timedelta(days=1)
-
-    if todos:
-        save_to_csv(todos, archivo_salida)
-
-    logging.info("¡Recolección histórica completada!")
-
-
 if __name__ == "__main__":
-    # Modo histórico: python scraper.py 2025-01-01 2025-12-31
-    if len(sys.argv) == 3:
-        fecha_inicio = sys.argv[1]
-        fecha_fin = sys.argv[2]
-        ano = fecha_inicio[:4]
-        archivo = os.path.join(CARPETA_SALIDA, f"tenis_{ano}.csv")
-        recolectar_rango(fecha_inicio, fecha_fin, archivo)
-    else:
-        # Modo diario normal (hoy + ayer)
-        archivo = os.path.join(CARPETA_SALIDA, f"tenis_{ANO}.csv")
+    archivo = os.path.join(CARPETA_SALIDA, f"tenis_{ANO}.csv")
+
+    with sync_playwright() as p:
+        browser = p.chromium.launch(headless=True)
+        context = browser.new_context(
+            user_agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+            locale="es-ES",
+        )
+        # Visitar sofascore primero para establecer cookies/sesión
+        page = context.new_page()
+        logging.info("Iniciando sesión en Sofascore...")
+        page.goto("https://www.sofascore.com/tennis", wait_until="domcontentloaded", timeout=60000)
+        page.wait_for_timeout(3000)
+
         todos = []
         for fecha in [FECHA_AYER, FECHA_HOY]:
-            eventos = get_eventos_del_dia(fecha)
-            todos.extend(procesar_eventos(eventos, fecha))
-        save_to_csv(todos, archivo)
+            eventos = get_eventos_del_dia(page, fecha)
+            todos.extend(procesar_eventos(page, eventos, fecha))
+
+        browser.close()
+
+    save_to_csv(todos, archivo)
