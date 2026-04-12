@@ -1,40 +1,27 @@
-import requests
-from datetime import datetime, timedelta
+from playwright.sync_api import sync_playwright
+import json
 
-HEADERS = {
-    "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
-    "Accept": "application/json",
-    "Referer": "https://www.sofascore.com/",
-}
+with sync_playwright() as p:
+    browser = p.chromium.launch(headless=True)
+    context = browser.new_context(
+        user_agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+    )
+    page = context.new_page()
+    page.goto("https://www.sofascore.com/tennis", wait_until="domcontentloaded", timeout=60000)
+    page.wait_for_timeout(3000)
 
-hoy = datetime.now().strftime("%Y-%m-%d")
-ayer = (datetime.now() - timedelta(days=1)).strftime("%Y-%m-%d")
+    r = page.request.get(
+        "https://api.sofascore.com/api/v1/sport/tennis/scheduled-events/2026-04-11",
+        headers={"Accept": "application/json", "Referer": "https://www.sofascore.com/tennis"},
+        timeout=30000,
+    )
+    data = r.json()
+    eventos = data.get("events", [])
+    print(f"Total eventos: {len(eventos)}")
 
-for fecha in [ayer, hoy]:
-    print(f"\n=== {fecha} ===")
-    url = f"https://api.sofascore.com/api/v1/sport/tennis/scheduled-events/{fecha}"
-    try:
-        r = requests.get(url, headers=HEADERS, timeout=30)
-        print(f"Status HTTP: {r.status_code}")
-        data = r.json()
-        eventos = data.get("events", [])
-        print(f"Total eventos: {len(eventos)}")
+    # Imprimir estructura completa del primer evento
+    if eventos:
+        print("\n=== ESTRUCTURA PRIMER EVENTO ===")
+        print(json.dumps(eventos[0], indent=2))
 
-        # Mostrar categorias unicas
-        categorias = {}
-        estados = {}
-        for e in eventos:
-            cat_id = e.get("tournament", {}).get("category", {}).get("id")
-            cat_name = e.get("tournament", {}).get("category", {}).get("name", "?")
-            estado = e.get("status", {}).get("type", {}).get("name", "?")
-            categorias[cat_id] = cat_name
-            estados[estado] = estados.get(estado, 0) + 1
-
-        print(f"Estados: {estados}")
-        print(f"IDs de categorias ATP/WTA:")
-        for cid, cname in sorted(categorias.items(), key=lambda x: str(x[0])):
-            if any(k in str(cname).upper() for k in ["ATP", "WTA"]):
-                print(f"  id={cid} → {cname}")
-
-    except Exception as e:
-        print(f"ERROR: {e}")
+    browser.close()
