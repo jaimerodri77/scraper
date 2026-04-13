@@ -1,139 +1,159 @@
 import pandas as pd
 from datetime import datetime, timedelta
+import logging
 import os
-import requests
 import time
+import json
+from playwright.sync_api import sync_playwright
 
-ARCHIVO_SALIDA = f"tml_{datetime.now().year}.csv"
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(message)s"
+)
 
-def get_matches(date_str):
-    """Obtiene partidos de tenis de Sofascore para una fecha dada."""
-    url = f"https://api.sofascore.com/api/v1/sport/tennis/scheduled-events/{date_str}"
-    headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "application/json",
-    }
-    for attempt in range(3):
+CARPETA_SALIDA = "datos"
+ANO = datetime.now().year
+FECHA_HOY = datetime.now().strftime("%Y-%m-%d")
+FECHA_AYER = (datetime.now() - timedelta(days=1)).strftime("%Y-%m-%d")
+
+CIRCUITOS = {"ATP": 2, "WTA": 6}
+
+
+def api_get(page, url: str) -> dict:
+    """Hace una request a la API de Sofascore usando el contexto del navegador."""
+    try:
+        time.sleep(0.3)
+        response = page.request.get(
+            url,
+            headers={
+                "Accept": "application/json",
+                "Referer": "https://www.sofascore.com/tennis",
+            },
+            timeout=30000,
+        )
+        if response.status == 200:
+            return response.json()
+        else:
+            logging.warning(f"HTTP {response.status} para {url}")
+            return {}
+    except Exception as e:
+        logging.warning(f"Error en {url}: {e}")
+        return {}
+
+
+def get_eventos_del_dia(page, fecha: str) -> list[dict]:
+    url = f"https://api.sofascore.com/api/v1/sport/tennis/scheduled-events/{fecha}"
+    data = api_get(page, url)
+    eventos = data.get("events", [])
+    logging.info(f"[{fecha}] Eventos encontrados: {len(eventos)}")
+    return eventos
+
+
+def parsear_estadisticas(stats_data: dict) -> dict:
+    resultado = {}
+    for periodo in stats_data.get("statistics", []):
+        periodo_nombre = periodo.get("period", "ALL").upper()
+        for grupo in periodo.get("groups", []):
+            for item in grupo.get("statisticsItems", []):
+                nombre = item.get("name", "").replace(" ", "_").lower()
+                resultado[f"{periodo_nombre}_{nombre}_home"] = item.get("home")
+                resultado[f"{periodo_nombre}_{nombre}_away"] = item.get("away")
+    return resultado
+
+
+def procesar_eventos(page, eventos: list[dict], fecha: str) -> list[dict]:
+    candidatos = []
+    estados_vistos = {}
+
+    for evento in eventos:
         try:
-            print(f"Intento {attempt+1} para fecha {date_str}...")
-            response = requests.get(url, headers=headers, timeout=30)
-            print(f"Status: {response.status_code}")
-            if response.status_code == 200:
-                data = response.json()
-                events = data.get("events", [])
-                print(f"Eventos encontrados: {len(events)}")
-                return events
-            else:
-                print(f"Error HTTP: {response.status_code}")
-        except Exception as e:
-            print(f"Intento {attempt+1} fallido: {e}")
-            time.sleep(3)
-    return []
-
-def parse_events(events):
-    """Convierte los eventos de Sofascore en partidos para el CSV."""
-    matches = []
-    for event in events:
-        try:
-            tournament = event.get("tournament", {})
-            tournament_name = tournament.get("name", "Unknown Tournament")
-            category = tournament.get("category", {})
-            category_name = category.get("name", "")
-
-            # Filtrar solo ATP y WTA
-            if "ATP" not in category_name and "WTA" not in category_name and "Grand Slam" not in category_name:
+            categoria_id = evento.get("tournament", {}).get("category", {}).get("id")
+            circuito_nombre = next((n for n, cid in CIRCUITOS.items() if categoria_id == cid), None)
+            estado = evento.get("status", {}).get("type", {}).get("name", "unknown")
+            estados_vistos[estado] = estados_vistos.get(estado, 0) + 1
+            if not circuito_nombre or estado != "finished":
                 continue
-
-            home_team = event.get("homeTeam", {})
-            away_team = event.get("awayTeam", {})
-            home_name = home_team.get("name", "")
-            away_name = away_team.get("name", "")
-
-            if not home_name or not away_name:
-                continue
-
-            # Resultado
-            home_score = event.get("homeScore", {})
-            away_score = event.get("awayScore", {})
-            scores = []
-            for i in range(1, 6):
-                hs = home_score.get(f"period{i}")
-                aws = away_score.get(f"period{i}")
-                if hs is not None and aws is not None:
-                    scores.append(f"{hs}-{aws}")
-            score_str = " ".join(scores) if scores else ""
-
-            # Estado del partido
-            status = event.get("status", {})
-            status_type = status.get("type", "unknown")
-            if status_type != "finished":
-                continue  # Solo partidos terminados
-
-            # Superficie
-            surface = "Unknown"
-            ground = event.get("ground", {})
-            if ground:
-                surface = ground.get("name", "Unknown")
-
-            # Ronda
-            round_info = event.get("roundInfo", {})
-            round_name = round_info.get("round", "Unknown")
-
-            # Determinar ganador y perdedor
-            winner = event.get("winner", None)
-            if winner is not None:
-                winner_name = home_name if winner.get("id") == home_team.get("id") else away_name
-                loser_name = away_name if winner.get("id") == home_team.get("id") else home_name
-            else:
-                winner_name = home_name
-                loser_name = away_name
-
-            matches.append({
-                "tourney_id": "S_LIVE",
-                "tourney_name": tournament_name,
-                "surface": surface,
-                "draw_size": None,
-                "tourney_level": category_name,
-                "indoor": "O",
-                "tourney_date": date_str.replace("-", ""),
-                "match_num": event.get("id", None),
-                "winner_name": winner_name,
-                "loser_name": loser_name,
-                "score": score_str,
-                "best_of": 3,
-                "round": str(round_name),
-                "minutes": None
-            })
-        except Exception as e:
-            print(f"Error parseando evento: {e}")
+            candidatos.append((evento, circuito_nombre))
+        except Exception:
             continue
 
-    return matches
+    logging.info(f"[{fecha}] Estados: {estados_vistos} | ATP/WTA terminados: {len(candidatos)}")
 
-def save_to_csv(matches):
-    if not matches:
-        print("No se encontraron partidos terminados de ATP/WTA.")
+    partidos = []
+    total = len(candidatos)
+    for i, (evento, circuito_nombre) in enumerate(candidatos, 1):
+        try:
+            event_id = evento.get("id")
+            home = evento.get("homeTeam", {}).get("name", "Unknown")
+            away = evento.get("awayTeam", {}).get("name", "Unknown")
+            home_score = evento.get("homeScore", {}).get("current", 0)
+            away_score = evento.get("awayScore", {}).get("current", 0)
+            winner, loser = (home, away) if home_score > away_score else (away, home)
+
+            partido = {
+                "event_id": event_id,
+                "circuito": circuito_nombre,
+                "tourney_name": evento.get("tournament", {}).get("name", "Unknown"),
+                "tourney_date": fecha,
+                "round": evento.get("roundInfo", {}).get("name", "Unknown"),
+                "surface": evento.get("groundType", None),
+                "winner_name": winner,
+                "loser_name": loser,
+                "scrape_date": datetime.now().strftime("%Y%m%d"),
+            }
+
+            print(f"\r  [{i}/{total}] {winner} vs {loser}", end="", flush=True)
+
+            stats_raw = api_get(page, f"https://api.sofascore.com/api/v1/event/{event_id}/statistics")
+            if stats_raw:
+                partido.update(parsear_estadisticas(stats_raw))
+
+            partidos.append(partido)
+        except Exception as e:
+            logging.warning(f"Error evento {evento.get('id')}: {e}")
+            continue
+
+    if candidatos:
+        print()
+    logging.info(f"[{fecha}] Partidos procesados: {len(partidos)}")
+    return partidos
+
+
+def save_to_csv(partidos: list[dict], archivo: str):
+    if not partidos:
+        logging.warning("No hay partidos para guardar.")
         return
+    os.makedirs(CARPETA_SALIDA, exist_ok=True)
+    df_nuevo = pd.DataFrame(partidos)
+    if os.path.exists(archivo):
+        df_viejo = pd.read_csv(archivo)
+        df = pd.concat([df_viejo, df_nuevo]).drop_duplicates(subset=["event_id"])
+    else:
+        df = df_nuevo
+    df.to_csv(archivo, index=False)
+    logging.info(f"Total registros: {len(df)} → {archivo}")
 
-    df = pd.DataFrame(matches)
-    if os.path.exists(ARCHIVO_SALIDA):
-        old_df = pd.read_csv(ARCHIVO_SALIDA)
-        df = pd.concat([old_df, df]).drop_duplicates(subset=["winner_name", "loser_name", "score"])
-
-    df.to_csv(ARCHIVO_SALIDA, index=False)
-    print(f"Guardados {len(matches)} partidos en {ARCHIVO_SALIDA}")
 
 if __name__ == "__main__":
-    # Obtener partidos de hoy y ayer
-    today = datetime.now().strftime("%Y-%m-%d")
-    yesterday = (datetime.now() - timedelta(days=1)).strftime("%Y-%m-%d")
+    archivo = os.path.join(CARPETA_SALIDA, f"tenis_{ANO}.csv")
 
-    all_matches = []
-    for date in [yesterday, today]:
-        print(f"Buscando partidos para {date}...")
-        events = get_matches(date)
-        matches = parse_events(events)
-        print(f"Partidos ATP/WTA terminados encontrados: {len(matches)}")
-        all_matches.extend(matches)
+    with sync_playwright() as p:
+        browser = p.chromium.launch(headless=True)
+        context = browser.new_context(
+            user_agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+            locale="es-ES",
+        )
+        # Visitar sofascore primero para establecer cookies/sesión
+        page = context.new_page()
+        logging.info("Iniciando sesión en Sofascore...")
+        page.goto("https://www.sofascore.com/tennis", wait_until="domcontentloaded", timeout=60000)
+        page.wait_for_timeout(3000)
 
-    save_to_csv(all_matches)
+        todos = []
+        for fecha in [FECHA_AYER, FECHA_HOY]:
+            eventos = get_eventos_del_dia(page, fecha)
+            todos.extend(procesar_eventos(page, eventos, fecha))
+
+        browser.close()
+
+    save_to_csv(todos, archivo)
