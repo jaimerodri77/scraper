@@ -3,7 +3,6 @@ from datetime import datetime, timedelta
 import logging
 import os
 import time
-import json
 from playwright.sync_api import sync_playwright
 
 logging.basicConfig(
@@ -16,7 +15,9 @@ ANO = datetime.now().year
 FECHA_HOY = datetime.now().strftime("%Y-%m-%d")
 FECHA_AYER = (datetime.now() - timedelta(days=1)).strftime("%Y-%m-%d")
 
-CIRCUITOS = {"ATP": 2, "WTA": 6}
+# Nombres de circuito tal como aparecen en el campo category.name de Sofascore
+# Se usa coincidencia parcial, así es robusto ante cambios menores de texto
+CIRCUITOS_NOMBRES = ["atp", "wta"]
 
 
 def api_get(page, url: str) -> dict:
@@ -49,6 +50,22 @@ def get_eventos_del_dia(page, fecha: str) -> list[dict]:
     return eventos
 
 
+def detectar_circuito(evento: dict) -> str | None:
+    """
+    Detecta si el evento pertenece a ATP o WTA usando el nombre de categoría.
+    Usa coincidencia parcial en minúsculas para ser robusto ante cambios de API.
+    Retorna 'ATP', 'WTA' o None si no aplica.
+    """
+    categoria = evento.get("tournament", {}).get("category", {})
+    cat_name = categoria.get("name", "").lower()
+    cat_slug = categoria.get("slug", "").lower()
+
+    for circuito in CIRCUITOS_NOMBRES:
+        if circuito in cat_name or circuito in cat_slug:
+            return circuito.upper()
+    return None
+
+
 def parsear_estadisticas(stats_data: dict) -> dict:
     resultado = {}
     for periodo in stats_data.get("statistics", []):
@@ -64,19 +81,35 @@ def parsear_estadisticas(stats_data: dict) -> dict:
 def procesar_eventos(page, eventos: list[dict], fecha: str) -> list[dict]:
     candidatos = []
     estados_vistos = {}
+    categorias_vistas = {}
 
     for evento in eventos:
         try:
-            categoria_id = evento.get("tournament", {}).get("category", {}).get("id")
-            circuito_nombre = next((n for n, cid in CIRCUITOS.items() if categoria_id == cid), None)
+            # -- Debug: registrar todas las categorías que llegan --
+            categoria = evento.get("tournament", {}).get("category", {})
+            cat_id = categoria.get("id")
+            cat_name = categoria.get("name", "?")
+            clave = f"{cat_id}:{cat_name}"
+            categorias_vistas[clave] = categorias_vistas.get(clave, 0) + 1
+
+            # -- Detectar circuito por nombre, no por ID --
+            circuito_nombre = detectar_circuito(evento)
+
+            # -- Registrar estado SIEMPRE (para diagnóstico) --
             estado = evento.get("status", {}).get("type", {}).get("name", "unknown")
             estados_vistos[estado] = estados_vistos.get(estado, 0) + 1
+
             if not circuito_nombre or estado != "finished":
                 continue
+
             candidatos.append((evento, circuito_nombre))
-        except Exception:
+        except Exception as e:
+            logging.warning(f"Error filtrando evento: {e}")
             continue
 
+    # Log de diagnóstico: top 10 categorías y todos los estados
+    top_cats = sorted(categorias_vistas.items(), key=lambda x: -x[1])[:10]
+    logging.info(f"[{fecha}] Top categorías (id:nombre): {top_cats}")
     logging.info(f"[{fecha}] Estados: {estados_vistos} | ATP/WTA terminados: {len(candidatos)}")
 
     partidos = []
@@ -86,9 +119,16 @@ def procesar_eventos(page, eventos: list[dict], fecha: str) -> list[dict]:
             event_id = evento.get("id")
             home = evento.get("homeTeam", {}).get("name", "Unknown")
             away = evento.get("awayTeam", {}).get("name", "Unknown")
-            home_score = evento.get("homeScore", {}).get("current", 0)
-            away_score = evento.get("awayScore", {}).get("current", 0)
+            home_score = evento.get("homeScore", {}).get("current", 0) or 0
+            away_score = evento.get("awayScore", {}).get("current", 0) or 0
             winner, loser = (home, away) if home_score > away_score else (away, home)
+
+            # Surface: primero groundType, luego dentro de tournament
+            surface = (
+                evento.get("groundType")
+                or evento.get("tournament", {}).get("groundType")
+                or None
+            )
 
             partido = {
                 "event_id": event_id,
@@ -96,9 +136,11 @@ def procesar_eventos(page, eventos: list[dict], fecha: str) -> list[dict]:
                 "tourney_name": evento.get("tournament", {}).get("name", "Unknown"),
                 "tourney_date": fecha,
                 "round": evento.get("roundInfo", {}).get("name", "Unknown"),
-                "surface": evento.get("groundType", None),
+                "surface": surface,
                 "winner_name": winner,
                 "loser_name": loser,
+                "winner_sets": home_score if home_score > away_score else away_score,
+                "loser_sets": away_score if home_score > away_score else home_score,
                 "scrape_date": datetime.now().strftime("%Y%m%d"),
             }
 
@@ -143,7 +185,6 @@ if __name__ == "__main__":
             user_agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
             locale="es-ES",
         )
-        # Visitar sofascore primero para establecer cookies/sesión
         page = context.new_page()
         logging.info("Iniciando sesión en Sofascore...")
         page.goto("https://www.sofascore.com/tennis", wait_until="domcontentloaded", timeout=60000)
