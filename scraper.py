@@ -15,8 +15,7 @@ ANO = datetime.now().year
 FECHA_HOY = datetime.now().strftime("%Y-%m-%d")
 FECHA_AYER = (datetime.now() - timedelta(days=1)).strftime("%Y-%m-%d")
 
-# Nombres de circuito tal como aparecen en el campo category.name de Sofascore
-# Se usa coincidencia parcial, así es robusto ante cambios menores de texto
+# Coincidencia parcial en minúsculas — robusto ante cambios de ID en la API
 CIRCUITOS_NOMBRES = ["atp", "wta"]
 
 
@@ -52,18 +51,47 @@ def get_eventos_del_dia(page, fecha: str) -> list[dict]:
 
 def detectar_circuito(evento: dict) -> str | None:
     """
-    Detecta si el evento pertenece a ATP o WTA usando el nombre de categoría.
-    Usa coincidencia parcial en minúsculas para ser robusto ante cambios de API.
+    Detecta si el evento pertenece a ATP o WTA usando el nombre/slug de categoría.
     Retorna 'ATP', 'WTA' o None si no aplica.
     """
     categoria = evento.get("tournament", {}).get("category", {})
+    if not isinstance(categoria, dict):
+        return None
     cat_name = categoria.get("name", "").lower()
     cat_slug = categoria.get("slug", "").lower()
-
     for circuito in CIRCUITOS_NOMBRES:
         if circuito in cat_name or circuito in cat_slug:
             return circuito.upper()
     return None
+
+
+def get_estado(evento: dict) -> str:
+    """
+    Extrae el estado del evento de forma segura.
+    El campo status puede ser:
+      - dict anidado: {"type": {"name": "finished"}}
+      - dict con string: {"type": "finished"}
+      - dict directo: {"name": "finished"}
+      - string: "finished"
+    """
+    status = evento.get("status", {})
+
+    if isinstance(status, str):
+        return status
+
+    if isinstance(status, dict):
+        type_field = status.get("type", {})
+
+        if isinstance(type_field, dict):
+            return type_field.get("name", "unknown")
+
+        if isinstance(type_field, str):
+            return type_field
+
+        # Algunos eventos tienen el nombre directo en status
+        return status.get("name", "unknown")
+
+    return "unknown"
 
 
 def parsear_estadisticas(stats_data: dict) -> dict:
@@ -84,32 +112,27 @@ def procesar_eventos(page, eventos: list[dict], fecha: str) -> list[dict]:
     categorias_vistas = {}
 
     for evento in eventos:
-        try:
-            # -- Debug: registrar todas las categorías que llegan --
-            categoria = evento.get("tournament", {}).get("category", {})
-            cat_id = categoria.get("id")
+        # Registrar categoría para diagnóstico
+        categoria = evento.get("tournament", {}).get("category", {})
+        if isinstance(categoria, dict):
+            cat_id = categoria.get("id", "?")
             cat_name = categoria.get("name", "?")
-            clave = f"{cat_id}:{cat_name}"
-            categorias_vistas[clave] = categorias_vistas.get(clave, 0) + 1
+        else:
+            cat_id, cat_name = "?", str(categoria)
+        clave = f"{cat_id}:{cat_name}"
+        categorias_vistas[clave] = categorias_vistas.get(clave, 0) + 1
 
-            # -- Detectar circuito por nombre, no por ID --
-            circuito_nombre = detectar_circuito(evento)
+        # Detectar circuito y estado sin try/except para no ocultar bugs
+        circuito_nombre = detectar_circuito(evento)
+        estado = get_estado(evento)
+        estados_vistos[estado] = estados_vistos.get(estado, 0) + 1
 
-            # -- Registrar estado SIEMPRE (para diagnóstico) --
-            estado = evento.get("status", {}).get("type", {}).get("name", "unknown")
-            estados_vistos[estado] = estados_vistos.get(estado, 0) + 1
-
-            if not circuito_nombre or estado != "finished":
-                continue
-
+        if circuito_nombre and estado == "finished":
             candidatos.append((evento, circuito_nombre))
-        except Exception as e:
-            logging.warning(f"Error filtrando evento: {e}")
-            continue
 
-    # Log de diagnóstico: top 10 categorías y todos los estados
+    # Log de diagnóstico
     top_cats = sorted(categorias_vistas.items(), key=lambda x: -x[1])[:10]
-    logging.info(f"[{fecha}] Top categorías (id:nombre): {top_cats}")
+    logging.info(f"[{fecha}] Top categorías: {top_cats}")
     logging.info(f"[{fecha}] Estados: {estados_vistos} | ATP/WTA terminados: {len(candidatos)}")
 
     partidos = []
@@ -123,7 +146,6 @@ def procesar_eventos(page, eventos: list[dict], fecha: str) -> list[dict]:
             away_score = evento.get("awayScore", {}).get("current", 0) or 0
             winner, loser = (home, away) if home_score > away_score else (away, home)
 
-            # Surface: primero groundType, luego dentro de tournament
             surface = (
                 evento.get("groundType")
                 or evento.get("tournament", {}).get("groundType")
@@ -152,7 +174,7 @@ def procesar_eventos(page, eventos: list[dict], fecha: str) -> list[dict]:
 
             partidos.append(partido)
         except Exception as e:
-            logging.warning(f"Error evento {evento.get('id')}: {e}")
+            logging.warning(f"Error procesando evento {evento.get('id')}: {e}")
             continue
 
     if candidatos:
