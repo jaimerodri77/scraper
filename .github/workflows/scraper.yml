@@ -21,25 +21,32 @@ jobs:
           python-version: '3.11'
 
       - name: Instalar dependencias
-        run: pip install pandas beautifulsoup4 playwright
+        run: pip install pandas playwright
 
       - name: Instalar Chromium
         run: |
-          playwright install chromium
-          sudo playwright install-deps chromium
+          python -m playwright install chromium
+          python -m playwright install-deps chromium
 
       - name: Ejecutar scraper
         run: python scraper.py
 
       - name: Verificar archivos creados
         run: |
-          echo "=== Buscando CSV ==="
-          find . -name "*.csv" 2>/dev/null || echo "No se encontraron CSVs"
+          echo "=== Carpeta datos ==="
+          ls -lh datos/ 2>/dev/null || echo "La carpeta datos NO existe"
+          find . -name "*.csv" 2>/dev/null
 
       - name: Guardar datos en repositorio
         run: |
           git config --global user.email "scraperbot@github.com"
           git config --global user.name "TennisScraperBot"
-          git add *.csv
-          git diff --staged --quiet || git commit -m 'Update tennis data'
+          [ -f datos ] && rm datos
+          mkdir -p datos
+          git add --all datos/ || true
+          if git diff --staged --quiet; then
+            echo "Sin cambios nuevos."
+            exit 0
+          fi
+          git commit -m "Update tennis data $(date +'%Y-%m-%d')"
           git push
