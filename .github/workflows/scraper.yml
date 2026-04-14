@@ -30,8 +30,11 @@ jobs:
           python -m playwright install chromium
           python -m playwright install-deps chromium
 
-      - name: Ejecutar scraper
+      - name: Ejecutar scraper de partidos
         run: python scraper.py
+
+      - name: Ejecutar scraper de jugadores
+        run: python scraper_jugadores.py
 
       - name: Verificar archivos creados
         run: |
