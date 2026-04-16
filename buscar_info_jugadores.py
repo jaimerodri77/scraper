@@ -15,17 +15,19 @@ CARPETA_SALIDA = "datos"
 def api_get(page, url: str) -> dict:
     """Realiza peticion GET a la API de SofaScore."""
     try:
-        time.sleep(0.3)  # Evitar rate limiting
+        time.sleep(0.5)  # Evitar rate limiting
         response = page.request.get(
             url,
             headers={
                 "Accept": "application/json",
-                "Referer": "https://www.sofascore.com/tennis",
+                "Referer": "https://www.sofascore.com/",
+                "Origin": "https://www.sofascore.com",
             },
             timeout=30000,
         )
         if response.status == 200:
             return response.json()
+        logging.warning(f"Status {response.status} en {url}")
         return {}
     except Exception as e:
         logging.warning(f"Error en {url}: {e}")
@@ -36,7 +38,7 @@ def buscar_player_id(page, nombre_jugador: str) -> int | None:
     """Busca el ID del jugador en SofaScore por nombre."""
     # Buscar en la API de SofaScore
     query = nombre_jugador.replace(" ", "%20")
-    url = f"https://api.sofascore.com/api/v1/search?q={query}"
+    url = f"https://api.sofascore.com/api/v1/search/all?q={query}"
     
     data = api_get(page, url)
     
@@ -44,16 +46,23 @@ def buscar_player_id(page, nombre_jugador: str) -> int | None:
         return None
     
     # Buscar en resultados de jugadores
-    jugadores = data.get("results", [])
+    resultados = data.get("results", [])
     
-    for resultado in jugadores:
-        if resultado.get("type") == "player":
-            player = resultado.get("player", {})
-            sport = player.get("sport", {})
-            
-            # Verificar que sea tenis
+    for categoria in resultados:
+        if categoria.get("type") == "players":
+            for jugador in categoria.get("entities", []):
+                sport = jugador.get("sport", {})
+                # Verificar que sea tenis
+                if sport.get("name", "").lower() == "tennis":
+                    return jugador.get("id")
+    
+    # Intentar con otra estructura de respuesta
+    for categoria in resultados:
+        entidades = categoria.get("entities", [])
+        for entidad in entidades:
+            sport = entidad.get("sport", {})
             if sport.get("name", "").lower() == "tennis":
-                return player.get("id")
+                return entidad.get("id")
     
     return None
 
@@ -177,23 +186,35 @@ def main():
         page = context.new_page()
         
         # Ir a SofaScore para obtener cookies necesarias
+        print("[*] Iniciando navegador y cargando SofaScore...")
         page.goto("https://www.sofascore.com/tennis")
-        page.wait_for_timeout(3000)
+        page.wait_for_timeout(5000)
         
         jugadores_encontrados = []
         total = len(df_nuevos)
         errores = 0
+        no_encontrados = []
+        
+        print(f"[*] Procesando {total} jugadores...")
+        print()
         
         for i, (_, row) in enumerate(df_nuevos.iterrows(), 1):
             nombre = row['nombre']
             
-            print(f"\r[{i}/{total}] Buscando: {nombre[:40]:<40}", end="", flush=True)
+            print(f"\r[{i}/{total}] {nombre[:35]:<35}", end="", flush=True)
             
             try:
                 # Buscar player_id
                 player_id = buscar_player_id(page, nombre)
                 
                 if not player_id:
+                    # Intentar con nombre simplificado (sin acentos)
+                    nombre_simple = nombre.encode('ascii', 'ignore').decode('ascii')
+                    if nombre_simple != nombre:
+                        player_id = buscar_player_id(page, nombre_simple)
+                
+                if not player_id:
+                    no_encontrados.append(nombre)
                     errores += 1
                     continue
                 
@@ -204,6 +225,7 @@ def main():
                 datos = get_player_data(page, player_id)
                 
                 if not datos:
+                    no_encontrados.append(f"{nombre} (sin datos)")
                     errores += 1
                     continue
                 
@@ -226,7 +248,12 @@ def main():
         browser.close()
     
     print(f"\n[*] Jugadores encontrados: {len(jugadores_encontrados)}")
-    print(f"[*] Errores/No encontrados: {errores}")
+    print(f"[*] No encontrados: {errores}")
+    
+    if no_encontrados and len(no_encontrados) <= 20:
+        print(f"\n[!] Jugadores no encontrados ({len(no_encontrados)}):")
+        for nombre in no_encontrados[:10]:
+            print(f"    - {nombre}")
     
     # Guardar resultados
     if jugadores_encontrados:
@@ -247,6 +274,8 @@ def main():
         print(f"\n[*] Jugadores con mano dominante: {len(con_mano)}/{len(df_final)}")
         print(f"    - Derechos (R): {len(con_mano[con_mano['mano'] == 'R'])}")
         print(f"    - Zurdos (L): {len(con_mano[con_mano['mano'] == 'L'])}")
+    else:
+        print("\n[!] No se encontraron jugadores nuevos.")
 
 
 if __name__ == "__main__":
