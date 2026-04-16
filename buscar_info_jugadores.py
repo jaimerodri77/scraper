@@ -1,6 +1,7 @@
 import pandas as pd
 import os
 import time
+import json
 import logging
 from datetime import datetime
 from playwright.sync_api import sync_playwright
@@ -13,168 +14,201 @@ logging.basicConfig(
 CARPETA_SALIDA = "datos"
 
 
-def api_get(page, url: str) -> dict:
-    """Realiza peticion GET a la API de SofaScore."""
-    try:
-        time.sleep(0.7)
-        response = page.request.get(
-            url,
-            headers={
-                "Accept": "application/json",
-                "Accept-Language": "en-US,en;q=0.9",
-                "Referer": "https://www.sofascore.com/",
-                "Origin": "https://www.sofascore.com",
-                "User-Agent": (
-                    "Mozilla/5.0 (X11; Linux x86_64) "
-                    "AppleWebKit/537.36 (KHTML, like Gecko) "
-                    "Chrome/122.0.0.0 Safari/537.36"
-                ),
-            },
-            timeout=30000,
+class SofaScoreClient:
+    """
+    Cliente que usa Playwright para hacer peticiones a SofaScore
+    interceptando el token de sesión real del navegador.
+    """
+
+    def __init__(self, page):
+        self.page = page
+        self.session_headers = {}
+
+    def inicializar(self):
+        """Carga SofaScore y extrae headers/cookies de sesión reales."""
+        print("[*] Cargando SofaScore y extrayendo sesión...")
+
+        intercepted_headers = {}
+
+        def on_request(request):
+            if "api.sofascore.com/api/v1" in request.url:
+                intercepted_headers.update(dict(request.headers))
+
+        self.page.on("request", on_request)
+
+        self.page.goto("https://www.sofascore.com/tennis", wait_until="domcontentloaded")
+        self.page.wait_for_timeout(6000)
+
+        try:
+            self.page.goto(
+                "https://www.sofascore.com/tennis/atp-singles",
+                wait_until="domcontentloaded",
+                timeout=15000
+            )
+            self.page.wait_for_timeout(4000)
+        except Exception:
+            pass
+
+        if intercepted_headers:
+            self.session_headers = {
+                k: v for k, v in intercepted_headers.items()
+                if k.lower() in (
+                    "cookie", "x-requested-with", "accept", "accept-language",
+                    "user-agent", "referer", "origin", "sec-fetch-site",
+                    "sec-fetch-mode", "sec-ch-ua", "sec-ch-ua-platform",
+                    "authorization", "x-auth-token"
+                )
+            }
+            print(f"[*] Headers capturados: {list(self.session_headers.keys())}")
+        else:
+            print("[!] No se capturaron headers de API — usando headers manuales")
+
+        self.session_headers.update({
+            "Accept": "application/json",
+            "Referer": "https://www.sofascore.com/",
+            "Origin": "https://www.sofascore.com",
+        })
+
+        cookies = self.page.context.cookies()
+        if cookies:
+            cookies_str = "; ".join(
+                f"{c['name']}={c['value']}" for c in cookies
+                if "sofascore" in c.get("domain", "")
+            )
+            if cookies_str:
+                self.session_headers["Cookie"] = cookies_str
+                print(f"[*] Cookies capturadas: {len(cookies)}")
+
+    def get(self, url: str) -> dict:
+        """Hace una petición GET a la API usando los headers de sesión reales."""
+        try:
+            time.sleep(0.8)
+            response = self.page.request.get(
+                url,
+                headers=self.session_headers,
+                timeout=30000,
+            )
+            if response.status == 200:
+                return response.json()
+            elif response.status == 429:
+                logging.warning("Rate limit alcanzado, esperando 15s...")
+                time.sleep(15)
+                response = self.page.request.get(url, headers=self.session_headers, timeout=30000)
+                if response.status == 200:
+                    return response.json()
+            elif response.status == 403:
+                logging.warning(f"403 en {url} — refrescando sesión...")
+                self.page.goto("https://www.sofascore.com/tennis", wait_until="domcontentloaded")
+                self.page.wait_for_timeout(3000)
+                response = self.page.request.get(url, headers=self.session_headers, timeout=30000)
+                if response.status == 200:
+                    return response.json()
+            logging.warning(f"Status {response.status} en {url}")
+            return {}
+        except Exception as e:
+            logging.warning(f"Error en {url}: {e}")
+            return {}
+
+    def buscar_jugador(self, nombre: str) -> int | None:
+        """Busca el player_id de un jugador de tenis en SofaScore."""
+        query = nombre.strip().replace(" ", "%20")
+
+        data = self.get(f"https://api.sofascore.com/api/v1/search/all?q={query}")
+        if data:
+            pid = self._extraer_id_tennis(data)
+            if pid:
+                return pid
+
+        data2 = self.get(
+            f"https://api.sofascore.com/api/v1/search/player-team-unique-tournament"
+            f"?q={query}&sport=tennis"
         )
-        if response.status == 200:
-            return response.json()
-        logging.warning(f"Status {response.status} en {url}")
-        return {}
-    except Exception as e:
-        logging.warning(f"Error en {url}: {e}")
-        return {}
+        if data2:
+            pid = self._extraer_id_tennis(data2)
+            if pid:
+                return pid
 
+        return None
 
-def buscar_player_id(page, nombre_jugador: str) -> int | None:
-    """
-    Busca el ID del jugador en SofaScore.
-    Prueba múltiples endpoints de búsqueda por si cambia la API.
-    """
-    query = nombre_jugador.strip().replace(" ", "%20")
+    def _extraer_id_tennis(self, data: dict) -> int | None:
+        """Extrae el player_id de tenis de distintas estructuras de respuesta."""
+        if not data or not isinstance(data, dict):
+            return None
 
-    # --- Endpoint 1: /search/all (estructura nueva) ---
-    url1 = f"https://api.sofascore.com/api/v1/search/all?q={query}"
-    data = api_get(page, url1)
-
-    if data:
         # Estructura nueva: {"players": [{"player": {...}}, ...]}
-        for jugador_wrap in data.get("players", []):
-            jugador = jugador_wrap.get("player") or jugador_wrap
-            sport = jugador.get("sport", {})
-            if isinstance(sport, dict) and sport.get("name", "").lower() == "tennis":
+        for wrap in data.get("players", []):
+            jugador = wrap.get("player") or wrap
+            if self._es_tennis(jugador):
                 pid = jugador.get("id")
                 if pid:
                     return pid
 
         # Estructura vieja: {"results": [{"type": "players", "entities": [...]}]}
         for categoria in data.get("results", []):
-            tipo = categoria.get("type", "")
-            entidades = categoria.get("entities", [])
-            if tipo == "players" or entidades:
-                for entidad in entidades:
-                    sport = entidad.get("sport", {})
-                    if isinstance(sport, dict) and sport.get("name", "").lower() == "tennis":
-                        pid = entidad.get("id")
-                        if pid:
-                            return pid
-
-        # Estructura plana: lista de jugadores directamente
-        if isinstance(data, list):
-            for jugador in data:
-                sport = jugador.get("sport", {})
-                if isinstance(sport, dict) and sport.get("name", "").lower() == "tennis":
-                    pid = jugador.get("id")
+            for entidad in categoria.get("entities", []):
+                if self._es_tennis(entidad):
+                    pid = entidad.get("id")
                     if pid:
                         return pid
 
-    # --- Endpoint 2: /search/player-team-unique-tournament ---
-    url2 = f"https://api.sofascore.com/api/v1/search/player-team-unique-tournament?q={query}&sport=tennis"
-    data2 = api_get(page, url2)
-
-    if data2:
-        for jugador_wrap in data2.get("players", []):
-            jugador = jugador_wrap.get("player") or jugador_wrap
-            pid = jugador.get("id")
-            if pid:
-                return pid
-
-    # --- Endpoint 3: suggest (endpoint legacy) ---
-    url3 = f"https://api.sofascore.com/api/v1/suggest?q={query}"
-    data3 = api_get(page, url3)
-
-    if data3:
-        for key in ("players", "results"):
-            for item in data3.get(key, []):
-                jugador = item.get("player") or item
-                sport = jugador.get("sport", {})
-                if isinstance(sport, dict) and sport.get("name", "").lower() == "tennis":
-                    pid = jugador.get("id")
-                    if pid:
-                        return pid
-
-    return None
-
-
-def simplificar_nombre(nombre: str) -> list[str]:
-    """
-    Genera variantes del nombre para reintentar la búsqueda.
-    Ej: "A. Blinkova" -> ["Blinkova", "Anna Blinkova"]
-    """
-    variantes = []
-    partes = nombre.strip().split()
-
-    # Sin iniciales (solo apellido si hay inicial al inicio)
-    sin_inicial = [p for p in partes if len(p) > 2 or not p.endswith(".")]
-    if sin_inicial and sin_inicial != partes:
-        variantes.append(" ".join(sin_inicial))
-
-    # Solo la última palabra (apellido)
-    if len(partes) > 1:
-        variantes.append(partes[-1])
-
-    # Sin acentos
-    nombre_ascii = nombre.encode("ascii", "ignore").decode("ascii")
-    if nombre_ascii != nombre:
-        variantes.append(nombre_ascii)
-
-    return variantes
-
-
-def get_player_data(page, player_id: int) -> dict | None:
-    """Obtiene datos del jugador desde la API de SofaScore."""
-    data = api_get(page, f"https://api.sofascore.com/api/v1/player/{player_id}")
-    jugador = data.get("player")
-
-    if not jugador:
         return None
 
-    fecha_nac = None
-    if jugador.get("dateOfBirthTimestamp"):
-        try:
-            fecha_nac = datetime.utcfromtimestamp(
-                jugador["dateOfBirthTimestamp"]
-            ).strftime("%Y-%m-%d")
-        except Exception:
-            pass
+    def _es_tennis(self, jugador: dict) -> bool:
+        sport = jugador.get("sport", {})
+        if isinstance(sport, dict):
+            return sport.get("name", "").lower() == "tennis"
+        if isinstance(sport, str):
+            return sport.lower() == "tennis"
+        return True
 
-    pais = jugador.get("country", {})
-    if not isinstance(pais, dict):
-        pais = {}
+    def get_player_data(self, player_id: int) -> dict | None:
+        data = self.get(f"https://api.sofascore.com/api/v1/player/{player_id}")
+        jugador = data.get("player")
+        if not jugador:
+            return None
 
-    return {
-        "player_id": player_id,
-        "nombre": jugador.get("name"),
-        "nombre_corto": jugador.get("shortName"),
-        "fecha_nacimiento": fecha_nac,
-        "edad": jugador.get("age"),
-        "mano_dominante": jugador.get("plays"),
-        "altura_cm": jugador.get("height"),
-        "peso_kg": jugador.get("weight"),
-        "pais": pais.get("name"),
-        "pais_codigo": pais.get("alpha2"),
-        "genero": jugador.get("gender"),
-        "actualizado": datetime.now().strftime("%Y-%m-%d"),
-    }
+        fecha_nac = None
+        if jugador.get("dateOfBirthTimestamp"):
+            try:
+                fecha_nac = datetime.utcfromtimestamp(
+                    jugador["dateOfBirthTimestamp"]
+                ).strftime("%Y-%m-%d")
+            except Exception:
+                pass
+
+        pais = jugador.get("country", {})
+        if not isinstance(pais, dict):
+            pais = {}
+
+        return {
+            "player_id": player_id,
+            "nombre": jugador.get("name"),
+            "nombre_corto": jugador.get("shortName"),
+            "fecha_nacimiento": fecha_nac,
+            "edad": jugador.get("age"),
+            "mano_dominante": jugador.get("plays"),
+            "altura_cm": jugador.get("height"),
+            "peso_kg": jugador.get("weight"),
+            "pais": pais.get("name"),
+            "pais_codigo": pais.get("alpha2"),
+            "genero": jugador.get("gender"),
+            "actualizado": datetime.now().strftime("%Y-%m-%d"),
+        }
+
+    def get_ranking(self, player_id: int) -> dict:
+        resultado = {}
+        data = self.get(f"https://api.sofascore.com/api/v1/player/{player_id}/rankings")
+        for r in data.get("rankings", []):
+            tipo = r.get("type", "").lower()
+            pos = r.get("ranking")
+            if "double" in tipo:
+                resultado["ranking_dobles"] = pos
+            else:
+                resultado["ranking_singles"] = pos
+        return resultado
 
 
 def normalizar_mano(mano_raw: str) -> str | None:
-    """Normaliza el valor de mano dominante."""
     if not mano_raw:
         return None
     mano_raw = mano_raw.lower()
@@ -185,25 +219,37 @@ def normalizar_mano(mano_raw: str) -> str | None:
     return None
 
 
-def get_ranking(page, player_id: int) -> dict:
-    """Obtiene el ranking del jugador."""
-    resultado = {}
-    data = api_get(page, f"https://api.sofascore.com/api/v1/player/{player_id}/rankings")
-
-    for r in data.get("rankings", []):
-        tipo = r.get("type", "").lower()
-        pos = r.get("ranking")
-        if "double" in tipo:
-            resultado["ranking_dobles"] = pos
-        else:
-            resultado["ranking_singles"] = pos
-
-    return resultado
-
-
 def es_jugador_dobles(nombre: str) -> bool:
-    """Detecta si el nombre es de un equipo de dobles."""
     return "/" in nombre
+
+
+def variantes_nombre(nombre: str) -> list:
+    variantes = []
+    partes = nombre.strip().split()
+
+    if len(partes) > 1:
+        variantes.append(partes[-1])
+
+    sin_inicial = [p for p in partes if not (len(p) <= 2 and p.endswith("."))]
+    if sin_inicial and sin_inicial != partes:
+        variantes.append(" ".join(sin_inicial))
+
+    ascii_nombre = nombre.encode("ascii", "ignore").decode("ascii")
+    if ascii_nombre != nombre:
+        variantes.append(ascii_nombre)
+
+    return list(dict.fromkeys(variantes))
+
+
+def _guardar_parcial(df_existentes, jugadores_encontrados, archivo):
+    df_nuevos_datos = pd.DataFrame(jugadores_encontrados)
+    if len(df_existentes) > 0:
+        df_final = pd.concat([df_existentes, df_nuevos_datos], ignore_index=True)
+        df_final = df_final.drop_duplicates(subset=["player_id"], keep="last")
+    else:
+        df_final = df_nuevos_datos
+    df_final.to_csv(archivo, index=False)
+    return df_final
 
 
 def main():
@@ -245,19 +291,26 @@ def main():
         return
 
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=True)
+        browser = p.chromium.launch(
+            headless=True,
+            args=[
+                "--no-sandbox",
+                "--disable-blink-features=AutomationControlled",
+            ]
+        )
         context = browser.new_context(
             user_agent=(
-                "Mozilla/5.0 (X11; Linux x86_64) "
+                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
                 "AppleWebKit/537.36 (KHTML, like Gecko) "
                 "Chrome/122.0.0.0 Safari/537.36"
-            )
+            ),
+            viewport={"width": 1280, "height": 800},
+            locale="en-US",
         )
         page = context.new_page()
 
-        print("[*] Iniciando navegador y cargando SofaScore...")
-        page.goto("https://www.sofascore.com/tennis")
-        page.wait_for_timeout(5000)
+        client = SofaScoreClient(page)
+        client.inicializar()
 
         jugadores_encontrados = []
         total = len(df_nuevos)
@@ -268,18 +321,17 @@ def main():
 
         for i, (_, row) in enumerate(df_nuevos.iterrows(), 1):
             nombre = row["nombre"]
-            print(f"[{i}/{total}] {nombre[:50]}", end=" -> ", flush=True)
+            print(f"[{i}/{total}] {nombre[:45]}", end=" -> ", flush=True)
 
             try:
-                # Intento 1: nombre original
-                player_id = buscar_player_id(page, nombre)
+                player_id = client.buscar_jugador(nombre)
 
-                # Intento 2: variantes simplificadas
+                variante_usada = None
                 if not player_id:
-                    for variante in simplificar_nombre(nombre):
-                        player_id = buscar_player_id(page, variante)
+                    for v in variantes_nombre(nombre):
+                        player_id = client.buscar_jugador(v)
                         if player_id:
-                            print(f"(variante: '{variante}') ", end="", flush=True)
+                            variante_usada = v
                             break
 
                 if not player_id:
@@ -292,59 +344,59 @@ def main():
                     print(f"ya existe (id={player_id})")
                     continue
 
-                datos = get_player_data(page, player_id)
+                datos = client.get_player_data(player_id)
                 if not datos:
                     print("sin datos")
                     no_encontrados.append(f"{nombre} (sin datos)")
                     errores += 1
                     continue
 
-                ranking = get_ranking(page, player_id)
+                ranking = client.get_ranking(player_id)
                 datos.update(ranking)
                 datos["mano"] = normalizar_mano(datos.get("mano_dominante"))
 
                 jugadores_encontrados.append(datos)
                 player_ids_existentes.add(player_id)
 
+                extra = f" [variante: {variante_usada}]" if variante_usada else ""
                 print(
                     f"OK | id={player_id} | "
-                    f"{datos.get('pais', 'N/A')} | "
-                    f"singles={ranking.get('ranking_singles', '-')}"
+                    f"{datos.get('pais', '?')} | "
+                    f"S={ranking.get('ranking_singles', '-')}{extra}"
                 )
+
+                # Guardar cada 50 jugadores para no perder progreso
+                if len(jugadores_encontrados) % 50 == 0:
+                    _guardar_parcial(df_existentes, jugadores_encontrados, archivo_completos)
+                    print(f"\n  [GUARDADO PARCIAL: {len(jugadores_encontrados)} jugadores]\n")
 
             except Exception as e:
                 logging.error(f"Error procesando {nombre}: {e}")
                 errores += 1
-                continue
 
         browser.close()
 
     print(f"\n{'='*60}")
     print(f"[*] Jugadores encontrados: {len(jugadores_encontrados)}")
-    print(f"[*] No encontrados / errores: {errores}")
+    print(f"[*] No encontrados: {errores}")
 
     if no_encontrados:
-        print(f"\n[!] Jugadores no encontrados ({len(no_encontrados)}):")
-        for nombre in no_encontrados[:20]:
-            print(f"    - {nombre}")
+        archivo_no_enc = os.path.join(CARPETA_SALIDA, "jugadores_no_encontrados.txt")
+        with open(archivo_no_enc, "w", encoding="utf-8") as f:
+            f.write("\n".join(no_encontrados))
+        print(f"[!] Lista de no encontrados: {archivo_no_enc}")
+        for n in no_encontrados[:10]:
+            print(f"    - {n}")
 
     if jugadores_encontrados:
-        df_nuevos_datos = pd.DataFrame(jugadores_encontrados)
-
-        if len(df_existentes) > 0:
-            df_final = pd.concat([df_existentes, df_nuevos_datos], ignore_index=True)
-            df_final = df_final.drop_duplicates(subset=["player_id"], keep="last")
-        else:
-            df_final = df_nuevos_datos
-
-        df_final.to_csv(archivo_completos, index=False)
-        print(f"\n[OK] Archivo guardado: {archivo_completos}")
-        print(f"     Total jugadores en archivo: {len(df_final)}")
+        df_final = _guardar_parcial(df_existentes, jugadores_encontrados, archivo_completos)
+        print(f"\n[OK] Archivo final: {archivo_completos}")
+        print(f"     Total jugadores: {len(df_final)}")
 
         con_mano = df_final[df_final["mano"].notna()]
-        print(f"\n[*] Jugadores con mano dominante: {len(con_mano)}/{len(df_final)}")
-        print(f"    - Derechos (R): {len(con_mano[con_mano['mano'] == 'R'])}")
-        print(f"    - Zurdos (L):   {len(con_mano[con_mano['mano'] == 'L'])}")
+        print(f"\n[*] Con mano dominante: {len(con_mano)}/{len(df_final)}")
+        print(f"    Derechos (R): {len(con_mano[con_mano['mano'] == 'R'])}")
+        print(f"    Zurdos   (L): {len(con_mano[con_mano['mano'] == 'L'])}")
     else:
         print("\n[!] No se encontraron jugadores nuevos.")
 
