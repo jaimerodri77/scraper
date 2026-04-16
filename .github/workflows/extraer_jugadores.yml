@@ -1,9 +1,9 @@
 name: Extraer Jugadores CSV
 
 on:
-  workflow_dispatch:  # Ejecucion manual
+  workflow_dispatch:
   schedule:
-    - cron: '0 6 * * *'  # Ejecutar diariamente a las 6:00 UTC
+    - cron: '0 6 * * *'
 
 permissions:
   contents: write
@@ -15,6 +15,9 @@ jobs:
     steps:
       - name: Checkout repositorio
         uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          fetch-depth: 0
 
       - name: Configurar Python
         uses: actions/setup-python@v5
@@ -29,16 +32,17 @@ jobs:
       - name: Ejecutar extractor de jugadores
         run: python extraer_jugadores_csv.py
 
-      - name: Verificar cambios
-        id: verificar_cambios
+      - name: Mostrar archivos generados
         run: |
-          git diff --quiet datos/jugadores_pendientes.csv || echo "cambios=true" >> $GITHUB_OUTPUT
+          echo "=== Archivos en carpeta datos ==="
+          ls -la datos/
+          echo "=== Primeras lineas del archivo ==="
+          head -5 datos/jugadores_pendientes.csv
 
-      - name: Commit y Push si hay cambios
-        if: steps.verificar_cambios.outputs.cambios == 'true'
+      - name: Commit y Push
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add datos/jugadores_pendientes.csv
-          git commit -m "Actualizar lista de jugadores pendientes"
-          git push
+          git add -A datos/
+          git status
+          git diff-index --quiet HEAD || (git commit -m "Actualizar jugadores pendientes" && git push)
