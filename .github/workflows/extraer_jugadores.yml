@@ -1,0 +1,44 @@
+name: Extraer Jugadores CSV
+
+on:
+  workflow_dispatch:  # Ejecucion manual
+  schedule:
+    - cron: '0 6 * * *'  # Ejecutar diariamente a las 6:00 UTC
+
+permissions:
+  contents: write
+
+jobs:
+  extraer-jugadores:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Instalar dependencias
+        run: |
+          python -m pip install --upgrade pip
+          pip install pandas
+
+      - name: Ejecutar extractor de jugadores
+        run: python extraer_jugadores_csv.py
+
+      - name: Verificar cambios
+        id: verificar_cambios
+        run: |
+          git diff --quiet datos/jugadores_pendientes.csv || echo "cambios=true" >> $GITHUB_OUTPUT
+
+      - name: Commit y Push si hay cambios
+        if: steps.verificar_cambios.outputs.cambios == 'true'
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add datos/jugadores_pendientes.csv
+          git commit -m "Actualizar lista de jugadores pendientes"
+          git push
