@@ -2,7 +2,7 @@ name: Tennis Scraper Diario
 
 on:
   schedule:
-    - cron: '0 10 * * *'
+    - cron: '0 1 * * *'
   workflow_dispatch:
 
 jobs:
@@ -30,10 +30,13 @@ jobs:
           python -m playwright install chromium
           python -m playwright install-deps chromium
 
-      - name: Ejecutar scraper de partidos
-        run: python scraper.py
+      - name: Ejecutar scraper diario de partidos
+        run: python scraper_diario.py
 
       - name: Ejecutar scraper de jugadores
+        run: python scraper.py
+
+      - name: Ejecutar scraper de jugadores adicionales
         run: python scraper_jugadores.py
 
       - name: Verificar archivos creados
