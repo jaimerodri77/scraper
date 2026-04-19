@@ -25,11 +25,14 @@ def api_get(page, url):
 def ultima_fecha_csv(archivo):
     if not os.path.exists(archivo):
         return datetime.now().date() - timedelta(days=365)  # Empezar 1 año atrás si no existe
-    df = pd.read_csv(archivo)
-    if 'tourney_date' not in df.columns:
+    try:
+        df = pd.read_csv(archivo)
+        if 'tourney_date' not in df.columns:
+            return datetime.now().date() - timedelta(days=365)
+        fechas = pd.to_datetime(df['tourney_date']).dt.date
+        return max(fechas)
+    except pd.errors.EmptyDataError:
         return datetime.now().date() - timedelta(days=365)
-    fechas = pd.to_datetime(df['tourney_date']).dt.date
-    return max(fechas)
 
 def generar_fechas_desde(ultima_fecha):
     hoy = datetime.now().date()
@@ -137,12 +140,17 @@ def append_to_csv(partidos, archivo):
     event_ids_nuevos = set(df_nuevo['event_id'])
     
     if os.path.exists(archivo):
-        df_viejo = pd.read_csv(archivo)
-        event_ids_viejos = set(df_viejo['event_id'].dropna().astype(int))
-        df_nuevo = df_nuevo[~df_nuevo['event_id'].isin(event_ids_viejos)]
+        try:
+            df_viejo = pd.read_csv(archivo)
+            event_ids_viejos = set(df_viejo['event_id'].dropna().astype(int))
+            df_nuevo = df_nuevo[~df_nuevo['event_id'].isin(event_ids_viejos)]
+            df_final = pd.concat([df_viejo, df_nuevo], ignore_index=True)
+        except pd.errors.EmptyDataError:
+            df_final = df_nuevo
+    else:
+        df_final = df_nuevo
     
     if not df_nuevo.empty:
-        df_final = pd.concat([pd.read_csv(archivo) if os.path.exists(archivo) else pd.DataFrame(), df_nuevo], ignore_index=True)
         df_final.to_csv(archivo, index=False)
         logging.info(f"Agregados {len(df_nuevo)} partidos nuevos a {archivo}")
     else:
