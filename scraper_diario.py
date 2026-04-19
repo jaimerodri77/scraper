@@ -23,16 +23,18 @@ def api_get(page, url):
         return {}
 
 def ultima_fecha_csv(archivo):
+    # En caso de que se necesite empezar desde cero, el inicio será el 1ro de Enero del año actual
+    fecha_base = datetime(datetime.now().year, 1, 1).date() - timedelta(days=1)
     if not os.path.exists(archivo):
-        return datetime.now().date() - timedelta(days=365)  # Empezar 1 año atrás si no existe
+        return fecha_base
     try:
         df = pd.read_csv(archivo)
         if 'tourney_date' not in df.columns:
-            return datetime.now().date() - timedelta(days=365)
+            return fecha_base
         fechas = pd.to_datetime(df['tourney_date']).dt.date
         return max(fechas)
     except pd.errors.EmptyDataError:
-        return datetime.now().date() - timedelta(days=365)
+        return fecha_base
 
 def generar_fechas_desde(ultima_fecha):
     hoy = datetime.now().date()
