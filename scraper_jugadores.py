@@ -4,7 +4,7 @@ import logging
 import os
 import time
 from playwright.sync_api import sync_playwright
-from playwright_stealth import stealth_sync
+from playwright_stealth import Stealth
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s [%(levelname)s] %(message)s"
@@ -173,7 +173,7 @@ if __name__ == "__main__":
             viewport={"width": 1920, "height": 1080}
         )
         page = context.new_page()
-        stealth_sync(page)
+        Stealth().apply_stealth_sync(page)
 
         page.goto("https://www.sofascore.com/tennis")
         page.wait_for_timeout(3000)
@@ -215,4 +215,3 @@ if __name__ == "__main__":
         browser.close()
 
     save_jugadores_csv(jugadores, archivo_jugadores)
-
