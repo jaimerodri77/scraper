@@ -24,7 +24,6 @@ stats = {
 
 
 def api_get(page, url: str) -> dict:
-    # FIX 1: delay aumentado a 0.5s para evitar rate limiting de SofaScore
     try:
         time.sleep(0.5)
         response = page.request.get(
@@ -32,7 +31,6 @@ def api_get(page, url: str) -> dict:
             headers={
                 "Accept": "application/json",
                 "Referer": "https://www.sofascore.com/tennis",
-                # FIX 2: headers adicionales para simular mejor un navegador real
                 "User-Agent": (
                     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
                     "AppleWebKit/537.36 (KHTML, like Gecko) "
@@ -43,7 +41,6 @@ def api_get(page, url: str) -> dict:
         )
         if response.status == 200:
             return response.json()
-        # FIX 3: loggear el status code para detectar bloqueos (403, 429, etc.)
         logging.warning(f"HTTP {response.status} en {url}")
         return {}
     except Exception as e:
@@ -51,15 +48,21 @@ def api_get(page, url: str) -> dict:
         return {}
 
 
-def get_event_ids_desde_csv(archivos_partidos: list[str]) -> set[int]:\n    all_ids = set()\n    for archivo in archivos_partidos:\n        if not os.path.exists(archivo):\n            logging.warning(f"No existe {archivo}")\n            continue\n        df = pd.read_csv(archivo)\n        ids = set(df["event_id"].dropna().astype(int).tolist())\n        all_ids.update(ids)\n        logging.info(f"Event IDs de {os.path.basename(archivo)}: {len(ids)}")\n    logging.info(f"Total Event IDs únicos: {len(all_ids)}")\n    return all_ids
+def get_event_ids_desde_csv(archivos_partidos: list[str]) -> set[int]:
+    all_ids = set()
+    for archivo in archivos_partidos:
+        if not os.path.exists(archivo):
+            logging.warning(f"No existe {archivo}")
+            continue
+        df = pd.read_csv(archivo)
+        ids = set(df["event_id"].dropna().astype(int).tolist())
+        all_ids.update(ids)
+        logging.info(f"Event IDs de {os.path.basename(archivo)}: {len(ids)}")
+    logging.info(f"Total Event IDs únicos: {len(all_ids)}")
+    return all_ids
 
 
 def extraer_player_ids_de_equipo(equipo: dict) -> list[int]:
-    """
-    FIX 4: lógica mejorada para extraer player IDs.
-    En tenis individual, homeTeam/awayTeam tiene type='player' y el id es el player_id.
-    En dobles, type='team' y los jugadores están en subTeams o players.
-    """
     if not equipo:
         return []
 
@@ -70,20 +73,16 @@ def extraer_player_ids_de_equipo(equipo: dict) -> list[int]:
         return [int(eid)] if eid else []
 
     if tipo == "team":
-        # Intentar subTeams primero
         sub_teams = equipo.get("subTeams") or []
         if sub_teams:
             return [int(s["id"]) for s in sub_teams if s.get("id")]
 
-        # FIX 5: algunos equipos de dobles usan campo "players" en lugar de "subTeams"
         players = equipo.get("players") or []
         if players:
             return [int(p["id"]) for p in players if p.get("id")]
 
-        # Fallback: el propio id del equipo (no siempre es un jugador, pero por si acaso)
         return [int(eid)] if eid else []
 
-    # Tipo desconocido: intentar subTeams, players, o el propio id
     sub_teams = equipo.get("subTeams") or []
     if sub_teams:
         return [int(s["id"]) for s in sub_teams if s.get("id")]
@@ -132,7 +131,6 @@ def get_player_data(page, player_id: int) -> dict | None:
         except Exception:
             pass
 
-    # FIX 6: "country" puede ser None, un dict, o estar ausente
     pais_raw = jugador.get("country")
     pais = pais_raw if isinstance(pais_raw, dict) else {}
 
@@ -160,7 +158,6 @@ def normalizar_mano(mano_raw) -> str | None:
         return "R"
     elif "left" in mano_raw:
         return "L"
-    # FIX 7: algunos registros usan abreviaturas o valores en español
     elif mano_raw in ("r", "d", "diestro", "derecha"):
         return "R"
     elif mano_raw in ("l", "z", "zurdo", "izquierda"):
@@ -208,7 +205,10 @@ def save_jugadores_csv(jugadores: list[dict], archivo: str):
 
 
 if __name__ == "__main__":
-    archivo_partidos_2026 = os.path.join(CARPETA_SALIDA, f"tenis_{ANO}.csv")\n    archivo_historico = os.path.join(CARPETA_SALIDA, "tenis_historico.csv")\n    archivos_partidos = [archivo_partidos_2026, archivo_historico]\n    archivo_jugadores = os.path.join(CARPETA_SALIDA, f"jugadores_{ANO}.csv")
+    archivo_partidos_2026 = os.path.join(CARPETA_SALIDA, f"tenis_{ANO}.csv")
+    archivo_historico = os.path.join(CARPETA_SALIDA, "tenis_historico.csv")
+    archivos_partidos = [archivo_partidos_2026, archivo_historico]
+    archivo_jugadores = os.path.join(CARPETA_SALIDA, f"jugadores_{ANO}.csv")
 
     if os.path.exists(archivo_jugadores):
         df_existente = pd.read_csv(archivo_jugadores)
@@ -220,7 +220,6 @@ if __name__ == "__main__":
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
         context = browser.new_context(
-            # FIX 8: user agent realista en el contexto del navegador
             user_agent=(
                 "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
                 "AppleWebKit/537.36 (KHTML, like Gecko) "
@@ -232,7 +231,11 @@ if __name__ == "__main__":
         page.goto("https://www.sofascore.com/tennis")
         page.wait_for_timeout(3000)
 
-        event_ids = get_event_ids_desde_csv(archivos_partidos)\n        if not event_ids:\n            logging.error("Sin event_ids en ningún CSV de partidos.")\n            browser.close()\n            exit(1)
+        event_ids = get_event_ids_desde_csv(archivos_partidos)
+        if not event_ids:
+            logging.error("Sin event_ids en ningún CSV de partidos.")
+            browser.close()
+            exit(1)
 
         player_ids = get_player_ids_desde_eventos(page, event_ids)
         player_ids_nuevos = player_ids - ids_existentes
@@ -251,8 +254,6 @@ if __name__ == "__main__":
 
             ranking = get_ranking(page, pid)
 
-            # FIX 9: filtro de ranking relajado — se acepta si tiene ranking_singles O ranking_dobles
-            # (antes solo aceptaba singles, descartando a doublistas y jugadores sin ranking aún)
             tiene_ranking = ranking.get("ranking_singles") or ranking.get("ranking_dobles")
             if not tiene_ranking:
                 stats["sin_ranking"] += 1
@@ -264,10 +265,8 @@ if __name__ == "__main__":
                 logging.debug(f"Descartado sin nombre/país: pid={pid}")
                 continue
 
-            # FIX 10: mano ya no es obligatoria — se guarda como None si no está disponible
-            # (antes descartaba silenciosamente a jugadores sin este campo)
             mano = normalizar_mano(datos.get("mano_dominante"))
-            datos["mano"] = mano  # puede ser None
+            datos["mano"] = mano
 
             datos.update(ranking)
             jugadores.append(datos)
@@ -276,7 +275,6 @@ if __name__ == "__main__":
         print()
         browser.close()
 
-    # FIX 11: reporte final de diagnóstico
     logging.info("=== RESUMEN DE DESCARTE ===")
     logging.info(f"  Sin datos del jugador : {stats['sin_datos']}")
     logging.info(f"  Sin ranking           : {stats['sin_ranking']}")
@@ -285,3 +283,4 @@ if __name__ == "__main__":
     logging.info(f"  Aceptados             : {stats['aceptados']}")
 
     save_jugadores_csv(jugadores, archivo_jugadores)
+
