@@ -195,8 +195,11 @@ def save_jugadores_csv(jugadores: list[dict], archivo: str):
     df_nuevo = pd.DataFrame(jugadores)
 
     if os.path.exists(archivo):
-        df_viejo = pd.read_csv(archivo)
-        df = pd.concat([df_viejo, df_nuevo]).drop_duplicates(subset=["player_id"], keep="last")
+        try:
+            df_viejo = pd.read_csv(archivo)
+            df = pd.concat([df_viejo, df_nuevo]).drop_duplicates(subset=["player_id"], keep="last")
+        except pd.errors.EmptyDataError:
+            df = df_nuevo
     else:
         df = df_nuevo
 
@@ -211,9 +214,12 @@ if __name__ == "__main__":
     archivo_jugadores = os.path.join(CARPETA_SALIDA, f"jugadores_{ANO}.csv")
 
     if os.path.exists(archivo_jugadores):
-        df_existente = pd.read_csv(archivo_jugadores)
-        ids_existentes = set(df_existente["player_id"].dropna().astype(int).tolist())
-        logging.info(f"Jugadores ya existentes en CSV: {len(ids_existentes)}")
+        try:
+            df_existente = pd.read_csv(archivo_jugadores)
+            ids_existentes = set(df_existente["player_id"].dropna().astype(int).tolist())
+            logging.info(f"Jugadores ya existentes en CSV: {len(ids_existentes)}")
+        except pd.errors.EmptyDataError:
+            ids_existentes = set()
     else:
         ids_existentes = set()
 
@@ -274,6 +280,11 @@ if __name__ == "__main__":
             jugadores.append(datos)
             stats["aceptados"] += 1
 
+            # Guardado progresivo cada 50 jugadores procesados (válidos o no)
+            if i % 50 == 0 and jugadores:
+                save_jugadores_csv(jugadores, archivo_jugadores)
+                jugadores = []  # Limpiar la lista para el siguiente lote
+
         print()
         browser.close()
 
@@ -284,5 +295,7 @@ if __name__ == "__main__":
     logging.info(f"  Sin mano (no bloqueó) : {stats['sin_mano']}")
     logging.info(f"  Aceptados             : {stats['aceptados']}")
 
-    save_jugadores_csv(jugadores, archivo_jugadores)
+    # Guardar los jugadores restantes
+    if jugadores:
+        save_jugadores_csv(jugadores, archivo_jugadores)
 
