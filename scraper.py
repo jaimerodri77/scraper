@@ -51,14 +51,7 @@ def api_get(page, url: str) -> dict:
         return {}
 
 
-def get_event_ids_desde_csv(archivo_partidos: str) -> set[int]:
-    if not os.path.exists(archivo_partidos):
-        logging.error(f"No existe el archivo de partidos: {archivo_partidos}")
-        return set()
-    df = pd.read_csv(archivo_partidos)
-    ids = set(df["event_id"].dropna().astype(int).tolist())
-    logging.info(f"Event IDs leídos del CSV: {len(ids)}")
-    return ids
+def get_event_ids_desde_csv(archivos_partidos: list[str]) -> set[int]:\n    all_ids = set()\n    for archivo in archivos_partidos:\n        if not os.path.exists(archivo):\n            logging.warning(f"No existe {archivo}")\n            continue\n        df = pd.read_csv(archivo)\n        ids = set(df["event_id"].dropna().astype(int).tolist())\n        all_ids.update(ids)\n        logging.info(f"Event IDs de {os.path.basename(archivo)}: {len(ids)}")\n    logging.info(f"Total Event IDs únicos: {len(all_ids)}")\n    return all_ids
 
 
 def extraer_player_ids_de_equipo(equipo: dict) -> list[int]:
@@ -215,8 +208,7 @@ def save_jugadores_csv(jugadores: list[dict], archivo: str):
 
 
 if __name__ == "__main__":
-    archivo_partidos = os.path.join(CARPETA_SALIDA, f"tenis_{ANO}.csv")
-    archivo_jugadores = os.path.join(CARPETA_SALIDA, f"jugadores_{ANO}.csv")
+    archivo_partidos_2026 = os.path.join(CARPETA_SALIDA, f"tenis_{ANO}.csv")\n    archivo_historico = os.path.join(CARPETA_SALIDA, "tenis_historico.csv")\n    archivos_partidos = [archivo_partidos_2026, archivo_historico]\n    archivo_jugadores = os.path.join(CARPETA_SALIDA, f"jugadores_{ANO}.csv")
 
     if os.path.exists(archivo_jugadores):
         df_existente = pd.read_csv(archivo_jugadores)
@@ -240,11 +232,7 @@ if __name__ == "__main__":
         page.goto("https://www.sofascore.com/tennis")
         page.wait_for_timeout(3000)
 
-        event_ids = get_event_ids_desde_csv(archivo_partidos)
-        if not event_ids:
-            logging.error("Sin event_ids. Verifica que exista el archivo de partidos.")
-            browser.close()
-            exit(1)
+        event_ids = get_event_ids_desde_csv(archivos_partidos)\n        if not event_ids:\n            logging.error("Sin event_ids en ningún CSV de partidos.")\n            browser.close()\n            exit(1)
 
         player_ids = get_player_ids_desde_eventos(page, event_ids)
         player_ids_nuevos = player_ids - ids_existentes
