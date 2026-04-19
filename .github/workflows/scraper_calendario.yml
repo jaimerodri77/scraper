@@ -1,0 +1,52 @@
+name: Tennis Scraper Calendario (Test)
+
+on:
+  workflow_dispatch: # Permite ejecución manual
+  schedule:
+    - cron: '30 6 * * *' # Ejecutar un poco después del scraper principal (ejemplo)
+
+jobs:
+  scrape_calendario:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repositorio
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Instalar dependencias
+        run: pip install pandas playwright playwright-stealth
+
+      - name: Instalar Chromium
+        run: |
+          python -m playwright install chromium
+          python -m playwright install-deps chromium
+
+      - name: Ejecutar scraper de calendario
+        run: python scraper_calendario.py
+
+      - name: Verificar archivo creado
+        run: |
+          echo "=== Carpeta datos ==="
+          ls -lh datos/calendario.csv 2>/dev/null || echo "El archivo calendario.csv NO existe"
+
+      - name: Guardar cambios en el repositorio
+        run: |
+          git config --global user.email "scraperbot@github.com"
+          git config --global user.name "TennisScraperBot"
+          mkdir -p datos
+          git add datos/calendario.csv || true
+          if git diff --staged --quiet; then
+            echo "Sin cambios en el calendario."
+            exit 0
+          fi
+          git commit -m "Update calendar $(date +'%Y-%m-%d')"
+          git push
