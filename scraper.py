@@ -3,6 +3,7 @@ from datetime import datetime
 import logging
 import os
 import time
+import json
 from playwright.sync_api import sync_playwright
 from playwright_stealth import Stealth
 logging.basicConfig(
@@ -96,22 +97,53 @@ def extraer_player_ids_de_equipo(equipo: dict) -> list[int]:
 
 def get_player_ids_desde_eventos(page, event_ids: set[int]) -> set[int]:
     player_ids = set()
-    total = len(event_ids)
+    cache_file = os.path.join(CARPETA_SALIDA, "event_players_cache.json")
+    
+    # Cargar caché para no repetir eventos procesados
+    if os.path.exists(cache_file):
+        with open(cache_file, "r") as f:
+            cache_eventos = json.load(f)
+    else:
+        cache_eventos = {}
 
-    for i, event_id in enumerate(event_ids, 1):
+    eventos_nuevos = [e for e in event_ids if str(e) not in cache_eventos]
+    total = len(eventos_nuevos)
+    
+    # Agregar los que ya estaban en caché
+    for eid_str, pids in cache_eventos.items():
+        if int(eid_str) in event_ids:
+            for pid in pids:
+                player_ids.add(pid)
+
+    if eventos_nuevos:
+        logging.info(f"Buscando jugadores para {total} eventos nuevos...")
+
+    for i, event_id in enumerate(eventos_nuevos, 1):
         print(f"\r[{i}/{total}] Obteniendo jugadores del evento {event_id}", end="")
         data = api_get(page, f"https://api.sofascore.com/api/v1/event/{event_id}")
         evento = data.get("event", {})
         if not evento:
-            logging.debug(f"Evento {event_id} sin datos")
             continue
-
+            
+        pids_evento = []
         for equipo in [evento.get("homeTeam", {}), evento.get("awayTeam", {})]:
             for pid in extraer_player_ids_de_equipo(equipo):
                 player_ids.add(pid)
+                pids_evento.append(pid)
+                
+        cache_eventos[str(event_id)] = pids_evento
+        
+        # Guardar progresivamente el caché
+        if i % 100 == 0:
+            with open(cache_file, "w") as f:
+                json.dump(cache_eventos, f)
 
-    print()
-    logging.info(f"Player IDs únicos encontrados: {len(player_ids)}")
+    if eventos_nuevos:
+        print()
+        with open(cache_file, "w") as f:
+            json.dump(cache_eventos, f)
+
+    logging.info(f"Player IDs únicos inicializados encontrados: {len(player_ids)}")
     return player_ids
 
 
