@@ -94,9 +94,10 @@ def obtener_calendario_hoy():
         
         # Imprimir una vista previa en la consola
         print("\n--- Próximos partidos de hoy (Muestra de los siguientes 15) ---")
-        print(df[['Hora_Aprox', 'Categoria', 'Jugador_Local', 'VS', 'Jugador_Visitante']].assign(VS="vs").head(15).to_string(index=False))
+        print(df.assign(VS="vs")[['Hora_Aprox', 'Categoria', 'Jugador_Local', 'VS', 'Jugador_Visitante']].head(15).to_string(index=False))
     else:
         logging.info("No se encontraron partidos programados para el dia de hoy en Sofascore.")
 
 if __name__ == "__main__":
     obtener_calendario_hoy()
+
