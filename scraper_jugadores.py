@@ -147,8 +147,11 @@ def save_jugadores_csv(jugadores: list[dict], archivo: str):
     df_nuevo = pd.DataFrame(jugadores)
 
     if os.path.exists(archivo):
-        df_viejo = pd.read_csv(archivo)
-        df = pd.concat([df_viejo, df_nuevo]).drop_duplicates(subset=["player_id"], keep="last")
+        try:
+            df_viejo = pd.read_csv(archivo)
+            df = pd.concat([df_viejo, df_nuevo]).drop_duplicates(subset=["player_id"], keep="last")
+        except pd.errors.EmptyDataError:
+            df = df_nuevo
     else:
         df = df_nuevo
 
@@ -161,8 +164,11 @@ if __name__ == "__main__":
     archivo_jugadores = os.path.join(CARPETA_SALIDA, f"jugadores_{ANO}.csv")
 
     if os.path.exists(archivo_jugadores):
-        df_existente = pd.read_csv(archivo_jugadores)
-        ids_existentes = set(df_existente["player_id"].dropna().astype(int).tolist())
+        try:
+            df_existente = pd.read_csv(archivo_jugadores)
+            ids_existentes = set(df_existente["player_id"].dropna().astype(int).tolist())
+        except pd.errors.EmptyDataError:
+            ids_existentes = set()
     else:
         ids_existentes = set()
 
@@ -211,7 +217,13 @@ if __name__ == "__main__":
             datos.update(ranking)
             jugadores.append(datos)
 
+            # Guardado progresivo cada 50 jugadores procesados
+            if i % 50 == 0 and jugadores:
+                save_jugadores_csv(jugadores, archivo_jugadores)
+                jugadores = []
+
         print()
         browser.close()
 
-    save_jugadores_csv(jugadores, archivo_jugadores)
+    if jugadores:
+        save_jugadores_csv(jugadores, archivo_jugadores)
