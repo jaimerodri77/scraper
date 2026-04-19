@@ -23,7 +23,7 @@ jobs:
           python-version: '3.11'
 
       - name: Instalar dependencias
-        run: pip install pandas playwright
+        run: pip install pandas playwright playwright-stealth
 
       - name: Instalar Chromium
         run: |
