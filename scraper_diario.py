@@ -8,6 +8,7 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(me
 
 CARPETA_SALIDA = "datos"
 ARCHIVO_PARTIDOS = os.path.join(CARPETA_SALIDA, f"tenis_{datetime.now().year}.csv")
+CIRCUITOS_NOMBRES = ["atp", "wta"]
 
 def api_get(page, url):
     try:
@@ -44,24 +45,88 @@ def get_eventos_del_dia(page, fecha):
     data = api_get(page, url)
     return data.get('events', [])
 
+def detectar_circuito(evento: dict):
+    categoria = evento.get("tournament", {}).get("category", {})
+    if not isinstance(categoria, dict): return None
+    cat_name = categoria.get("name", "").lower()
+    cat_slug = categoria.get("slug", "").lower()
+    for circuito in CIRCUITOS_NOMBRES:
+        if circuito in cat_name or circuito in cat_slug:
+            return circuito.upper()
+    return None
+
+def get_estado(evento: dict) -> str:
+    status = evento.get("status", {})
+    if isinstance(status, str): return status
+    if isinstance(status, dict):
+        type_field = status.get("type", {})
+        if isinstance(type_field, dict): return type_field.get("name", "unknown")
+        if isinstance(type_field, str): return type_field
+        return status.get("name", "unknown")
+    return "unknown"
+
+def parsear_estadisticas(stats_data: dict) -> dict:
+    resultado = {}
+    for periodo in stats_data.get("statistics", []):
+        periodo_nombre = periodo.get("period", "ALL").upper()
+        for grupo in periodo.get("groups", []):
+            for item in grupo.get("statisticsItems", []):
+                nombre = item.get("name", "").replace(" ", "_").lower()
+                resultado[f"{periodo_nombre}_{nombre}_home"] = item.get("home")
+                resultado[f"{periodo_nombre}_{nombre}_away"] = item.get("away")
+    return resultado
+
 def procesar_dia(page, fecha):
     eventos = get_eventos_del_dia(page, fecha)
-    partidos = []
+    candidatos = []
+    
     for evento in eventos:
+        circuito_nombre = detectar_circuito(evento)
+        estado = get_estado(evento)
+        if circuito_nombre and estado == "finished":
+            candidatos.append((evento, circuito_nombre))
+
+    partidos = []
+    total = len(candidatos)
+    for i, (evento, circuito_nombre) in enumerate(candidatos, 1):
         try:
-            # Filtrar solo tenis ATP/WTA/ITF relevantes
-            tournament = evento.get('tournament', {})
-            if tournament.get('category', {}).get('name') in ['ATP', 'WTA', 'ITF']:
-                partido = {
-                    'event_id': evento['id'],
-                    'tourney_date': fecha,
-                    'tourney_name': tournament.get('name', 'Unknown'),
-                    'round': evento.get('roundInfo', {}).get('name', 'Unknown'),
-                    # Agregar más campos si necesario: scores, players, etc.
-                }
-                partidos.append(partido)
+            event_id = evento.get("id")
+            home = evento.get("homeTeam", {}).get("name", "Unknown")
+            away = evento.get("awayTeam", {}).get("name", "Unknown")
+            home_score = evento.get("homeScore", {}).get("current", 0) or 0
+            away_score = evento.get("awayScore", {}).get("current", 0) or 0
+            winner, loser = (home, away) if home_score > away_score else (away, home)
+
+            surface = (evento.get("groundType") or evento.get("tournament", {}).get("groundType") or None)
+
+            partido = {
+                "event_id": event_id,
+                "circuito": circuito_nombre,
+                "tourney_name": evento.get("tournament", {}).get("name", "Unknown"),
+                "tourney_date": fecha,
+                "round": evento.get("roundInfo", {}).get("name", "Unknown"),
+                "surface": surface,
+                "winner_name": winner,
+                "loser_name": loser,
+                "winner_sets": home_score if home_score > away_score else away_score,
+                "loser_sets": away_score if home_score > away_score else home_score,
+                "scrape_date": datetime.now().strftime("%Y%m%d"),
+            }
+
+            print(f"\r    [{i}/{total}] {winner} vs {loser}", end="", flush=True)
+
+            stats_raw = api_get(page, f"https://api.sofascore.com/api/v1/event/{event_id}/statistics")
+            if stats_raw:
+                partido.update(parsear_estadisticas(stats_raw))
+
+            partidos.append(partido)
         except Exception as e:
             logging.warning(f"Error procesando evento {evento.get('id')}: {e}")
+            continue
+            
+    if candidatos:
+        print()
+        
     return partidos
 
 def append_to_csv(partidos, archivo):
