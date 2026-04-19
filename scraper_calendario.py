@@ -73,22 +73,19 @@ def obtener_calendario_hoy():
                 
         browser.close()
         
+    # Definir el archivo y asegurar que la carpeta existe
+    archivo = os.path.join("datos", "calendario.csv")
+    os.makedirs("datos", exist_ok=True)
+
+    # Columnas esperadas
+    columnas = ["Torneo", "Categoria", "Ronda", "Hora_Aprox", "Jugador_Local", "Jugador_Visitante"]
+
     if partidos:
         df = pd.DataFrame(partidos)
         # Ordenar por hora en la que van a jugar
         df = df.sort_values(by="Hora_Aprox")
         
-        # Siempre guardar en el mismo archivo para sobreescribirlo diariamente
-        archivo = os.path.join("datos", "calendario.csv")
-        os.makedirs("datos", exist_ok=True)
-        
-        # Limpieza de archivos viejos (por si hubo con el nombre viejo)
-        for f in os.listdir("datos"):
-            if f.startswith("calendario_") and f.endswith(".csv"):
-                try: os.remove(os.path.join("datos", f))
-                except: pass
-        
-        # Guardar en CSV para lectura en Excel u otros usos (Modo escritura sobreescribe por defecto)
+        # Guardar (esto sobreescribe lo que haya)
         df.to_csv(archivo, index=False, encoding='utf-8-sig')
         logging.info(f"\n¡Éxito! Se ha guardado el calendario con {len(partidos)} partidos de hoy en {archivo}.")
         
@@ -96,7 +93,11 @@ def obtener_calendario_hoy():
         print("\n--- Próximos partidos de hoy (Muestra de los siguientes 15) ---")
         print(df.assign(VS="vs")[['Hora_Aprox', 'Categoria', 'Jugador_Local', 'VS', 'Jugador_Visitante']].head(15).to_string(index=False))
     else:
-        logging.info("No se encontraron partidos programados para el dia de hoy en Sofascore.")
+        # Si no hay partidos, guardamos un archivo vacío con solo los encabezados
+        # para que "limpie" los partidos del día anterior.
+        df_vacio = pd.DataFrame(columns=columnas)
+        df_vacio.to_csv(archivo, index=False, encoding='utf-8-sig')
+        logging.info("No se encontraron partidos programados. El archivo calendario.csv ha sido limpiado.")
 
 if __name__ == "__main__":
     obtener_calendario_hoy()
