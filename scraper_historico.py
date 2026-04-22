@@ -50,6 +50,28 @@ def get_eventos_del_dia(page, fecha: str) -> list[dict]:
     data = api_get(page, url)
     return data.get("events", [])
 
+def es_partido_sencillos(evento: dict) -> bool:
+    """
+    Filtra partidos de dobles. Retorna True si es Sencillos, False si es Dobles.
+    """
+    # 1. Verificar si el nombre del torneo contiene "doubles" o "dobles"
+    tourney_name = evento.get("tournament", {}).get("name", "").lower()
+    cat_name = evento.get("tournament", {}).get("category", {}).get("name", "").lower()
+    
+    if "doubles" in tourney_name or "dobles" in tourney_name:
+        return False
+    if "doubles" in cat_name or "dobles" in cat_name:
+        return False
+    
+    # 2. Verificar si los nombres de los equipos contienen separadores típicos de parejas (/ o &)
+    home_name = evento.get("homeTeam", {}).get("name", "")
+    away_name = evento.get("awayTeam", {}).get("name", "")
+    
+    if "/" in home_name or "&" in home_name or "/" in away_name or "&" in away_name:
+        return False
+        
+    return True
+
 def detectar_circuito(evento: dict) -> str | None:
     categoria = evento.get("tournament", {}).get("category", {})
     if not isinstance(categoria, dict): return None
@@ -94,11 +116,13 @@ def procesar_dia(page, fecha: str) -> list[dict]:
     for evento in eventos:
         circuito = detectar_circuito(evento)
         estado = get_estado(evento)
-        if circuito and estado == "finished":
+        
+        # FILTRO ACTUALIZADO: Debe ser ATP/WTA, estar terminado Y ser Sencillos
+        if circuito and estado == "finished" and es_partido_sencillos(evento):
             candidatos.append((evento, circuito))
     
     if not candidatos:
-        logging.info(f"Día {fecha}: Sin partidos ATP/WTA terminados.")
+        logging.info(f"Día {fecha}: Sin partidos de sencillos ATP/WTA terminados.")
         return []
 
     partidos = []
@@ -108,7 +132,6 @@ def procesar_dia(page, fecha: str) -> list[dict]:
             home_team = evento.get("homeTeam", {})
             away_team = evento.get("awayTeam", {})
             
-            # IDs y Nombres
             home_id = home_team.get("id")
             home_name = home_team.get("name")
             away_id = away_team.get("id")
@@ -118,7 +141,6 @@ def procesar_dia(page, fecha: str) -> list[dict]:
             away_score = evento.get("awayScore", {}).get("current", 0) or 0
             home_wins = home_score > away_score
             
-            # Asignar Ganador y Perdedor (Nombres e IDs)
             winner_name, loser_name = (home_name, away_name) if home_wins else (away_name, home_name)
             winner_id, loser_id = (home_id, away_id) if home_wins else (away_id, home_id)
             
@@ -129,9 +151,9 @@ def procesar_dia(page, fecha: str) -> list[dict]:
                 "tourney_date": fecha,
                 "round": evento.get("roundInfo", {}).get("name", "Unknown"),
                 "surface": evento.get("groundType") or evento.get("tournament", {}).get("groundType"),
-                "winner_id": winner_id,        # <--- NUEVO
+                "winner_id": winner_id,
                 "winner_name": winner_name,
-                "loser_id": loser_id,          # <--- NUEVO
+                "loser_id": loser_id,
                 "loser_name": loser_name,
                 "winner_sets": home_score if home_wins else away_score,
                 "loser_sets": away_score if home_wins else home_score,
@@ -203,6 +225,7 @@ if __name__ == "__main__":
                 logging.error(f"Error en {fecha}: {e}")
             time.sleep(PAUSA_ENTRE_DIAS)
         browser.close()
+
 
 
 
