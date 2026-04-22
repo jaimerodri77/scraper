@@ -33,11 +33,7 @@ jobs:
       - name: Ejecutar scraper diario de partidos
         run: python scraper_diario.py
 
-      - name: Ejecutar scraper de jugadores
-        run: python scraper.py
-
-      - name: Extraer calendario de partidos del día
-        run: python scraper_calendario.py
+      
 
       - name: Verificar archivos creados
         run: |
