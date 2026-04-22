@@ -51,13 +51,26 @@ jobs:
         run: |
           git config --global user.email "scraperbot@github.com"
           git config --global user.name "TennisScraperBot"
+          
+          # 1. Agregar cambios
           git add datos/*.csv || true
+          
+          # 2. Verificar si hay cambios para hacer commit
           if git diff --staged --quiet; then
             echo "No hay cambios en el CSV."
-          else
-            git commit -m "Update tenis 2025: $(date +'%Y-%m-%d %H:%M')"
-            git push
+            exit 0
           fi
+          
+          # 3. Hacer el commit localmente
+          git commit -m "Update tenis 2025: $(date +'%Y-%m-%d %H:%M')"
+          
+          # 4. Sincronizar con la nube antes de subir (ESTO SOLUCIONA EL ERROR)
+          # El rebase pone nuestros cambios encima de los cambios que haya hecho el bot diario
+          git pull --rebase origin main
+          
+          # 5. Ahora sí, subir los cambios
+          git push
+
 
 
 
