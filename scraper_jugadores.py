@@ -3,7 +3,6 @@ from datetime import datetime
 import logging
 import os
 import time
-import json
 from playwright.sync_api import sync_playwright
 from playwright_stealth import Stealth
 logging.basicConfig(
@@ -34,76 +33,31 @@ def api_get(page, url: str) -> dict:
         return {}
 
 
-def get_event_ids_desde_csv(archivo_partidos: str) -> set[int]:
+def get_player_ids_desde_csv(archivo_partidos: str) -> set[int]:
+    """Lee winner_id y loser_id directamente del CSV de partidos.
+    Requiere que scraper_diario.py / scraper_historico.py hayan guardado esas columnas.
+    Si las columnas no existen avisa y devuelve un set vacío.
+    """
     if not os.path.exists(archivo_partidos):
         logging.error(f"No existe el archivo de partidos: {archivo_partidos}")
         return set()
-    df = pd.read_csv(archivo_partidos)
-    return set(df["event_id"].dropna().astype(int).tolist())
 
+    df = pd.read_csv(archivo_partidos, low_memory=False)
 
-def extraer_player_ids_de_equipo(equipo: dict) -> list[int]:
-    tipo = equipo.get("type", "")
-    eid = equipo.get("id")
+    columnas_id = [c for c in ("winner_id", "loser_id") if c in df.columns]
+    if not columnas_id:
+        logging.error(
+            "El CSV no tiene columnas winner_id / loser_id. "
+            "Ejecuta primero scraper_diario.py actualizado."
+        )
+        return set()
 
-    if tipo == "player":
-        return [int(eid)] if eid else []
+    ids = set()
+    for col in columnas_id:
+        ids.update(df[col].dropna().astype(int).tolist())
 
-    if tipo == "team":
-        sub_teams = equipo.get("subTeams") or []
-        return [int(s["id"]) for s in sub_teams if s.get("id")]
-
-    sub_teams = equipo.get("subTeams") or []
-    if sub_teams:
-        return [int(s["id"]) for s in sub_teams if s.get("id")]
-
-    return [int(eid)] if eid else []
-
-
-def get_player_ids_desde_eventos(page, event_ids: set[int]) -> set[int]:
-    player_ids = set()
-    cache_file = os.path.join(CARPETA_SALIDA, "event_players_cache.json")
-    
-    if os.path.exists(cache_file):
-        with open(cache_file, "r") as f:
-            cache_eventos = json.load(f)
-    else:
-        cache_eventos = {}
-
-    eventos_nuevos = [e for e in event_ids if str(e) not in cache_eventos]
-    total = len(eventos_nuevos)
-    
-    for eid_str, pids in cache_eventos.items():
-        if int(eid_str) in event_ids:
-            for pid in pids:
-                player_ids.add(pid)
-
-    for i, event_id in enumerate(eventos_nuevos, 1):
-        print(f"\r[{i}/{total}] Obteniendo jugadores del evento {event_id}", end="")
-        data = api_get(page, f"https://api.sofascore.com/api/v1/event/{event_id}")
-        evento = data.get("event", {})
-        if not evento:
-            continue
-            
-        pids_evento = []
-        for equipo in [evento.get("homeTeam", {}), evento.get("awayTeam", {})]:
-            for pid in extraer_player_ids_de_equipo(equipo):
-                player_ids.add(pid)
-                pids_evento.append(pid)
-                
-        cache_eventos[str(event_id)] = pids_evento
-        
-        if i % 100 == 0:
-            with open(cache_file, "w") as f:
-                json.dump(cache_eventos, f)
-
-    if eventos_nuevos:
-        print()
-        with open(cache_file, "w") as f:
-            json.dump(cache_eventos, f)
-
-    logging.info(f"Player IDs únicos encontrados: {len(player_ids)}")
-    return player_ids
+    logging.info(f"Player IDs únicos leídos del CSV: {len(ids)}")
+    return ids
 
 
 def get_player_data(page, player_id: int) -> dict | None:
@@ -214,8 +168,7 @@ if __name__ == "__main__":
         page.goto("https://www.sofascore.com/tennis")
         page.wait_for_timeout(3000)
 
-        event_ids = get_event_ids_desde_csv(archivo_partidos)
-        player_ids = get_player_ids_desde_eventos(page, event_ids)
+        player_ids = get_player_ids_desde_csv(archivo_partidos)
         player_ids_nuevos = player_ids - ids_existentes
 
         jugadores = []
