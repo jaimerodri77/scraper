@@ -39,37 +39,23 @@ jobs:
       - name: Ejecutar scraper 2025
         run: |
           if [ -n "${{ github.event.inputs.fecha }}" ]; then
-            echo "🚀 MODO PRUEBA: Procesando fecha específica ${{ github.event.inputs.fecha }}"
             python scraper_historico.py --fecha ${{ github.event.inputs.fecha }}
           else
-            echo "📅 MODO HISTÓRICO: Procesando rango completo 2025"
             python scraper_historico.py
           fi
 
-      - name: Guardar CSV en repositorio
+      - name: Guardado Final de Seguridad
         if: always()
         run: |
           git config --global user.email "scraperbot@github.com"
           git config --global user.name "TennisScraperBot"
-          
-          # 1. Agregar cambios
           git add datos/*.csv || true
-          
-          # 2. Verificar si hay cambios para hacer commit
-          if git diff --staged --quiet; then
-            echo "No hay cambios en el CSV."
-            exit 0
+          if ! git diff --staged --quiet; then
+            git commit -m "Final Sync 2025: $(date +'%Y-%m-%d %H:%M')"
+            git pull --rebase origin main
+            git push
           fi
-          
-          # 3. Hacer el commit localmente
-          git commit -m "Update tenis 2025: $(date +'%Y-%m-%d %H:%M')"
-          
-          # 4. Sincronizar con la nube antes de subir (ESTO SOLUCIONA EL ERROR)
-          # El rebase pone nuestros cambios encima de los cambios que haya hecho el bot diario
-          git pull --rebase origin main
-          
-          # 5. Ahora sí, subir los cambios
-          git push
+
 
 
 
