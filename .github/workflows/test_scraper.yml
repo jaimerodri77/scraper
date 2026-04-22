@@ -1,16 +1,17 @@
 name: Sofascore Daily Scraper
 
-# Esto define cuándo se ejecuta. 
-# En este ejemplo: Todos los días a las 00:00 UTC y cada vez que hagas un "push" manual.
 on:
   schedule:
     - cron: '0 0 * * *' 
-  workflow_dispatch: # Permite ejecutarlo manualmente desde la pestaña "Actions"
+  workflow_dispatch:
+
+# ESTA ES LA PARTE QUE DEBES AÑADIR
+permissions:
+  contents: write
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout del repositorio
         uses: actions/checkout@v3
@@ -31,6 +32,7 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add *.csv
+          git add .
           git commit -m "Actualización automática de datos Sofascore [skip ci]" || echo "No hay cambios para commit"
           git push
+
