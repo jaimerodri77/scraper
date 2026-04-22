@@ -7,6 +7,7 @@ import json
 import argparse
 from playwright.sync_api import sync_playwright
 
+# Configuración de logs para seguimiento en GitHub Actions
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 
 CARPETA_SALIDA = "datos"
@@ -18,6 +19,7 @@ PAUSA_ENTRE_DIAS = 2.0
 PAUSA_ENTRE_REQUESTS = 0.5
 
 def api_get(page, url: str) -> dict:
+    """Realiza peticiones a la API de Sofascore."""
     try:
         time.sleep(PAUSA_ENTRE_REQUESTS)
         response = page.request.get(
@@ -25,7 +27,8 @@ def api_get(page, url: str) -> dict:
             headers={"Accept": "application/json", "Referer": "https://www.sofascore.com/tennis"},
             timeout=30000,
         )
-        if response.status == 200: return response.json()
+        if response.status == 200: 
+            return response.json()
         elif response.status == 429:
             logging.warning("Rate limit (429) — esperando 30s...")
             time.sleep(30)
@@ -35,15 +38,25 @@ def api_get(page, url: str) -> dict:
         logging.warning(f"Error en {url}: {e}")
         return {}
 
+def formatear_valor(val):
+    """
+    Convierte la respuesta de la API al formato '77/108 (71%)' 
+    según el ejemplo de CSV proporcionado.
+    """
+    if isinstance(val, dict):
+        v = val.get("value", 0)
+        t = val.get("total", 0)
+        if t and t > 0:
+            perc = (v / t) * 100
+            return f"{v}/{t} ({perc:.0f}%)"
+        return f"{v}/{t} (0%)"
+    return val
+
 def get_eventos_del_dia(page, fecha: str) -> list[dict]:
+    """Obtiene los eventos de un día específico. NO guarda archivos JSON."""
     url = f"https://api.sofascore.com/api/v1/sport/tennis/scheduled-events/{fecha}"
     data = api_get(page, url)
-    eventos = data.get("events", [])
-    
-    os.makedirs(CARPETA_SALIDA, exist_ok=True)
-    with open(os.path.join(CARPETA_SALIDA, f"debug_{fecha}.json"), 'w') as f:
-        json.dump(data, f, indent=2)
-    return eventos
+    return data.get("events", [])
 
 def detectar_circuito(evento: dict) -> str | None:
     categoria = evento.get("tournament", {}).get("category", {})
@@ -65,14 +78,15 @@ def get_estado(evento: dict) -> str:
     return "unknown"
 
 def parsear_estadisticas(stats_data: dict) -> dict:
+    """Procesa las estadísticas aplicando el formato de ratio y porcentaje."""
     resultado = {}
     for periodo in stats_data.get("statistics", []):
         periodo_nombre = periodo.get("period", "ALL").upper()
         for grupo in periodo.get("groups", []):
             for item in grupo.get("statisticsItems", []):
                 nombre = item.get("name", "").replace(" ", "_").lower()
-                resultado[f"{periodo_nombre}_{nombre}_home"] = item.get("home")
-                resultado[f"{periodo_nombre}_{nombre}_away"] = item.get("away")
+                resultado[f"{periodo_nombre}_{nombre}_home"] = formatear_valor(item.get("home"))
+                resultado[f"{periodo_nombre}_{nombre}_away"] = formatear_valor(item.get("away"))
     return resultado
 
 def fechas_ya_descargadas(archivo: str) -> set:
@@ -83,8 +97,8 @@ def fechas_ya_descargadas(archivo: str) -> set:
     except Exception: return set()
 
 def procesar_dia(page, fecha: str) -> list[dict]:
+    """Filtra partidos ATP/WTA terminados y extrae sus datos."""
     eventos = get_eventos_del_dia(page, fecha)
-    logging.info(f"Día {fecha}: {len(eventos)} eventos encontrados.")
     
     candidatos = []
     for evento in eventos:
@@ -93,6 +107,10 @@ def procesar_dia(page, fecha: str) -> list[dict]:
         if circuito and estado == "finished":
             candidatos.append((evento, circuito))
     
+    if not candidatos:
+        logging.info(f"Día {fecha}: Sin partidos ATP/WTA terminados.")
+        return []
+
     partidos = []
     for i, (evento, circuito_nombre) in enumerate(candidatos, 1):
         try:
@@ -128,20 +146,19 @@ def procesar_dia(page, fecha: str) -> list[dict]:
     return partidos
 
 def append_to_csv(partidos: list[dict], archivo: str):
-    """Añade los partidos al CSV principal, evitando duplicados."""
+    """Guarda los datos en el CSV evitando duplicados por event_id."""
     if not partidos: return
     os.makedirs(CARPETA_SALIDA, exist_ok=True)
     df_nuevo = pd.DataFrame(partidos)
     
     if os.path.exists(archivo):
         df_viejo = pd.read_csv(archivo)
-        # Concatenamos y eliminamos duplicados basándonos en el event_id
         df_final = pd.concat([df_viejo, df_nuevo]).drop_duplicates(subset=["event_id"], keep='last')
     else:
         df_final = df_nuevo
     
     df_final.to_csv(archivo, index=False)
-    logging.info(f"✓ Datos guardados en {archivo}. Total filas: {len(df_final)}")
+    logging.info(f"🚀 CSV ACTUALIZADO: {archivo}. Total registros: {len(df_final)}")
 
 def generar_fechas(inicio, fin):
     fechas = []
@@ -159,16 +176,15 @@ if __name__ == "__main__":
     archivo = os.path.join(CARPETA_SALIDA, "tenis_historico.csv")
     
     if args.fecha:
-        logging.info(f"*** MODO PRUEBA: Procesando solo {args.fecha} ***")
+        logging.info(f"*** MODO PRUEBA: Solo procesando {args.fecha} ***")
         pendientes = [args.fecha]
     else:
         todas = generar_fechas(FECHA_INICIO, FECHA_FIN)
         listas = fechas_ya_descargadas(archivo)
         pendientes = [f for f in todas if f not in listas]
-        logging.info(f"Modo Histórico: {len(pendientes)} días pendientes.")
 
     if not pendientes:
-        logging.info("No hay fechas para procesar.")
+        logging.info("Nada pendiente para procesar.")
         exit(0)
 
     with sync_playwright() as p:
@@ -184,9 +200,10 @@ if __name__ == "__main__":
                 res = procesar_dia(page, fecha)
                 append_to_csv(res, archivo)
             except Exception as e:
-                logging.error(f"  ✗ Error en {fecha}: {e}")
+                logging.error(f"Error en {fecha}: {e}")
             time.sleep(PAUSA_ENTRE_DIAS)
         browser.close()
+
 
 
 
