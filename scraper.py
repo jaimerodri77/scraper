@@ -167,7 +167,8 @@ def get_player_data(page, player_id: int) -> dict | None:
     pais = pais_raw if isinstance(pais_raw, dict) else {}
 
     return {
-        "player_id": player_id,
+        "sofascore_id": player_id,   # ID del jugador en Sofascore
+        "player_id": player_id,      # mantenido por compatibilidad con CSVs anteriores
         "nombre": jugador.get("name"),
         "nombre_corto": jugador.get("shortName"),
         "fecha_nacimiento": fecha_nac,
@@ -234,6 +235,18 @@ def save_jugadores_csv(jugadores: list[dict], archivo: str):
             df = df_nuevo
     else:
         df = df_nuevo
+
+    # Orden de columnas: sofascore_id primero, luego campos clave
+    columnas_prioritarias = [
+        "sofascore_id", "player_id", "nombre", "nombre_corto",
+        "pais", "pais_codigo", "genero",
+        "fecha_nacimiento", "edad",
+        "mano", "altura_cm", "peso_kg",
+        "ranking_singles", "ranking_dobles",
+        "actualizado",
+    ]
+    columnas_extra = [c for c in df.columns if c not in columnas_prioritarias]
+    df = df[[c for c in columnas_prioritarias if c in df.columns] + columnas_extra]
 
     df.to_csv(archivo, index=False)
     logging.info(f"Jugadores guardados: {len(df)} -> {archivo}")
@@ -307,8 +320,9 @@ if __name__ == "__main__":
 
             mano = normalizar_mano(datos.get("mano_dominante"))
             datos["mano"] = mano
+            datos.pop("mano_dominante", None)   # quitar el raw, conservamos "mano" normalizada
 
-            datos.update(ranking)
+            datos.update(ranking)               # agrega ranking_singles / ranking_dobles
             jugadores.append(datos)
             stats["aceptados"] += 1
 
