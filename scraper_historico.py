@@ -9,9 +9,13 @@ from playwright.sync_api import sync_playwright
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 
 CARPETA_SALIDA = "datos"
-ANO_INICIO = 2025
-FECHA_INICIO = datetime(ANO_INICIO, 1, 1)
-FECHA_FIN = datetime.now() 
+
+# =============================================================================
+# 📅 RANGO FIJO PARA EL AÑO 2025
+# =============================================================================
+FECHA_INICIO = datetime(2025, 1, 1)
+FECHA_FIN = datetime(2025, 12, 31)
+# =============================================================================
 
 CIRCUITOS_NOMBRES = ["atp", "wta"]
 PAUSA_ENTRE_DIAS = 2.0
@@ -112,30 +116,28 @@ def procesar_dia(page, fecha: str) -> list[dict]:
         return []
 
     partidos = []
+    scrape_date_str = datetime.now().strftime("%Y%m%d")
+
     for i, (evento, circuito_nombre) in enumerate(candidatos, 1):
         try:
             event_id = evento.get("id")
             tournament_data = evento.get("tournament", {})
-            
             home_team = evento.get("homeTeam", {})
             away_team = evento.get("awayTeam", {})
-            
             home_id = home_team.get("id")
             home_name = home_team.get("name")
             away_id = away_team.get("id")
             away_name = away_team.get("name")
-            
             home_score = evento.get("homeScore", {}).get("current", 0) or 0
             away_score = evento.get("awayScore", {}).get("current", 0) or 0
             home_wins = home_score > away_score
-            
             winner_name, loser_name = (home_name, away_name) if home_wins else (away_name, home_name)
             winner_id, loser_id = (home_id, away_id) if home_wins else (away_id, home_id)
             
             partido = {
                 "event_id": event_id,
                 "circuito": circuito_nombre,
-                "tourney_id": tournament_data.get("id"), # <--- NUEVO: ID del Torneo
+                "tourney_id": tournament_data.get("id"),
                 "tourney_name": tournament_data.get("name", "Unknown"),
                 "tourney_date": fecha,
                 "round": evento.get("roundInfo", {}).get("name", "Unknown"),
@@ -146,9 +148,8 @@ def procesar_dia(page, fecha: str) -> list[dict]:
                 "loser_name": loser_name,
                 "winner_sets": home_score if home_wins else away_score,
                 "loser_sets": away_score if home_wins else home_score,
-                "scrape_date": datetime.now().strftime("%Y%m%d"),
+                "scrape_date": scrape_date_str,
             }
-            
             stats_raw = api_get(page, f"https://api.sofascore.com/api/v1/event/{event_id}/statistics")
             if stats_raw:
                 partido.update(parsear_estadisticas(stats_raw))
@@ -195,7 +196,7 @@ if __name__ == "__main__":
         pendientes = [f for f in todas if f not in listas]
 
     if not pendientes:
-        logging.info("Nada pendiente.")
+        logging.info("Todo el año 2025 ya ha sido procesado.")
         exit(0)
 
     with sync_playwright() as p:
@@ -214,6 +215,7 @@ if __name__ == "__main__":
                 logging.error(f"Error en {fecha}: {e}")
             time.sleep(PAUSA_ENTRE_DIAS)
         browser.close()
+
 
 
 
