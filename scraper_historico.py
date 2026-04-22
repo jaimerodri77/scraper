@@ -4,22 +4,45 @@ import logging
 import os
 import time
 import argparse
+import subprocess  # <--- NUEVO: Para ejecutar comandos de Git
 from playwright.sync_api import sync_playwright
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 
 CARPETA_SALIDA = "datos"
-
-# =============================================================================
-# 📅 RANGO FIJO PARA EL AÑO 2025
-# =============================================================================
 FECHA_INICIO = datetime(2025, 1, 1)
 FECHA_FIN = datetime(2025, 12, 31)
-# =============================================================================
-
 CIRCUITOS_NOMBRES = ["atp", "wta"]
 PAUSA_ENTRE_DIAS = 2.0
 PAUSA_ENTRE_REQUESTS = 0.5
+
+# =============================================================================
+# 🛠️ CONFIGURACIÓN DE GUARDADO
+# El bot subirá los datos al repo cada X días para no perder progreso
+# =============================================================================
+INTERVALO_GUARDADO = 10 
+# =============================================================================
+
+def git_push_progress():
+    """Sube los cambios actuales al repositorio de GitHub para evitar pérdida de datos."""
+    try:
+        logging.info("💾 Guardando progreso en GitHub...")
+        subprocess.run(["git", "config", "--global", "user.email", "scraperbot@github.com"], check=True)
+        subprocess.run(["git", "config", "--global", "user.name", "TennisScraperBot"], check=True)
+        subprocess.run(["git", "add", "datos/*.csv"], check=True)
+        
+        # Verificar si hay cambios
+        result = subprocess.run(["git", "diff", "--staged", "--quiet"], capture_output=True)
+        if result.returncode == 0:
+            logging.info("No hay cambios nuevos para guardar.")
+            return
+
+        subprocess.run(["git", "commit", "-m", f"Progreso Histórico 2025: {datetime.now().strftime('%Y-%m-%d %H:%M')}"], check=True)
+        subprocess.run(["git", "pull", "--rebase", "origin", "main"], check=True)
+        subprocess.run(["git", "push"], check=True)
+        logging.info("✅ Progreso guardado exitosamente en la nube.")
+    except Exception as e:
+        logging.error(f"❌ Error al guardar progreso en Git: {e}")
 
 def api_get(page, url: str) -> dict:
     try:
@@ -112,22 +135,18 @@ def procesar_dia(page, fecha: str) -> list[dict]:
             candidatos.append((evento, circuito))
     
     if not candidatos:
-        logging.info(f"Día {fecha}: Sin partidos de sencillos ATP/WTA terminados.")
         return []
 
     partidos = []
     scrape_date_str = datetime.now().strftime("%Y%m%d")
-
     for i, (evento, circuito_nombre) in enumerate(candidatos, 1):
         try:
             event_id = evento.get("id")
             tournament_data = evento.get("tournament", {})
             home_team = evento.get("homeTeam", {})
             away_team = evento.get("awayTeam", {})
-            home_id = home_team.get("id")
-            home_name = home_team.get("name")
-            away_id = away_team.get("id")
-            away_name = away_team.get("name")
+            home_id, home_name = home_team.get("id"), home_team.get("name")
+            away_id, away_name = away_team.get("id"), away_team.get("name")
             home_score = evento.get("homeScore", {}).get("current", 0) or 0
             away_score = evento.get("awayScore", {}).get("current", 0) or 0
             home_wins = home_score > away_score
@@ -171,7 +190,6 @@ def append_to_csv(partidos: list[dict], archivo: str):
     else:
         df_final = df_nuevo
     df_final.to_csv(archivo, index=False)
-    logging.info(f"🚀 CSV ACTUALIZADO: {archivo}. Total registros: {len(df_final)}")
 
 def generar_fechas(inicio, fin):
     fechas = []
@@ -196,7 +214,7 @@ if __name__ == "__main__":
         pendientes = [f for f in todas if f not in listas]
 
     if not pendientes:
-        logging.info("Todo el año 2025 ya ha sido procesado.")
+        logging.info("Todo el año ya procesado.")
         exit(0)
 
     with sync_playwright() as p:
@@ -213,8 +231,17 @@ if __name__ == "__main__":
                 append_to_csv(res, archivo)
             except Exception as e:
                 logging.error(f"Error en {fecha}: {e}")
+            
+            # GUARDADO INTERMEDIO: Cada X días procesados, subir al repo
+            if idx % INTERVALO_GUARDADO == 0:
+                git_push_progress()
+            
             time.sleep(PAUSA_ENTRE_DIAS)
         browser.close()
+    
+    # Guardado final al terminar todo
+    git_push_progress()
+
 
 
 
