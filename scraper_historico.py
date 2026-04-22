@@ -3,7 +3,6 @@ from datetime import datetime, timedelta
 import logging
 import os
 import time
-import json
 import argparse
 from playwright.sync_api import sync_playwright
 
@@ -12,7 +11,8 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(me
 CARPETA_SALIDA = "datos"
 ANO_INICIO = 2025
 FECHA_INICIO = datetime(ANO_INICIO, 1, 1)
-FECHA_FIN = datetime.now() - timedelta(days=1)
+FECHA_FIN = datetime.now() 
+
 CIRCUITOS_NOMBRES = ["atp", "wta"]
 PAUSA_ENTRE_DIAS = 2.0
 PAUSA_ENTRE_REQUESTS = 0.5
@@ -81,14 +81,12 @@ def parsear_estadisticas(stats_data: dict) -> dict:
     return resultado
 
 def fechas_ya_descargadas(archivo: str) -> set:
-    """Retorna fechas ya procesadas. Maneja archivos vacíos sin crashear."""
     if not os.path.exists(archivo) or os.path.getsize(archivo) == 0: 
         return set()
     try:
         df = pd.read_csv(archivo, usecols=["tourney_date"])
         return set(df["tourney_date"].dropna().unique())
-    except Exception: 
-        return set()
+    except Exception: return set()
 
 def procesar_dia(page, fecha: str) -> list[dict]:
     eventos = get_eventos_del_dia(page, fecha)
@@ -109,10 +107,20 @@ def procesar_dia(page, fecha: str) -> list[dict]:
             event_id = evento.get("id")
             home_team = evento.get("homeTeam", {})
             away_team = evento.get("awayTeam", {})
+            
+            # IDs y Nombres
+            home_id = home_team.get("id")
+            home_name = home_team.get("name")
+            away_id = away_team.get("id")
+            away_name = away_team.get("name")
+            
             home_score = evento.get("homeScore", {}).get("current", 0) or 0
             away_score = evento.get("awayScore", {}).get("current", 0) or 0
             home_wins = home_score > away_score
-            winner, loser = (home_team.get("name"), away_team.get("name")) if home_wins else (away_team.get("name"), home_team.get("name"))
+            
+            # Asignar Ganador y Perdedor (Nombres e IDs)
+            winner_name, loser_name = (home_name, away_name) if home_wins else (away_name, home_name)
+            winner_id, loser_id = (home_id, away_id) if home_wins else (away_id, home_id)
             
             partido = {
                 "event_id": event_id,
@@ -121,12 +129,15 @@ def procesar_dia(page, fecha: str) -> list[dict]:
                 "tourney_date": fecha,
                 "round": evento.get("roundInfo", {}).get("name", "Unknown"),
                 "surface": evento.get("groundType") or evento.get("tournament", {}).get("groundType"),
-                "winner_name": winner,
-                "loser_name": loser,
+                "winner_id": winner_id,        # <--- NUEVO
+                "winner_name": winner_name,
+                "loser_id": loser_id,          # <--- NUEVO
+                "loser_name": loser_name,
                 "winner_sets": home_score if home_wins else away_score,
                 "loser_sets": away_score if home_wins else home_score,
                 "scrape_date": datetime.now().strftime("%Y%m%d"),
             }
+            
             stats_raw = api_get(page, f"https://api.sofascore.com/api/v1/event/{event_id}/statistics")
             if stats_raw:
                 partido.update(parsear_estadisticas(stats_raw))
@@ -136,22 +147,17 @@ def procesar_dia(page, fecha: str) -> list[dict]:
     return partidos
 
 def append_to_csv(partidos: list[dict], archivo: str):
-    """Guarda los datos en el CSV manejando archivos vacíos o inexistentes."""
     if not partidos: return
     os.makedirs(CARPETA_SALIDA, exist_ok=True)
     df_nuevo = pd.DataFrame(partidos)
-    
-    # Verificamos si el archivo existe Y tiene contenido (tamaño > 0)
     if os.path.exists(archivo) and os.path.getsize(archivo) > 0:
         try:
             df_viejo = pd.read_csv(archivo)
             df_final = pd.concat([df_viejo, df_nuevo]).drop_duplicates(subset=["event_id"], keep='last')
-        except Exception as e:
-            logging.warning(f"No se pudo leer el archivo existente ({e}), se creará uno nuevo.")
+        except Exception:
             df_final = df_nuevo
     else:
         df_final = df_nuevo
-    
     df_final.to_csv(archivo, index=False)
     logging.info(f"🚀 CSV ACTUALIZADO: {archivo}. Total registros: {len(df_final)}")
 
@@ -178,7 +184,7 @@ if __name__ == "__main__":
         pendientes = [f for f in todas if f not in listas]
 
     if not pendientes:
-        logging.info("Nada pendiente para procesar.")
+        logging.info("Nada pendiente.")
         exit(0)
 
     with sync_playwright() as p:
@@ -197,6 +203,7 @@ if __name__ == "__main__":
                 logging.error(f"Error en {fecha}: {e}")
             time.sleep(PAUSA_ENTRE_DIAS)
         browser.close()
+
 
 
 
