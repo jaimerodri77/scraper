@@ -96,25 +96,34 @@ def procesar_dia(page, fecha):
     for i, (evento, circuito_nombre) in enumerate(candidatos, 1):
         try:
             event_id = evento.get("id")
-            home = evento.get("homeTeam", {}).get("name", "Unknown")
-            away = evento.get("awayTeam", {}).get("name", "Unknown")
+            home_team = evento.get("homeTeam", {})
+            away_team = evento.get("awayTeam", {})
+            home = home_team.get("name", "Unknown")
+            away = away_team.get("name", "Unknown")
+            home_id = home_team.get("id")
+            away_id = away_team.get("id")
             home_score = evento.get("homeScore", {}).get("current", 0) or 0
             away_score = evento.get("awayScore", {}).get("current", 0) or 0
-            winner, loser = (home, away) if home_score > away_score else (away, home)
+            home_wins = home_score > away_score
+
+            winner,    loser    = (home,    away)    if home_wins else (away,    home)
+            winner_id, loser_id = (home_id, away_id) if home_wins else (away_id, home_id)
 
             surface = (evento.get("groundType") or evento.get("tournament", {}).get("groundType") or None)
 
             partido = {
-                "event_id": event_id,
-                "circuito": circuito_nombre,
+                "event_id":    event_id,
+                "circuito":    circuito_nombre,
                 "tourney_name": evento.get("tournament", {}).get("name", "Unknown"),
                 "tourney_date": fecha,
-                "round": evento.get("roundInfo", {}).get("name", "Unknown"),
-                "surface": surface,
+                "round":       evento.get("roundInfo", {}).get("name", "Unknown"),
+                "surface":     surface,
+                "winner_id":   winner_id,   # sofascore ID del ganador
                 "winner_name": winner,
-                "loser_name": loser,
-                "winner_sets": home_score if home_score > away_score else away_score,
-                "loser_sets": away_score if home_score > away_score else home_score,
+                "loser_id":    loser_id,    # sofascore ID del perdedor
+                "loser_name":  loser,
+                "winner_sets": home_score if home_wins else away_score,
+                "loser_sets":  away_score if home_wins else home_score,
                 "scrape_date": datetime.now().strftime("%Y%m%d"),
             }
 
