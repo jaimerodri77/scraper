@@ -3,6 +3,8 @@ from datetime import datetime, timedelta
 import logging
 import os
 import time
+import json
+import argparse
 from playwright.sync_api import sync_playwright
 
 logging.basicConfig(
@@ -26,6 +28,7 @@ PAUSA_ENTRE_REQUESTS = 0.5  # segundos
 def api_get(page, url: str) -> dict:
     try:
         time.sleep(PAUSA_ENTRE_REQUESTS)
+        logging.info(f"API CALL: {url}")
         response = page.request.get(
             url,
             headers={
@@ -34,8 +37,11 @@ def api_get(page, url: str) -> dict:
             },
             timeout=30000,
         )
+        logging.info(f"API {url}: status={response.status}")
         if response.status == 200:
-            return response.json()
+            data = response.json()
+            logging.info(f"API OK: {len(str(data))} chars")
+            return data
         elif response.status == 429:
             logging.warning("Rate limit (429) — esperando 30s...")
             time.sleep(30)
@@ -51,6 +57,12 @@ def api_get(page, url: str) -> dict:
 def get_eventos_del_dia(page, fecha: str) -> list[dict]:
     url = f"https://api.sofascore.com/api/v1/sport/tennis/scheduled-events/{fecha}"
     data = api_get(page, url)
+    logging.info(f"=== DEBUG {fecha} === Eventos encontrados: {len(data.get('events', []))}")
+    # Save raw para debug
+    debug_file = os.path.join(CARPETA_SALIDA, f"debug_{fecha}.json")
+    with open(debug_file, 'w') as f:
+        json.dump(data, f, indent=2)
+    logging.info(f"Raw data guardado en {debug_file}")
     return data.get("events", [])
 
 
@@ -105,13 +117,17 @@ def fechas_ya_descargadas(archivo: str) -> set:
 
 def procesar_dia(page, fecha: str) -> list[dict]:
     eventos = get_eventos_del_dia(page, fecha)
+    logging.info(f"Total eventos: {len(eventos)}")
     candidatos = []
 
     for evento in eventos:
         circuito_nombre = detectar_circuito(evento)
         estado = get_estado(evento)
+        logging.debug(f"Evento: circuito={circuito_nombre}, estado={estado}")
         if circuito_nombre and estado == "finished":
             candidatos.append((evento, circuito_nombre))
+    
+    logging.info(f"Candidatos ATP/WTA finished: {len(candidatos)}")
 
     partidos = []
     total = len(candidatos)
@@ -194,24 +210,31 @@ def generar_fechas(inicio: datetime, fin: datetime) -> list[str]:
 
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Scraper histórico tenis Sofascore")
+    parser.add_argument("--fecha", type=str, help="Fecha específica YYYY-MM-DD para DEBUG (solo 1 día)")
+    args = parser.parse_args()
+    
     archivo = os.path.join(CARPETA_SALIDA, "tenis_historico.csv")
+    debug_fecha = args.fecha
 
-    todas_las_fechas = generar_fechas(FECHA_INICIO, FECHA_FIN)
-    fechas_listas = fechas_ya_descargadas(archivo)
-
-    pendientes = [f for f in todas_las_fechas if f not in fechas_listas]
-    total_dias = len(todas_las_fechas)
-    dias_pendientes = len(pendientes)
-
-    logging.info(f"Rango: {todas_las_fechas[0]} → {todas_las_fechas[-1]} ({total_dias} días)")
-    logging.info(f"Ya descargados: {total_dias - dias_pendientes} | Pendientes: {dias_pendientes}")
+    if debug_fecha:
+        logging.info(f"*** MODO DEBUG: Solo procesando {debug_fecha} ***")
+        pendientes = [debug_fecha]
+    else:
+        todas_las_fechas = generar_fechas(FECHA_INICIO, FECHA_FIN)
+        fechas_listas = fechas_ya_descargadas(archivo)
+        pendientes = [f for f in todas_las_fechas if f not in fechas_listas]
+        total_dias = len(todas_las_fechas)
+        dias_pendientes = len(pendientes)
+        logging.info(f"Rango: {todas_las_fechas[0]} → {todas_las_fechas[-1]} ({total_dias} días)")
+        logging.info(f"Ya descargados: {total_dias - dias_pendientes} | Pendientes: {dias_pendientes}")
 
     if not pendientes:
-        logging.info("Todo ya está descargado. Nada que hacer.")
+        logging.info("Nada pendiente.")
         exit(0)
 
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=True)
+        browser = p.chromium.launch(headless=False)  # DEBUG: visible para inspeccionar
         context = browser.new_context(
             user_agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
             locale="es-ES",
