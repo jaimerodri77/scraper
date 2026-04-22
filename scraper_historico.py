@@ -234,7 +234,7 @@ if __name__ == "__main__":
         exit(0)
 
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=False)  # DEBUG: visible para inspeccionar
+        browser = p.chromium.launch(headless=True)
         context = browser.new_context(
             user_agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
             locale="es-ES",
@@ -266,3 +266,4 @@ if __name__ == "__main__":
     if os.path.exists(archivo):
         df_final = pd.read_csv(archivo)
         logging.info(f"✓ Descarga completa: {len(df_final)} partidos totales en {archivo}")
+
