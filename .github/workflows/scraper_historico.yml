@@ -1,7 +1,12 @@
 name: Tennis Scraper Histórico
 
 on:
-  workflow_dispatch:  # Solo manual — se ejecuta una vez para el histórico
+  workflow_dispatch:
+    inputs:
+      fecha:
+        description: 'Fecha específica para debug (YYYY-MM-DD)'
+        required: false
+        default: ''
 
 jobs:
   scrape-historico:
@@ -40,7 +45,13 @@ jobs:
           fi
 
       - name: Ejecutar scraper histórico
-        run: python scraper_historico.py
+        run: |
+          if [ -n "${{ github.event.inputs.fecha }}" ]; then
+            echo "MODO DEBUG: ${{ github.event.inputs.fecha }}"
+            python scraper_historico.py --fecha ${{ github.event.inputs.fecha }}
+          else
+            python scraper_historico.py
+          fi
 
       - name: Verificar resultado
         run: |
