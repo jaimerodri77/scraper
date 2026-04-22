@@ -39,23 +39,24 @@ jobs:
       - name: Ejecutar scraper
         run: |
           if [ -n "${{ github.event.inputs.fecha }}" ]; then
-            echo "🚀 EJECUTANDO MODO PRUEBA: Fecha ${{ github.event.inputs.fecha }}"
+            echo "🚀 MODO PRUEBA: Fecha ${{ github.event.inputs.fecha }}"
             python scraper_historico.py --fecha ${{ github.event.inputs.fecha }}
           else
-            echo "📅 EJECUTANDO MODO HISTÓRICO COMPLETO"
+            echo "📅 MODO HISTÓRICO COMPLETO"
             python scraper_historico.py
           fi
 
-      - name: Guardar resultados en repositorio
+      - name: Guardar CSV en repositorio
         if: always()
         run: |
           git config --global user.email "scraperbot@github.com"
           git config --global user.name "TennisScraperBot"
-          git add datos/*.csv datos/*.json || true
+          git add datos/*.csv || true
           if git diff --staged --quiet; then
-            echo "No hay cambios para guardar."
+            echo "No hay cambios en el CSV."
           else
-            git commit -m "Update tenis data: $(date +'%Y-%m-%d %H:%M')"
+            git commit -m "Update tenis csv: $(date +'%Y-%m-%d %H:%M')"
             git push
           fi
+
 
