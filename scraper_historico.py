@@ -7,17 +7,12 @@ import json
 import argparse
 from playwright.sync_api import sync_playwright
 
-# Configuración de Logs
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s [%(levelname)s] %(message)s"
-)
+logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 
 CARPETA_SALIDA = "datos"
 ANO_INICIO = 2025
 FECHA_INICIO = datetime(ANO_INICIO, 1, 1)
 FECHA_FIN = datetime.now() - timedelta(days=1)
-
 CIRCUITOS_NOMBRES = ["atp", "wta"]
 PAUSA_ENTRE_DIAS = 2.0
 PAUSA_ENTRE_REQUESTS = 0.5
@@ -27,14 +22,10 @@ def api_get(page, url: str) -> dict:
         time.sleep(PAUSA_ENTRE_REQUESTS)
         response = page.request.get(
             url,
-            headers={
-                "Accept": "application/json",
-                "Referer": "https://www.sofascore.com/tennis",
-            },
+            headers={"Accept": "application/json", "Referer": "https://www.sofascore.com/tennis"},
             timeout=30000,
         )
-        if response.status == 200:
-            return response.json()
+        if response.status == 200: return response.json()
         elif response.status == 429:
             logging.warning("Rate limit (429) — esperando 30s...")
             time.sleep(30)
@@ -49,12 +40,9 @@ def get_eventos_del_dia(page, fecha: str) -> list[dict]:
     data = api_get(page, url)
     eventos = data.get("events", [])
     
-    # Guardar JSON de debug para cada día procesado
     os.makedirs(CARPETA_SALIDA, exist_ok=True)
-    debug_file = os.path.join(CARPETA_SALIDA, f"debug_{fecha}.json")
-    with open(debug_file, 'w') as f:
+    with open(os.path.join(CARPETA_SALIDA, f"debug_{fecha}.json"), 'w') as f:
         json.dump(data, f, indent=2)
-        
     return eventos
 
 def detectar_circuito(evento: dict) -> str | None:
@@ -63,8 +51,7 @@ def detectar_circuito(evento: dict) -> str | None:
     cat_name = categoria.get("name", "").lower()
     cat_slug = categoria.get("slug", "").lower()
     for circuito in CIRCUITOS_NOMBRES:
-        if circuito in cat_name or circuito in cat_slug:
-            return circuito.upper()
+        if circuito in cat_name or circuito in cat_slug: return circuito.upper()
     return None
 
 def get_estado(evento: dict) -> str:
@@ -135,23 +122,26 @@ def procesar_dia(page, fecha: str) -> list[dict]:
             stats_raw = api_get(page, f"https://api.sofascore.com/api/v1/event/{event_id}/statistics")
             if stats_raw:
                 partido.update(parsear_estadisticas(stats_raw))
-
             partidos.append(partido)
         except Exception as e:
             logging.error(f"Error en evento {evento.get('id')}: {e}")
-            
     return partidos
 
 def append_to_csv(partidos: list[dict], archivo: str):
+    """Añade los partidos al CSV principal, evitando duplicados."""
     if not partidos: return
     os.makedirs(CARPETA_SALIDA, exist_ok=True)
     df_nuevo = pd.DataFrame(partidos)
+    
     if os.path.exists(archivo):
         df_viejo = pd.read_csv(archivo)
-        df = pd.concat([df_viejo, df_nuevo]).drop_duplicates(subset=["event_id"])
+        # Concatenamos y eliminamos duplicados basándonos en el event_id
+        df_final = pd.concat([df_viejo, df_nuevo]).drop_duplicates(subset=["event_id"], keep='last')
     else:
-        df = df_nuevo
-    df.to_csv(archivo, index=False)
+        df_final = df_nuevo
+    
+    df_final.to_csv(archivo, index=False)
+    logging.info(f"✓ Datos guardados en {archivo}. Total filas: {len(df_final)}")
 
 def generar_fechas(inicio, fin):
     fechas = []
@@ -175,7 +165,7 @@ if __name__ == "__main__":
         todas = generar_fechas(FECHA_INICIO, FECHA_FIN)
         listas = fechas_ya_descargadas(archivo)
         pendientes = [f for f in todas if f not in listas]
-        logging.info(f"Modo Histórico: {len(pendientes)} días pendientes de {len(todas)}.")
+        logging.info(f"Modo Histórico: {len(pendientes)} días pendientes.")
 
     if not pendientes:
         logging.info("No hay fechas para procesar.")
@@ -185,8 +175,6 @@ if __name__ == "__main__":
         browser = p.chromium.launch(headless=True)
         context = browser.new_context(user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36")
         page = context.new_page()
-        
-        # Evitar bloqueo inicial
         page.goto("https://www.sofascore.com/tennis", wait_until="domcontentloaded")
         time.sleep(5)
 
@@ -195,13 +183,10 @@ if __name__ == "__main__":
             try:
                 res = procesar_dia(page, fecha)
                 append_to_csv(res, archivo)
-                logging.info(f"  ✓ {len(res)} partidos guardados.")
             except Exception as e:
                 logging.error(f"  ✗ Error en {fecha}: {e}")
-            
             time.sleep(PAUSA_ENTRE_DIAS)
-
         browser.close()
-    logging.info("Proceso finalizado exitosamente.")
+
 
 
