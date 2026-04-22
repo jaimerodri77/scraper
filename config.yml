@@ -1,0 +1,5 @@
+settings:
+  date: "2025-01-20"
+  sport_id: 1
+  output_file: "data/prueba_sofascore_2025.csv" # <--- Ahora está dentro de la carpeta 'data'
+  user_agent: "Mozilla/5.0 ..."
