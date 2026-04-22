@@ -244,6 +244,7 @@ if __name__ == "__main__":
         page.goto("https://www.sofascore.com/tennis", wait_until="domcontentloaded", timeout=60000)
         page.wait_for_timeout(3000)
 
+        dias_pendientes = len(pendientes)
         for idx, fecha in enumerate(pendientes, 1):
             logging.info(f"[{idx}/{dias_pendientes}] Procesando {fecha}...")
             try:
