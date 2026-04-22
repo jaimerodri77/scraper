@@ -1,10 +1,10 @@
-name: Tennis Scraper Histórico
+name: Tennis Scraper Histórico 2025
 
 on:
   workflow_dispatch:
     inputs:
       fecha:
-        description: 'Fecha específica para prueba (YYYY-MM-DD). Deja vacío para correr histórico completo.'
+        description: 'Fecha específica para debug (YYYY-MM-DD). Deja vacío para procesar el año 2025.'
         required: false
         default: ''
 
@@ -36,13 +36,13 @@ jobs:
       - name: Preparar carpeta de datos
         run: mkdir -p datos
 
-      - name: Ejecutar scraper
+      - name: Ejecutar scraper 2025
         run: |
           if [ -n "${{ github.event.inputs.fecha }}" ]; then
-            echo "🚀 MODO PRUEBA: Fecha ${{ github.event.inputs.fecha }}"
+            echo "🚀 MODO PRUEBA: Procesando fecha específica ${{ github.event.inputs.fecha }}"
             python scraper_historico.py --fecha ${{ github.event.inputs.fecha }}
           else
-            echo "📅 MODO HISTÓRICO COMPLETO"
+            echo "📅 MODO HISTÓRICO: Procesando rango completo 2025"
             python scraper_historico.py
           fi
 
@@ -55,8 +55,9 @@ jobs:
           if git diff --staged --quiet; then
             echo "No hay cambios en el CSV."
           else
-            git commit -m "Update tenis csv: $(date +'%Y-%m-%d %H:%M')"
+            git commit -m "Update tenis 2025: $(date +'%Y-%m-%d %H:%M')"
             git push
           fi
+
 
 
