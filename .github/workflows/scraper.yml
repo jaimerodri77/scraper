@@ -2,9 +2,8 @@ name: Tennis Scraper Diario
 
 on:
   schedule:
-    # 05:01 UTC es igual a 00:01 (12:01 AM) hora Colombia (UTC-5)
-    - cron: '1 5 * * *'
-  workflow_dispatch: # Permite ejecutarlo manualmente para pruebas
+    - cron: '1 5 * * *' # 12:01 AM Colombia
+  workflow_dispatch:
 
 jobs:
   scrape:
@@ -50,6 +49,9 @@ jobs:
             echo "Sin cambios nuevos."
             exit 0
           fi
-          git commit -m "Update tennis daily data $(date +'%Y-%m-%d')"
+          git commit -m "Daily Update: $(date +'%Y-%m-%d')"
+          # Sincronizar con el repo antes de subir para evitar conflictos con el bot histórico
+          git pull --rebase origin main
           git push
+
 
