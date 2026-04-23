@@ -15,7 +15,7 @@ ARCHIVO_PARTIDOS = os.path.join(CARPETA_SALIDA, "tenis_historico.csv")
 
 def api_get(page, url: str) -> dict:
     try:
-        time.sleep(0.5) # Evitar bloqueo de API
+        time.sleep(0.6) # Pausa para evitar el bloqueo 429
         response = page.request.get(
             url,
             headers={
@@ -25,13 +25,18 @@ def api_get(page, url: str) -> dict:
             },
             timeout=30000,
         )
-        return response.json() if response.status == 200 else {}
+        if response.status == 200:
+            return response.json()
+        elif response.status == 429:
+            logging.warning("Rate limit (429) - Esperando 30s...")
+            time.sleep(30)
+            return api_get(page, url)
+        return {}
     except Exception as e:
         logging.warning(f"Error en {url}: {e}")
         return {}
 
 def normalizar_mano(mano_raw) -> str | None:
-    """Convierte 'Right', 'Left' o variantes en 'R' o 'L'."""
     if not mano_raw: return None
     m = str(mano_raw).lower()
     if "right" in m or m in ("r", "d", "diestro", "derecha"): return "R"
@@ -39,12 +44,10 @@ def normalizar_mano(mano_raw) -> str | None:
     return None
 
 def get_player_data(page, player_id: int) -> dict | None:
-    """Extrae datos básicos, país y fecha de nacimiento."""
     data = api_get(page, f"https://api.sofascore.com/api/v1/player/{player_id}")
     jugador = data.get("player")
     if not jugador: return None
 
-    # Conversión de Timestamp a Fecha de Nacimiento
     fecha_nac = None
     ts = jugador.get("dateOfBirthTimestamp")
     if ts:
@@ -71,11 +74,9 @@ def get_player_data(page, player_id: int) -> dict | None:
     }
 
 def get_ranking(page, player_id: int) -> dict:
-    """Extrae el ranking de sencillos y dobles."""
     resultado = {}
     data = api_get(page, f"https://api.sofascore.com/api/v1/player/{player_id}/rankings")
     rankings = data.get("rankings", [])
-    
     for r in rankings:
         tipo = r.get("type", "").lower()
         pos = r.get("ranking")
@@ -93,46 +94,38 @@ def save_jugadores_csv(jugadores: list[dict], archivo: str):
     if os.path.exists(archivo):
         try:
             df_viejo = pd.read_csv(archivo)
-            # Eliminar duplicados por sofascore_id, manteniendo el registro más nuevo
+            # UNIÓN Y ELIMINACIÓN DE DUPLICADOS
+            # keep='last' asegura que el dato nuevo (ranking actualizado) reemplace al viejo
             df = pd.concat([df_viejo, df_nuevo]).drop_duplicates(subset=["sofascore_id"], keep="last")
         except:
             df = df_nuevo
     else:
         df = df_nuevo
 
-    # Ordenar columnas para que sea legible
     columnas_orden = [
         "sofascore_id", "nombre", "pais", "pais_codigo", "genero",
         "fecha_nacimiento", "edad", "mano", "altura_cm", "peso_kg",
         "ranking_singles", "ranking_dobles", "actualizado"
     ]
-    # Solo mantener columnas que realmente existan en el DF
     columnas_finales = [c for c in columnas_orden if c in df.columns]
     df = df[columnas_finales]
 
     df.to_csv(archivo, index=False)
-    logging.info(f"Base de datos de jugadores actualizada: {len(df)} registros.")
+    logging.info(f"Base de datos actualizada: {len(df)} jugadores.")
 
 if __name__ == "__main__":
-    # 1. Obtener todos los IDs de jugadores desde el archivo maestro de partidos
     if not os.path.exists(ARCHIVO_PARTIDOS):
-        logging.error("No hay archivo tenis_historico.csv. Ejecuta primero los scrapers de partidos.")
+        logging.error("No se encontró tenis_historico.csv.")
         exit(1)
     
+    # Leer todos los IDs que aparecen en los partidos
     df_partidos = pd.read_csv(ARCHIVO_PARTIDOS)
     all_ids = set(df_partidos["winner_id"].dropna().astype(int).tolist())
     all_ids.update(df_partidos["loser_id"].dropna().astype(int).tolist())
     
-    # 2. Ver quiénes ya están en la base de datos para no repetirlos
-    ids_existentes = set()
-    if os.path.exists(ARCHIVO_JUGADORES):
-        try:
-            df_ext = pd.read_csv(ARCHIVO_JUGADORES)
-            ids_existentes = set(df_ext["sofascore_id"].dropna().astype(int).tolist())
-        except: pass
-
-    ids_nuevos = all_ids - ids_existentes
-    logging.info(f"Jugadores totales: {len(all_ids)} | Nuevos a procesar: {len(ids_nuevos)}")
+    # IMPORTANTE: Ya no filtramos los ids_existentes aquí.
+    # Procesamos todos los IDs encontrados para actualizar sus rankings.
+    logging.info(f"Total de jugadores a procesar/actualizar: {len(all_ids)}")
 
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
@@ -142,19 +135,18 @@ if __name__ == "__main__":
         page.goto("https://www.sofascore.com/tennis")
 
         jugadores_lista = []
-        total = len(ids_nuevos)
+        total = len(all_ids)
 
-        for i, pid in enumerate(ids_nuevos, 1):
-            print(f"\r[{i}/{total}] Extrayendo Jugador ID: {pid}", end="")
+        for i, pid in enumerate(all_ids, 1):
+            print(f"\r[{i}/{total}] Actualizando Jugador ID: {pid}", end="")
             
             datos = get_player_data(page, pid)
             if datos:
-                # Agregar el Ranking al perfil del jugador
                 ranking = get_ranking(page, pid)
                 datos.update(ranking)
                 jugadores_lista.append(datos)
             
-            # Guardado progresivo cada 50 jugadores para evitar pérdida de datos
+            # Guardado cada 50 para no perder progreso
             if i % 50 == 0 and jugadores_lista:
                 save_jugadores_csv(jugadores_lista, ARCHIVO_JUGADORES)
                 jugadores_lista = []
@@ -164,6 +156,7 @@ if __name__ == "__main__":
     if jugadores_lista:
         save_jugadores_csv(jugadores_lista, ARCHIVO_JUGADORES)
     
-    logging.info("\nProceso de extracción de jugadores completado.")
+    logging.info("\nSincronización de jugadores y rankings completada.")
+
 
 
