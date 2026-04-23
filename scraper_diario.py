@@ -8,8 +8,8 @@ from playwright_stealth import Stealth
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 
 CARPETA_SALIDA = "datos"
-# Crea el archivo dinámicamente según el año actual (ej: tenis_2026.csv)
-ARCHIVO_PARTIDOS = os.path.join(CARPETA_SALIDA, f"tenis_{datetime.now().year}.csv")
+# CAMBIO: Ahora usamos el mismo archivo que el scraper histórico
+ARCHIVO_PARTIDOS = os.path.join(CARPETA_SALIDA, "tenis_historico.csv")
 CIRCUITOS_NOMBRES = ["atp", "wta"]
 
 def api_get(page, url):
@@ -25,7 +25,6 @@ def api_get(page, url):
         return {}
 
 def formatear_valor(val):
-    """Convierte la respuesta de la API al formato '77/108 (71%)'."""
     if isinstance(val, dict):
         v = val.get("value", 0)
         t = val.get("total", 0)
@@ -36,7 +35,6 @@ def formatear_valor(val):
     return val
 
 def es_partido_sencillos(evento: dict) -> bool:
-    """Filtra partidos de dobles."""
     tourney_name = evento.get("tournament", {}).get("name", "").lower()
     cat_name = evento.get("tournament", {}).get("category", {}).get("name", "").lower()
     if "doubles" in tourney_name or "dobles" in tourney_name: return False
@@ -47,8 +45,9 @@ def es_partido_sencillos(evento: dict) -> bool:
     return True
 
 def ultima_fecha_csv(archivo):
+    # Si no hay archivo, empezamos desde el 1 de enero del año actual
     fecha_base = datetime(datetime.now().year, 1, 1).date() - timedelta(days=1)
-    if not os.path.exists(archivo):
+    if not os.path.exists(archivo) or os.path.getsize(archivo) == 0:
         return fecha_base
     try:
         df = pd.read_csv(archivo)
@@ -107,11 +106,9 @@ def parsear_estadisticas(stats_data: dict) -> dict:
 def procesar_dia(page, fecha):
     eventos = get_eventos_del_dia(page, fecha)
     candidatos = []
-    
     for evento in eventos:
         circuito_nombre = detectar_circuito(evento)
         estado = get_estado(evento)
-        # FILTRO: ATP/WTA + Terminado + Sencillos
         if circuito_nombre and estado == "finished" and es_partido_sencillos(evento):
             candidatos.append((evento, circuito_nombre))
 
@@ -176,11 +173,10 @@ def append_to_csv(partidos, archivo):
         df_final = df_nuevo
     
     df_final.to_csv(archivo, index=False)
-    logging.info(f"🚀 CSV ACTUALIZADO: {archivo}. Total registros: {len(df_final)}")
+    logging.info(f"🚀 CSV MAESTRO ACTUALIZADO: {archivo}. Total registros: {len(df_final)}")
 
 if __name__ == "__main__":
     logging.info(f"Actualizando partidos diarios en {ARCHIVO_PARTIDOS}")
-    
     ultima = ultima_fecha_csv(ARCHIVO_PARTIDOS)
     fechas = generar_fechas_desde(ultima)
     
@@ -201,6 +197,6 @@ if __name__ == "__main__":
             append_to_csv(partidos, ARCHIVO_PARTIDOS)
         
         browser.close()
-    
     logging.info("✓ Scraper diario completado")
+
 
