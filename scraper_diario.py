@@ -102,15 +102,12 @@ def parsear_estadisticas(stats_data: dict) -> dict:
 
 def procesar_dia(page, fecha):
     eventos = get_eventos_del_dia(page, fecha)
-    
-    # DIAGNÓSTICO: Logueamos cuántos eventos totales devolvió la API
     total_api = len(eventos)
     logging.info(f"API devolvió {total_api} eventos totales para {fecha}")
 
     candidatos = []
     for evento in eventos:
         estado = get_estado(evento)
-        # Solo procesamos si está terminado y es individual
         if estado in ["finished", "ended"] and es_partido_sencillos(evento):
             candidatos.append(evento)
 
@@ -136,7 +133,7 @@ def procesar_dia(page, fecha):
                 winner_id, loser_id = away_id, home_id
                 winner_sets, loser_sets = away_score, home_score
             else:
-                winner_name, loser_name = (home_name, away_name) if home_score > away_score else (away_name, home_//name)
+                winner_name, loser_name = (home_name, away_name) if home_score > away_score else (away_name, home_name)
                 winner_id, loser_id = (home_id, away_id) if home_score > away_score else (away_id, home_id)
                 winner_sets, loser_sets = (home_score, away_score) if home_score > away_score else (away_score, home_score)
 
@@ -149,7 +146,6 @@ def procesar_dia(page, fecha):
                 "loser_id": loser_id, "loser_name": loser_name,
                 "winner_sets": winner_sets, "loser_sets": loser_sets,
                 "scrape_date": datetime.now().strftime("%Y%m%d"),
-                "ALL_aces_home": "0/0 (0%)", "ALL_aces_home": "0/0 (0%)", # ... default stats
             }
 
             try:
@@ -165,7 +161,49 @@ def procesar_dia(page, fecha):
 
 def append_to_csv(partidos, archivo):
     if not partidos: return
-    os.makedirs(os.path.*_
+    os.makedirs(os.path.dirname(archivo), exist_ok=True)
+    df_nuevo = pd.DataFrame(partidos)
+    if os.path.exists(archivo) and os.path.getsize(archivo) > 0:
+        try:
+            df_viejo = pd.read_csv(archivo)
+            df_final = pd.concat([df_viejo, df_nuevo]).drop_duplicates(subset=["event_id"], keep='last')
+        except Exception: df_final = df_nuevo
+    else:
+        df_final = df_nuevo
+    
+    columnas_esperadas = [
+        "event_id", "tourney_id", "tourney_name", "tourney_date", "round", "surface",
+        "winner_id", "winner_name", "loser_id", "loser_name", "winner_sets", "loser_sets",
+        "scrape_date"
+    ]
+    for col in columnas_esperadas:
+        if col not in df_final.columns: df_final[col] = None
+    
+    df_final = df_final[columnas_esperadas + [c for c in df_final.columns if c not in columnas_esperadas]]
+    df_final.to_csv(archivo, index=False)
+
+if __name__ == "__main__":
+    logging.info(f"Sincronizando partidos en {ARCHIVO_PARTIDOS}")
+    ultima = ultima_fecha_csv(ARCHIVO_PARTIDOS)
+    fechas = generar_fechas_desde(ultima)
+    
+    if not fechas:
+        logging.info("No hay fechas nuevas.")
+    else:
+        with sync_playwright() as p:
+            browser = p.chromium.launch(headless=True)
+            context = browser.new_context(user_agent="Mozilla/5.0...", viewport={"width": 1920, "height": 1080})
+            page = context.new_page()
+            Stealth().apply_stealth_sync(page)
+            page.goto("https://www.sofascore.com/tennis")
+            
+            for fecha in fechas:
+                partidos = procesar_dia(page, fecha)
+                logging.info(f"-> {len(partidos)} partidos individuales TERMINADOS encontrados.")
+                append_to_csv(partidos, ARCHIVO_PARTIDOS)
+            browser.close()
+    logging.info("✓ Completado")
+
 
 
 
