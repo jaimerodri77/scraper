@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       fecha:
-        description: 'Fecha específica para debug (YYYY-MM-DD). Deja vacío para procesar el año 2025.'
+        description: 'Fecha específica para debug (YYYY-MM-DD). Deja vacío para todo 2025.'
         required: false
         default: ''
 
@@ -29,14 +29,15 @@ jobs:
 
       - name: Instalar dependencias
         run: |
-          pip install pandas playwright playwright-stealth
-          python -m playwright install chromium
-          python -m playwright install-deps chromium
+          pip install pandas requests
 
       - name: Preparar carpeta de datos
         run: mkdir -p datos
 
       - name: Ejecutar scraper 2025
+        env:
+          PROXY_URL: ${{ secrets.PROXY_URL }}
+          PROXY_TOKEN: ${{ secrets.PROXY_TOKEN }}
         run: |
           if [ -n "${{ github.event.inputs.fecha }}" ]; then
             python scraper_historico.py --fecha ${{ github.event.inputs.fecha }}
