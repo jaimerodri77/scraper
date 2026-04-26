@@ -8,7 +8,9 @@ from playwright_stealth import Stealth
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 
 CARPETA_SALIDA = "datos"
+# CAMBIO: Ahora usamos el mismo archivo que el scraper histórico
 ARCHIVO_PARTIDOS = os.path.join(CARPETA_SALIDA, "tenis_historico.csv")
+CIRCUITOS_NOMBRES = ["atp", "wta"]
 
 def api_get(page, url):
     try:
@@ -43,6 +45,7 @@ def es_partido_sencillos(evento: dict) -> bool:
     return True
 
 def ultima_fecha_csv(archivo):
+    # Si no hay archivo, empezamos desde el 1 de enero del año actual
     fecha_base = datetime(datetime.now().year, 1, 1).date() - timedelta(days=1)
     if not os.path.exists(archivo) or os.path.getsize(archivo) == 0:
         return fecha_base
@@ -69,6 +72,16 @@ def get_eventos_del_dia(page, fecha):
     data = api_get(page, url)
     return data.get('events', [])
 
+def detectar_circuito(evento: dict):
+    categoria = evento.get("tournament", {}).get("category", {})
+    if not isinstance(categoria, dict): return None
+    cat_name = categoria.get("name", "").lower()
+    cat_slug = categoria.get("slug", "").lower()
+    for circuito in CIRCUITOS_NOMBRES:
+        if circuito in cat_name or circuito in cat_slug:
+            return circuito.upper()
+    return None
+
 def get_estado(evento: dict) -> str:
     status = evento.get("status", {})
     if isinstance(status, str): return status
@@ -81,131 +94,110 @@ def get_estado(evento: dict) -> str:
 
 def parsear_estadisticas(stats_data: dict) -> dict:
     resultado = {}
-    if not stats_data: return resultado
-    mapeo_stats = {
-        "Aces": "ALL_aces", "Double faults": "ALL_double_faults", "Service points won": "ALL_total",
-        "1st serve": "ALL_first_serve", "1st serve points won": "ALL_first_serve_points",
-        "2nd serve points won": "ALL_second_serve_points", "Service games played": "ALL_service_games_played",
-        "Break points saved": "ALL_break_points_saved"
-    }
     for periodo in stats_data.get("statistics", []):
         periodo_nombre = periodo.get("period", "ALL").upper()
-        if periodo_nombre != "ALL": continue
         for grupo in periodo.get("groups", []):
             for item in grupo.get("statisticsItems", []):
-                nombre_original = item.get("name", "")
-                nombre_normalizado = mapeo_stats.get(nombre_original)
-                if nombre_normalizado:
-                    resultado[f"{periodo_nombre}_{nombre_normalizado}_home"] = formatear_valor(item.get("home"))
-                    resultado[f"{periodo_nombre}_{nombre_normalizado}_away"] = formatear_valor(item.get("away"))
+                nombre = item.get("name", "").replace(" ", "_").lower()
+                resultado[f"{periodo_nombre}_{nombre}_home"] = formatear_valor(item.get("home"))
+                resultado[f"{periodo_nombre}_{nombre}_away"] = formatear_valor(item.get("away"))
     return resultado
 
 def procesar_dia(page, fecha):
     eventos = get_eventos_del_dia(page, fecha)
-    total_api = len(eventos)
-    logging.info(f"Día {fecha}: La API devolvió {total_api} eventos en total.")
-
-    partidos_finales = []
-    
+    candidatos = []
     for evento in eventos:
-        # --- DIAGNÓSTICO ---
-        home_name = evento.get('homeTeam', {}).get('name', 'Unknown')
-        away_name = evento.get('awayTeam', {}).get('name', 'Unknown')
-        nombre_partido = f"{home_name} vs {away_name}"
+        circuito_nombre = detectar_circuito(evento)
         estado = get_estado(evento)
-        es_individual = es_partido_sencillos(evento)
-        
-        # Imprimimos cada partido para ver por qué se descarta
-        logging.info(f"Analizando: {nombre_partido} | Estado: {estado} | Individual: {es_individual}")
+        if circuito_nombre and estado == "finished" and es_partido_sencillos(evento):
+            candidatos.append((evento, circuito_nombre))
 
-        if estado in ["finished", "ended"] and es_individual:
-            try:
-                event_id = evento.get("id")
-                tournament_data = evento.get("tournament", {})
-                home_team = evento.get("homeTeam", {})
-                away_team = evento.get("awayTeam", {})
-                home_id, home_name = home_team.get("id"), home_team.get("name")
-                away_id, away_name = away_team.get("id"), away_team.get("name")
-                home_score = evento.get("homeScore", {}).get("current", 0) or 0
-                away_score = evento.get("awayScore", {}).get("current", 0) or 0
-                winner_code = evento.get("winnerCode", 0)
-                
-                if winner_code == 1:
-                    winner_name, loser_name = home_name, away_name
-                    winner_id, loser_id = home_id, away_id
-                    winner_sets, loser_sets = home_score, away_score
-                elif winner_code == 2:
-                    winner_name, loser_name = away_name, home_name
-                    winner_id, loser_id = away_id, home_id
-                    winner_sets, loser_sets = away_score, home_score
-                else:
-                    winner_name, loser_name = (home_name, away_name) if home_score > away_score else (away_name, home_name)
-                    winner_id, loser_id = (home_id, away_id) if home_score > away_score else (away_id, home_id)
-                    winner_sets, loser_sets = (home_score, away_score) if home_score > away_score else (away_score, home_score)
+    partidos = []
+    for i, (evento, circuito_nombre) in enumerate(candidatos, 1):
+        try:
+            event_id = evento.get("id")
+            tournament_data = evento.get("tournament", {})
+            home_team = evento.get("homeTeam", {})
+            away_team = evento.get("awayTeam", {})
+            
+            home_id, home_name = home_team.get("id"), home_team.get("name")
+            away_id, away_name = away_team.get("id"), away_team.get("name")
+            
+            home_score = evento.get("homeScore", {}).get("current", 0) or 0
+            away_score = evento.get("awayScore", {}).get("current", 0) or 0
+            home_wins = home_score > away_score
+            
+            winner_name, loser_name = (home_name, away_name) if home_wins else (away_name, home_name)
+            winner_id, loser_id = (home_id, away_id) if home_wins else (away_id, home_id)
 
-                partido = {
-                    "event_id": event_id, "tourney_id": tournament_data.get("id"),
-                    "tourney_name": tournament_data.get("name", "Unknown"), "tourney_date": fecha,
-                    "round": evento.get("roundInfo", {}).get("name", "Unknown"),
-                    "surface": evento.get("groundType") or tournament_data.get("groundType"),
-                    "winner_id": winner_id, "winner_name": winner_name,
-                    "loser_id": loser_id, "loser_name": loser_name,
-                    "winner_sets": winner_sets, "loser_sets": loser_sets,
-                    "scrape_date": datetime.now().strftime("%Y%m%d"),
-                }
+            partido = {
+                "event_id": event_id,
+                "circuito": circuito_nombre,
+                "tourney_id": tournament_data.get("id"),
+                "tourney_name": tournament_data.get("name", "Unknown"),
+                "tourney_date": fecha,
+                "round": evento.get("roundInfo", {}).get("name", "Unknown"),
+                "surface": evento.get("groundType") or tournament_data.get("groundType"),
+                "winner_id": winner_id,
+                "winner_name": winner_name,
+                "loser_id": loser_id,
+                "loser_name": loser_name,
+                "winner_sets": home_score if home_wins else away_score,
+                "loser_sets": away_score if home_wins else home_score,
+                "scrape_date": datetime.now().strftime("%Y%m%d"),
+            }
 
-                try:
-                    stats_raw = api_get(page, f"https://api.sofascore.com/api/v1/event/{event_id}/statistics")
-                    if stats_raw: partido.update(parsear_estadisticas(stats_raw))
-                except: pass
+            stats_raw = api_get(page, f"https://api.sofascore.com/api/v1/event/{event_id}/statistics")
+            if stats_raw:
+                partido.update(parsear_estadisticas(stats_raw))
 
-                partidos_finales.append(partido)
-            except Exception as e:
-                logging.warning(f"Error procesando evento {evento.get('id')}: {e}")
-                
-    return partidos_finales
+            partidos.append(partido)
+        except Exception as e:
+            logging.warning(f"Error procesando evento {evento.get('id')}: {e}")
+            continue
+            
+    return partidos
 
 def append_to_csv(partidos, archivo):
     if not partidos: return
     os.makedirs(os.path.dirname(archivo), exist_ok=True)
     df_nuevo = pd.DataFrame(partidos)
+    
     if os.path.exists(archivo) and os.path.getsize(archivo) > 0:
         try:
             df_viejo = pd.read_csv(archivo)
             df_final = pd.concat([df_viejo, df_nuevo]).drop_duplicates(subset=["event_id"], keep='last')
-        except Exception: df_final = df_nuevo
+        except Exception:
+            df_final = df_nuevo
     else:
         df_final = df_nuevo
     
-    columnas = ["event_id", "tourney_id", "tourney_name", "tourney_date", "round", "surface",
-                "winner_id", "winner_name", "loser_id", "loser_name", "winner_sets", "loser_sets", "scrape_date"]
-    for col in columnas:
-        if col not in df_final.columns: df_final[col] = None
-    
-    df_final = df_final[columnas + [c for c in df_final.columns if c not in columnas]]
     df_final.to_csv(archivo, index=False)
+    logging.info(f"🚀 CSV MAESTRO ACTUALIZADO: {archivo}. Total registros: {len(df_final)}")
 
 if __name__ == "__main__":
-    logging.info(f"Iniciando diagnóstico de partidos en {ARCHIVO_PARTIDOS}")
+    logging.info(f"Actualizando partidos diarios en {ARCHIVO_PARTIDOS}")
     ultima = ultima_fecha_csv(ARCHIVO_PARTIDOS)
     fechas = generar_fechas_desde(ultima)
     
-    if not fechas:
-        logging.info("No hay fechas nuevas.")
-    else:
-        with sync_playwright() as p:
-            browser = p.chromium.launch(headless=True)
-            context = browser.new_context(user_agent="Mozilla/5.0...", viewport={"width": 1920, "height": 1080})
-            page = context.new_page()
-            Stealth().apply_stealth_sync(page)
-            page.goto("https://www.sofascore.com/tennis")
-            
-            for fecha in fechas:
-                partidos = procesar_dia(page, fecha)
-                logging.info(f"-> Resultado final: {len(partidos)} partidos guardados para {fecha}.")
-                append_to_csv(partidos, ARCHIVO_PARTIDOS)
-            browser.close()
-    logging.info("✓ Proceso completado")
+    with sync_playwright() as p:
+        browser = p.chromium.launch(headless=True)
+        context = browser.new_context(
+            user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            viewport={"width": 1920, "height": 1080}
+        )
+        page = context.new_page()
+        Stealth().apply_stealth_sync(page)
+        page.goto("https://www.sofascore.com/tennis")
+        page.wait_for_timeout(2000)
+        
+        for fecha in fechas:
+            logging.info(f"Procesando {fecha}...")
+            partidos = procesar_dia(page, fecha)
+            append_to_csv(partidos, ARCHIVO_PARTIDOS)
+        
+        browser.close()
+    logging.info("✓ Scraper diario completado")
 
 
 
