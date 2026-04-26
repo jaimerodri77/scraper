@@ -1,3 +1,17 @@
+"""
+scraper_historico.py — con soporte para Cloudflare Worker proxy
+
+ARQUITECTURA:
+  GitHub Actions (IP bloqueada) ──> Worker proxy ──> api.sofascore.com
+                                    (IP de Cloudflare, no bloqueada)
+
+VARIABLES DE ENTORNO requeridas en GitHub Actions secrets:
+  PROXY_URL   → https://tennis-proxy.TU-USUARIO.workers.dev
+  PROXY_TOKEN → tu contraseña secreta (debe coincidir con el Worker)
+
+Sin proxy: el scraper intenta conectar directo (útil para pruebas locales).
+"""
+
 import pandas as pd
 from datetime import datetime, timedelta
 import logging
@@ -6,25 +20,27 @@ import time
 import argparse
 import subprocess
 import json
-from playwright.sync_api import sync_playwright
-
-try:
-    from playwright_stealth import Stealth
-    STEALTH_DISPONIBLE = True
-except ImportError:
-    STEALTH_DISPONIBLE = False
+import requests  # pip install requests
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 
-CARPETA_SALIDA        = "datos"
-FECHA_INICIO          = datetime(2025, 1, 1)
-FECHA_FIN             = datetime(2025, 12, 31)
-CIRCUITOS_NOMBRES     = ["atp", "wta"]
-PAUSA_ENTRE_DIAS      = 2.0
-PAUSA_ENTRE_REQUESTS  = 0.8
-INTERVALO_GUARDADO    = 10
-MODO_DEBUG_JSON       = False
+CARPETA_SALIDA       = "datos"
+FECHA_INICIO         = datetime(2025, 1, 1)
+FECHA_FIN            = datetime(2025, 12, 31)
+CIRCUITOS_NOMBRES    = ["atp", "wta"]
+PAUSA_ENTRE_DIAS     = 1.5
+PAUSA_ENTRE_REQUESTS = 0.6
+INTERVALO_GUARDADO   = 10
+MODO_DEBUG_JSON      = False
 
+# Leídos de variables de entorno (seteadas en GitHub Actions secrets)
+PROXY_URL   = os.environ.get("PROXY_URL", "").rstrip("/")
+PROXY_TOKEN = os.environ.get("PROXY_TOKEN", "")
+
+
+# =============================================================================
+# GIT
+# =============================================================================
 
 def git_push_progress():
     try:
@@ -34,141 +50,121 @@ def git_push_progress():
         subprocess.run(["git", "add", "datos/*.csv"], check=True)
         result = subprocess.run(["git", "diff", "--staged", "--quiet"], capture_output=True)
         if result.returncode == 0:
-            logging.info("No hay cambios nuevos para guardar.")
+            logging.info("No hay cambios nuevos.")
             return
-        subprocess.run(["git", "commit", "-m", f"Progreso Historico 2025: {datetime.now().strftime('%Y-%m-%d %H:%M')}"], check=True)
+        subprocess.run(["git", "commit", "-m", f"Progreso 2025: {datetime.now().strftime('%Y-%m-%d %H:%M')}"], check=True)
         subprocess.run(["git", "pull", "--rebase", "origin", "main"], check=True)
         subprocess.run(["git", "push"], check=True)
-        logging.info("Progreso guardado en la nube.")
+        logging.info("Progreso guardado.")
     except Exception as e:
-        logging.error(f"Error al guardar en Git: {e}")
+        logging.error(f"Error en git push: {e}")
 
 
-def crear_contexto_stealth(playwright):
-    browser = playwright.chromium.launch(
-        headless=True,
-        args=[
-            "--no-sandbox",
-            "--disable-setuid-sandbox",
-            "--disable-blink-features=AutomationControlled",
-            "--disable-dev-shm-usage",
-            "--disable-accelerated-2d-canvas",
-            "--no-first-run",
-            "--no-zygote",
-            "--disable-gpu",
-        ],
-    )
-    context = browser.new_context(
-        user_agent=(
+# =============================================================================
+# HTTP — via proxy o directo
+# =============================================================================
+
+def _session() -> requests.Session:
+    """Session de requests con headers base."""
+    s = requests.Session()
+    s.headers.update({
+        "Accept": "application/json, text/plain, */*",
+        "Accept-Language": "es-ES,es;q=0.9,en;q=0.8",
+        "Referer": "https://www.sofascore.com/tennis",
+        "User-Agent": (
             "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
             "AppleWebKit/537.36 (KHTML, like Gecko) "
             "Chrome/124.0.0.0 Safari/537.36"
         ),
-        viewport={"width": 1920, "height": 1080},
-        locale="es-ES",
-        timezone_id="America/Bogota",
-        java_script_enabled=True,
-    )
-    if STEALTH_DISPONIBLE:
-        stealth = Stealth(
-            navigator_webdriver=True,
-            navigator_user_agent=True,
-            navigator_user_agent_data=True,
-            webgl_vendor=True,
-            navigator_plugins=True,
-            navigator_permissions=True,
-            chrome_app=True,
-            chrome_csi=True,
-            chrome_load_times=True,
-            hairline=True,
-            media_codecs=True,
-        )
-        stealth.apply_stealth_sync(context)
-        logging.info("playwright-stealth aplicado.")
-    else:
-        context.add_init_script("""
-            Object.defineProperty(navigator, 'webdriver', {get: () => undefined});
-            Object.defineProperty(navigator, 'plugins', {get: () => [1, 2, 3, 4, 5]});
-            window.chrome = {runtime: {}};
-        """)
-        logging.warning("playwright-stealth NO disponible. Usando evasion minima.")
-    return browser, context
-
-
-def iniciar_sesion(page):
-    logging.info("Iniciando sesion en SofaScore...")
-    for intento in range(1, 4):
-        try:
-            page.goto("https://www.sofascore.com/tennis", wait_until="domcontentloaded", timeout=60000)
-        except Exception as e:
-            logging.warning(f"goto timeout intento {intento}: {e}")
-
-        time.sleep(10 + (intento * 5))
-
-        try:
-            test = page.request.get(
-                "https://api.sofascore.com/api/v1/sport/tennis/scheduled-events/2025-01-15",
-                headers=_headers(), timeout=30000,
-            )
-            if test.status == 200:
-                logging.info("Sesion establecida correctamente.")
-                return True
-            logging.warning(f"Test de sesion -> HTTP {test.status} (intento {intento}/3)")
-        except Exception as e:
-            logging.warning(f"Test de sesion fallo: {e}")
-
-        if intento < 3:
-            try:
-                page.reload(wait_until="domcontentloaded", timeout=60000)
-            except Exception:
-                pass
-
-    logging.error("No se pudo establecer sesion. Causa probable: IP de GH Actions bloqueada por Cloudflare.")
-    return False
-
-
-def _headers() -> dict:
-    return {
-        "Accept": "application/json, text/plain, */*",
-        "Accept-Language": "es-ES,es;q=0.9,en;q=0.8",
-        "Referer": "https://www.sofascore.com/tennis",
         "sec-ch-ua": '"Chromium";v="124", "Google Chrome";v="124", "Not-A.Brand";v="99"',
         "sec-ch-ua-mobile": "?0",
         "sec-ch-ua-platform": '"Windows"',
         "sec-fetch-dest": "empty",
         "sec-fetch-mode": "cors",
         "sec-fetch-site": "same-origin",
-    }
+    })
+    return s
+
+SESSION = _session()
 
 
-def api_get(page, url: str, intentos: int = 3) -> dict:
+def api_get(path: str, intentos: int = 3) -> dict:
+    """
+    Hace GET a la API de SofaScore.
+    - Con PROXY_URL: llama al Cloudflare Worker que hace la request real.
+    - Sin PROXY_URL: llama directo (funciona en local, no en GH Actions).
+    """
     for intento in range(1, intentos + 1):
         try:
             time.sleep(PAUSA_ENTRE_REQUESTS)
-            response = page.request.get(url, headers=_headers(), timeout=30000)
-            if response.status == 200:
-                return response.json()
-            elif response.status == 429:
+
+            if PROXY_URL:
+                # Modo proxy: llama al Worker
+                url = PROXY_URL
+                headers = {"X-Proxy-Token": PROXY_TOKEN}
+                params  = {"path": path}
+                resp = SESSION.get(url, headers=headers, params=params, timeout=30)
+            else:
+                # Modo directo (local)
+                url = f"https://api.sofascore.com{path}"
+                resp = SESSION.get(url, timeout=30)
+
+            if resp.status_code == 200:
+                return resp.json()
+            elif resp.status_code == 429:
                 espera = 60 * intento
                 logging.warning(f"Rate limit 429 -> esperando {espera}s...")
                 time.sleep(espera)
-            elif response.status == 403:
-                logging.warning(f"403 en {url} (intento {intento}/{intentos}) -> recargando sesion...")
-                time.sleep(20 * intento)
-                try:
-                    page.reload(wait_until="domcontentloaded", timeout=60000)
-                    time.sleep(10)
-                except Exception:
-                    pass
-            else:
-                logging.warning(f"HTTP {response.status} en {url}")
+            elif resp.status_code == 401:
+                logging.error("Error 401: PROXY_TOKEN incorrecto. Verifica el secret en GitHub y en el Worker.")
                 return {}
-        except Exception as e:
-            logging.warning(f"Excepcion en {url} (intento {intento}/{intentos}): {e}")
+            elif resp.status_code == 403:
+                logging.warning(f"403 en {path} (intento {intento}/{intentos})")
+                if not PROXY_URL:
+                    logging.error("Sin proxy activo. Configura PROXY_URL y PROXY_TOKEN en GitHub Secrets.")
+                time.sleep(15 * intento)
+            else:
+                logging.warning(f"HTTP {resp.status_code} en {path}")
+                return {}
+
+        except requests.exceptions.Timeout:
+            logging.warning(f"Timeout en {path} (intento {intento}/{intentos})")
             time.sleep(5 * intento)
-    logging.error(f"Fallo despues de {intentos} intentos: {url}")
+        except Exception as e:
+            logging.warning(f"Excepcion en {path} (intento {intento}/{intentos}): {e}")
+            time.sleep(5 * intento)
+
+    logging.error(f"Fallo despues de {intentos} intentos: {path}")
     return {}
 
+
+def verificar_conexion():
+    """Verifica que el proxy funcione antes de empezar el scraping."""
+    logging.info("Verificando conexion...")
+    if PROXY_URL:
+        logging.info(f"Modo PROXY activo: {PROXY_URL}")
+    else:
+        logging.warning("Modo DIRECTO (sin proxy). Puede fallar en GitHub Actions.")
+
+    data = api_get("/api/v1/sport/tennis/scheduled-events/2025-01-15")
+    if data.get("events") is not None:
+        logging.info(f"Conexion OK. Eventos de prueba: {len(data.get('events', []))}")
+        return True
+    else:
+        logging.error("Conexion FALLIDA.")
+        if PROXY_URL:
+            logging.error("Verifica que:")
+            logging.error("  1. El Worker este deployado y activo en Cloudflare")
+            logging.error("  2. PROXY_URL sea correcto (ej: https://tennis-proxy.usuario.workers.dev)")
+            logging.error("  3. PROXY_TOKEN coincida entre GitHub Secret y el Worker")
+        else:
+            logging.error("Configura PROXY_URL y PROXY_TOKEN en GitHub Actions Secrets.")
+        return False
+
+
+# =============================================================================
+# PARSEO
+# =============================================================================
 
 def formatear_valor(val):
     if isinstance(val, dict):
@@ -180,9 +176,8 @@ def formatear_valor(val):
     return val
 
 
-def get_eventos_del_dia(page, fecha: str) -> list[dict]:
-    url = f"https://api.sofascore.com/api/v1/sport/tennis/scheduled-events/{fecha}"
-    data = api_get(page, url)
+def get_eventos_del_dia(fecha: str) -> list[dict]:
+    data = api_get(f"/api/v1/sport/tennis/scheduled-events/{fecha}")
     eventos = data.get("events", [])
     logging.info(f"  -> {len(eventos)} eventos totales para {fecha}")
     return eventos
@@ -212,6 +207,7 @@ def detectar_circuito(evento: dict) -> str | None:
 
 
 def get_estado(evento: dict) -> str:
+    """Cubre todas las variantes del campo status de SofaScore."""
     status = evento.get("status", {})
     if isinstance(status, str):
         return status.lower()
@@ -247,8 +243,12 @@ def parsear_estadisticas(stats_data: dict) -> dict:
     return resultado
 
 
-def procesar_dia(page, fecha: str) -> list[dict]:
-    eventos = get_eventos_del_dia(page, fecha)
+# =============================================================================
+# PROCESADO POR DÍA
+# =============================================================================
+
+def procesar_dia(fecha: str) -> list[dict]:
+    eventos = get_eventos_del_dia(fecha)
     if not eventos:
         return []
 
@@ -256,7 +256,7 @@ def procesar_dia(page, fecha: str) -> list[dict]:
         logging.info("DEBUG - Primer evento:")
         logging.info(json.dumps(eventos[0], indent=2, ensure_ascii=False)[:2000])
 
-    candidatos = []
+    candidatos    = []
     estados_vistos = {}
 
     for evento in eventos:
@@ -290,22 +290,22 @@ def procesar_dia(page, fecha: str) -> list[dict]:
             winner_id,   loser_id   = (home_id, away_id)     if home_wins else (away_id, home_id)
 
             partido = {
-                "event_id":    event_id,
-                "circuito":    circuito_nombre,
-                "tourney_id":  tournament_data.get("id"),
+                "event_id":     event_id,
+                "circuito":     circuito_nombre,
+                "tourney_id":   tournament_data.get("id"),
                 "tourney_name": tournament_data.get("name", "Unknown"),
                 "tourney_date": fecha,
-                "round":       evento.get("roundInfo", {}).get("name", "Unknown"),
-                "surface":     evento.get("groundType") or tournament_data.get("groundType"),
-                "winner_id":   winner_id,
-                "winner_name": winner_name,
-                "loser_id":    loser_id,
-                "loser_name":  loser_name,
-                "winner_sets": home_score if home_wins else away_score,
-                "loser_sets":  away_score if home_wins else home_score,
-                "scrape_date": scrape_date_str,
+                "round":        evento.get("roundInfo", {}).get("name", "Unknown"),
+                "surface":      evento.get("groundType") or tournament_data.get("groundType"),
+                "winner_id":    winner_id,
+                "winner_name":  winner_name,
+                "loser_id":     loser_id,
+                "loser_name":   loser_name,
+                "winner_sets":  home_score if home_wins else away_score,
+                "loser_sets":   away_score if home_wins else home_score,
+                "scrape_date":  scrape_date_str,
             }
-            stats_raw = api_get(page, f"https://api.sofascore.com/api/v1/event/{event_id}/statistics")
+            stats_raw = api_get(f"/api/v1/event/{event_id}/statistics")
             if stats_raw:
                 partido.update(parsear_estadisticas(stats_raw))
             partidos.append(partido)
@@ -315,6 +315,10 @@ def procesar_dia(page, fecha: str) -> list[dict]:
 
     return partidos
 
+
+# =============================================================================
+# CSV
+# =============================================================================
 
 def append_to_csv(partidos: list[dict], archivo: str):
     if not partidos: return
@@ -350,6 +354,10 @@ def fechas_ya_descargadas(archivo: str) -> set:
         return set()
 
 
+# =============================================================================
+# MAIN
+# =============================================================================
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--fecha", type=str, help="Fecha YYYY-MM-DD para prueba")
@@ -375,30 +383,22 @@ if __name__ == "__main__":
 
     logging.info(f"Fechas pendientes: {len(pendientes)} ({pendientes[0]} -> {pendientes[-1]})")
 
-    with sync_playwright() as p:
-        browser, context = crear_contexto_stealth(p)
-        page = context.new_page()
+    # Verificar conexion antes de empezar
+    if not verificar_conexion():
+        exit(1)
 
-        sesion_ok = iniciar_sesion(page)
-        if not sesion_ok:
-            logging.error("Abortando - no se pudo establecer sesion.")
-            browser.close()
-            exit(1)
+    for idx, fecha in enumerate(pendientes, 1):
+        logging.info(f"\n[{idx}/{len(pendientes)}] -- {fecha} --")
+        try:
+            res = procesar_dia(fecha)
+            append_to_csv(res, archivo)
+        except Exception as e:
+            logging.error(f"Error critico en {fecha}: {e}")
 
-        for idx, fecha in enumerate(pendientes, 1):
-            logging.info(f"\n[{idx}/{len(pendientes)}] -- {fecha} --")
-            try:
-                res = procesar_dia(page, fecha)
-                append_to_csv(res, archivo)
-            except Exception as e:
-                logging.error(f"Error critico en {fecha}: {e}")
+        if idx % INTERVALO_GUARDADO == 0:
+            git_push_progress()
 
-            if idx % INTERVALO_GUARDADO == 0:
-                git_push_progress()
-
-            time.sleep(PAUSA_ENTRE_DIAS)
-
-        browser.close()
+        time.sleep(PAUSA_ENTRE_DIAS)
 
     git_push_progress()
 
