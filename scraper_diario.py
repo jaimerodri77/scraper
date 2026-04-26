@@ -108,15 +108,16 @@ def procesar_dia(page, fecha):
     partidos_finales = []
     
     for evento in eventos:
-        # --- MODO DIAGNÓSTICO ---
-        nombre_partido = f"{evento.get('homeTeam',{}).get('name')} vs {evento.get('awayTeam',{}).get('name')}"
+        # --- DIAGNÓSTICO ---
+        home_name = evento.get('homeTeam', {}).get('name', 'Unknown')
+        away_name = evento.get('awayTeam', {}).get('name', 'Unknown')
+        nombre_partido = f"{home_name} vs {away_name}"
         estado = get_estado(evento)
         es_individual = es_partido_sencillos(evento)
         
-        # Imprimimos cada partido encontrado para saber por qué se descarta
+        # Imprimimos cada partido para ver por qué se descarta
         logging.info(f"Analizando: {nombre_partido} | Estado: {estado} | Individual: {es_individual}")
 
-        # Solo guardamos si está terminado Y es individual
         if estado in ["finished", "ended"] and es_individual:
             try:
                 event_id = evento.get("id")
@@ -124,9 +125,7 @@ def procesar_dia(page, fecha):
                 home_team = evento.get("homeTeam", {})
                 away_team = evento.get("awayTeam", {})
                 home_id, home_name = home_team.get("id"), home_team.get("name")
-                away_id, away_name = away_team.get("id"), away_//name) #’s name’
-                away_name = away_team.get("name")
-                
+                away_id, away_name = away_team.get("id"), away_team.get("name")
                 home_score = evento.get("homeScore", {}).get("current", 0) or 0
                 away_score = evento.get("awayScore", {}).get("current", 0) or 0
                 winner_code = evento.get("winnerCode", 0)
@@ -162,7 +161,7 @@ def procesar_dia(page, fecha):
 
                 partidos_finales.append(partido)
             except Exception as e:
-                logging.warning(f"Error procesando {evento.get('id')}: {e}")
+                logging.warning(f"Error procesando evento {evento.get('id')}: {e}")
                 
     return partidos_finales
 
@@ -207,6 +206,7 @@ if __name__ == "__main__":
                 append_to_csv(partidos, ARCHIVO_PARTIDOS)
             browser.close()
     logging.info("✓ Proceso completado")
+
 
 
 
