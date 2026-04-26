@@ -1,10 +1,4 @@
 """
-scraper_historico.py — con soporte para Cloudflare Worker proxy
-
-ARQUITECTURA:
-  GitHub Actions (IP bloqueada) ──> Worker proxy ──> api.sofascore.com
-                                    (IP de Cloudflare, no bloqueada)
-
 VARIABLES DE ENTORNO requeridas en GitHub Actions secrets:
   PROXY_URL   → https://tennis-proxy.TU-USUARIO.workers.dev
   PROXY_TOKEN → tu contraseña secreta (debe coincidir con el Worker)
@@ -20,7 +14,7 @@ import time
 import argparse
 import subprocess
 import json
-import requests  # pip install requests
+from curl_cffi import requests
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 
@@ -33,7 +27,7 @@ PAUSA_ENTRE_REQUESTS = 0.6
 INTERVALO_GUARDADO   = 10
 MODO_DEBUG_JSON      = False
 
-# Leídos de variables de entorno (seteadas en GitHub Actions secrets)
+# Variables de entorno opcionales (ya no se usan, las dejamos para que no rompa si existen)
 PROXY_URL   = os.environ.get("PROXY_URL", "").rstrip("/")
 PROXY_TOKEN = os.environ.get("PROXY_TOKEN", "")
 
@@ -64,24 +58,14 @@ def git_push_progress():
 # HTTP — via proxy o directo
 # =============================================================================
 
-def _session() -> requests.Session:
-    """Session de requests con headers base."""
-    s = requests.Session()
+def _session():
+    """Session de curl_cffi con headers base."""
+    s = requests.Session(impersonate="chrome120")
     s.headers.update({
         "Accept": "application/json, text/plain, */*",
         "Accept-Language": "es-ES,es;q=0.9,en;q=0.8",
         "Referer": "https://www.sofascore.com/tennis",
-        "User-Agent": (
-            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-            "AppleWebKit/537.36 (KHTML, like Gecko) "
-            "Chrome/124.0.0.0 Safari/537.36"
-        ),
-        "sec-ch-ua": '"Chromium";v="124", "Google Chrome";v="124", "Not-A.Brand";v="99"',
-        "sec-ch-ua-mobile": "?0",
-        "sec-ch-ua-platform": '"Windows"',
-        "sec-fetch-dest": "empty",
-        "sec-fetch-mode": "cors",
-        "sec-fetch-site": "same-origin",
+        "Origin": "https://www.sofascore.com",
     })
     return s
 
@@ -90,24 +74,15 @@ SESSION = _session()
 
 def api_get(path: str, intentos: int = 3) -> dict:
     """
-    Hace GET a la API de SofaScore.
-    - Con PROXY_URL: llama al Cloudflare Worker que hace la request real.
-    - Sin PROXY_URL: llama directo (funciona en local, no en GH Actions).
+    Hace GET a la API de SofaScore usando curl_cffi (Chrome TLS fingerprinting)
+    para evitar bloqueos 403.
     """
+    url = f"https://api.sofascore.com{path}"
+    
     for intento in range(1, intentos + 1):
         try:
             time.sleep(PAUSA_ENTRE_REQUESTS)
-
-            if PROXY_URL:
-                # Modo proxy: llama al Worker
-                url = PROXY_URL
-                headers = {"X-Proxy-Token": PROXY_TOKEN}
-                params  = {"path": path}
-                resp = SESSION.get(url, headers=headers, params=params, timeout=30)
-            else:
-                # Modo directo (local)
-                url = f"https://api.sofascore.com{path}"
-                resp = SESSION.get(url, timeout=30)
+            resp = SESSION.get(url, timeout=30)
 
             if resp.status_code == 200:
                 return resp.json()
@@ -115,21 +90,13 @@ def api_get(path: str, intentos: int = 3) -> dict:
                 espera = 60 * intento
                 logging.warning(f"Rate limit 429 -> esperando {espera}s...")
                 time.sleep(espera)
-            elif resp.status_code == 401:
-                logging.error("Error 401: PROXY_TOKEN incorrecto. Verifica el secret en GitHub y en el Worker.")
-                return {}
             elif resp.status_code == 403:
-                logging.warning(f"403 en {path} (intento {intento}/{intentos})")
-                if not PROXY_URL:
-                    logging.error("Sin proxy activo. Configura PROXY_URL y PROXY_TOKEN en GitHub Secrets.")
+                logging.warning(f"403 en {path} (intento {intento}/{intentos}). SofaScore bloqueó la request.")
                 time.sleep(15 * intento)
             else:
                 logging.warning(f"HTTP {resp.status_code} en {path}")
                 return {}
 
-        except requests.exceptions.Timeout:
-            logging.warning(f"Timeout en {path} (intento {intento}/{intentos})")
-            time.sleep(5 * intento)
         except Exception as e:
             logging.warning(f"Excepcion en {path} (intento {intento}/{intentos}): {e}")
             time.sleep(5 * intento)
@@ -139,26 +106,15 @@ def api_get(path: str, intentos: int = 3) -> dict:
 
 
 def verificar_conexion():
-    """Verifica que el proxy funcione antes de empezar el scraping."""
-    logging.info("Verificando conexion...")
-    if PROXY_URL:
-        logging.info(f"Modo PROXY activo: {PROXY_URL}")
-    else:
-        logging.warning("Modo DIRECTO (sin proxy). Puede fallar en GitHub Actions.")
+    """Verifica que curl_cffi bypass bypass funcione antes de empezar el scraping."""
+    logging.info("Verificando conexion directa con curl_cffi (bypass antibot)...")
 
     data = api_get("/api/v1/sport/tennis/scheduled-events/2025-01-15")
-    if data.get("events") is not None:
+    if data and data.get("events") is not None:
         logging.info(f"Conexion OK. Eventos de prueba: {len(data.get('events', []))}")
         return True
     else:
-        logging.error("Conexion FALLIDA.")
-        if PROXY_URL:
-            logging.error("Verifica que:")
-            logging.error("  1. El Worker este deployado y activo en Cloudflare")
-            logging.error("  2. PROXY_URL sea correcto (ej: https://tennis-proxy.usuario.workers.dev)")
-            logging.error("  3. PROXY_TOKEN coincida entre GitHub Secret y el Worker")
-        else:
-            logging.error("Configura PROXY_URL y PROXY_TOKEN en GitHub Actions Secrets.")
+        logging.error("Conexion FALLIDA. SofaScore esta bloqueando incluso curl_cffi.")
         return False
 
 
