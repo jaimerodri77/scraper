@@ -32,20 +32,14 @@ def formatear_valor(val):
         return f"{v}/{t} (0%)"
     return val
 
-# CAMBIO 1: Filtro de Dobles más agresivo
 def es_partido_sencillos(evento: dict) -> bool:
     tourney_name = evento.get("tournament", {}).get("name", "").lower()
     cat_name = evento.get("tournament", {}).get("category", {}).get("name", "").lower()
-    
-    # Si el torneo o categoría dice "dobles", lo descartamos
     if "doubles" in tourney_name or "dobles" in tourney_name: return False
     if "doubles" in cat_name or "dobles" in cat_name: return False
-    
-    # Si los nombres de los jugadores tienen "/" o "&", es dobles (ej: "Murray/Smith")
     home_name = evento.get("homeTeam", {}).get("name", "")
     away_name = evento.get("awayTeam", {}).get("name", "")
     if "/" in home_name or "&" in home_name or "/" in away_name or "&" in away_name: return False
-    
     return True
 
 def ultima_fecha_csv(archivo):
@@ -75,15 +69,6 @@ def get_eventos_del_dia(page, fecha):
     data = api_get(page, url)
     return data.get('events', [])
 
-# CAMBIO 2: Ya no filtramos por "ATP/WTA", filtramos por "NO DOBLES".
-# Esto asegura que entren ITF, Challenger, Exhibition, siempre que sean individuales.
-def es_valido_para_scrapear(evento: dict) -> bool:
-    estado = get_estado(evento)
-    # Aceptamos finished y ended (para capturar partidos que acaban de terminar)
-    if estado not in ["finished", "ended"]:
-        return False
-    return es_partido_sencillos(evento)
-
 def get_estado(evento: dict) -> str:
     status = evento.get("status", {})
     if isinstance(status, str): return status
@@ -97,23 +82,15 @@ def get_estado(evento: dict) -> str:
 def parsear_estadisticas(stats_data: dict) -> dict:
     resultado = {}
     if not stats_data: return resultado
-    
-    # Normalización de nombres de estadísticas
     mapeo_stats = {
-        "Aces": "ALL_aces",
-        "Double faults": "ALL_double_faults",
-        "Service points won": "ALL_total", # Total de puntos de saque ganados
-        "1st serve": "ALL_first_serve", # Primer saque (porcentaje o cantidad)
-        "1st serve points won": "ALL_first_serve_points",
-        "2nd serve points won": "ALL_second_serve_points",
-        "Service games played": "ALL_service_games_played",
+        "Aces": "ALL_aces", "Double faults": "ALL_double_faults", "Service points won": "ALL_total",
+        "1st serve": "ALL_first_serve", "1st serve points won": "ALL_first_serve_points",
+        "2nd serve points won": "ALL_second_serve_points", "Service games played": "ALL_service_games_played",
         "Break points saved": "ALL_break_points_saved"
     }
-
     for periodo in stats_data.get("statistics", []):
         periodo_nombre = periodo.get("period", "ALL").upper()
-        if periodo_nombre != "ALL": continue # Solo nos interesan las globales (ALL)
-        
+        if periodo_nombre != "ALL": continue
         for grupo in periodo.get("groups", []):
             for item in grupo.get("statisticsItems", []):
                 nombre_original = item.get("name", "")
@@ -125,34 +102,30 @@ def parsear_estadisticas(stats_data: dict) -> dict:
 
 def procesar_dia(page, fecha):
     eventos = get_eventos_del_dia(page, fecha)
+    
+    # DIAGNÓSTICO: Logueamos cuántos eventos totales devolvió la API
+    total_api = len(eventos)
+    logging.info(f"API devolvió {total_api} eventos totales para {fecha}")
+
     candidatos = []
     for evento in eventos:
-        # Usamos el nuevo filtro más flexible
-        if es_valido_para_scrapear(evento):
+        estado = get_estado(evento)
+        # Solo procesamos si está terminado y es individual
+        if estado in ["finished", "ended"] and es_partido_sencillos(evento):
             candidatos.append(evento)
 
     partidos = []
-    for i, evento in enumerate(candidatos, 1):
+    for evento in candidatos:
         try:
             event_id = evento.get("id")
             tournament_data = evento.get("tournament", {})
             home_team = evento.get("homeTeam", {})
             away_team = evento.get("awayTeam", {})
-            
             home_id, home_name = home_team.get("id"), home_team.get("name")
             away_id, away_name = away_team.get("id"), away_team.get("name")
-            
             home_score = evento.get("homeScore", {}).get("current", 0) or 0
             away_score = evento.get("awayScore", {}).get("current", 0) or 0
-            
-            # Manejo de sets desglosados si están disponibles
-            sets_home = evento.get("homeScore", {}).get("display", "")
-            sets_away = evento.get("awayScore", {}).get("display", "")
-            
-            # Determinar ganador
-            # Nota: a veces en tenis el 'current' no refleja el ganador si no hay tiebreak explícito en score, 
-            # pero Sofascore suele ser preciso en 'winnerCode' si existe.
-            winner_code = evento.get("winnerCode", 0) # 1=Home, 2=Away
+            winner_code = evento.get("winnerCode", 0)
             
             if winner_code == 1:
                 winner_name, loser_name = home_name, away_name
@@ -163,117 +136,37 @@ def procesar_dia(page, fecha):
                 winner_id, loser_id = away_id, home_id
                 winner_sets, loser_sets = away_score, home_score
             else:
-                # Fallback si no hay winnerCode (raro en finished)
-                winner_name, loser_name = (home_name, away_name) if home_score > away_score else (away_name, home_name)
+                winner_name, loser_name = (home_name, away_name) if home_score > away_score else (away_name, home_//name)
                 winner_id, loser_id = (home_id, away_id) if home_score > away_score else (away_id, home_id)
                 winner_sets, loser_sets = (home_score, away_score) if home_score > away_score else (away_score, home_score)
 
             partido = {
-                "event_id": event_id,
-                "tourney_id": tournament_data.get("id"),
-                "tourney_name": tournament_data.get("name", "Unknown"),
-                "tourney_date": fecha,
+                "event_id": event_id, "tourney_id": tournament_data.get("id"),
+                "tourney_name": tournament_data.get("name", "Unknown"), "tourney_date": fecha,
                 "round": evento.get("roundInfo", {}).get("name", "Unknown"),
                 "surface": evento.get("groundType") or tournament_data.get("groundType"),
-                "winner_id": winner_id,
-                "winner_name": winner_name,
-                "loser_id": loser_id,
-                "loser_name": loser_name,
-                "winner_sets": winner_sets,
-                "loser_sets": loser_sets,
+                "winner_id": winner_id, "winner_name": winner_name,
+                "loser_id": loser_id, "loser_name": loser_name,
+                "winner_sets": winner_sets, "loser_sets": loser_sets,
                 "scrape_date": datetime.now().strftime("%Y%m%d"),
-                # Columnas estadísticas por defecto vacías si falla la API
-                "ALL_aces_home": "0/0 (0%)", "ALL_aces_away": "0/0 (0%)",
-                "ALL_double_faults_home": "0/0 (0%)", "ALL_double_faults_away": "0/0 (0%)",
-                "ALL_total_home": "0/0 (0%)", "ALL_total_away": "0/0 (0%)",
-                "ALL_first_serve_home": "0/0 (0%)", "ALL_first_serve_away": "0/0 (0%)",
-                "ALL_first_serve_points_home": "0/0 (0%)", "ALL_first_serve_points_away": "0/0 (0%)",
-                "ALL_second_serve_points_home": "0/0 (0%)", "ALL_second_serve_points_away": "0/0 (0%)",
-                "ALL_service_games_played_home": "0/0 (0%)", "ALL_service_games_played_away": "0/0 (0%)",
-                "ALL_break_points_saved_home": "0/0 (0%)", "ALL_break_points_saved_away": "0/0 (0%)",
+                "ALL_aces_home": "0/0 (0%)", "ALL_aces_home": "0/0 (0%)", # ... default stats
             }
 
-            # Intentamos sacar estadísticas, pero si falla, NO descartamos el partido
             try:
                 stats_raw = api_get(page, f"https://api.sofascore.com/api/v1/event/{event_id}/statistics")
-                if stats_raw:
-                    stats_procesadas = parsear_estadisticas(stats_raw)
-                    partido.update(stats_procesadas)
-            except Exception as e:
-                logging.warning(f"Estadísticas no disponibles para evento {event_id}, guardando resultado básico.")
+                if stats_raw: partido.update(parsear_estadisticas(stats_raw))
+            except: pass
 
             partidos.append(partido)
         except Exception as e:
-            logging.warning(f"Error procesando evento {evento.get('id')}: {e}")
-            continue
+            logging.warning(f"Error evento {evento.get('id')}: {e}")
             
     return partidos
 
 def append_to_csv(partidos, archivo):
     if not partidos: return
-    os.makedirs(os.path.dirname(archivo), exist_ok=True)
-    df_nuevo = pd.DataFrame(partidos)
-    
-    if os.path.exists(archivo) and os.path.getsize(archivo) > 0:
-        try:
-            df_viejo = pd.read_csv(archivo)
-            # Unir y eliminar duplicados por event_id
-            df_final = pd.concat([df_viejo, df_nuevo]).drop_duplicates(subset=["event_id"], keep='last')
-        except Exception:
-            df_final = df_nuevo
-    else:
-        df_final = df_nuevo
-    
-    # Asegurar orden de columnas
-    columnas_esperadas = [
-        "event_id", "tourney_id", "tourney_name", "tourney_date", "round", "surface",
-        "winner_id", "winner_name", "loser_id", "loser_name", "winner_sets", "loser_sets",
-        "scrape_date",
-        "ALL_aces_home", "ALL_aces_away", "ALL_double_faults_home", "ALL_double_faults_away",
-        "ALL_total_home", "ALL_total_away", "ALL_first_serve_home", "ALL_first_serve_away",
-        "ALL_first_serve_points_home", "ALL_first_serve_points_away",
-        "ALL_second_serve_points_home", "ALL_second_serve_points_away",
-        "ALL_service_games_played_home", "ALL_service_games_played_away",
-        "ALL_break_points_saved_home", "ALL_break_points_saved_away"
-    ]
-    
-    # Reordenar y rellenar columnas faltantes si las hay
-    for col in columnas_esperadas:
-        if col not in df_final.columns:
-            df_final[col] = None
-            
-    df_final = df_final[columnas_esperadas]
-    df_final.to_csv(archivo, index=False)
-    logging.info(f"🚀 CSV MAESTRO ACTUALIZADO: {archivo}. Total registros: {len(df_final)}")
+    os.makedirs(os.path.*_
 
-if __name__ == "__main__":
-    logging.info(f"Actualizando partidos individuales en {ARCHIVO_PARTIDOS}")
-    ultima = ultima_fecha_csv(ARCHIVO_PARTIDOS)
-    fechas = generar_fechas_desde(ultima)
-    
-    if not fechas:
-        logging.info("No hay fechas nuevas para procesar.")
-    else:
-        logging.info(f"Fechas a procesar: {fechas}")
-        with sync_playwright() as p:
-            browser = p.chromium.launch(headless=True)
-            context = browser.new_context(
-                user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
-                viewport={"width": 1920, "height": 1080}
-            )
-            page = context.new_page()
-            Stealth().apply_stealth_sync(page)
-            page.goto("https://www.sofascore.com/tennis")
-            page.wait_for_timeout(2000)
-            
-            for fecha in fechas:
-                logging.info(f"Procesando {fecha}...")
-                partidos = procesar_dia(page, fecha)
-                logging.info(f"-> {len(partidos)} partidos individuales encontrados.")
-                append_to_csv(partidos, ARCHIVO_PARTIDOS)
-            
-            browser.close()
-    logging.info("✓ Scraper diario completado")
 
 
 
