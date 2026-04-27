@@ -19,8 +19,8 @@ from curl_cffi import requests
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 
 CARPETA_SALIDA       = "datos"
-FECHA_INICIO         = datetime(2025, 1, 1)
-FECHA_FIN            = datetime(2025, 12, 31)
+FECHA_INICIO         = datetime(2026, 1, 1)
+FECHA_FIN            = datetime(2026, 04, 27)
 CIRCUITOS_NOMBRES    = ["atp", "wta"]
 PAUSA_ENTRE_DIAS     = 1.5
 PAUSA_ENTRE_REQUESTS = 0.6
