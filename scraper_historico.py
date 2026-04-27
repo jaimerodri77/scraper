@@ -20,7 +20,7 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(me
 
 CARPETA_SALIDA       = "datos"
 FECHA_INICIO         = datetime(2026, 1, 1)
-FECHA_FIN            = datetime(2026, 04, 27)
+FECHA_FIN            = datetime(2026, 4, 27)
 CIRCUITOS_NOMBRES    = ["atp", "wta"]
 PAUSA_ENTRE_DIAS     = 1.5
 PAUSA_ENTRE_REQUESTS = 0.6
