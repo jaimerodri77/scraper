@@ -2,27 +2,49 @@ import pandas as pd
 from datetime import datetime, timedelta
 import logging
 import os
-from playwright.sync_api import sync_playwright
-from playwright_stealth import Stealth
+import time
+from curl_cffi import requests
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 
 CARPETA_SALIDA = "datos"
-# CAMBIO: Ahora usamos el mismo archivo que el scraper histórico
 ARCHIVO_PARTIDOS = os.path.join(CARPETA_SALIDA, "tenis_historico.csv")
 CIRCUITOS_NOMBRES = ["atp", "wta"]
+PAUSA_ENTRE_REQUESTS = 0.6
 
-def api_get(page, url):
-    try:
-        response = page.request.get(url, headers={
-            "Accept": "application/json",
-            "Referer": "https://www.sofascore.com/tennis",
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
-        })
-        return response.json() if response.status == 200 else {}
-    except Exception as e:
-        logging.warning(f"Error API {url}: {e}")
-        return {}
+def _session():
+    s = requests.Session(impersonate="chrome120")
+    s.headers.update({
+        "Accept": "application/json, text/plain, */*",
+        "Accept-Language": "es-ES,es;q=0.9,en;q=0.8",
+        "Referer": "https://www.sofascore.com/tennis",
+        "Origin": "https://www.sofascore.com",
+    })
+    return s
+
+SESSION = _session()
+
+def api_get(url: str, intentos: int = 3) -> dict:
+    for intento in range(1, intentos + 1):
+        try:
+            time.sleep(PAUSA_ENTRE_REQUESTS)
+            resp = SESSION.get(url, timeout=30)
+            if resp.status_code == 200:
+                return resp.json()
+            elif resp.status_code == 429:
+                espera = 60 * intento
+                logging.warning(f"Rate limit 429 -> esperando {espera}s...")
+                time.sleep(espera)
+            elif resp.status_code == 403:
+                logging.warning(f"403 en {url} (intento {intento}/{intentos}). SofaScore bloqueó la request.")
+                time.sleep(15 * intento)
+            else:
+                logging.warning(f"HTTP {resp.status_code} en {url}")
+                return {}
+        except Exception as e:
+            logging.warning(f"Excepcion en {url} (intento {intento}/{intentos}): {e}")
+            time.sleep(5 * intento)
+    return {}
 
 def formatear_valor(val):
     if isinstance(val, dict):
@@ -45,7 +67,6 @@ def es_partido_sencillos(evento: dict) -> bool:
     return True
 
 def ultima_fecha_csv(archivo):
-    # Si no hay archivo, empezamos desde el 1 de enero del año actual
     fecha_base = datetime(datetime.now().year, 1, 1).date() - timedelta(days=1)
     if not os.path.exists(archivo) or os.path.getsize(archivo) == 0:
         return fecha_base
@@ -67,9 +88,9 @@ def generar_fechas_desde(ultima_fecha):
         actual += timedelta(days=1)
     return fechas
 
-def get_eventos_del_dia(page, fecha):
+def get_eventos_del_dia(fecha):
     url = f"https://api.sofascore.com/api/v1/sport/tennis/scheduled-events/{fecha}"
-    data = api_get(page, url)
+    data = api_get(url)
     return data.get('events', [])
 
 def detectar_circuito(evento: dict):
@@ -103,8 +124,8 @@ def parsear_estadisticas(stats_data: dict) -> dict:
                 resultado[f"{periodo_nombre}_{nombre}_away"] = formatear_valor(item.get("away"))
     return resultado
 
-def procesar_dia(page, fecha):
-    eventos = get_eventos_del_dia(page, fecha)
+def procesar_dia(fecha):
+    eventos = get_eventos_del_dia(fecha)
     candidatos = []
     for evento in eventos:
         circuito_nombre = detectar_circuito(evento)
@@ -147,7 +168,7 @@ def procesar_dia(page, fecha):
                 "scrape_date": datetime.now().strftime("%Y%m%d"),
             }
 
-            stats_raw = api_get(page, f"https://api.sofascore.com/api/v1/event/{event_id}/statistics")
+            stats_raw = api_get(f"https://api.sofascore.com/api/v1/event/{event_id}/statistics")
             if stats_raw:
                 partido.update(parsear_estadisticas(stats_raw))
 
@@ -180,23 +201,11 @@ if __name__ == "__main__":
     ultima = ultima_fecha_csv(ARCHIVO_PARTIDOS)
     fechas = generar_fechas_desde(ultima)
     
-    with sync_playwright() as p:
-        browser = p.chromium.launch(headless=True)
-        context = browser.new_context(
-            user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
-            viewport={"width": 1920, "height": 1080}
-        )
-        page = context.new_page()
-        Stealth().apply_stealth_sync(page)
-        page.goto("https://www.sofascore.com/tennis")
-        page.wait_for_timeout(2000)
+    for fecha in fechas:
+        logging.info(f"Procesando {fecha}...")
+        partidos = procesar_dia(fecha)
+        append_to_csv(partidos, ARCHIVO_PARTIDOS)
         
-        for fecha in fechas:
-            logging.info(f"Procesando {fecha}...")
-            partidos = procesar_dia(page, fecha)
-            append_to_csv(partidos, ARCHIVO_PARTIDOS)
-        
-        browser.close()
     logging.info("✓ Scraper diario completado")
 
 
