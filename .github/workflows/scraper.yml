@@ -1,8 +1,9 @@
-name: Tennis Scraper Diario
+
+name: Tennis Scraper Diario PRO
 
 on:
   schedule:
-    - cron: '1 5 * * *' # 12:01 AM Colombia
+    - cron: '5 7 * * *' # 2:05 AM Colombia (más estable que 2:00 exacto)
   workflow_dispatch:
 
 jobs:
@@ -14,33 +15,36 @@ jobs:
     steps:
       - name: Checkout repositorio
         uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup Python 3.11
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+          cache: 'pip'
 
       - name: Instalar dependencias
-        run: pip install pandas curl_cffi
+        run: |
+          pip install --upgrade pip
+          pip install pandas curl_cffi
 
       - name: Conectar a VPN (Cloudflare WARP)
         run: |
           curl -fsSL https://pkg.cloudflareclient.com/pubkey.gpg | sudo gpg --yes --dearmor --output /usr/share/keyrings/cloudflare-warp-archive-keyring.gpg
           echo "deb [signed-by=/usr/share/keyrings/cloudflare-warp-archive-keyring.gpg] https://pkg.cloudflareclient.com/ $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/cloudflare-client.list
-          sudo apt-get update && sudo apt-get install -y cloudflare-warp
+          sudo apt-get update
+          sudo apt-get install -y cloudflare-warp
+
           warp-cli --accept-tos registration new
           warp-cli --accept-tos connect
-          sleep 10
-          echo "IP actual (a través de WARP):"
+          sleep 8
+
+          echo "IP actual:"
           curl -4 ifconfig.me
+
       - name: Ejecutar scraper diario de partidos
         run: python scraper_diario.py
 
-      
-
-      - name: Extraer calendario de partidos del día
+      - name: Ejecutar scraper calendario
         run: python scraper_calendario.py
 
       - name: Guardar datos en repositorio
@@ -48,13 +52,16 @@ jobs:
         run: |
           git config --global user.email "scraperbot@github.com"
           git config --global user.name "TennisScraperBot"
+
           git add datos/*.csv || true
+
           if git diff --staged --quiet; then
-            echo "Sin cambios nuevos."
+            echo "Sin cambios."
             exit 0
           fi
-          git commit -m "Daily Update: $(date +'%Y-%m-%d')"
-          # Sincronizar con el repo antes de subir para evitar conflictos con el bot histórico
+
+          git commit -m "Update datos: $(date +'%Y-%m-%d %H:%M')"
+
           git pull --rebase origin main
           git push
 
