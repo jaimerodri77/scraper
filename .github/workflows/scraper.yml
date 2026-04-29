@@ -22,10 +22,10 @@ jobs:
           python-version: '3.11'
           cache: 'pip'
 
-      - name: Instalar dependencias
-        run: |
-          pip install --upgrade pip
-          pip install pandas curl_cffi
+     - name: Instalar dependencias
+  run: |
+    pip install --upgrade pip
+    pip install -r requirements.txt
 
       - name: Conectar a VPN (Cloudflare WARP)
         run: |
