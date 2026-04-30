@@ -1,31 +1,31 @@
 ﻿Torneo,Categoria,Ronda,Hora_Aprox,Jugador_Local,Jugador_Visitante
 ITF M15 Villahermosa Men,ITF Men,Quarterfinals,00:00,Daniel Milavsky,Jerry Roddick
 ITF M15 Villahermosa Men Doubles,ITF Men,Round of 16,00:00,Gurenko V / Reyes Tiraldo O A,Gonzalez K N / Sanchez Ballinas M
-ITF M15 Villahermosa Men Doubles,ITF Men,Quarterfinals,00:30,De Alba R / Sau Franco A,Sainz de Rozas R J / Munoz E
 ITF M15 Villahermosa Men Doubles,ITF Men,Round of 16,00:30,Cruz Vazquez E H / Mora Esdras W N,Sainz de Rozas R J / Munoz E
+ITF M15 Villahermosa Men Doubles,ITF Men,Quarterfinals,00:30,De Alba R / Sau Franco A,Sainz de Rozas R J / Munoz E
 ITF M15 Villahermosa Men Doubles,ITF Men,Round of 16,00:30,Gamborino M / Hammond L,Betancourt P / Hayen A
 ITF M15 Villahermosa Men Doubles,ITF Men,Round of 16,00:30,Roddick J / Schachter N,Meneo T / Nakamura R
 ITF M15 Villahermosa Men Doubles,ITF Men,Quarterfinals,01:00,Gurenko V / Reyes Tiraldo O A,Fradkin J / McKennon M
+ITF W35 Goyang Women,ITF Women,Round of 16,01:08,Dayeon Back,Jiangxue Han
 ITF W35 Goyang Women,ITF Women,Round of 16,01:08,Dabin Kim,Eunhye Lee
 ITF W35 Goyang Women,ITF Women,Round of 16,01:08,Seo Yun Choi,Rinko Matsuda
-ITF W35 Goyang Women,ITF Women,Round of 16,01:08,Dayeon Back,Jiangxue Han
 ITF W35 Goyang Women,ITF Women,Round of 16,01:10,Yeri Hong,Su-jeong Jang
+"UTR PTT Newport Beach Men 10, Group D",UTR Men,,01:30,Naveen Mukherjee,Jose Murariu
+"UTR PTT Newport Beach Women 10, Group D",UTR Women,,01:30,Aya El Sayed,Maria Aytoyan
 "UTR PTT Newport Beach Men 10, Group A",UTR Men,,01:30,Noah Zamora,Alexander Edmonston
 "UTR PTT Newport Beach Men 10, Group A",UTR Men,,01:30,Alexander Edmonston,Yashwin Krishnakumar
 "UTR PTT Newport Beach Men 10, Group B",UTR Men,,01:30,Adam Chodur,Dylan Varughese
 "UTR PTT Newport Beach Men 10, Group B",UTR Men,,01:30,Rohan Sachdev,Liam Alvarez
-"UTR PTT Newport Beach Men 10, Group D",UTR Men,,01:30,Naveen Mukherjee,Jose Murariu
 "UTR PTT Newport Beach Men 10, Group C",UTR Men,,01:30,Maxim Groysman,Aarjun Pandit
 "UTR PTT Newport Beach Men 10, Group C",UTR Men,,01:30,Andre Alcantara,Aarjun Pandit
-"UTR PTT Newport Beach Women 10, Group D",UTR Women,,01:30,Salma Ziouti,Hana Gamracy
-"UTR PTT Newport Beach Women 10, Group C",UTR Women,,01:30,Tanika Saravanan,Kaia Giribalan
-"UTR PTT Newport Beach Women 10, Group D",UTR Women,,01:30,Susana Souhrada,Maria Aytoyan
-"UTR PTT Newport Beach Women 10, Group D",UTR Women,,01:30,Aya El Sayed,Maria Aytoyan
-"UTR PTT Newport Beach Women 10, Group D",UTR Women,,01:30,Aya El Sayed,Salma Ziouti
-"UTR PTT Newport Beach Women 10, Group C",UTR Women,,01:30,Shakhnoza Khatamova,Kohana Darroch
-"UTR PTT Newport Beach Women 10, Group A",UTR Women,,01:30,Raegan Farm,Tanvi Pandey
 "UTR PTT Newport Beach Men 10, Group D",UTR Men,,01:30,Thomas Edwards,Adam (2004) Duda
+"UTR PTT Newport Beach Women 10, Group D",UTR Women,,01:30,Salma Ziouti,Hana Gamracy
 "UTR PTT Newport Beach Women 10, Group A",UTR Women,,01:30,Raegan Farm,Veronica Miroshnichenko
+"UTR PTT Newport Beach Women 10, Group A",UTR Women,,01:30,Raegan Farm,Tanvi Pandey
+"UTR PTT Newport Beach Women 10, Group C",UTR Women,,01:30,Tanika Saravanan,Kaia Giribalan
+"UTR PTT Newport Beach Women 10, Group C",UTR Women,,01:30,Shakhnoza Khatamova,Kohana Darroch
+"UTR PTT Newport Beach Women 10, Group D",UTR Women,,01:30,Susana Souhrada,Maria Aytoyan
+"UTR PTT Newport Beach Women 10, Group D",UTR Women,,01:30,Aya El Sayed,Salma Ziouti
 ITF W100 Gifu Women,ITF Women,Quarterfinals,02:00,Lanlana Tararudee,Polina Iatcenko
 ITF W100 Gifu Women,ITF Women,Quarterfinals,02:00,Ena Koike,Hayu Kinoshita
 ITF W100 Gifu Women,ITF Women,Round of 16,02:05,Aoi Ito,Polina Iatcenko
@@ -44,292 +44,294 @@ ITF W15 Luan Women ,ITF Women,Round of 16,02:15,Sera Nishimoto,Niehua Tian
 ITF W35 Goyang Women,ITF Women,Round of 16,02:40,Gaeul Jang,Malaika Rapolu
 ITF W35 Goyang Women,ITF Women,Round of 16,02:43,Kayo Nishimura,Onyu Choi
 "Jiujiang, China",Challenger,Quarterfinals,03:00,Mark Lajal,Fajing Sun
-"Huzhou, China, Doubles",WTA 125,Quarterfinals,03:00,Mikulskyte J / Papamichail D,Chong E / Wong H Y C
 "Huzhou, China",WTA 125,Round of 16,03:00,Yufei Ren,Polona Hercog
 "Huzhou, China",WTA 125,Quarterfinals,03:00,Varvara Panshina,Katarzyna Kawa
 "Huzhou, China",WTA 125,Quarterfinals,03:00,Veronika Erjavec,Wushuang Zheng
 ITF W15 Nakhon Pathom Women,ITF Women,Round of 16,03:00,Elsa Wan,Thasaporn Naklo
+"Huzhou, China, Doubles",WTA 125,Quarterfinals,03:00,Mikulskyte J / Papamichail D,Chong E / Wong H Y C
 ITF W15 New Delhi Women,ITF Women,Round of 16,03:10,Soha Sadiq,Shruti Ahlawat
 ITF W15 New Delhi Women,ITF Women,Round of 16,03:11,Madhurima Sawant,Elina Nepliy
 ITF W15 New Delhi Women,ITF Women,Round of 16,03:12,Sonal Patil,Ksenia Laskutova
-ITF W35 Goyang Women,ITF Women,Round of 16,03:14,Sohyun Park,Nagi Hanatani
 ITF W15 New Delhi Women,ITF Women,Round of 16,03:14,Jennifer Luikham,Aditi Rawat
+ITF W35 Goyang Women,ITF Women,Round of 16,03:14,Sohyun Park,Nagi Hanatani
 ITF W100 Gifu Women,ITF Women,Round of 16,03:28,Emerson Jones,Ayano Shimizu
 ITF M25 Nakhon Pathom Men,ITF Men,Round of 16,03:34,Shinji Hazawa,Sidharth Rawat
 ITF W15 Luan Women ,ITF Women,Round of 16,03:49,Maria Kalyakina,Ye Eun Kim
-"Jiujiang, China, Doubles",Challenger,Round of 16,04:00,Puttergill C / Sweeny D,Jones B / Paris J
 "Jiujiang, China",Challenger,Round of 16,04:00,Ognjen Milić,Fajing Sun
-"Jiujiang, China",Challenger,Round of 16,04:00,Mark Lajal,Marat Sharipov
-"Jiujiang, China",Challenger,Round of 16,04:00,Liam Broady,Alexis Galarneau
+"Jiujiang, China, Doubles",Challenger,Round of 16,04:00,Puttergill C / Sweeny D,Jones B / Paris J
 ITF W100 Gifu Women,ITF Women,Quarterfinals,04:00,Emerson Jones,Taylah Preston
-ITF W35 Goyang Women,ITF Women,Round of 16,04:01,Jaeda Daniel,Yujin Ahn
+"Jiujiang, China",Challenger,Round of 16,04:00,Liam Broady,Alexis Galarneau
+"Jiujiang, China",Challenger,Round of 16,04:00,Mark Lajal,Marat Sharipov
+"Jiujiang, China, Doubles",Challenger,Quarterfinals,04:00,Jones B / Paris J,Bollipalli R C / Kadhe A
 ITF W15 Nakhon Pathom Women,ITF Women,Round of 16,04:01,Jiyun Oh,Im Hee Rae
+ITF W35 Goyang Women,ITF Women,Round of 16,04:01,Jaeda Daniel,Yujin Ahn
 ITF W15 Nakhon Pathom Women,ITF Women,Round of 16,04:06,Gyeong Seo Lee,Aunchisa Chanta
 ITF W100 Gifu Women,ITF Women,Round of 16,04:16,Lanlana Tararudee,Yuki Naito
 ITF W15 Luan Women ,ITF Women,Round of 16,04:17,Xiaowei Li,Yushan Shao
 ITF M25 Nakhon Pathom Men,ITF Men,Round of 16,04:20,Kasidit Samrej,Taisei Ichikawa
-ITF W100 Gifu Women,ITF Women,Round of 16,04:33,Hayu Kinoshita,Himeno Sakatsume
 ITF W15 New Delhi Women,ITF Women,Round of 16,04:33,Sandeepti Singh Rao,Jensi Dipakbhai Kanabar
+ITF W100 Gifu Women,ITF Women,Round of 16,04:33,Hayu Kinoshita,Himeno Sakatsume
 ITF W100 Gifu Women,ITF Women,Round of 16,04:34,Valentina Ryser,Lin Zhu
 "Huzhou, China",WTA 125,Round of 16,04:35,Xinxin Yao,Rada Zolotareva
-"Shymkent 2, Kazakhstan",Challenger,Round of 16,05:00,Edas Butvilas,Gerard Campana Lee
-"Shymkent 2, Kazakhstan",Challenger,Quarterfinals,05:00,Antoine Ghibaudo,Andrej Nedić
 ITF W15 Luan Women ,ITF Women,Round of 16,05:00,Wenfei Yu,Xi Luo
+"Shymkent 2, Kazakhstan",Challenger,Round of 16,05:00,Edas Butvilas,Gerard Campana Lee
 "Shymkent 2, Kazakhstan",Challenger,Round of 16,05:00,Sergey Fomin,Max Hans Rehberg
+"Shymkent 2, Kazakhstan",Challenger,Quarterfinals,05:00,Edas Butvilas,Max Hans Rehberg
+"Shymkent 2, Kazakhstan",Challenger,Quarterfinals,05:00,Antoine Ghibaudo,Andrej Nedić
 "Shymkent 2, Kazakhstan",Challenger,Quarterfinals,05:00,Alexander Binda,Manas Dhamne
 ITF M25 Nakhon Pathom Men,ITF Men,Round of 16,05:07,Muhamad Rifqi Fitriadi,Moerani Bouzige
 ITF W15 New Delhi Women,ITF Women,Round of 16,05:08,Akanksha Dileep Nitture,Zuzanna Kolonus
 ITF M15 Islamabad Men,ITF Men,Round of 16,05:10,Essa Qabazard,Fanming Meng
-ITF W15 New Delhi Women,ITF Women,Round of 16,05:14,Bela Tamhankar,Arina Arifullina
 ITF M25 Nakhon Pathom Men,ITF Men,Round of 16,05:14,Maan Kesharwani,Takuya Kumasaka
 ITF M15 Islamabad Men,ITF Men,Round of 16,05:17,Muhammad Shoaib,Matas Vasiliauskas
 ITF W15 New Delhi Women,ITF Women,Round of 16,05:17,Zeel Desai,Parthsarthi Arun Mundhe
 ITF M15 Islamabad Men,ITF Men,Round of 16,05:18,Darrshan Suresh,Arvid Nordquist
-"Huzhou, China, Doubles",WTA 125,Quarterfinals,05:20,Lansere S / Zolotareva A,Dang Y / You X
 ITF M25 Nakhon Pathom Men,ITF Men,Round of 16,05:21,Colin Sinclair,Cruz Hewitt
 ITF W15 Luan Women ,ITF Women,Round of 16,05:27,Lexue Xiao,Liuyan An
 ITF M25 Nakhon Pathom Men,ITF Men,Round of 16,05:29,Jumpei Yamasaki,Masamichi Imamura
 "Jiujiang, China",Challenger,Round of 16,05:30,Rio Noguchi,Coleman Wong
 ITF W35 Goyang Women Doubles,ITF Women,Quarterfinals,05:39,Kawamura M / Matsuda R,Choi S Y / Jeong U S
 "Jiujiang, China, Doubles",Challenger,Round of 16,05:40,Tian Y / Wei J,Bollipalli R C / Kadhe A
-"Jiujiang, China",Challenger,Round of 16,05:40,Giles Hussey,Alex Bolt
-ITF W15 Luan Women Doubles,ITF Women,Quarterfinals,05:45,Mengqiao L / Xu G,Tian N / Xu J
 "Jiujiang, China, Doubles",Challenger,Round of 16,05:45,Loof T / Yuzuki T,Hsu Y H / Watanabe S
 ITF W15 Luan Women Doubles,ITF Women,Quarterfinals,05:48,Nishimoto S / Soeda K,Ge L / Tang X
-"Huzhou, China",WTA 125,Round of 16,06:00,Xiyu Wang,Chengyiyi Yuan
-ITF W100 Gifu Women Doubles,ITF Women,Quarterfinals,06:00,Dart H / Watson H,Kawaguchi N / Ku Y
+ITF W15 Luan Women Doubles,ITF Women,Quarterfinals,05:53,Mengqiao L / Xu G,Tian N / Xu J
+ITF W100 Gifu Women Doubles,ITF Women,Quarterfinals,05:57,Hayasaka K / Sawashiro K,Ayukawa M / Morisaki K
 ITF W100 Gifu Women,ITF Women,Round of 16,06:00,Priscilla Hon,Mananchaya Sawangkaew
-ITF W100 Gifu Women Doubles,ITF Women,Quarterfinals,06:06,Hayasaka K / Sawashiro K,Ayukawa M / Morisaki K
-ITF W15 Nakhon Pathom Women,ITF Women,Round of 16,06:08,Ekaterina Kuznetsova,Junhan Zhang
-"Shymkent 2, Kazakhstan",Challenger,Round of 16,06:10,Dimitar Kuzmanov,Buvaysar Gadamauri
+"Huzhou, China",WTA 125,Round of 16,06:00,Xiyu Wang,Chengyiyi Yuan
+ITF W100 Gifu Women Doubles,ITF Women,Quarterfinals,06:10,Dart H / Watson H,Kawaguchi N / Ku Y
 ITF W35 Goyang Women Doubles,ITF Women,Quarterfinals,06:20,Jang G / Kim C,Kim D / Park S
 "Shymkent 2, Kazakhstan",Challenger,Round of 16,06:20,Denis Yevseyev,Mili Poljičak
+ITF W15 New Delhi Women,ITF Women,Round of 16,06:21,Bela Tamhankar,Arina Arifullina
+ITF M15 Islamabad Men,ITF Men,Round of 16,06:24,Mert Naci Turker,Abubakar Talha
+ITF W15 Nakhon Pathom Women,ITF Women,Round of 16,06:29,Ekaterina Kuznetsova,Junhan Zhang
 ITF M25 Nakhon Pathom Men Doubles,ITF Men,Quarterfinals,06:30,Kang Leong M W / Papa C,Barry C / Charlton J
 "Huzhou, China, Doubles",WTA 125,Quarterfinals,06:30,Shi H / Ye Q Y,Wang M / Yuan C
 "Huzhou, China, Doubles",WTA 125,Quarterfinals,06:30,Guo M / Zhu A,Kuwata H / Li Y-Y
-ITF W15 Luan Women Doubles,ITF Women,Quarterfinals,06:30,Chen Y / Ruoxi M,Sun Y / Zhao X
-"Jiujiang, China",Challenger,Round of 16,06:40,Yunchaokete Bu,Andre Ilagan
-"Jiujiang, China, Doubles",Challenger,Round of 16,06:50,Kusuhara Y / Nakagawa S,Jung J / Uesugi K
+"Jiujiang, China, Doubles",Challenger,Round of 16,06:40,Kusuhara Y / Nakagawa S,Jung J / Uesugi K
+"Shymkent 2, Kazakhstan",Challenger,Round of 16,06:45,Dimitar Kuzmanov,Buvaysar Gadamauri
+ITF W15 Luan Women Doubles,ITF Women,Quarterfinals,06:47,Chen Y / Ruoxi M,Sun Y / Zhao X
 "Jiujiang, China",Challenger,Round of 16,06:50,Sho Shimabukuro,Keegan Smith
-"Jiujiang, China",Challenger,Round of 16,06:55,Adam Walton,Tung-Lin Wu
-ITF W35 Goyang Women Doubles,ITF Women,Quarterfinals,07:00,Back D / Daniel J,Han J / Lee E
+"Jiujiang, China",Challenger,Round of 16,06:50,Giles Hussey,Alex Bolt
 ITF W35 Goyang Women Doubles,ITF Women,Quarterfinals,07:00,Ha S M / Kang N H,Choi O / Zhang Y
+ITF W35 Goyang Women Doubles,ITF Women,Quarterfinals,07:00,Back D / Daniel J,Han J / Lee E
 ITF W15 Luan Women Doubles,ITF Women,Quarterfinals,07:00,Wang J / Wang Y,Kalyakina M / Kenzhibayeva S
-ITF W15 Nakhon Pathom Women Doubles,ITF Women,Quarterfinals,07:00,Desvignes E M / Yongmod T,H Im / E Kim
-ITF W15 Nakhon Pathom Women Doubles,ITF Women,Quarterfinals,07:00,Sema E / Shin J,Lee E / Nguyen K
-ITF M25 Nakhon Pathom Men Doubles,ITF Men,Quarterfinals,07:00,Ichikawa T / Imamura M,Delaney J / Becroft I
-ITF W75 Lopota Women,ITF Women,Quarterfinals,07:00,Daria Zelinskaya,Vivian Wolff
-ITF W75 Lopota Women,ITF Women,Quarterfinals,07:00,Darya Astakhova,Alexandra Shubladze
 "Huzhou, China",WTA 125,Round of 16,07:05,Hanyu Guo,Diletta Cherubini
-ITF M15 Islamabad Men,ITF Men,Round of 16,07:10,Nikita Ianin,Barkat Khan
-ITF M15 Islamabad Men,ITF Men,Round of 16,07:17,Mert Naci Turker,Abubakar Talha
+ITF M15 Islamabad Men,ITF Men,Round of 16,07:06,Nikita Ianin,Barkat Khan
+ITF W75 Lopota Women,ITF Women,Quarterfinals,07:08,Daria Zelinskaya,Vivian Wolff
+ITF W15 Nakhon Pathom Women Doubles,ITF Women,Quarterfinals,07:09,Sema E / Shin J,Lee E / Nguyen K
+ITF W75 Lopota Women,ITF Women,Quarterfinals,07:09,Darya Astakhova,Alexandra Shubladze
+"Jiujiang, China",Challenger,Round of 16,07:10,Adam Walton,Tung-Lin Wu
+ITF W100 Gifu Women Doubles,ITF Women,Round of 16,07:13,Kimura M / Yamada M,Naito Y / Sakatsume H
 ITF M15 Islamabad Men,ITF Men,Round of 16,07:18,Alexey Dubinin,Samir Hamza Reguig
-"Shymkent 2, Kazakhstan, Doubles",Challenger,Quarterfinals,07:20,Betov S / Nedunchezhiyan J,Chekhov A / Shin M
+"Jiujiang, China",Challenger,Round of 16,07:20,Yunchaokete Bu,Andre Ilagan
 ITF M25 Nakhon Pathom Men Doubles,ITF Men,Quarterfinals,07:29,Dev S D P / Sinha N K,Cho S W / Sim S
+"Huzhou, China, Doubles",WTA 125,Quarterfinals,07:30,Lansere S / Zolotareva A,Dang Y / You X
 ITF W15 Mbombela Women,ITF Women,Round of 32,07:30,Lan Mi,Maayan Laron
-Boys' Singles Draw,Italy,1/8,07:30,Svit Suljic,Eric Dylan Mueller
-"Shymkent 2, Kazakhstan, Doubles",Challenger,Quarterfinals,07:30,Bar Biryukov P / Lomakin G,Durasovic V / Wehnelt K
 ITF W15 Nakhon Pathom Women Doubles,ITF Women,Quarterfinals,07:30,Hosoki Y / Tse E,Han H / Jang S H
-ITF W15 Nakhon Pathom Women Doubles,ITF Women,Quarterfinals,07:30,Hou Y / Liu Y,Cheapchandej P / Yodpetch K
+Boys' Singles Draw,Italy,1/8,07:30,Svit Suljic,Eric Dylan Mueller
 Girls' Singles Draw,Italy,1/8,07:30,Nouk Kleinenberg,Keisija Berzina
+ITF W15 Nakhon Pathom Women Doubles,ITF Women,Quarterfinals,07:30,Hou Y / Liu Y,Cheapchandej P / Yodpetch K
 ITF M15 Mbombela Men,ITF Men,Round of 32,07:30,Franco Ribero,Alexey Aleshchev
 ITF M15 Mbombela Men,ITF Men,Round of 32,07:30,Bora Sengul,Romain Faucon
-"Jiujiang, China, Doubles",Challenger,Round of 16,07:50,CUI J / Wang A,Isaro PR / Kaliyanda Poonacha N
-"UTR PTT Carvoeiro Women +H 06, Group C",UTR Women,,08:00,Anastasiya Kuparev,Aleksandra Stevanovic
-"UTR PTT Carvoeiro Women +H 06, Group D",UTR Women,,08:00,Aneta Poborilova,Mia Chudejova
-ITF W35 Santa Margherita di Pula 5 Women,ITF Women,Round of 16,08:00,Allegra Fiorani,Elena Ruxandra Bertea
-ITF W35 Santa Margherita di Pula 5 Women,ITF Women,Round of 16,08:00,Denislava Glushkova,Luna Vujović
-ITF W35 Santa Margherita di Pula 5 Women,ITF Women,Round of 16,08:00,Giorgia Pedone,Elena Korokozidi
-"UTR PTT Carvoeiro Women +H 06, Group B",UTR Women,,08:00,Diana Marcinkevica,Denise Valente
-"UTR PTT Carvoeiro Women +H 06, Group B",UTR Women,,08:00,Sana Garakani,Nikola Koprivova
-"UTR PTT Carvoeiro Women +H 06, Group D",UTR Women,,08:00,Claudia Hoste Ferrer,Kate Sharabura
-"UTR PTT Carvoeiro Women +H 06, Group C",UTR Women,,08:00,Monika Jirouskova,Isabel Pascual Montalvo
-ITF W35 Santa Margherita di Pula 5 Women,ITF Women,Round of 16,08:00,Mara Guth,Dunja Marić
-"UTR PTT Carvoeiro Men +H 06, Group B",UTR Men,,08:00,Dorian Juszczak,Miguel Semedo
-ITF W35 Santa Margherita di Pula 5 Women,ITF Women,Round of 16,08:00,Ilary Pistola,Ipek Oz
-"Mauthausen, Austria",Challenger,Round of 16,08:00,Martin Krumich,Jaime Faria
-"UTR PTT Carvoeiro Men +H 06, Group C",UTR Men,,08:00,Fred Gil,Dino Molokova Ferreira
-"UTR PTT Carvoeiro Men +H 06, Group C",UTR Men,,08:00,Julio Cesar Porras,Rafael Kis Balázs
-"UTR PTT Carvoeiro Men +H 06, Group D",UTR Men,,08:00,Bruno Ouvidor,Otso Martikainen
-ITF M25 Santa Margherita di Pula 5 Men,ITF Men,Quarterfinals,08:00,Alessandro Battiston,Eric Vanshelboim
-ITF M25 Santa Margherita di Pula 5 Men,ITF Men,Quarterfinals,08:00,Kasra Rahmani,Pierluigi Basile
-ITF M25 Santa Margherita di Pula 5 Men,ITF Men,Quarterfinals,08:00,Niccolo Ciavarella,Stefan Popović
-ITF M25 Santa Margherita di Pula 5 Men,ITF Men,Quarterfinals,08:00,Tim Handel,Gianmarco Ferrari
-"UTR PTT Carvoeiro Men +H 06, Group D",UTR Men,,08:00,Sander Juuhl Sivertsen,Diego Fernandez Flores
+"Shymkent 2, Kazakhstan, Doubles",Challenger,Quarterfinals,07:50,Bar Biryukov P / Lomakin G,Durasovic V / Wehnelt K
+"Shymkent 2, Kazakhstan, Doubles",Challenger,Quarterfinals,07:55,Betov S / Nedunchezhiyan J,Chekhov A / Shin M
+"Madrid, Spain",ATP,Semifinals,08:00,Jannik Sinner,Arthur Fils
 ITF W15 Madrid Women,ITF Women,Round of 16,08:00,Monika Stankiewicz,Nadia Podoroska
+ITF M25 Santa Margherita di Pula 5 Men,ITF Men,Quarterfinals,08:00,Niccolo Ciavarella,Stefan Popović
+ITF W15 Mbombela Women,ITF Women,Round of 32,08:00,Selina Atay,Sapir Cohen
+ITF M15 Mbombela Men,ITF Men,Round of 32,08:00,Gray Voelzke,Alec Beckley
 ITF W15 Madrid Women,ITF Women,Round of 16,08:00,Emma Slavikova,Sevil Yuldasheva
 ITF W15 Madrid Women,ITF Women,Round of 16,08:00,Celia Cerviño Ruiz,Carmen Gallardo Guevara
-"UTR PTT Carvoeiro Men +H 06, Group D",UTR Men,,08:00,Roy Keegan,Diego Fernandez Flores
-"UTR PTT Carvoeiro Men +H 06, Group D",UTR Men,,08:00,Sander Juuhl Sivertsen,Otso Martikainen
+ITF W15 Nakhon Pathom Women Doubles,ITF Women,Quarterfinals,08:00,Desvignes E M / Yongmod T,H Im / E Kim
+ITF W35 Santa Margherita di Pula 5 Women,ITF Women,Round of 16,08:00,Selena Janicijevic,Emma Lene
+"UTR PTT Carvoeiro Women +H 06, Group C",UTR Women,,08:00,Anastasiya Kuparev,Aleksandra Stevanovic
 ITF W15 Madrid Women,ITF Women,Round of 16,08:00,Asylzhan Arystanbekova,Claudia Ferrer Pérez
+ITF W35 Santa Margherita di Pula 5 Women,ITF Women,Round of 16,08:00,Natalija Senić,Deborah Chiesa
+ITF M25 Santa Margherita di Pula 5 Men,ITF Men,Quarterfinals,08:00,Alessandro Battiston,Eric Vanshelboim
+ITF W35 Santa Margherita di Pula 5 Women,ITF Women,Round of 16,08:00,Mara Guth,Dunja Marić
+ITF W35 Santa Margherita di Pula 5 Women,ITF Women,Round of 16,08:00,Ilary Pistola,Ipek Oz
+ITF W35 Santa Margherita di Pula 5 Women,ITF Women,Round of 16,08:00,Giorgia Pedone,Elena Korokozidi
+ITF W35 Santa Margherita di Pula 5 Women,ITF Women,Round of 16,08:00,Denislava Glushkova,Luna Vujović
+ITF W35 Santa Margherita di Pula 5 Women,ITF Women,Round of 16,08:00,Allegra Fiorani,Elena Ruxandra Bertea
+ITF M25 Santa Margherita di Pula 5 Men,ITF Men,Quarterfinals,08:00,Kasra Rahmani,Pierluigi Basile
+ITF M25 Santa Margherita di Pula 5 Men,ITF Men,Quarterfinals,08:00,Tim Handel,Gianmarco Ferrari
+"UTR PTT Carvoeiro Women +H 06, Group B",UTR Women,,08:00,Sana Garakani,Nikola Koprivova
+"Mauthausen, Austria",Challenger,Quarterfinals,08:00,Darwin Blanch,Matthew William Donald
+"UTR PTT Carvoeiro Men +H 06, Group A",UTR Men,,08:00,Felix Alopaeus,James McGloughlin
+"UTR PTT Carvoeiro Men +H 06, Group B",UTR Men,,08:00,Felipe Assuncao Garla,Fausto Tabacco
+"Mauthausen, Austria, Doubles",Challenger,Quarterfinals,08:00,Liutarevich I / Pieczonka F,Hipfl N / Vrbensky M
+Boys' Singles Draw,Italy,Quarterfinals,08:00,Kaan Isik Kosaner,Matisse Martin
+Boys' Singles Draw,Italy,Quarterfinals,08:00,Damien Clerc,Odysseas Geladaris
+"Mauthausen, Austria",Challenger,Quarterfinals,08:00,Lukas Neumayer,Laslo Djere
+"UTR PTT Carvoeiro Men +H 06, Group D",UTR Men,,08:00,Roy Keegan,Diego Fernandez Flores
+"UTR PTT Carvoeiro Men +H 06, Group A",UTR Men,,08:00,Raghav Jaisinghani,Tomas Curras Abasolo
+"Mauthausen, Austria",Challenger,Round of 16,08:00,Martin Krumich,Jaime Faria
+"UTR PTT Carvoeiro Men +H 06, Group D",UTR Men,,08:00,Sander Juuhl Sivertsen,Otso Martikainen
+"UTR PTT Carvoeiro Women +H 06, Group D",UTR Women,,08:00,Claudia Hoste Ferrer,Kate Sharabura
+"UTR PTT Carvoeiro Women +H 06, Group D",UTR Women,,08:00,Aneta Poborilova,Mia Chudejova
+"Jiujiang, China, Doubles",Challenger,Round of 16,08:00,Rojer J-J / Winegar T,Delaney J / Shimizu Y
+"UTR PTT Carvoeiro Women +H 06, Group C",UTR Women,,08:00,Iulia Andreea Ionescu,Aleksandra Stevanovic
+"UTR PTT Carvoeiro Women +H 06, Group C",UTR Women,,08:00,Monika Jirouskova,Isabel Pascual Montalvo
+"UTR PTT Carvoeiro Men +H 06, Group D",UTR Men,,08:00,Sander Juuhl Sivertsen,Diego Fernandez Flores
+"UTR PTT Carvoeiro Women +H 06, Group B",UTR Women,,08:00,Diana Marcinkevica,Denise Valente
 "UTR PTT Carvoeiro Women +H 06, Group A",UTR Women,,08:00,Nela Silova,Vanja Gudelj
 "UTR PTT Carvoeiro Women +H 06, Group A",UTR Women,,08:00,Beata Havlickova,Suana Tucakovic
-"Mauthausen, Austria",Challenger,Quarterfinals,08:00,Darwin Blanch,Matthew William Donald
-"Mauthausen, Austria",Challenger,Quarterfinals,08:00,Lukas Neumayer,Laslo Djere
-"UTR PTT Carvoeiro Men +H 06, Group B",UTR Men,,08:00,Felipe Assuncao Garla,Fausto Tabacco
-"UTR PTT Carvoeiro Men +H 06, Group A",UTR Men,,08:00,Felix Alopaeus,James McGloughlin
-"Madrid, Spain",ATP,Semifinals,08:00,Jannik Sinner,Arthur Fils
-"Mauthausen, Austria, Doubles",Challenger,Quarterfinals,08:00,Liutarevich I / Pieczonka F,Hipfl N / Vrbensky M
+"UTR PTT Carvoeiro Men +H 06, Group C",UTR Men,,08:00,Fred Gil,Dino Molokova Ferreira
 ITF W75 Lopota Women Doubles,ITF Women,Quarterfinals,08:00,Bhosale R / Raina A,Gorgodze E/ Kardava Z
-"Jiujiang, China, Doubles",Challenger,Round of 16,08:00,Rojer J-J / Winegar T,Delaney J / Shimizu Y
-"Jiujiang, China, Doubles",Challenger,Round of 16,08:00,Nam J / Niklas-Salminen P,Myneni S / Ramanathan R
-"UTR PTT Carvoeiro Men +H 06, Group A",UTR Men,,08:00,Raghav Jaisinghani,Tomas Curras Abasolo
-Boys' Singles Draw,Italy,Quarterfinals,08:00,Damien Clerc,Odysseas Geladaris
-Boys' Singles Draw,Italy,Quarterfinals,08:00,Kaan Isik Kosaner,Matisse Martin
-Girls' Singles Draw,Italy,Quarterfinals,08:00,Sophie Triquart,Sofia Ferraris
-"UTR PTT Carvoeiro Women +H 06, Group C",UTR Women,,08:00,Iulia Andreea Ionescu,Aleksandra Stevanovic
 "UTR PTT Carvoeiro Women +H 06, Group C",UTR Women,,08:00,Iulia Andreea Ionescu,Isabel Pascual Montalvo
-ITF W35 Santa Margherita di Pula 5 Women,ITF Women,Round of 16,08:00,Natalija Senić,Deborah Chiesa
-ITF M15 Mbombela Men,ITF Men,Round of 32,08:00,Gray Voelzke,Alec Beckley
-ITF W15 Mbombela Women,ITF Women,Round of 32,08:00,Selina Atay,Sapir Cohen
-ITF W35 Santa Margherita di Pula 5 Women,ITF Women,Round of 16,08:00,Selena Janicijevic,Emma Lene
+"UTR PTT Carvoeiro Men +H 06, Group C",UTR Men,,08:00,Julio Cesar Porras,Rafael Kis Balázs
 Girls' Singles Draw,Italy,Quarterfinals,08:00,Virginia Proietti,Pavla Sviglerova
+"UTR PTT Carvoeiro Men +H 06, Group D",UTR Men,,08:00,Bruno Ouvidor,Otso Martikainen
+"UTR PTT Carvoeiro Men +H 06, Group B",UTR Men,,08:00,Dorian Juszczak,Miguel Semedo
+Girls' Singles Draw,Italy,Quarterfinals,08:00,Sophie Triquart,Sofia Ferraris
+"Jiujiang, China, Doubles",Challenger,Round of 16,08:00,Nam J / Niklas-Salminen P,Myneni S / Ramanathan R
 ITF W100 Gifu Women Doubles,ITF Women,Round of 16,08:05,Ishii S / Koike E,Ito A / Kobori M
-ITF W100 Gifu Women Doubles,ITF Women,Round of 16,08:06,Kimura M / Yamada M,Naito Y / Sakatsume H
 "Jiujiang, China, Doubles",Challenger,Round of 16,08:25,Pearson K / Walton A,Noguchi R / Sun F
-ITF M15 Monastir 15 Men,ITF Men,Round of 16,08:30,Vito Dell'Elba,Nicolas Tepmahc
-ITF M15 Monastir 15 Men,ITF Men,Round of 16,08:30,Luca Wiedenmann,Filippo Mazzola
-ITF M15 Monastir 15 Men,ITF Men,Round of 16,08:30,Gilberto Ravasio,Alaa Trifi
-ITF M15 Monastir 15 Men,ITF Men,Round of 16,08:30,Milledge Cossu,Toufik Sahtali
-ITF M15 Monastir 15 Men,ITF Men,Round of 16,08:30,Samuele Seghetti,Mohamed Ali Abibsi
-ITF M15 Islamabad Men,ITF Men,Round of 16,08:30,Leo Borg,Mohammad Abid Ali Khan Akbar
-ITF W100 Wiesbaden Women,ITF Women,Round of 16,08:30,Tessa Johanna Brockmann,Carol Young-suh Lee
-ITF W15 Monastir 12 Women,ITF Women,Round of 16,08:30,Meritxell Teixido Garcia,Francesca Gandolfi
-ITF M15 Monastir 15 Men,ITF Men,Round of 16,08:30,Andrea Colombo,William Rejchtman Vinciguerra
-ITF W15 Mbombela Women,ITF Women,Round of 32,08:30,Irem Kurt,Josephine Kunz
-ITF W15 Monastir 12 Women,ITF Women,Round of 16,08:30,Karla Popović,Elena Grekul
+ITF M25 Nakhon Pathom Men Doubles,ITF Men,Quarterfinals,08:30,Hewitt C / Sinclair C,Hazawa S / Sueoka Y
+ITF M25 Nakhon Pathom Men Doubles,ITF Men,Quarterfinals,08:30,Ichikawa T / Imamura M,Delaney J / Becroft I
 ITF W15 Monastir 12 Women,ITF Women,Round of 16,08:30,Serife Pelin Sari,Luciana Moyano
+ITF W15 Monastir 12 Women,ITF Women,Round of 16,08:30,Karla Popović,Elena Grekul
+ITF M15 Monastir 15 Men,ITF Men,Round of 16,08:30,Luca Wiedenmann,Filippo Mazzola
+ITF W15 Monastir 12 Women,ITF Women,Round of 16,08:30,Meritxell Teixido Garcia,Francesca Gandolfi
+ITF W100 Wiesbaden Women,ITF Women,Round of 16,08:30,Tessa Johanna Brockmann,Carol Young-suh Lee
+ITF M15 Islamabad Men,ITF Men,Round of 16,08:30,Leo Borg,Mohammad Abid Ali Khan Akbar
+ITF W15 Mbombela Women,ITF Women,Round of 32,08:30,Irem Kurt,Josephine Kunz
 ITF W15 Mbombela Women,ITF Women,Round of 32,08:30,Elizabeth Ivanov,Ann Akasha Ceuca
 ITF W15 Mbombela Women,ITF Women,Round of 32,08:30,Elena Jamshidi,Morgan Jordaan
-"Shymkent 2, Kazakhstan, Doubles",Challenger,Quarterfinals,08:30,Gadamauri B / Sels J,Fomin S / Orlov V
-"Shymkent 2, Kazakhstan, Doubles",Challenger,Quarterfinals,08:40,Fukuda S / Vithoontien L,A. Kalender / M. Poljicak
-"Saint-Malo, France",WTA 125,Quarterfinals,09:00,Tereza Valentová,Lilli Tagger
-Girls' Singles Draw,Italy,1/8,09:00,Veronika Sekerkova,Ana Frommenwiler
-ITF W15 Mbombela Women,ITF Women,Round of 32,09:00,Abigayel Vosloo,Freya Peet
-"Cagliari, Italy, Doubles",Challenger,Round of 16,09:00,Romboli F / Smith J-P,Gille S / Verbeek S
-ITF W75 Lopota Women,ITF Women,Quarterfinals,09:00,Martyna Kubka,Eva Guerrero Álvarez
-ITF W75 Lopota Women,ITF Women,Quarterfinals,09:00,Sahaja Yamalapalli,Amandine Hesse
-ITF M25 Nottingham Men,ITF Men,Round of 16,09:00,Anton Matusevich,Ronit Karki
-ITF M25 Nottingham Men,ITF Men,Round of 16,09:00,Emile Hudd,Ewen Lumsden
-ITF M25 Nottingham Men,ITF Men,Round of 16,09:00,Finn Murgett,Patrick Brady
+ITF M15 Monastir 15 Men,ITF Men,Round of 16,08:30,Vito Dell'Elba,Nicolas Tepmahc
+ITF M15 Monastir 15 Men,ITF Men,Round of 16,08:30,Samuele Seghetti,Mohamed Ali Abibsi
+ITF M15 Monastir 15 Men,ITF Men,Round of 16,08:30,Milledge Cossu,Toufik Sahtali
+"Jiujiang, China, Doubles",Challenger,Round of 16,08:30,CUI J / Wang A,Isaro PR / Kaliyanda Poonacha N
+ITF M15 Monastir 15 Men,ITF Men,Round of 16,08:30,Gilberto Ravasio,Alaa Trifi
+ITF M15 Monastir 15 Men,ITF Men,Round of 16,08:30,Andrea Colombo,William Rejchtman Vinciguerra
 ITF M15 Mbombela Men,ITF Men,Round of 32,09:00,Giovanni Ciocca,Simphiwe Ngwenya
-ITF M25 Nottingham Men,ITF Men,Round of 16,09:00,Marcus Walters,Luke Hooper
-ITF M25 Nottingham Men,ITF Men,Round of 16,09:00,Reece Falck,Henry Searle
-ITF M25 Nottingham Men,ITF Men,Round of 16,09:00,Rhys Lawlor,Ali Habib
-ITF M25 Quinta do Lago Men,ITF Men,Round of 16,09:00,Francisco Rocha,Patrick Schoen
-ITF M25 Quinta do Lago Men,ITF Men,Round of 16,09:00,Goncalo Marques,Justin Boulais
-ITF M25 Quinta do Lago Men,ITF Men,Round of 16,09:00,John Echeverria,Gastao Elias
-ITF W100 Wiesbaden Women,ITF Women,Round of 16,09:00,Julia Grabher,Anastasia Gasanova
-"Aix en Provence, France",Challenger,Round of 16,09:00,Zizou Bergs,Pierre-Hugues Herbert
-"Aix en Provence, France",Challenger,Round of 16,09:00,Rinky Hijikata,Sebastian Ofner
-"Saint-Malo, France, Doubles",WTA 125,Quarterfinals,09:00,Chan H-C / Corley I,Martins I / Ovcharenko E
-"Aix en Provence, France, Doubles",Challenger,Round of 16,09:00,Bertola R / Jacq G,Schnaitter J / Wallner M
-Boys' Singles Draw,Italy,1/8,09:00,D. Ciaschetti,L. Cosimi
-"Aix en Provence, France, Doubles",Challenger,Quarterfinals,09:00,Trhac P / Willis M,Kirkov V / Stevens B
-"Saint-Malo, France",WTA 125,Quarterfinals,09:00,Moyuka Uchijima,Sofia Costoulas
-"Saint-Malo, France",WTA 125,Round of 16,09:00,Yasmine Kabbaj,Jessika Ponchet
-ITF M25 Castelldefels Men,ITF Men,Round of 16,09:00,Alberto Barroso Campos,Johan Nikles
-ITF M25 Castelldefels Men,ITF Men,Round of 16,09:00,Alex Marti Pujolras,Amaan Siddiqui
-ITF W35 Nottingham Women,ITF Women,Round of 16,09:00,Britt Du Pree,Andrė Lukošiūtė
-ITF W35 Nottingham Women,ITF Women,Round of 16,09:00,Katy Dunne,Amelia Rajecki
-ITF M25 Castelldefels Men,ITF Men,Round of 16,09:00,Nicolas Alvarez Varona,Lucca Helguera Casado
-"Aix en Provence, France, Doubles",Challenger,Quarterfinals,09:00,Galloway R / Peers J,Paul J / Vocel M
-"Cagliari, Italy",Challenger,Round of 16,09:00,Cristian Garin,Nuno Borges
 ITF W35 Nottingham Women,ITF Women,Round of 16,09:00,Kolie Allen,Yuriko Lily Miyazaki
-ITF W15 Monastir 12 Women,ITF Women,Round of 16,09:00,María Oliver Sánchez,Masha Lazarenko
-ITF W15 Monastir 12 Women,ITF Women,Round of 16,09:00,Laia Petretic,Lya Isabel Fernandez Olivares
-ITF W15 Monastir 12 Women,ITF Women,Round of 16,09:00,Bianca Elena Barbulescu,Francesca Dell'Edera
-ITF W15 Monastir 12 Women,ITF Women,Round of 16,09:00,Anna Shkutova,Anja Wildgruber
+"Cagliari, Italy, Doubles",Challenger,Round of 16,09:00,Romboli F / Smith J-P,Gille S / Verbeek S
+Girls' Singles Draw,Italy,1/8,09:00,Veronika Sekerkova,Ana Frommenwiler
 ITF W35 Nottingham Women,ITF Women,Round of 16,09:00,Vaishnavi Adkar,Amelie Brooks
 ITF W35 Nottingham Women,ITF Women,Round of 16,09:00,Victoria Allen,Esther Adeshina
-ITF W100 Wiesbaden Women,ITF Women,Round of 16,09:00,Mia Pohankova,Simona Waltert
+Boys' Singles Draw,Italy,1/8,09:00,D. Ciaschetti,L. Cosimi
+"Shymkent 2, Kazakhstan, Doubles",Challenger,Quarterfinals,09:00,Fukuda S / Vithoontien L,A. Kalender / M. Poljicak
 ITF W35 Nottingham Women,ITF Women,Round of 16,09:00,Ruby Cooling,Sabine Rutlauka
-ITF M25 Nakhon Pathom Men Doubles,ITF Men,Quarterfinals,09:07,Hewitt C / Sinclair C,Hazawa S / Sueoka Y
+ITF W35 Nottingham Women,ITF Women,Round of 16,09:00,Katy Dunne,Amelia Rajecki
+ITF M25 Castelldefels Men,ITF Men,Round of 16,09:00,Alberto Barroso Campos,Johan Nikles
+"Aix en Provence, France, Doubles",Challenger,Round of 16,09:00,Bertola R / Jacq G,Schnaitter J / Wallner M
+"Cagliari, Italy",Challenger,Round of 16,09:00,Cristian Garin,Nuno Borges
+ITF M25 Quinta do Lago Men,ITF Men,Round of 16,09:00,John Echeverria,Gastao Elias
+ITF M25 Quinta do Lago Men,ITF Men,Round of 16,09:00,Goncalo Marques,Justin Boulais
+ITF M25 Quinta do Lago Men,ITF Men,Round of 16,09:00,Francisco Rocha,Patrick Schoen
+ITF M25 Nottingham Men,ITF Men,Round of 16,09:00,Rhys Lawlor,Ali Habib
+ITF M25 Nottingham Men,ITF Men,Round of 16,09:00,Reece Falck,Henry Searle
+ITF M25 Nottingham Men,ITF Men,Round of 16,09:00,Marcus Walters,Luke Hooper
+ITF M25 Nottingham Men,ITF Men,Round of 16,09:00,Finn Murgett,Patrick Brady
+ITF M25 Nottingham Men,ITF Men,Round of 16,09:00,Emile Hudd,Ewen Lumsden
+ITF M25 Nottingham Men,ITF Men,Round of 16,09:00,Anton Matusevich,Ronit Karki
+"Saint-Malo, France",WTA 125,Round of 16,09:00,Yasmine Kabbaj,Jessika Ponchet
+"Saint-Malo, France",WTA 125,Quarterfinals,09:00,Moyuka Uchijima,Sofia Costoulas
+ITF W35 Nottingham Women,ITF Women,Round of 16,09:00,Britt Du Pree,Andrė Lukošiūtė
+"Saint-Malo, France",WTA 125,Quarterfinals,09:00,Tereza Valentová,Lilli Tagger
+ITF W15 Monastir 12 Women,ITF Women,Round of 16,09:00,Anna Shkutova,Anja Wildgruber
+ITF W15 Monastir 12 Women,ITF Women,Round of 16,09:00,Bianca Elena Barbulescu,Francesca Dell'Edera
+ITF W15 Monastir 12 Women,ITF Women,Round of 16,09:00,Laia Petretic,Lya Isabel Fernandez Olivares
+ITF W15 Monastir 12 Women,ITF Women,Round of 16,09:00,María Oliver Sánchez,Masha Lazarenko
+"Saint-Malo, France, Doubles",WTA 125,Quarterfinals,09:00,Chan H-C / Corley I,Martins I / Ovcharenko E
+ITF M25 Castelldefels Men,ITF Men,Round of 16,09:00,Nicolas Alvarez Varona,Lucca Helguera Casado
+ITF M25 Castelldefels Men,ITF Men,Round of 16,09:00,Alex Marti Pujolras,Amaan Siddiqui
+ITF W100 Wiesbaden Women,ITF Women,Round of 16,09:00,Julia Grabher,Anastasia Gasanova
+"Aix en Provence, France, Doubles",Challenger,Quarterfinals,09:00,Trhac P / Willis M,Kirkov V / Stevens B
+"Aix en Provence, France, Doubles",Challenger,Quarterfinals,09:00,Galloway R / Peers J,Paul J / Vocel M
+"Aix en Provence, France",Challenger,Round of 16,09:00,Rinky Hijikata,Sebastian Ofner
+"Aix en Provence, France",Challenger,Round of 16,09:00,Zizou Bergs,Pierre-Hugues Herbert
+ITF W15 Mbombela Women,ITF Women,Round of 32,09:00,Abigayel Vosloo,Freya Peet
+ITF W100 Wiesbaden Women,ITF Women,Round of 16,09:00,Mia Pohankova,Simona Waltert
+"Shymkent 2, Kazakhstan, Doubles",Challenger,Quarterfinals,09:05,Gadamauri B / Sels J,Fomin S / Orlov V
+ITF W75 Lopota Women,ITF Women,Quarterfinals,09:08,Martyna Kubka,Eva Guerrero Álvarez
+ITF W75 Lopota Women,ITF Women,Quarterfinals,09:09,Sahaja Yamalapalli,Amandine Hesse
 "Mauthausen, Austria",Challenger,Round of 16,09:10,Miguel Damas,Mika Brunold
-"Mauthausen, Austria, Doubles",Challenger,Quarterfinals,09:10,Martinez A / Pujol Navarro B,Kohlschreiber P / Schwaerzler J
 ITF M15 Islamabad Men,ITF Men,Round of 16,09:10,Dmitrii Shirokii,Kerem Yilmaz
-ITF W15 Mbombela Women,ITF Women,Round of 32,09:30,Ashmitha Easwaramurthi,Coco Bosman
-ITF W15 Madrid Women,ITF Women,Round of 16,09:30,Maileen Nuudi,Stefaniya Pushkar
-ITF W15 Mbombela Women,ITF Women,Round of 32,09:30,Darja Suvirdjonkova,Emma Van Poppel
-ITF W15 Madrid Women,ITF Women,Round of 16,09:30,Marta Leon Jaume,Marine Szostak
-ITF W15 Madrid Women,ITF Women,Round of 16,09:30,Shannon Lam,Ana Maye Martinez
-ITF W15 Madrid Women,ITF Women,Round of 16,09:30,Maria Garcia Cid,Marta Soriano Santiago
-"UTR PTT Carvoeiro Women +H 06, Group A",UTR Women,,09:30,Michelle Dzjachangirova,Suana Tucakovic
-ITF M15 Islamabad Men Doubles ,ITF Men,Quarterfinals,09:30,Khan A / Khan B,Farag-Cao A / Holder C
-"UTR PTT Carvoeiro Men +H 06, Group A",UTR Men,,09:30,Bas Bouwman,Tomas Curras Abasolo
-"UTR PTT Carvoeiro Women +H 06, Group A",UTR Women,,09:30,Beata Havlickova,Vanja Gudelj
-ITF M15 Islamabad Men Doubles ,ITF Men,Quarterfinals,09:30,Qureshi A N / Talha A,Dubinin A / Iutkin I
-"UTR PTT Carvoeiro Men +H 06, Group A",UTR Men,,09:30,Raghav Jaisinghani,James McGloughlin
-ITF M15 Mbombela Men,ITF Men,Round of 32,09:30,Jesse Flores,Simon Caldwell
-ITF W100 Wiesbaden Women,ITF Women,Round of 32,09:30,Ella Seidel,Noma Noha Akugue
-ITF W15 New Delhi Women Doubles,ITF Women,Quarterfinals,09:30,Chiripal J / Fernando D,Kanabar J D / Sachdeva R
+"Mauthausen, Austria, Doubles",Challenger,Quarterfinals,09:10,Martinez A / Pujol Navarro B,Kohlschreiber P / Schwaerzler J
 ITF M15 Islamabad Men Doubles ,ITF Men,Quarterfinals,09:30,Cherie Ligniere E / Vasiliauskas M,Qabazard E / Suresh D
-ITF W15 New Delhi Women Doubles,ITF Women,Quarterfinals,09:30,Laskutova K / Yashina E,Bhatia K / Panwar Y
+ITF W15 Mbombela Women,ITF Women,Round of 32,09:30,Darja Suvirdjonkova,Emma Van Poppel
+"UTR PTT Carvoeiro Men +H 06, Group A",UTR Men,,09:30,Raghav Jaisinghani,James McGloughlin
+ITF W15 Mbombela Women,ITF Women,Round of 32,09:30,Ashmitha Easwaramurthi,Coco Bosman
+"UTR PTT Carvoeiro Men +H 06, Group A",UTR Men,,09:30,Bas Bouwman,Tomas Curras Abasolo
+ITF M15 Islamabad Men Doubles ,ITF Men,Quarterfinals,09:30,Khan A / Khan B,Farag-Cao A / Holder C
+ITF W15 Madrid Women,ITF Women,Round of 16,09:30,Shannon Lam,Ana Maye Martinez
+ITF W15 Madrid Women,ITF Women,Round of 16,09:30,Marta Leon Jaume,Marine Szostak
+ITF W15 Madrid Women,ITF Women,Round of 16,09:30,Maria Garcia Cid,Marta Soriano Santiago
+ITF W15 Madrid Women,ITF Women,Round of 16,09:30,Maileen Nuudi,Stefaniya Pushkar
 ITF W15 New Delhi Women Doubles,ITF Women,Quarterfinals,09:30,Sadiq S / Sawant M,Bhatia D / Luikham J
+ITF M15 Islamabad Men Doubles ,ITF Men,Quarterfinals,09:30,Qureshi A N / Talha A,Dubinin A / Iutkin I
+ITF W15 New Delhi Women Doubles,ITF Women,Quarterfinals,09:30,Laskutova K / Yashina E,Bhatia K / Panwar Y
+ITF W15 New Delhi Women Doubles,ITF Women,Quarterfinals,09:30,Chiripal J / Fernando D,Kanabar J D / Sachdeva R
+ITF W100 Wiesbaden Women,ITF Women,Round of 32,09:30,Ella Seidel,Noma Noha Akugue
 ITF W15 New Delhi Women Doubles,ITF Women,Quarterfinals,09:30,Rachapudi P / Tamhankar B,Arifullina A / Ozeki  M
-"La Bisbal D Emporda, Spain",WTA 125,Quarterfinals,10:00,Beatriz Haddad Maia,Marina Bassols Ribera
-"Ostrava, Czech Republic, Doubles",Challenger,Quarterfinals,10:00,Banthia S / Donski A,Jans J / Whitehouse M
-"Jiujiang, China",Challenger,Round of 32,10:00,Tung-Lin Wu,Te Rigele
-ITF W35 Santa Margherita di Pula 5 Women,ITF Women,Round of 16,10:00,Katerina Tsygourova,Tiphanie Lemaitre
-"Ostrava, Czech Republic, Doubles",Challenger,Quarterfinals,10:00,Barton H / Johns G,Drzewiecki K / Matuszewski P
+ITF M15 Mbombela Men,ITF Men,Round of 32,09:30,Jesse Flores,Simon Caldwell
+"UTR PTT Carvoeiro Women +H 06, Group A",UTR Women,,09:30,Michelle Dzjachangirova,Suana Tucakovic
+"UTR PTT Carvoeiro Women +H 06, Group A",UTR Women,,09:30,Beata Havlickova,Vanja Gudelj
+"Ostrava, Czech Republic",Challenger,Quarterfinals,10:00,Tom Gentzsch,Rudolf Molleker
 ITF W15 Oegstgeest Women,ITF Women,Round of 16,10:00,Iva Marinkovic,Kaat Coppez
+"Cagliari, Italy",Challenger,Round of 32,10:00,Andrea Pellegrino,Stefanos Sakellaridis
 ITF W15 Oegstgeest Women,ITF Women,Round of 16,10:00,Denisa Zoldakova,Maria Fernanda Navarro Oliva
 ITF W15 Oegstgeest Women,ITF Women,Round of 16,10:00,Anna Hertel,Loes Ebeling Koning
-"Ostrava, Czech Republic",Challenger,Round of 16,10:00,Zdenek Kolar,Jonas Forejtek
-"Ostrava, Czech Republic",Challenger,Quarterfinals,10:00,Marco Cecchinato,Raul Brancaccio
-"Ostrava, Czech Republic",Challenger,Quarterfinals,10:00,Tom Gentzsch,Rudolf Molleker
-"La Bisbal D Emporda, Spain, Doubles",WTA 125,Semifinals,10:00,Pridankina E / Tang Q,Klepac A / Kozyreva M
-"La Bisbal D Emporda, Spain",WTA 125,Round of 16,10:00,Rebecca Šramková,Caroline Werner
-"UTR PTT Carvoeiro Men +H 06, Group A",UTR Men,,10:00,Bas Bouwman,Raghav Jaisinghani
-"La Bisbal D Emporda, Spain",WTA 125,Quarterfinals,10:00,Caroline Werner,Tamara Korpatsch
+"Jiujiang, China",Challenger,Round of 32,10:00,Tung-Lin Wu,Te Rigele
 "La Bisbal D Emporda, Spain",WTA 125,Round of 16,10:00,Laura Pigossi,Daria Kasatkina
-ITF W100 Wiesbaden Women,ITF Women,Round of 16,10:00,Elina Avanesyan,Sinja Kraus
+ITF W35 Santa Margherita di Pula 5 Women,ITF Women,Round of 16,10:00,Katerina Tsygourova,Tiphanie Lemaitre
+"La Bisbal D Emporda, Spain, Doubles",WTA 125,Semifinals,10:00,Pridankina E / Tang Q,Klepac A / Kozyreva M
 ITF W15 Mbombela Women,ITF Women,Round of 32,10:00,Jessica Schilz,Prisha Vyas
-ITF M15 Oegstgeest Men,ITF Men,Round of 16,10:00,Pieter De Lange,Mika Petkovic
 "Cagliari, Italy",Challenger,Round of 16,10:00,Jesper De Jong,Adrian Mannarino
+"UTR PTT Carvoeiro Men +H 06, Group A",UTR Men,,10:00,Bas Bouwman,Raghav Jaisinghani
 ITF M15 Mbombela Men,ITF Men,Round of 32,10:00,Benjamin O'Connell,Zaharije-Zak Talic
-"Cagliari, Italy",Challenger,Round of 32,10:00,Andrea Pellegrino,Stefanos Sakellaridis
-ITF M15 Oegstgeest Men,ITF Men,Round of 16,10:00,Dax Donders,Adrian Oetzbach
+"Ostrava, Czech Republic, Doubles",Challenger,Quarterfinals,10:00,Barton H / Johns G,Drzewiecki K / Matuszewski P
+ITF M15 Oegstgeest Men,ITF Men,Round of 16,10:00,Pieter De Lange,Mika Petkovic
 ITF M15 Oegstgeest Men,ITF Men,Round of 16,10:00,Peter Makk,Oskari Paldanius
-ITF M15 Monastir 15 Men,ITF Men,Round of 32,10:03,Omar Knani,Nicolas Tepmahc
+ITF M15 Oegstgeest Men,ITF Men,Round of 16,10:00,Dax Donders,Adrian Oetzbach
+"Ostrava, Czech Republic, Doubles",Challenger,Quarterfinals,10:00,Banthia S / Donski A,Jans J / Whitehouse M
+"Ostrava, Czech Republic",Challenger,Round of 16,10:00,Zdenek Kolar,Jonas Forejtek
+"La Bisbal D Emporda, Spain",WTA 125,Quarterfinals,10:00,Caroline Werner,Tamara Korpatsch
+"La Bisbal D Emporda, Spain",WTA 125,Quarterfinals,10:00,Beatriz Haddad Maia,Marina Bassols Ribera
+"La Bisbal D Emporda, Spain",WTA 125,Round of 16,10:00,Rebecca Šramková,Caroline Werner
+"Ostrava, Czech Republic",Challenger,Quarterfinals,10:00,Marco Cecchinato,Raul Brancaccio
+ITF W100 Wiesbaden Women,ITF Women,Round of 16,10:00,Elina Avanesyan,Sinja Kraus
 ITF M15 Monastir 15 Men,ITF Men,Round of 32,10:03,Egor Pleshivtsev,Mohamed Ali Abibsi
+ITF M15 Monastir 15 Men,ITF Men,Round of 32,10:03,Omar Knani,Nicolas Tepmahc
 ITF M15 Monastir 15 Men,ITF Men,Round of 32,10:05,Pietro Marino,Aaron Gil Garcia
 ITF M15 Mbombela Men,ITF Men,Round of 32,10:06,Jeffrey Strydom,Madhwin Kamath
 ITF M25 Santa Margherita di Pula 5 Men,ITF Men,Round of 16,10:07,Alessandro Battiston,Stefan Horia Haita
-"Cagliari, Italy",Challenger,Round of 16,10:10,Juan Manuel Cerundolo,Matteo Arnaldi
-"Cagliari, Italy, Doubles",Challenger,Round of 16,10:10,Barrientos N / Behar A,Kittay B / Seggerman R
-"Saint-Malo, France",WTA 125,Round of 16,10:10,Whitney Osuigwe,Viktorija Golubic
 "Aix en Provence, France",Challenger,Round of 16,10:10,Kimmer Coppejans,Valentin Royer
+"Saint-Malo, France",WTA 125,Round of 16,10:10,Whitney Osuigwe,Viktorija Golubic
 "Saint-Malo, France, Doubles",WTA 125,Quarterfinals,10:10,Danilina A / Muhammad A,Khromacheva I / Zaytseva K
 "Aix en Provence, France",Challenger,Round of 16,10:10,Alexander Shevchenko,Yibing Wu
 "Aix en Provence, France",Challenger,Round of 16,10:10,Martin Landaluce,Ethan Quinn
+"Cagliari, Italy, Doubles",Challenger,Round of 16,10:10,Barrientos N / Behar A,Kittay B / Seggerman R
+"Cagliari, Italy",Challenger,Round of 16,10:10,Juan Manuel Cerundolo,Matteo Arnaldi
 ITF W15 Madrid Women,ITF Women,Round of 32,10:13,Judith Hernandez Miranda,Celia Cerviño Ruiz
-"Ostrava, Czech Republic",Challenger,Round of 16,10:15,Jay Clarke,Raul Brancaccio
 "Ostrava, Czech Republic",Challenger,Round of 16,10:15,Marco Cecchinato,Garrett Johns
+"Ostrava, Czech Republic",Challenger,Round of 16,10:15,Jay Clarke,Raul Brancaccio
 ITF M15 Monastir 15 Men,ITF Men,Round of 32,10:16,Marcello Serafini,Alaa Trifi
-ITF M15 Monastir 15 Men,ITF Men,Round of 32,10:20,Andrea Colombo,Antoni Fabre
-"Shymkent 2, Kazakhstan, Doubles",Challenger,Round of 16,10:20,Albot R / Yevseyev D,A. Kalender / M. Poljicak
 "Jiujiang, China",Challenger,Round of 32,10:20,Giles Hussey,Jason Jung
 "Aix en Provence, France",Challenger,Round of 32,10:20,Remy Bertola,Kimmer Coppejans
-ITF M15 Monastir 15 Men,ITF Men,Round of 32,10:23,Gabriele Bosio,Mohamed Nazim Makhlouf
+ITF M15 Monastir 15 Men,ITF Men,Round of 32,10:20,Andrea Colombo,Antoni Fabre
+"Shymkent 2, Kazakhstan, Doubles",Challenger,Round of 16,10:20,Albot R / Yevseyev D,A. Kalender / M. Poljicak
 ITF W35 Santa Margherita di Pula 5 Women,ITF Women,Round of 32,10:23,Ilary Pistola,Ludovica Mazzucchelli
+ITF M15 Monastir 15 Men,ITF Men,Round of 32,10:23,Gabriele Bosio,Mohamed Nazim Makhlouf
 ITF M15 Islamabad Men Doubles ,ITF Men,Round of 16,10:24,Bastola A / Meng F,Dubinin A / Iutkin I
-"Saint-Malo, France, Doubles",WTA 125,Round of 16,10:25,Khromacheva I / Zaytseva K,Karamoko N / Moratelli A
 "Mauthausen, Austria, Doubles",Challenger,Round of 16,10:25,Kohlschreiber P / Schwaerzler J,Cukierman D / Hilderbrand T
-ITF M15 Mbombela Men Doubles,ITF Men,Round of 16,10:30,McCarthy C / Van Aken N,Faucon R / Vega L
-ITF M15 Islamabad Men Doubles ,ITF Men,Quarterfinals,10:30,Abid M / Murtaza M,Duran T / Turker M N
-ITF M15 Mbombela Men Doubles,ITF Men,Round of 16,10:30,Duran T / Van Sambeek F,Perego G / Piatti R
-ITF M15 Mbombela Men Doubles,ITF Men,Round of 16,10:30,Markiewicz J / Zeuch T,Kamath M / Sharma A
-Girls' Singles Draw,Italy,1/8,10:30,Alessandra Fiorillo,Anna Bazderova
-ITF M15 Monastir 15 Men,ITF Men,Round of 16,10:30,Jacob Bradshaw,Aaron Gil Garcia
-ITF W15 Monastir 12 Women,ITF Women,Round of 16,10:30,Yasmine Mansouri,Fabienne Gettwart
-ITF M15 Monastir 15 Men,ITF Men,Round of 16,10:30,Gabriele Bosio,Amine Jamji
-ITF M25 Santa Margherita di Pula 5 Men Doubles,ITF Men,Quarterfinals,10:30,Scomparin P R / Volpi G,Chepelev A / Ferrari G
-ITF M25 Santa Margherita di Pula 5 Men Doubles,ITF Men,Quarterfinals,10:30,Milev Y / Popovic S,Battiston A / Ferrari F
-ITF M25 Santa Margherita di Pula 5 Men Doubles,ITF Men,Quarterfinals,10:30,Massucco S / Mencaglia S,Cocola S / Rahmani K
+"Saint-Malo, France, Doubles",WTA 125,Round of 16,10:25,Khromacheva I / Zaytseva K,Karamoko N / Moratelli A
 ITF M25 Santa Margherita di Pula 5 Men Doubles,ITF Men,Quarterfinals,10:30,Bagnolini D / Moroni F,Furlanetto M / Parizzia N
-ITF W35 Santa Margherita di Pula 5 Women Doubles,ITF Women,Final,10:30,Chiesa D / Pedone G,Janicijevic S / Senic N
+ITF M15 Monastir 15 Men,ITF Men,Round of 16,10:30,Jacob Bradshaw,Aaron Gil Garcia
+ITF M15 Mbombela Men Doubles,ITF Men,Round of 16,10:30,Markiewicz J / Zeuch T,Kamath M / Sharma A
 "Aix en Provence, France",Challenger,Round of 32,10:30,Roberto Bautista Agut,Sascha Gueymard Wayenburg
+ITF M15 Islamabad Men Doubles ,ITF Men,Quarterfinals,10:30,Abid M / Murtaza M,Duran T / Turker M N
+ITF W15 Monastir 12 Women,ITF Women,Round of 16,10:30,Yasmine Mansouri,Fabienne Gettwart
+ITF M25 Santa Margherita di Pula 5 Men Doubles,ITF Men,Quarterfinals,10:30,Massucco S / Mencaglia S,Cocola S / Rahmani K
+ITF M15 Monastir 15 Men,ITF Men,Round of 16,10:30,Gabriele Bosio,Amine Jamji
+Girls' Singles Draw,Italy,1/8,10:30,Alessandra Fiorillo,Anna Bazderova
+ITF W35 Santa Margherita di Pula 5 Women Doubles,ITF Women,Final,10:30,Chiesa D / Pedone G,Janicijevic S / Senic N
+ITF M25 Santa Margherita di Pula 5 Men Doubles,ITF Men,Quarterfinals,10:30,Milev Y / Popovic S,Battiston A / Ferrari F
+ITF M25 Santa Margherita di Pula 5 Men Doubles,ITF Men,Quarterfinals,10:30,Scomparin P R / Volpi G,Chepelev A / Ferrari G
+ITF M15 Mbombela Men Doubles,ITF Men,Round of 16,10:30,Duran T / Van Sambeek F,Perego G / Piatti R
+ITF M15 Mbombela Men Doubles,ITF Men,Round of 16,10:30,McCarthy C / Van Aken N,Faucon R / Vega L
 ITF M25 Castelldefels Men,ITF Men,Round of 32,10:32,Sergio Planella Hernandez,Benoit Torcq
 ITF M15 Islamabad Men Doubles ,ITF Men,Round of 16,10:34,Cherie Ligniere E / Vasiliauskas M,Reguig S H / Flannelly J R
 "Ostrava, Czech Republic, Doubles",Challenger,Round of 16,10:35,Basic M / Fatic N,Jans J / Whitehouse M
@@ -351,39 +353,39 @@ ITF M25 Santa Margherita di Pula 5 Men,ITF Men,Round of 16,10:55,Marco Furlanett
 ITF M25 Santa Margherita di Pula 5 Men,ITF Men,Round of 16,10:56,Lorenzo Ferri,Niccolo Ciavarella
 ITF M25 Nottingham Men,ITF Men,Round of 32,10:56,Emile Hudd,Nemanja Malesevic
 ITF M25 Quinta do Lago Men,ITF Men,Round of 32,10:58,Tiago Pereira,Gavin Young
-ITF M25 Nottingham Men,ITF Men,Round of 16,11:00,Patrick Zahraj,Henry Lieberman
-"Madrid, Spain",ATP,Quarterfinals,11:00,Casper Ruud,Alexander Blockx
-"UTR PTT Carvoeiro Men +H 06, Group C",UTR Men,,11:00,Fred Gil,Rafael Kis Balázs
-ITF M25 Quinta do Lago Men,ITF Men,Round of 16,11:00,Alejandro Turriziani Alvarez,Florian Broska
-ITF M25 Quinta do Lago Men,ITF Men,Round of 16,11:00,Rafael Izquierdo Luque,Adrien Burdet
+ITF W15 Madrid Women Doubles,ITF Women,Semifinals,11:00,Toma M / Yuldasheva S,Arystanbekova A / Dyussebay I
+"Madrid, Spain",WTA,Quarterfinals,11:00,Karolína Plíšková,Anastasia Potapova
 ITF M25 Quinta do Lago Men,ITF Men,Round of 16,11:00,Tiago Pereira,Michael Zhu
-"UTR PTT Carvoeiro Men +H 06, Group C",UTR Men,,11:00,Samuel de Felipe Garcia,Dino Molokova Ferreira
-Girls' Singles Draw,Italy,1/8,11:00,Vittoria Vignolini,Pavla Sviglerova
 ITF M25 Nottingham Men,ITF Men,Round of 16,11:00,Leo Raquillet,Braden Shick
-ITF M25 Castelldefels Men,ITF Men,Round of 16,11:00,Sergio Planella Hernandez,Oriol Roca Batalla
-ITF M15 Oegstgeest Men Doubles,ITF Men,Quarterfinals,11:00,Bozemoj B / Pel S,Oradini G / Schiavone P
-"UTR PTT Carvoeiro Women +H 06, Group D",UTR Women,,11:00,Alexandrova Ralitsa,Kate Sharabura
-ITF M25 Nottingham Men Doubles,ITF Men,Quarterfinals,11:00,Gannon C / Rodrigues N,Howse M / Solonenko A
 "UTR PTT Carvoeiro Women +H 06, Group D",UTR Women,,11:00,Claudia Hoste Ferrer,Mia Chudejova
+"UTR PTT Carvoeiro Women +H 06, Group D",UTR Women,,11:00,Alexandrova Ralitsa,Kate Sharabura
+"La Bisbal D Emporda, Spain",WTA 125,Round of 16,11:00,Tamara Korpatsch,Jil Teichmann
+ITF M25 Quinta do Lago Men,ITF Men,Round of 16,11:00,Alejandro Turriziani Alvarez,Florian Broska
+ITF W100 Wiesbaden Women,ITF Women,Round of 16,11:00,Elizara Yaneva,Darja Semenistaja
+ITF W100 Wiesbaden Women,ITF Women,Round of 16,11:00,Lucia Bronzetti,Francesca Jones
+ITF M25 Quinta do Lago Men,ITF Men,Round of 16,11:00,Rafael Izquierdo Luque,Adrien Burdet
+ITF M25 Nottingham Men,ITF Men,Round of 16,11:00,Patrick Zahraj,Henry Lieberman
+ITF W35 Nottingham Women,ITF Women,Round of 16,11:00,Alice Gillan,Emily Appleton
+ITF W15 Madrid Women Doubles,ITF Women,Semifinals,11:00,Stankiewicz M / Vogt M,Cervino Ruiz C / Sramkova T
+ITF M15 Mbombela Men Doubles,ITF Men,Round of 16,11:00,Rootman H / Smith C,Beaven J / Van Der Merwe M
+ITF M15 Mbombela Men Doubles,ITF Men,Round of 16,11:00,Voelzke G / Ribero F,Cooper S / Rivera L
+"UTR PTT Carvoeiro Men +H 06, Group C",UTR Men,,11:00,Fred Gil,Rafael Kis Balázs
+"UTR PTT Carvoeiro Men +H 06, Group C",UTR Men,,11:00,Samuel de Felipe Garcia,Dino Molokova Ferreira
+ITF M15 Oegstgeest Men Doubles,ITF Men,Quarterfinals,11:00,Bozemoj B / Pel S,Oradini G / Schiavone P
 ITF W15 Oegstgeest Women,ITF Women,Round of 16,11:00,Marcelina Podlinska,Selina Dal
 ITF W15 Oegstgeest Women,ITF Women,Round of 16,11:00,Cristina Diaz Adrover,Warda Ait El Bachir
 ITF W15 Oegstgeest Women,ITF Women,Round of 16,11:00,Alyssa Reguer,Isis Louise van Den Broek
-ITF M15 Mbombela Men Doubles,ITF Men,Round of 16,11:00,Voelzke G / Ribero F,Cooper S / Rivera L
-ITF M15 Mbombela Men Doubles,ITF Men,Round of 16,11:00,Rootman H / Smith C,Beaven J / Van Der Merwe M
-ITF W35 Nottingham Women,ITF Women,Round of 16,11:00,Alice Gillan,Emily Appleton
-"Madrid, Spain",WTA,Quarterfinals,11:00,Karolína Plíšková,Anastasia Potapova
-ITF W35 Nottingham Women,ITF Women,Round of 16,11:00,Marie Weckerle,Mariam Bolkvadze
-ITF W15 Madrid Women Doubles,ITF Women,Semifinals,11:00,Toma M / Yuldasheva S,Arystanbekova A / Dyussebay I
-ITF M15 Oegstgeest Men,ITF Men,Round of 16,11:00,Imanol Lopez Morillo,Timeo Trufelli
-ITF W15 Madrid Women Doubles,ITF Women,Semifinals,11:00,Stankiewicz M / Vogt M,Cervino Ruiz C / Sramkova T
+Girls' Singles Draw,Italy,1/8,11:00,Vittoria Vignolini,Pavla Sviglerova
+"Madrid, Spain",ATP,Quarterfinals,11:00,Casper Ruud,Alexander Blockx
+"Madrid, Spain, Doubles",ATP,Quarterfinals,11:00,Arevalo M / Pavic M,Heliovaara H / Patten H
+ITF M25 Nottingham Men Doubles,ITF Men,Quarterfinals,11:00,Gannon C / Rodrigues N,Howse M / Solonenko A
 ITF M25 Nottingham Men Doubles,ITF Men,Quarterfinals,11:00,Hudd E / Matusevich A,Malesevic N / Tyler J
-ITF W100 Wiesbaden Women,ITF Women,Round of 16,11:00,Elizara Yaneva,Darja Semenistaja
+ITF M25 Castelldefels Men,ITF Men,Round of 16,11:00,Carlos Giraldi,Sergi Perez Contri
+ITF M15 Oegstgeest Men,ITF Men,Round of 16,11:00,Imanol Lopez Morillo,Timeo Trufelli
+ITF M25 Castelldefels Men,ITF Men,Round of 16,11:00,Sergio Planella Hernandez,Oriol Roca Batalla
+ITF W35 Nottingham Women,ITF Women,Round of 16,11:00,Marie Weckerle,Mariam Bolkvadze
 ITF M25 Castelldefels Men,ITF Men,Round of 16,11:00,David Naharro,Max Alcala Gurri
 ITF M15 Oegstgeest Men,ITF Men,Round of 16,11:00,Emilien Demanet,John Sperle
-ITF W100 Wiesbaden Women,ITF Women,Round of 16,11:00,Lucia Bronzetti,Francesca Jones
-"La Bisbal D Emporda, Spain",WTA 125,Round of 16,11:00,Tamara Korpatsch,Jil Teichmann
-"Madrid, Spain, Doubles",ATP,Quarterfinals,11:00,Arevalo M / Pavic M,Heliovaara H / Patten H
-ITF M25 Castelldefels Men,ITF Men,Round of 16,11:00,Carlos Giraldi,Sergi Perez Contri
 ITF M25 Nottingham Men,ITF Men,Round of 32,11:04,Patrick Brady,Karl Poling
 ITF M15 Oegstgeest Men,ITF Men,Round of 32,11:05,Emilien Demanet,Max van Nunen
 "Aix en Provence, France",Challenger,Round of 32,11:05,Pedro Martinez,Valentin Royer
@@ -392,38 +394,38 @@ ITF W15 Oegstgeest Women,ITF Women,Round of 32,11:06,Cristina Diaz Adrover,Daniq
 ITF M25 Quinta do Lago Men,ITF Men,Round of 32,11:07,Joao Domingues,Tiago Cacao
 ITF W15 Monastir 12 Women,ITF Women,Round of 32,11:09,Laia Petretic,Ava Schueller
 ITF W15 Madrid Women,ITF Women,Round of 32,11:09,Shannon Lam,Eloise Gournay
-"UTR PTT Carvoeiro Women +H 06, Group B",UTR Women,,11:10,Sana Garakani,Denise Valente
 "UTR PTT Carvoeiro Women +H 06, Group B",UTR Women,,11:10,Alexia-Shara Iancu,Diana Marcinkevica
-"Cagliari, Italy",Challenger,Round of 16,11:10,Mariano Navone,Matteo Berrettini
-ITF M15 Oegstgeest Men,ITF Men,Round of 32,11:10,Imanol Lopez Morillo,Calvin Mueller
-"UTR PTT Carvoeiro Men +H 06, Group C",UTR Men,,11:10,Julio Cesar Porras,Dino Molokova Ferreira
 "Madrid, Spain, Doubles",ATP,Round of 16,11:10,Darderi L / Tsitsipas S,Andreozzi G / Guinard M
 "Ostrava, Czech Republic, Doubles",Challenger,Quarterfinals,11:10,Martos Gornes S / Walkow S,Bass F / Genov A
-"Madrid, Spain, Doubles",ATP,Round of 16,11:10,Griekspoor T / Nakashima B,Johnson L / Zielinski J
 "Ostrava, Czech Republic",Challenger,Round of 16,11:10,Nikolas Sanchez Izquierdo,Vitaliy Sachko
+"UTR PTT Carvoeiro Women +H 06, Group B",UTR Women,,11:10,Sana Garakani,Denise Valente
 "Ostrava, Czech Republic",Challenger,Round of 16,11:10,Thiago Seyboth Wild,Nerman Fatić
+"UTR PTT Carvoeiro Men +H 06, Group C",UTR Men,,11:10,Julio Cesar Porras,Dino Molokova Ferreira
+"Madrid, Spain, Doubles",ATP,Round of 16,11:10,Griekspoor T / Nakashima B,Johnson L / Zielinski J
+"Cagliari, Italy",Challenger,Round of 16,11:10,Mariano Navone,Matteo Berrettini
+ITF M15 Oegstgeest Men,ITF Men,Round of 32,11:10,Imanol Lopez Morillo,Calvin Mueller
 ITF W35 Santa Margherita di Pula 5 Women Doubles,ITF Women,Semifinals,11:12,Chiesa D / Pedone G,Korokozidi E / Masiianskaia M
 ITF M15 Islamabad Men Doubles ,ITF Men,Round of 16,11:13,Anavatan M / Yilmaz K,Abid M / Murtaza M
 ITF W15 Mbombela Women,ITF Women,Round of 32,11:14,Chane Steyn,Iman Bajramovic
-ITF W15 Monastir 12 Women,ITF Women,Round of 32,11:15,Yasmine Mansouri,Ada Kumru
 ITF M25 Santa Margherita di Pula 5 Men,ITF Men,Round of 16,11:15,Francesco Ferrari,Pierluigi Basile
+ITF W15 Monastir 12 Women,ITF Women,Round of 32,11:15,Yasmine Mansouri,Ada Kumru
 ITF W75 Lopota Women,ITF Women,Round of 16,11:19,Kristina Kroitor,Eva Guerrero Álvarez
 ITF W15 Oegstgeest Women,ITF Women,Round of 32,11:19,Berta Bonardi,Olga Golas
-ITF M25 Castelldefels Men,ITF Men,Round of 32,11:20,Hugo Ruiz Rodriguez,David Naharro
-"Cagliari, Italy",Challenger,Round of 16,11:20,Mattia Bellucci,Gianluca Cadenasso
-"Aix en Provence, France, Doubles",Challenger,Round of 16,11:20,Herbert P-H / Hijikata R,Ho R / Jebens H
-"Cagliari, Italy, Doubles",Challenger,Round of 16,11:20,Cina F / Travaglia S,Reynolds F / Watt J
-"Saint-Malo, France",WTA 125,Round of 16,11:20,Bianca Andreescu,Yue Yuan
 "Saint-Malo, France, Doubles",WTA 125,Quarterfinals,11:20,Jeanjean L / Ponchet J,Haverlag I / Lumsden M
+ITF M25 Castelldefels Men,ITF Men,Round of 32,11:20,Hugo Ruiz Rodriguez,David Naharro
+"Saint-Malo, France",WTA 125,Round of 16,11:20,Bianca Andreescu,Yue Yuan
+"Cagliari, Italy",Challenger,Round of 16,11:20,Mattia Bellucci,Gianluca Cadenasso
+"Cagliari, Italy, Doubles",Challenger,Round of 16,11:20,Cina F / Travaglia S,Reynolds F / Watt J
+"Aix en Provence, France, Doubles",Challenger,Round of 16,11:20,Herbert P-H / Hijikata R,Ho R / Jebens H
 "Aix en Provence, France",Challenger,Round of 16,11:20,Alex Michelsen,Pol Martin Tiffon
 "Aix en Provence, France",Challenger,Round of 16,11:20,Ignacio Buse,Thomas Faurel
 "Jiujiang, China",Challenger,Round of 32,11:25,Aoran Wang,Alex Bolt
 ITF M15 Mbombela Men,ITF Men,Round of 32,11:27,Dylan Salton,Rafael Giotis
 ITF W15 Madrid Women,ITF Women,Round of 32,11:28,Ana Maye Martinez,Patricia Georgiana Goina
 ITF W35 Nottingham Women,ITF Women,Round of 32,11:29,Viktoria Hrunčakova,Ruby Cooling
-"Madrid, Spain, Doubles",WTA,Semifinals,11:30,Krunic A / Mladenovic K,Siniakova K / Townsend T
-"La Bisbal D Emporda, Spain",WTA 125,Round of 16,11:30,Xinyu Wang,Alina Charaeva
 "Madrid, Spain, Doubles",WTA,Semifinals,11:30,Siegemund L / Zvonareva V,Andreeva M / Shnaider D
+"La Bisbal D Emporda, Spain",WTA 125,Round of 16,11:30,Xinyu Wang,Alina Charaeva
+"Madrid, Spain, Doubles",WTA,Semifinals,11:30,Krunic A / Mladenovic K,Siniakova K / Townsend T
 ITF W100 Wiesbaden Women Doubles,ITF Women,Round of 16,11:32,Raschdorf C / Skliar P,Gavrila O / Nagy A
 ITF M15 Mbombela Men,ITF Men,Round of 32,11:33,Marc Van Der Merwe,Giulio Perego
 ITF W15 Mbombela Women,ITF Women,Round of 32,11:34,Dune Vaissaud,Sofia Avataneo
@@ -436,139 +438,139 @@ ITF M25 Nottingham Men,ITF Men,Round of 32,11:47,Anton Matusevich,Nikola Slavic
 "Cagliari, Italy",Challenger,Round of 32,11:50,Rei Sakamoto,Gianluca Cadenasso
 ITF M15 Mbombela Men,ITF Men,Round of 32,11:57,Jordan Hasson,Pavlos Christoforakis
 ITF M15 Monastir 15 Men,ITF Men,Round of 32,11:59,Hudson Baxter,Milledge Cossu
-ITF W15 Mbombela Women Doubles,ITF Women,Round of 16,12:00,Ivanov E / Messerli T,Laron M / Peet F
 ITF M25 Castelldefels Men,ITF Men,Round of 16,12:00,Daniel Rincon,Niccolo Catini
-ITF M25 Quinta do Lago Men,ITF Men,Round of 16,12:00,Joao Domingues,Lucas Poullain
-ITF M25 Quinta do Lago Men,ITF Men,Round of 16,12:00,Olle Wallin,Alexandre Reco
-ITF M15 Monastir 15 Men Doubles,ITF Men,Quarterfinals,12:00,Pleshivtsev E / Vinciguerra W R,Allen L / Mouhan A
-ITF M15 Monastir 15 Men Doubles,ITF Men,Quarterfinals,12:00,Marino P / Wiedenmann L,Seghetti S / Serafini M
-"UTR PTT Carvoeiro Men +H 06, Group C",UTR Men,,12:00,Samuel de Felipe Garcia,Fred Gil
-Boys' Singles Draw,Italy,1/8,12:00,Giovanni Boi,T. Pedretti
-"Mauthausen, Austria",Challenger,Round of 16,12:00,Sandro Kopp,David Jorda Sanchis
-ITF M15 Monastir 15 Men Doubles,ITF Men,Quarterfinals,12:00,Cossu M / Ouakaa A,Mazzola F / Mesaglio M
-ITF W15 Mbombela Women Doubles,ITF Women,Round of 16,12:00,Ipunesso L / Fanomezantsoa Razafinarivo M,Akasha Ceuca A / Mi L
-ITF W75 Lopota Women Doubles,ITF Women,Quarterfinals,12:00,Astakhova D / Zelinskaya D,Diatchenko V / Yuneva A
-ITF M25 Quinta do Lago Men Doubles,ITF Men,Quarterfinals,12:00,Echeverria J / Torres T,Marques G / Dinis Silva J
-ITF W15 Monastir Women Doubles,ITF Women,Quarterfinals,12:00,Gandolfi F / Moyano L,Kumru A / Trasca A
-ITF W15 Mbombela Women Doubles,ITF Women,Round of 16,12:00,Bajramovic I / Steyn C,Avataneo S / Easwaramurthi A
-ITF W15 Monastir Women Doubles,ITF Women,Quarterfinals,12:00,Blomqvist C / Popovic K,Bizjak Z / Lopez E
-ITF W15 Mbombela Women Doubles,ITF Women,Round of 16,12:00,Schilz J / Vosloo A,Dai Chapman D / Wheeler A
-ITF M15 Monastir 15 Men,ITF Men,Round of 32,12:00,M. El-Qurneh,Amine Jamji
-ITF W15 Mbombela Women Doubles,ITF Women,Round of 16,12:00,Kaibekova P / Kunz J,Khrebtova V / Wagner O
 ITF M15 Monastir 15 Men Doubles,ITF Men,Quarterfinals,12:00,Colombo A / Ravasio G,Dell'elba V / Nagoudi A
+ITF M15 Monastir 15 Men Doubles,ITF Men,Quarterfinals,12:00,Cossu M / Ouakaa A,Mazzola F / Mesaglio M
+ITF M15 Monastir 15 Men,ITF Men,Round of 32,12:00,M. El-Qurneh,Amine Jamji
 ITF M25 Castelldefels Men Doubles ,ITF Men,Quarterfinals,12:00,Herberg Amoros A / Marti Pujolras A,Barroso Campos A / Nikles J
 ITF M25 Castelldefels Men Doubles ,ITF Men,Quarterfinals,12:00,Álvarez Varona N / Mansilla Diez M,Boiko S / Reyniak M
+"UTR PTT Carvoeiro Men +H 06, Group C",UTR Men,,12:00,Samuel de Felipe Garcia,Fred Gil
+ITF M25 Quinta do Lago Men Doubles,ITF Men,Quarterfinals,12:00,Echeverria J / Torres T,Marques G / Dinis Silva J
+ITF W15 Mbombela Women Doubles,ITF Women,Round of 16,12:00,Bajramovic I / Steyn C,Avataneo S / Easwaramurthi A
+ITF W15 Mbombela Women Doubles,ITF Women,Round of 16,12:00,Ipunesso L / Fanomezantsoa Razafinarivo M,Akasha Ceuca A / Mi L
+ITF W15 Mbombela Women Doubles,ITF Women,Round of 16,12:00,Ivanov E / Messerli T,Laron M / Peet F
+ITF W15 Mbombela Women Doubles,ITF Women,Round of 16,12:00,Kaibekova P / Kunz J,Khrebtova V / Wagner O
+ITF W15 Mbombela Women Doubles,ITF Women,Round of 16,12:00,Schilz J / Vosloo A,Dai Chapman D / Wheeler A
+ITF W15 Monastir Women Doubles,ITF Women,Quarterfinals,12:00,Blomqvist C / Popovic K,Bizjak Z / Lopez E
+ITF W15 Monastir Women Doubles,ITF Women,Quarterfinals,12:00,Gandolfi F / Moyano L,Kumru A / Trasca A
+ITF W75 Lopota Women Doubles,ITF Women,Quarterfinals,12:00,Astakhova D / Zelinskaya D,Diatchenko V / Yuneva A
+"Mauthausen, Austria",Challenger,Round of 16,12:00,Sandro Kopp,David Jorda Sanchis
+ITF M15 Monastir 15 Men Doubles,ITF Men,Quarterfinals,12:00,Marino P / Wiedenmann L,Seghetti S / Serafini M
+ITF M15 Monastir 15 Men Doubles,ITF Men,Quarterfinals,12:00,Pleshivtsev E / Vinciguerra W R,Allen L / Mouhan A
+Boys' Singles Draw,Italy,1/8,12:00,Giovanni Boi,T. Pedretti
+ITF M25 Quinta do Lago Men,ITF Men,Round of 16,12:00,Joao Domingues,Lucas Poullain
+ITF M25 Quinta do Lago Men,ITF Men,Round of 16,12:00,Olle Wallin,Alexandre Reco
 ITF M15 Hurghada 3 Men,ITF Men,Round of 32,12:02,Vesa Ahti,Omaansh Choudhary Saharia
 "Aix en Provence, France",Challenger,Round of 32,12:05,Ignacio Buse,Francisco Comesaña
-"Jiujiang, China",Challenger,Round of 32,12:05,Keegan Smith,Hayato Matsuoka
 "Ostrava, Czech Republic, Doubles",Challenger,Round of 16,12:05,Banthia S / Donski A,Hrazdil J / Jermar J
-ITF M25 Castelldefels Men,ITF Men,Round of 32,12:06,Liam Delicata,Alberto Barroso Campos
+"Jiujiang, China",Challenger,Round of 32,12:05,Keegan Smith,Hayato Matsuoka
 ITF M15 Hurghada 3 Men,ITF Men,Round of 32,12:06,Arjun Rathi,Roman Kharlamov
+ITF M25 Castelldefels Men,ITF Men,Round of 32,12:06,Liam Delicata,Alberto Barroso Campos
 ITF W15 Hurghada 3 Women,ITF Women,Round of 32,12:07,Julia Szczerek,Nelli Ivanova
+ITF M15 Hurghada 3 Men,ITF Men,Round of 32,12:08,Karim Ibrahim,Ivan Gretskiy
 ITF W15 Hurghada 3 Women,ITF Women,Round of 32,12:08,Caterina Odorizzi,Sofia Martianova
 ITF W15 Hurghada 3 Women,ITF Women,Round of 32,12:08,Joody Elkady,Amelie Worring La Torre
-ITF M15 Hurghada 3 Men,ITF Men,Round of 32,12:08,Karim Ibrahim,Ivan Gretskiy
 ITF M15 Hurghada 3 Men,ITF Men,Round of 32,12:09,Lorenzo Bocchi,Artem Bogomolov
-"Ostrava, Czech Republic",Challenger,Round of 16,12:10,Zsombor Piros,Tom Gentzsch
 "Madrid, Spain, Doubles",ATP,Quarterfinals,12:10,Johnson L / Zielinski J,Doumbia S / Reboul F
+"Ostrava, Czech Republic",Challenger,Round of 16,12:10,Zsombor Piros,Tom Gentzsch
 ITF W15 Oegstgeest Women,ITF Women,Round of 32,12:12,Alyssa Reguer,Oceane Babel
 ITF M25 Castelldefels Men,ITF Men,Round of 32,12:12,Žiga Šeško,Max Alcala Gurri
 ITF M15 Monastir 15 Men,ITF Men,Round of 32,12:14,Jacob Bradshaw,Dylan Leeman
-"Aix en Provence, France, Doubles",Challenger,Round of 16,12:15,Trhac P / Willis M,Saraiva Dos Santos P A / Weber A
 ITF W35 Nottingham Women,ITF Women,Round of 32,12:15,Solymar Colling,Sabine Rutlauka
+"Cagliari, Italy, Doubles",Challenger,Round of 16,12:15,Kiger M / Stalder R,Escobar G / Serdarusic N
+"Aix en Provence, France, Doubles",Challenger,Round of 16,12:15,Trhac P / Willis M,Saraiva Dos Santos P A / Weber A
 "Jiujiang, China",Challenger,Round of 32,12:15,Yunchaokete Bu,Daniel Masur
 "Saint-Malo, France, Doubles",WTA 125,Round of 16,12:15,Bakhmutkina P / Feng S,Sun L / Zhang S
-"Cagliari, Italy, Doubles",Challenger,Round of 16,12:15,Kiger M / Stalder R,Escobar G / Serdarusic N
 ITF W100 Wiesbaden Women,ITF Women,Round of 32,12:17,Hanne Vandewinkel,Erika Andreeva
+"Mauthausen, Austria",Challenger,Round of 16,12:20,Tomás Barrios Vera,Lukas Neumayer
 "Cagliari, Italy",Challenger,Round of 16,12:20,Emilio Nava,Hubert Hurkacz
 "Ostrava, Czech Republic, Doubles",Challenger,Quarterfinals,12:20,Hermans M / Nicod J,Kolar Z / Mrva M
 "Cagliari, Italy",Challenger,Round of 32,12:20,Federico Arnaboldi,Matteo Arnaldi
-"Mauthausen, Austria",Challenger,Round of 16,12:20,Tomás Barrios Vera,Lukas Neumayer
 ITF M15 Monastir 15 Men,ITF Men,Round of 32,12:23,Aziz Ouakaa,Samuele Seghetti
-"Ostrava, Czech Republic, Doubles",Challenger,Round of 16,12:25,Recek D / Siniakov D,Drzewiecki K / Matuszewski P
 "La Bisbal D Emporda, Spain, Doubles",WTA 125,Quarterfinals,12:25,Hunter S / Routliffe E,Pridankina E / Tang Q
 "Jiujiang, China",Challenger,Round of 32,12:25,Andre Ilagan,James McCabe
+"Ostrava, Czech Republic, Doubles",Challenger,Round of 16,12:25,Recek D / Siniakov D,Drzewiecki K / Matuszewski P
 ITF M15 Monastir 15 Men,ITF Men,Round of 32,12:29,Gilberto Ravasio,Daniel Domingos
 "UTR PTT Carvoeiro Women +H 06, Group B",UTR Women,,12:30,Alexia-Shara Iancu,Denise Valente
-"UTR PTT Carvoeiro Women +H 06, Group B",UTR Women,,12:30,Diana Marcinkevica,Nikola Koprivova
-Girls' Singles Draw,Italy,1/8,12:30,Sophie Triquart,Beatrice Vittoria Gatti
-"Aix en Provence, France, Doubles",Challenger,Round of 16,12:30,Bayldon B / Veldheer M,Added D / van Assche L
-ITF W75 Lopota Women Doubles,ITF Women,Quarterfinals,12:30,Golovina M / Maklakova E,Shinde V / Yamalapalli S
-Boys' Singles Draw,Italy,1/8,12:30,Kaan Isik Kosaner,Mattia Baroni
-ITF W100 Wiesbaden Women Doubles,ITF Women,Quarterfinals,12:30,Gavrila O / Nagy A,Young Suh Lee C / McAdoo R
-"Cagliari, Italy",Challenger,Round of 16,12:30,Roman Andres Burruchaga,Andrea Pellegrino
-"Aix en Provence, France, Doubles",Challenger,Round of 16,12:30,Cash R / Tracy J,Bertrand R / Martineau M
-ITF W75 Lopota Women Doubles,ITF Women,Quarterfinals,12:30,Hrabavets U / Sarkisova K,Kubka M / Valdmannova V
-"UTR PTT Carvoeiro Men +H 06, Group B",UTR Men,,12:30,Felipe Assuncao Garla,Miguel Semedo
-"UTR PTT Carvoeiro Men +H 06, Group B",UTR Men,,12:30,Nicola Ion,Fausto Tabacco
 "Aix en Provence, France",Challenger,Round of 16,12:30,Roberto Bautista Agut,Alejandro Tabilo
-"Saint-Malo, France, Doubles",WTA 125,Quarterfinals,12:30,Sun L / Zhang S,Hozumi E / Wu F
 "Saint-Malo, France",WTA 125,Round of 16,12:30,Celine Naef,Anna Blinkova
-ITF M15 Monastir 15 Men,ITF Men,Round of 32,12:32,Vito Dell'Elba,Gonzalo Le Gentil
+"UTR PTT Carvoeiro Women +H 06, Group B",UTR Women,,12:30,Diana Marcinkevica,Nikola Koprivova
+"Cagliari, Italy",Challenger,Round of 16,12:30,Roman Andres Burruchaga,Andrea Pellegrino
+"Saint-Malo, France, Doubles",WTA 125,Quarterfinals,12:30,Sun L / Zhang S,Hozumi E / Wu F
+"UTR PTT Carvoeiro Men +H 06, Group B",UTR Men,,12:30,Nicola Ion,Fausto Tabacco
+"Aix en Provence, France, Doubles",Challenger,Round of 16,12:30,Bayldon B / Veldheer M,Added D / van Assche L
+"Aix en Provence, France, Doubles",Challenger,Round of 16,12:30,Cash R / Tracy J,Bertrand R / Martineau M
+ITF W100 Wiesbaden Women Doubles,ITF Women,Quarterfinals,12:30,Gavrila O / Nagy A,Young Suh Lee C / McAdoo R
+ITF W75 Lopota Women Doubles,ITF Women,Quarterfinals,12:30,Golovina M / Maklakova E,Shinde V / Yamalapalli S
+Girls' Singles Draw,Italy,1/8,12:30,Sophie Triquart,Beatrice Vittoria Gatti
+ITF W75 Lopota Women Doubles,ITF Women,Quarterfinals,12:30,Hrabavets U / Sarkisova K,Kubka M / Valdmannova V
+Boys' Singles Draw,Italy,1/8,12:30,Kaan Isik Kosaner,Mattia Baroni
+"UTR PTT Carvoeiro Men +H 06, Group B",UTR Men,,12:30,Felipe Assuncao Garla,Miguel Semedo
 ITF M25 Castelldefels Men Doubles ,ITF Men,Round of 16,12:32,Martinez Nohales J / Monzon Membrado D,Boiko S / Reyniak M
+ITF M15 Monastir 15 Men,ITF Men,Round of 32,12:32,Vito Dell'Elba,Gonzalo Le Gentil
 ITF W15 Madrid Women,ITF Women,Round of 32,12:34,Nadia Podoroska,Marina Benito
-"Madrid, Spain, Doubles",ATP,Round of 16,12:35,Gonzalez M / Molteni A,Cabral F / Salisbury J
 "UTR PTT Carvoeiro Men +H 06, Group D",UTR Men,,12:35,Roy Keegan,Otso Martikainen
+"Madrid, Spain, Doubles",ATP,Round of 16,12:35,Gonzalez M / Molteni A,Cabral F / Salisbury J
 ITF M25 Nottingham Men,ITF Men,Round of 32,12:36,Joshua Peck,Reece Falck
 ITF M15 Oegstgeest Men,ITF Men,Round of 32,12:38,Jack Loge,Jeremy Gschwendtner
-"UTR PTT Carvoeiro Women +H 06, Group D",UTR Women,,12:40,Alexandrova Ralitsa,Claudia Hoste Ferrer
 "UTR PTT Carvoeiro Women +H 06, Group D",UTR Women,,12:40,Aneta Poborilova,Kate Sharabura
+"UTR PTT Carvoeiro Women +H 06, Group D",UTR Women,,12:40,Alexandrova Ralitsa,Claudia Hoste Ferrer
 ITF W75 Lopota Women Doubles,ITF Women,Round of 16,12:40,Dencheva R / Spasova B,Astakhova D / Zelinskaya D
 "Saint-Malo, France, Doubles",WTA 125,Round of 16,12:45,Jacquemot E / Rakotomanga Rajaonah T S,Hozumi E / Wu F
 "Saint-Malo, France, Doubles",WTA 125,Round of 16,12:45,Alves C / Osuigwe W,Hozumi E / Wu F
 ITF W100 Wiesbaden Women Doubles,ITF Women,Round of 16,12:46,Kempen M / Salden L,Boehner L / Brockmann T J
-ITF W15 Madrid Women,ITF Women,Round of 32,12:48,Marta Leon Jaume,Min Liu
 ITF M25 Quinta do Lago Men,ITF Men,Round of 32,12:48,Hugo Maia,Alexandre Reco
-"Cagliari, Italy, Doubles",Challenger,Round of 16,12:50,Cadenasso G / Carboni L,Frantzen C / Haase R
-"Jiujiang, China",Challenger,Round of 32,12:50,Adam Walton,Jie Cui
+ITF W15 Madrid Women,ITF Women,Round of 32,12:48,Marta Leon Jaume,Min Liu
 "Madrid, Spain, Doubles",ATP,Round of 16,12:50,Llamas Ruiz P / Winter López B,Doumbia S / Reboul F
+"Jiujiang, China",Challenger,Round of 32,12:50,Adam Walton,Jie Cui
+"Cagliari, Italy, Doubles",Challenger,Round of 16,12:50,Cadenasso G / Carboni L,Frantzen C / Haase R
 ITF W75 Lopota Women Doubles,ITF Women,Round of 16,12:54,Shinde V / Yamalapalli S,Belibova L / Kryvoruchko S
+ITF W100 Wiesbaden Women Doubles,ITF Women,Quarterfinals,13:00,Kempen M / Salden L,Lim J / Rouvroy M
+ITF W100 Wiesbaden Women Doubles,ITF Women,Quarterfinals,13:00,Drazic M / Gasanova A,Ćirić-Bagarić L / Radišić N
+ITF M15 Oegstgeest Men,ITF Men,Round of 16,13:00,Jeremy Gschwendtner,Liam Gavrielides
+Boys' Singles Draw,Italy,1/8,13:00,Moritz Glauser,Odysseas Geladaris
+Boys' Singles Draw,Italy,1/8,13:00,Gonçalo da Rosa Castro,Filippo Alfano
+ITF M15 Hurghada 3 Men,ITF Men,Round of 16,13:00,Peter Alam,Viktor Frydrych
+ITF W15 Mbombela Women Doubles,ITF Women,Round of 16,13:00,Bosman C / Giordano M,Jamshidi E / Suvirdjonkova D
+ITF M15 Mbombela Men Doubles,ITF Men,Round of 16,13:00,Beckley A / Longwe-Smit T,Caripi V / Majdandzic M
+ITF W15 Mbombela Women Doubles,ITF Women,Round of 16,13:00,Jordaan M / Vaissaud D,Atay S / Kurt I
+ITF W15 Mbombela Women Doubles,ITF Women,Round of 16,13:00,Otway J / Van Poppel E,Bista A / Cohen S
+ITF W15 Hurghada 3 Women,ITF Women,Round of 16,13:00,Nada Fouad,Sarafina Olivia Hansen
+ITF W15 Hurghada 3 Women,ITF Women,Round of 16,13:00,Joody Elkady,Sofia Martianova
+ITF M25 Nottingham Men Doubles,ITF Men,Quarterfinals,13:00,Jones A / Jones M,Murgett F / Walters M
+ITF M25 Nottingham Men Doubles,ITF Men,Quarterfinals,13:00,Falck R / Sakellaridis D,Lumsden E / Nolan W
+"La Bisbal D Emporda, Spain",WTA 125,Round of 16,13:00,Rebeka Masarova,Elena Pridankina
+ITF W15 Hurghada 3 Women,ITF Women,Round of 16,13:00,Andrea Lola Popovic,Viktoria Veleva
+ITF W35 Nottingham Women Doubles,ITF Women,Round of 16,13:00,Adams J / Lukosiute A,Allen K / Leon S
 ITF W35 Nottingham Women Doubles,ITF Women,Quarterfinals,13:00,Allen V / Rajecki A,Adams J / Lukosiute A
 ITF W35 Nottingham Women Doubles,ITF Women,Quarterfinals,13:00,Britton D / Griffiths E,Christie F / Silva E
 ITF W35 Nottingham Women Doubles,ITF Women,Quarterfinals,13:00,Cooling R / Mititelu G,Adeshina E / John-Baptiste L
-ITF W15 Mbombela Women Doubles,ITF Women,Round of 16,13:00,Otway J / Van Poppel E,Bista A / Cohen S
-ITF M25 Nottingham Men Doubles,ITF Men,Quarterfinals,13:00,Jones A / Jones M,Murgett F / Walters M
-"La Bisbal D Emporda, Spain",WTA 125,Round of 16,13:00,Rebeka Masarova,Elena Pridankina
-ITF W15 Mbombela Women Doubles,ITF Women,Round of 16,13:00,Jordaan M / Vaissaud D,Atay S / Kurt I
-ITF W15 Mbombela Women Doubles,ITF Women,Round of 16,13:00,Bosman C / Giordano M,Jamshidi E / Suvirdjonkova D
-ITF W15 Hurghada 3 Women,ITF Women,Round of 16,13:00,Andrea Lola Popovic,Viktoria Veleva
-ITF W15 Hurghada 3 Women,ITF Women,Round of 16,13:00,Joody Elkady,Sofia Martianova
-ITF W15 Hurghada 3 Women,ITF Women,Round of 16,13:00,Nada Fouad,Sarafina Olivia Hansen
-ITF W35 Nottingham Women Doubles,ITF Women,Round of 16,13:00,Adams J / Lukosiute A,Allen K / Leon S
 ITF W35 Nottingham Women Doubles,ITF Women,Quarterfinals,13:00,Laboutkova A / Novak K,Adkar V / Dapkute I
-ITF M15 Mbombela Men Doubles,ITF Men,Round of 16,13:00,Ngwenya S / Strydom J,Flores J / Vujic S
-"ITF W35 Boca Raton, FL 2 Women",ITF Women,Round of 16,13:00,Kailey Evans,Hibah Shaikh
+ITF M15 Oegstgeest Men Doubles,ITF Men,Quarterfinals,13:00,Etty E / Stanke C,Hendrikx J / Wagenaar L
+ITF W15 Hurghada 3 Women,ITF Women,Round of 16,13:00,Ustiniya Lekomtseva,Maria Pares Bergnes de las Casas
 ITF M15 Mbombela Men Doubles,ITF Men,Round of 16,13:00,O'Connell B / Talic Z Z,Aleshchev A / Matta A
+ITF M15 Mbombela Men Doubles,ITF Men,Round of 16,13:00,Ngwenya S / Strydom J,Flores J / Vujic S
 ITF M15 Hurghada 3 Men,ITF Men,Round of 16,13:00,Lorenzo Bocchi,Sebastian Grundtvig Jorgensen
+ITF M15 Oegstgeest Men Doubles,ITF Men,Round of 16,13:00,Oradini G / Schiavone P,Guttau N / Petkovic M
+ITF M15 Hurghada 3 Men,ITF Men,Round of 16,13:00,Leonardo Rossi,Roman Kharlamov
+"ITF W35 Boca Raton, FL 2 Women",ITF Women,Round of 16,13:00,Jordyn Hazelitt,Justina Maria Gonzalez Daniele
+ITF M25 Lujan Men,ITF Men,Round of 32,13:00,Andrea Collarini,Tomas Martinez
+"ITF W35 Boca Raton, FL 2 Women",ITF Women,Round of 16,13:00,Kailey Evans,Hibah Shaikh
+ITF M25 Lujan Men,ITF Men,Round of 16,13:00,Tomas Martinez,Carlos Maria Zarate
 ITF M25 Lujan Men,ITF Men,Round of 16,13:00,Matheus Pucinelli de Almeida,Ezequiel Monferrer
 ITF M25 Lujan Men,ITF Men,Round of 16,13:00,Enzo Camargo Lima,Lorenzo Joaquin Rodriguez
-ITF M25 Lujan Men,ITF Men,Round of 16,13:00,Bruno Fernandez,Luciano Emanuel Ambrogi
-ITF M25 Lujan Men,ITF Men,Round of 16,13:00,Tomas Martinez,Carlos Maria Zarate
-ITF M15 Hurghada 3 Men,ITF Men,Round of 16,13:00,Peter Alam,Viktor Frydrych
-ITF M25 Lujan Men,ITF Men,Round of 32,13:00,Andrea Collarini,Tomas Martinez
-ITF M15 Oegstgeest Men,ITF Men,Round of 16,13:00,Jeremy Gschwendtner,Liam Gavrielides
-ITF M15 Oegstgeest Men Doubles,ITF Men,Round of 16,13:00,Oradini G / Schiavone P,Guttau N / Petkovic M
-ITF M15 Oegstgeest Men Doubles,ITF Men,Quarterfinals,13:00,Etty E / Stanke C,Hendrikx J / Wagenaar L
-ITF M25 Nottingham Men Doubles,ITF Men,Quarterfinals,13:00,Falck R / Sakellaridis D,Lumsden E / Nolan W
-Boys' Singles Draw,Italy,1/8,13:00,Moritz Glauser,Odysseas Geladaris
-Boys' Singles Draw,Italy,1/8,13:00,Gonçalo da Rosa Castro,Filippo Alfano
-ITF M15 Hurghada 3 Men,ITF Men,Round of 16,13:00,Leonardo Rossi,Roman Kharlamov
-ITF W100 Wiesbaden Women Doubles,ITF Women,Quarterfinals,13:00,Kempen M / Salden L,Lim J / Rouvroy M
 "ITF W35 Boca Raton, FL 2 Women",ITF Women,Round of 16,13:00,Julia Riera,Carla Markus
-ITF W100 Wiesbaden Women Doubles,ITF Women,Quarterfinals,13:00,Drazic M / Gasanova A,Ćirić-Bagarić L / Radišić N
-"ITF W35 Boca Raton, FL 2 Women",ITF Women,Round of 16,13:00,Jordyn Hazelitt,Justina Maria Gonzalez Daniele
-ITF W15 Oegstgeest Women,ITF Women,Round of 16,13:00,Berta Bonardi,Tilwith Di Girolami
 ITF W15 Oegstgeest Women,ITF Women,Round of 16,13:00,Charlotte Pikkaart,Eva Marie Voracek
-ITF M15 Mbombela Men Doubles,ITF Men,Round of 16,13:00,Beckley A / Longwe-Smit T,Caripi V / Majdandzic M
-ITF W15 Hurghada 3 Women,ITF Women,Round of 16,13:00,Ustiniya Lekomtseva,Maria Pares Bergnes de las Casas
+ITF W15 Oegstgeest Women,ITF Women,Round of 16,13:00,Berta Bonardi,Tilwith Di Girolami
+ITF M25 Lujan Men,ITF Men,Round of 16,13:00,Bruno Fernandez,Luciano Emanuel Ambrogi
 ITF M25 Quinta do Lago Men Doubles,ITF Men,Round of 16,13:01,Pawlak P / Zhu M,Mendes J / Sanchez Romero R
 ITF M15 Mbombela Men,ITF Men,Round of 32,13:04,Tuncay Duran,Allan Gatoto
-ITF M25 Nottingham Men,ITF Men,Round of 32,13:05,Freddie Ridout,Luke Hooper
 "Saint-Malo, France",WTA 125,Round of 16,13:05,Moyuka Uchijima,Lucie Nguyen Tan
 "Aix en Provence, France",Challenger,Round of 32,13:05,Grigor Dimitrov,Pol Martin Tiffon
+ITF M25 Nottingham Men,ITF Men,Round of 32,13:05,Freddie Ridout,Luke Hooper
+"ITF W35 Boca Raton, FL 2 Women",ITF Women,Round of 32,13:06,Antonia Vergara Rivera,Welles Newman
 "ITF W35 Boca Raton, FL 2 Women",ITF Women,Round of 32,13:06,Daria Egorova,Emma Jackson
 "ITF W35 Boca Raton, FL 2 Women",ITF Women,Round of 32,13:06,Sarah Ye,Carla Markus
-"ITF W35 Boca Raton, FL 2 Women",ITF Women,Round of 32,13:06,Antonia Vergara Rivera,Welles Newman
 ITF M15 Mbombela Men,ITF Men,Round of 32,13:07,Stefan Cooper,Marc Majdandzic
 "ITF W35 Boca Raton, FL 2 Women",ITF Women,Round of 32,13:07,Dasha Ivanova,Didi Bredberg Canizares
 ITF W15 Madrid Women,ITF Women,Round of 32,13:08,Sophie Martin,Marine Szostak
@@ -585,18 +587,18 @@ ITF M25 Nottingham Men,ITF Men,Round of 32,13:23,Leo Raquillet,William Nolan
 "Ostrava, Czech Republic, Doubles",Challenger,Round of 16,13:25,Brancaccio R / Sanchez Jover C,Barton H / Johns G
 ITF M25 Quinta do Lago Men,ITF Men,Round of 32,13:26,Louis Dussin,Alejandro Turriziani Alvarez
 ITF W15 Oegstgeest Women,ITF Women,Round of 32,13:27,Lian Tran,Iva Marinkovic
-ITF M15 Oegstgeest Men,ITF Men,Round of 16,13:30,Mac Visser,Yannick Theodor Alexandrescou
-ITF W15 Hurghada 3 Women,ITF Women,Round of 32,13:30,Valeriya Yushchenko,Alisa Terentyeva
-"Cagliari, Italy",Challenger,Round of 16,13:30,Aleksandar Kovacevic,Marcos Giron
 ITF W15 Madrid Women Doubles,ITF Women,Quarterfinals,13:30,Franco Dias T / Freitas A,Arystanbekova A / Dyussebay I
-Girls' Singles Draw,Italy,1/8,13:30,Elizaveta Anikina,Alessia Antici
-"ITF W35 Boca Raton, FL 2 Women",ITF Women,Round of 16,13:30,Amelia Honer,Sofia Johnson
 ITF M25 Quinta do Lago Men Doubles,ITF Men,Quarterfinals,13:30,Boulais J / Rocha F,Pawlak P / Zhu M
+"Cagliari, Italy",Challenger,Round of 16,13:30,Aleksandar Kovacevic,Marcos Giron
 ITF M25 Quinta do Lago Men Doubles,ITF Men,Quarterfinals,13:30,Dussin L / Gomez G,Pereira T / Schoen P
-ITF M25 Quinta do Lago Men Doubles,ITF Men,Quarterfinals,13:30,Fancutt T / Rai A,Izquierdo Luque R / Young G
+"ITF W35 Boca Raton, FL 2 Women",ITF Women,Round of 16,13:30,Amelia Honer,Sofia Johnson
+ITF M15 Oegstgeest Men,ITF Men,Round of 16,13:30,Mac Visser,Yannick Theodor Alexandrescou
+Girls' Singles Draw,Italy,1/8,13:30,Elizaveta Anikina,Alessia Antici
+ITF W15 Hurghada 3 Women,ITF Women,Round of 32,13:30,Valeriya Yushchenko,Alisa Terentyeva
 ITF W15 Hurghada 3 Women,ITF Women,Round of 32,13:30,Amira Badawi,Viktoria Veleva
-ITF W15 Hurghada 3 Women,ITF Women,Round of 32,13:35,Amy Sucha,Andrea Lola Popovic
+ITF M25 Quinta do Lago Men Doubles,ITF Men,Quarterfinals,13:30,Fancutt T / Rai A,Izquierdo Luque R / Young G
 "Ostrava, Czech Republic, Doubles",Challenger,Round of 16,13:35,Bass F / Genov A,Clarke J / Michalski D
+ITF W15 Hurghada 3 Women,ITF Women,Round of 32,13:35,Amy Sucha,Andrea Lola Popovic
 ITF M15 Hurghada 3 Men,ITF Men,Round of 32,13:39,Parth Aggarwal,Sebastian Grundtvig Jorgensen
 ITF W15 Madrid Women Doubles,ITF Women,Quarterfinals,13:39,Cervino Ruiz C / Sramkova T,Lam S / Slavikova E
 ITF W15 Monastir 12 Women,ITF Women,Round of 32,13:41,Lya Isabel Fernandez Olivares,Clarissa Blomqvist
@@ -604,23 +606,23 @@ ITF W75 Lopota Women Doubles,ITF Women,Round of 16,13:45,Kulikova A / Malõgina 
 ITF W15 Monastir 12 Women,ITF Women,Round of 32,13:46,Mariia Bergen,Anna Shkutova
 ITF W15 Monastir 12 Women,ITF Women,Round of 32,13:54,Ellie Daniels,Meritxell Teixido Garcia
 "Cagliari, Italy",Challenger,Round of 32,13:55,Lorenzo Carboni,Gianluca Cadenasso
+"Mauthausen, Austria, Doubles",Challenger,Quarterfinals,14:00,Jecan A / Pavel B,Kopp S / Neumayer L
+ITF M15 Hurghada 3 Men,ITF Men,Round of 16,14:00,Nino Ehrenschneider,Maximilian Figl
 ITF M15 Hurghada 3 Men,ITF Men,Round of 16,14:00,Karim Mabrouk,Saveliy Ivanov
 ITF M15 Hurghada 3 Men,ITF Men,Round of 16,14:00,Karim Ibrahim,Vesa Ahti
-"Ostrava, Czech Republic",Challenger,Round of 16,14:00,Dalibor Svrčina,Frederico Ferreira Silva
-"Mauthausen, Austria, Doubles",Challenger,Quarterfinals,14:00,Damas M / Jorda Sanchis D,Kielan S / Paulson A
-"Mauthausen, Austria, Doubles",Challenger,Quarterfinals,14:00,Jecan A / Pavel B,Kopp S / Neumayer L
+"Madrid, Spain, Doubles",ATP,Round of 16,14:00,Harrison C / Skupski N,Goransson A / King E
+"ITF M15 Orange Park, FL Men",ITF Men,Round of 16,14:00,Jonathan Mridha,William Grant
+"ITF M15 Orange Park, FL Men",ITF Men,Round of 16,14:00,Keaton Hance,Davide Tortora
 ITF M25 Quinta do Lago Men Doubles,ITF Men,Round of 16,14:00,Bahra N / Condeco R,Izquierdo Luque R / Young G
+"Ostrava, Czech Republic",Challenger,Round of 16,14:00,Dalibor Svrčina,Frederico Ferreira Silva
+"Madrid, Spain",ATP,Quarterfinals,14:00,Jannik Sinner,Rafael Jódar
 "Madrid, Spain",WTA,Semifinals,14:00,Hailey Baptiste,Mirra Andreeva
 "La Bisbal D Emporda, Spain, Doubles",WTA 125,Quarterfinals,14:00,Bassols Ribera M / Bolsova A,Mihalikova T / Nicholls O
-"Madrid, Spain, Doubles",ATP,Round of 16,14:00,Harrison C / Skupski N,Goransson A / King E
-ITF M15 Hurghada 3 Men,ITF Men,Round of 16,14:00,Nino Ehrenschneider,Maximilian Figl
 ITF W15 Hurghada 3 Women,ITF Women,Round of 16,14:00,Claudia Gasparovic,Ekaterina Tupitsyna
-"Madrid, Spain",ATP,Quarterfinals,14:00,Jannik Sinner,Rafael Jodar
-ITF W15 Hurghada 3 Women,ITF Women,Round of 16,14:00,Ekaterina Khodzhaeva,Timea Gross
-ITF W15 Hurghada 3 Women,ITF Women,Round of 16,14:00,Leonie Rabl,Anna Snigireva
-"ITF M15 Orange Park, FL Men",ITF Men,Round of 16,14:00,Jonathan Mridha,William Grant
 ITF W15 Hurghada 3 Women,ITF Women,Round of 16,14:00,Valeriya Yushchenko,Nelli Ivanova
-"ITF M15 Orange Park, FL Men",ITF Men,Round of 16,14:00,Keaton Hance,Davide Tortora
+ITF W15 Hurghada 3 Women,ITF Women,Round of 16,14:00,Leonie Rabl,Anna Snigireva
+ITF W15 Hurghada 3 Women,ITF Women,Round of 16,14:00,Ekaterina Khodzhaeva,Timea Gross
+"Mauthausen, Austria, Doubles",Challenger,Quarterfinals,14:00,Damas M / Jorda Sanchis D,Kielan S / Paulson A
 ITF M25 Nottingham Men,ITF Men,Round of 32,14:01,Sean Hodkin,Braden Shick
 ITF M15 Hurghada 3 Men,ITF Men,Round of 32,14:06,Yassin Ahmed Wageh,Saveliy Ivanov
 ITF M15 Oegstgeest Men,ITF Men,Round of 32,14:08,Sammy Guinau,Adrian Oetzbach
@@ -629,87 +631,87 @@ ITF W15 Madrid Women Doubles,ITF Women,Quarterfinals,14:11,Hernandez Miranda J /
 ITF M25 Castelldefels Men,ITF Men,Round of 32,14:12,Lucca Helguera Casado,M. Alvarez Sarmiento
 ITF W100 Wiesbaden Women Doubles,ITF Women,Quarterfinals,14:12,Havlickova L / Siskova A,Hennemann C W / Zaar L
 "ITF M15 Orange Park, FL Men",ITF Men,Round of 32,14:12,Matthew Segura,Jake Fellows
-ITF M25 Castelldefels Men,ITF Men,Round of 32,14:13,Carlos Lopez Montagud,Oscar Pinto Sansano
 "ITF M15 Orange Park, FL Men",ITF Men,Round of 32,14:13,Maxime St-Hilaire,Andreja Petrovic
+ITF M25 Castelldefels Men,ITF Men,Round of 32,14:13,Carlos Lopez Montagud,Oscar Pinto Sansano
 ITF M25 Nottingham Men Doubles,ITF Men,Round of 16,14:15,Jones A / Jones M,Carroll M / Dhokia R
 "ITF M15 Orange Park, FL Men",ITF Men,Round of 32,14:17,Joao Portugal,Jonathan Mridha
 "Aix en Provence, France, Doubles",Challenger,Round of 16,14:20,Reymond A / Sanchez L,Kirkov V / Stevens B
 "ITF W35 Boca Raton, FL 2 Women",ITF Women,Round of 32,14:23,Julia Riera,Alexis Nguyen
 ITF W15 Oegstgeest Women Doubles,ITF Women,Quarterfinals,14:25,Johansson I / Podlinska M,The C / van Zijll Langhout E
 ITF M15 Oegstgeest Men,ITF Men,Round of 32,14:28,Dax Donders,Maik Steiner
-"Madrid, Spain, Doubles",WTA,Quarterfinals,14:30,Andreeva M / Shnaider D,Perez E / Schuurs D
-"Aix en Provence, France, Doubles",Challenger,Round of 16,14:30,Galloway R / Peers J,Chidekh C / Royer V
-"ITF W100 Bonita Springs, FL Women",ITF Women,Round of 16,14:30,Mell Elizabeth Reasco Gonzalez,Leyre Romero Gormaz
-"ITF W100 Bonita Springs, FL Women",ITF Women,Round of 16,14:30,Kayla Day,Elizabeth Mandlik
 "ITF W100 Bonita Springs, FL Women",ITF Women,Round of 16,14:30,Angela Fita Boluda,Darja Vidmanova
 "Cagliari, Italy, Doubles",Challenger,Round of 16,14:30,C. Harper / D. Stevenson,Burruchaga R A / Pellegrino A
+"ITF W100 Bonita Springs, FL Women",ITF Women,Round of 16,14:30,Mell Elizabeth Reasco Gonzalez,Leyre Romero Gormaz
+"Madrid, Spain, Doubles",WTA,Quarterfinals,14:30,Andreeva M / Shnaider D,Perez E / Schuurs D
 "Madrid, Spain, Doubles",ATP,Quarterfinals,14:30,Goransson A / King E,Gonzalez M / Molteni A
+"ITF W100 Bonita Springs, FL Women",ITF Women,Round of 16,14:30,Kayla Day,Elizabeth Mandlik
+"Aix en Provence, France, Doubles",Challenger,Round of 16,14:30,Galloway R / Peers J,Chidekh C / Royer V
 ITF W15 Hurghada 3 Women,ITF Women,Round of 32,14:33,Nada Fouad,Estella Jaeger
 "ITF W100 Bonita Springs, FL Women",ITF Women,Round of 32,14:38,Lea Ma,Elizabeth Mandlik
 ITF M25 Castelldefels Men,ITF Men,Round of 32,14:38,Sergi Fita Juan,Oriol Roca Batalla
 "ITF W100 Bonita Springs, FL Women",ITF Women,Round of 32,14:39,Kayla Day,Martha Matoula
 "Aix en Provence, France",Challenger,Round of 32,14:40,Thomas Faurel,David Goffin
-ITF M15 Hurghada 3 Men,ITF Men,Round of 32,14:40,Viktor Frydrych,Nikita Mashtakov
 "La Bisbal D Emporda, Spain",WTA 125,Round of 16,14:40,Beatriz Haddad Maia,Ashlyn Krueger
+ITF M15 Hurghada 3 Men,ITF Men,Round of 32,14:40,Viktor Frydrych,Nikita Mashtakov
 "ITF W100 Bonita Springs, FL Women",ITF Women,Round of 32,14:42,Renata Zarazua,Ayana Akli
 ITF M25 Castelldefels Men Doubles ,ITF Men,Round of 16,14:43,Goldberg Alviani N R / Torcq B,Jimenez A / Velazquez Farre A
 ITF M25 Nottingham Men,ITF Men,Round of 32,14:43,Oscar Brown,Henry Searle
 ITF M25 Quinta do Lago Men Doubles,ITF Men,Round of 16,14:44,Fancutt T / Rai A,Domingues J / Marques D
 ITF W15 Madrid Women Doubles,ITF Women,Quarterfinals,14:45,Stankiewicz M / Vogt M,Burguete Beltran A / Montes Khaghani A
-"Mauthausen, Austria",Challenger,Round of 16,14:50,Diego Dedura-Palomero,Matthew William Donald
-ITF W15 Monastir 12 Women,ITF Women,Round of 32,14:50,Alexandra Biot,Fabienne Gettwart
 "ITF W35 Boca Raton, FL 2 Women",ITF Women,Round of 32,14:50,Jada Robinson,Jordyn Hazelitt
+ITF W15 Monastir 12 Women,ITF Women,Round of 32,14:50,Alexandra Biot,Fabienne Gettwart
+"Mauthausen, Austria",Challenger,Round of 16,14:50,Diego Dedura-Palomero,Matthew William Donald
 ITF M15 Oegstgeest Men,ITF Men,Round of 32,14:53,Ole Bredschneijder,Timeo Trufelli
 ITF W15 Monastir 12 Women,ITF Women,Round of 32,14:54,Bianca Elena Barbulescu,Delia Gaillard
 ITF W15 Monastir 12 Women,ITF Women,Round of 32,14:57,Benedetta Ortenzi,Luciana Moyano
-"ITF M15 Orange Park, FL Men",ITF Men,Round of 16,15:00,Keshav Chopra,Nick Hardt
-ITF M15 Quito 2 Men,ITF Men,Round of 16,15:00,Juan Sebastian Gomez,Lucca Pinto
-"ITF M15 Orange Park, FL Men",ITF Men,Round of 16,15:00,Matthew Segura,Joao Vitor Goncalves Ceolin
-ITF M25 Lujan Men Doubles,ITF Men,Quarterfinals,15:00,Cundom J / Tenti F,Casanova H / Estevez J
-"ITF M15 Orange Park, FL Men",ITF Men,Round of 16,15:00,Hunter Heck,James Connel
-"La Bisbal D Emporda, Spain, Doubles",WTA 125,Quarterfinals,15:00,Fossa Huergo N / Ninomiya M,Cavalle-Reimers Y / Pigossi L
-ITF M25 Castelldefels Men Doubles ,ITF Men,Quarterfinals,15:00,Forcano I / Vervoort M,Jimenez A / Velazquez Farre A
-ITF M25 Castelldefels Men Doubles ,ITF Men,Quarterfinals,15:00,Alcala Gurri M / Chavez T,Rincon D / Roca Batalla O
-ITF W100 Wiesbaden Women,ITF Women,Round of 16,15:00,Erika Andreeva,Jeline Vandromme
-ITF M25 Lujan Men,ITF Men,Round of 16,15:00,Lucio Ratti,Dante Pagani
-ITF M15 Quito 2 Men,ITF Men,Round of 16,15:00,Fernando Cavallo,Victor Hugo Remondy Pagotto
-"ITF M15 Orange Park, FL Men",ITF Men,Round of 16,15:00,Raphael Perot,Liam Krall
-ITF M15 Quito 2 Men,ITF Men,Round of 16,15:00,Victor Bini,Ryan Dickerson
-ITF M25 Lujan Men,ITF Men,Round of 16,15:00,Murkel Dellien,Nicolas Bruna
-ITF W15 Oegstgeest Women Doubles,ITF Women,Quarterfinals,15:00,Reguer A / Zoldakova D,Coppez K / Navarro M F
-ITF M15 Quito 2 Men,ITF Men,Round of 16,15:00,Felipe de Dios,Mwendwa Mbithi
-"Saint-Malo, France",WTA 125,Round of 16,15:00,Sofia Costoulas,Leolia Jeanjean
-"ITF W35 Boca Raton, FL 2 Women",ITF Women,Round of 16,15:00,Alicia Herrero Linana,Emma Jackson
-"ITF W35 Boca Raton, FL 2 Women",ITF Women,Round of 16,15:00,Ana Candiotto,Sofia Shapatava
-ITF M25 Castelldefels Men,ITF Men,Round of 16,15:00,Carlos Lopez Montagud,Iliyan Radulov
-"ITF W35 Boca Raton, FL 2 Women",ITF Women,Round of 16,15:00,Luca Udvardy,Anita Sahdiieva
-"La Bisbal D Emporda, Spain, Doubles",WTA 125,Quarterfinals,15:00,Klepac A / Kozyreva M,Wang X / Zheng S
-ITF M25 Lujan Men,ITF Men,Round of 16,15:00,Valerio Aboian,Juan Bautista Torres
 ITF W15 Oegstgeest Women Doubles,ITF Women,Quarterfinals,15:00,Ait El Bachir W / Barth A,de Koning R / Hageman M
+ITF W15 Oegstgeest Women Doubles,ITF Women,Quarterfinals,15:00,Reguer A / Zoldakova D,Coppez K / Navarro M F
+ITF M25 Lujan Men Doubles,ITF Men,Quarterfinals,15:00,Cundom J / Tenti F,Casanova H / Estevez J
+ITF M25 Castelldefels Men Doubles ,ITF Men,Quarterfinals,15:00,Forcano I / Vervoort M,Jimenez A / Velazquez Farre A
+ITF M25 Castelldefels Men,ITF Men,Round of 16,15:00,Carlos Lopez Montagud,Iliyan Radulov
+"La Bisbal D Emporda, Spain, Doubles",WTA 125,Quarterfinals,15:00,Fossa Huergo N / Ninomiya M,Cavalle-Reimers Y / Pigossi L
+ITF M15 Quito 2 Men,ITF Men,Round of 16,15:00,Fernando Cavallo,Victor Hugo Remondy Pagotto
+ITF M15 Quito 2 Men,ITF Men,Round of 16,15:00,Juan Sebastian Gomez,Lucca Pinto
+"Saint-Malo, France",WTA 125,Round of 16,15:00,Sofia Costoulas,Leolia Jeanjean
+ITF W100 Wiesbaden Women,ITF Women,Round of 16,15:00,Erika Andreeva,Jeline Vandromme
+"ITF W35 Boca Raton, FL 2 Women",ITF Women,Round of 16,15:00,Luca Udvardy,Anita Sahdiieva
+"ITF W35 Boca Raton, FL 2 Women",ITF Women,Round of 16,15:00,Ana Candiotto,Sofia Shapatava
+"La Bisbal D Emporda, Spain, Doubles",WTA 125,Quarterfinals,15:00,Klepac A / Kozyreva M,Wang X / Zheng S
+ITF M15 Quito 2 Men,ITF Men,Round of 16,15:00,Felipe de Dios,Mwendwa Mbithi
+ITF M25 Castelldefels Men Doubles ,ITF Men,Quarterfinals,15:00,Alcala Gurri M / Chavez T,Rincon D / Roca Batalla O
+"ITF W35 Boca Raton, FL 2 Women",ITF Women,Round of 16,15:00,Alicia Herrero Linana,Emma Jackson
+ITF M25 Lujan Men,ITF Men,Round of 16,15:00,Valerio Aboian,Juan Bautista Torres
+ITF M25 Lujan Men,ITF Men,Round of 16,15:00,Murkel Dellien,Nicolas Bruna
+"ITF M15 Orange Park, FL Men",ITF Men,Round of 16,15:00,Raphael Perot,Liam Krall
+ITF M25 Lujan Men,ITF Men,Round of 16,15:00,Lucio Ratti,Dante Pagani
+"ITF M15 Orange Park, FL Men",ITF Men,Round of 16,15:00,Matthew Segura,Joao Vitor Goncalves Ceolin
+ITF M15 Quito 2 Men,ITF Men,Round of 16,15:00,Victor Bini,Ryan Dickerson
+"ITF M15 Orange Park, FL Men",ITF Men,Round of 16,15:00,Keshav Chopra,Nick Hardt
+"ITF M15 Orange Park, FL Men",ITF Men,Round of 16,15:00,Hunter Heck,James Connel
 ITF W35 Nottingham Women,ITF Women,Round of 32,15:02,Clara Vlasselaer,Amelia Rajecki
 "ITF W35 Boca Raton, FL 2 Women",ITF Women,Round of 32,15:02,Janae Preston,Hibah Shaikh
 "ITF M15 Orange Park, FL Men",ITF Men,Round of 32,15:07,Raphael Perot,Vito Tonejc
-ITF M25 Lujan Men,ITF Men,Round of 32,15:09,Murkel Dellien,Francisco Tomas Geschwind
 ITF M15 Quito 2 Men,ITF Men,Round of 32,15:09,Victor Braga,Tomas Farjat
+ITF M25 Lujan Men,ITF Men,Round of 32,15:09,Murkel Dellien,Francisco Tomas Geschwind
 "Cagliari, Italy",Challenger,Round of 32,15:10,Lorenzo Sonego,Mattia Bellucci
 ITF M15 Oegstgeest Men,ITF Men,Round of 32,15:10,Liam Gavrielides,Amaury Raynel
 ITF M15 Quito 2 Men,ITF Men,Round of 32,15:11,Diego Jarry Fillol,Nicolas Esteban Rico Arias
 ITF M15 Quito 2 Men,ITF Men,Round of 32,15:12,Herman Hoeyeraal,Mwendwa Mbithi
 ITF M15 Quito 2 Men,ITF Men,Round of 32,15:15,Samuel Alejandro Linde Palacios,Martin Maldonado
 ITF M15 Hurghada 3 Men,ITF Men,Round of 32,15:17,Michael Gloeckler,Maximilian Heidlmair
-"Mauthausen, Austria, Doubles",Challenger,Round of 16,15:20,Kopp S / Neumayer L,Harris B / Vega Hernandez D
 "Ostrava, Czech Republic",Challenger,Round of 16,15:20,Rudolf Molleker,Henri Squire
+"Mauthausen, Austria, Doubles",Challenger,Round of 16,15:20,Kopp S / Neumayer L,Harris B / Vega Hernandez D
 ITF M25 Quinta do Lago Men Doubles,ITF Men,Round of 16,15:21,Boulais J / Rocha F,Gonzalez Fernandez M / Malirz K
 ITF W15 Monastir 12 Women,ITF Women,Round of 32,15:22,Margaux Komano,Anja Wildgruber
+"Mauthausen, Austria, Doubles",Challenger,Round of 16,15:30,M. T. B. Vera / N. Mejia,Damas M / Jorda Sanchis D
 ITF W15 Hurghada 3 Women Doubles,ITF Women,Quarterfinals,15:30,Plošnik E / Veleva V,Lazarenko K / Turkmen D
-ITF W15 Oegstgeest Women Doubles,ITF Women,Quarterfinals,15:30,Munk Mortensen R / Yesypchuk D,Lazar A / Sijbesma M
 ITF W15 Hurghada 3 Women Doubles,ITF Women,Quarterfinals,15:30,Hansen S O /  Odorizzi C,Lekomtseva U / Martianova S
+"ITF W35 Boca Raton, FL 2 Women",ITF Women,Round of 16,15:30,Antonia Vergara Rivera,Didi Bredberg Canizares
+ITF W15 Oegstgeest Women Doubles,ITF Women,Quarterfinals,15:30,Munk Mortensen R / Yesypchuk D,Lazar A / Sijbesma M
 ITF M15 Hurghada 3 Men Doubles,ITF Men,Quarterfinals,15:30,Aggarwal P / Rispoli N,Frydrych V / Gretskiy I
 ITF M15 Hurghada 3 Men Doubles,ITF Men,Quarterfinals,15:30,Heisnam S / Rathi A,Bocchi L / Mashtakov N
-"ITF W35 Boca Raton, FL 2 Women",ITF Women,Round of 16,15:30,Antonia Vergara Rivera,Didi Bredberg Canizares
-ITF M15 Hurghada 3 Men,ITF Men,Round of 16,15:30,Filippo Francesco Garbero,Yurii Dzhavakian
 ITF M15 Hurghada 3 Men,ITF Men,Round of 16,15:30,Andrea Fiorentini,Michael Gloeckler
-"Mauthausen, Austria, Doubles",Challenger,Round of 16,15:30,M. T. B. Vera / N. Mejia,Damas M / Jorda Sanchis D
+ITF M15 Hurghada 3 Men,ITF Men,Round of 16,15:30,Filippo Francesco Garbero,Yurii Dzhavakian
 ITF W35 Nottingham Women Doubles,ITF Women,Round of 16,15:35,Korpanec Davies A / Korpanec Davies O,Adeshina E / John-Baptiste L
 ITF M15 Hurghada 3 Men,ITF Men,Round of 32,15:40,Leonardo Rossi,Mattias Southcombe
 ITF W35 Nottingham Women Doubles,ITF Women,Round of 16,15:43,Laboutkova A / Novak K,Otzipka J / Yardley S
@@ -719,11 +721,11 @@ ITF W15 Hurghada 3 Women,ITF Women,Round of 32,15:49,Nicole Giannini,Leonie Rabl
 ITF M15 Oegstgeest Men,ITF Men,Round of 32,15:52,John Sperle,Ruben Hartig
 ITF M25 Lujan Men,ITF Men,Round of 32,15:56,Dante Pagani,Valentin Garay
 ITF M15 Hurghada 3 Men,ITF Men,Round of 32,15:58,Stijn Hofman,Karim Mabrouk
-"Madrid, Spain, Doubles",WTA,Quarterfinals,16:00,Hsieh S-W / Kenin S,Krunic A / Mladenovic K
 ITF M25 Lujan Men Doubles,ITF Men,Round of 16,16:00,Martinez T / Monferrer E,Castro L C / Gallego J I
 ITF M25 Lujan Men Doubles,ITF Men,Quarterfinals,16:00,De la Fuente S / Villanueva G,Ambrogi L E / Zeitune M
 ITF M15 Oegstgeest Men Doubles,ITF Men,Quarterfinals,16:00,Alexandrescou Y T / De Lange P,Demanet E / Paldanius O
 ITF M25 Lujan Men,ITF Men,Round of 16,16:00,Wilson Leite,Benjamin Chelia
+"Madrid, Spain, Doubles",WTA,Quarterfinals,16:00,Hsieh S-W / Kenin S,Krunic A / Mladenovic K
 ITF M25 Lujan Men,ITF Men,Round of 32,16:03,Juan Estevez,Lucio Ratti
 ITF M15 Hurghada 3 Men,ITF Men,Round of 32,16:03,Nino Ehrenschneider,Hitesh Chauhan
 ITF M15 Hurghada 3 Men,ITF Men,Round of 32,16:06,David Eichenseher,Peter Alam
@@ -736,61 +738,61 @@ ITF W35 Nottingham Women Doubles,ITF Women,Round of 16,16:20,Adams J / Lukosiute
 "ITF W100 Bonita Springs, FL Women",ITF Women,Round of 32,16:26,Mell Elizabeth Reasco Gonzalez,Lia Karatancheva
 ITF M25 Castelldefels Men,ITF Men,Round of 32,16:28,Daniel Rincon,Maxence Rivet
 ITF M15 Quito 2 Men,ITF Men,Round of 16,16:30,Samuel Alejandro Linde Palacios,Mauricio Echazu
+"ITF W35 Boca Raton, FL 2 Women Doubles",ITF Women,Quarterfinals,16:30,Fullana L / Urrutia M F,Cadar E T / Mandelikova K
+ITF W15 Hurghada 3 Women Doubles,ITF Women,Quarterfinals,16:30,Gasparovic C / Rabl L,Chan W / Bergnes de las Casas M P
+"ITF W35 Boca Raton, FL 2 Women Doubles",ITF Women,Quarterfinals,16:30,Johnson S / Tanguilig C,Evans K / Hinojosa Gomez J
 ITF M15 Quito 2 Men,ITF Men,Round of 16,16:30,Juan Sebastian Osorio,Frazier Rengifo
 "ITF W35 Boca Raton, FL 2 Women Doubles",ITF Women,Quarterfinals,16:30,Goncharova A / Tattini M,Gonzalez Daniele J M / Markus C
-"Abidjan 2, Cote d Ivoire",Challenger,Round of 16,16:30,Elijah Sanogo,Michael Mmoh
 "ITF W35 Boca Raton, FL 2 Women Doubles",ITF Women,Quarterfinals,16:30,El Jardi D / Walker B,Hazelitt J / Newman W
-"ITF W35 Boca Raton, FL 2 Women Doubles",ITF Women,Quarterfinals,16:30,Fullana L / Urrutia M F,Cadar E T / Mandelikova K
-ITF M15 Quito 2 Men,ITF Men,Round of 16,16:30,Diego Jarry Fillol,Tomas Farjat
-"ITF W35 Boca Raton, FL 2 Women Doubles",ITF Women,Quarterfinals,16:30,Johnson S / Tanguilig C,Evans K / Hinojosa Gomez J
+"ITF W100 Bonita Springs, FL Women",ITF Women,Round of 16,16:30,Mary Stoiana,Eva Vedder
+"ITF W100 Bonita Springs, FL Women",ITF Women,Round of 16,16:30,Maria Carle,Anna Rogers
 ITF M15 Quito 2 Men,ITF Men,Round of 16,16:30,Andres Urrea,Mario Andre Galarraga
 "La Bisbal D Emporda, Spain",WTA 125,Round of 16,16:30,Antonia Ružić,Sara Sorribes Tormo
-"ITF W100 Bonita Springs, FL Women",ITF Women,Round of 16,16:30,Maria Carle,Anna Rogers
-"ITF W100 Bonita Springs, FL Women",ITF Women,Round of 16,16:30,Ayana Akli,Madison Brengle
-ITF M15 Oegstgeest Men Doubles,ITF Men,Quarterfinals,16:30,Guinau S/ Visser M,Donders D / Verbeek D
-"ITF W100 Bonita Springs, FL Women",ITF Women,Round of 16,16:30,Mary Stoiana,Eva Vedder
 ITF M15 Hurghada 3 Men Doubles,ITF Men,Quarterfinals,16:30,Figl M / Rossi L,Grundtvig Jorgensen S / Meinertz A
+ITF M15 Oegstgeest Men Doubles,ITF Men,Quarterfinals,16:30,Guinau S/ Visser M,Donders D / Verbeek D
 ITF M15 Hurghada 3 Men Doubles,ITF Men,Quarterfinals,16:30,Ahti V / Alam P,Ehrenschneider N / Eichenseher D
-ITF W15 Hurghada 3 Women Doubles,ITF Women,Quarterfinals,16:30,Gasparovic C / Rabl L,Chan W / Bergnes de las Casas M P
+"Abidjan 2, Cote d Ivoire",Challenger,Round of 16,16:30,Elijah Sanogo,Michael Mmoh
 ITF W15 Hurghada 3 Women Doubles,ITF Women,Quarterfinals,16:30,Badawi A / Fouad N,Jaeger E / Samardžić A E
+"ITF W100 Bonita Springs, FL Women",ITF Women,Round of 16,16:30,Ayana Akli,Madison Brengle
+ITF M15 Quito 2 Men,ITF Men,Round of 16,16:30,Diego Jarry Fillol,Tomas Farjat
 "ITF W35 Boca Raton, FL 2 Women",ITF Women,Round of 32,16:31,Maria Florencia Urrutia,Luca Udvardy
+"ITF M15 Orange Park, FL Men",ITF Men,Round of 32,16:32,Gavin Goode,Andrew Johnson
 ITF M25 Lujan Men,ITF Men,Round of 32,16:32,Juan Oyhagaray,Enzo Camargo Lima
 ITF M15 Oegstgeest Men,ITF Men,Round of 32,16:32,Sander Jong,Martin Van der Meerschen
-"ITF M15 Orange Park, FL Men",ITF Men,Round of 32,16:32,Gavin Goode,Andrew Johnson
 "ITF M15 Orange Park, FL Men",ITF Men,Round of 32,16:41,Evan Bynoe,Michael Antonius
 ITF W15 Hurghada 3 Women,ITF Women,Round of 32,16:42,Maria Pares Bergnes de las Casas,Doga Turkmen
 ITF M15 Quito 2 Men,ITF Men,Round of 32,16:49,Ramon Mateos,Felipe de Dios
 ITF M15 Oegstgeest Men,ITF Men,Round of 32,16:50,Mac Visser,Lenny Couturier
 ITF M15 Quito 2 Men,ITF Men,Round of 32,16:51,Michael Alejandro Beltran Rubio,Victor Bini
-ITF W15 Hurghada 3 Women,ITF Women,Round of 32,16:55,Ustiniya Lekomtseva,Ela Plošnik
 "ITF W100 Bonita Springs, FL Women",ITF Women,Round of 32,16:55,Eva Vedder,Barbora Palicova
-"ITF M15 Orange Park, FL Men Doubles",ITF Men,Quarterfinals,17:00,Bobo D / Koch B,Pignaton L C / Vasser O
-"ITF M15 Orange Park, FL Men",ITF Men,Round of 16,17:00,Kaylan Bigun,Michael Antonius
+ITF W15 Hurghada 3 Women,ITF Women,Round of 32,16:55,Ustiniya Lekomtseva,Ela Plošnik
 "Abidjan 2, Cote d Ivoire",Challenger,Round of 16,17:00,Hamish Stewart,Blaise Bicknell
-"Abidjan 2, Cote d Ivoire",Challenger,Round of 16,17:00,Eliakim Coulibaly,Karim Bennani
+"ITF M15 Orange Park, FL Men",ITF Men,Round of 16,17:00,Kaylan Bigun,Michael Antonius
 "ITF M15 Orange Park, FL Men",ITF Men,Round of 16,17:00,Andrew Johnson,Andreja Petrovic
+"Abidjan 2, Cote d Ivoire",Challenger,Round of 16,17:00,Eliakim Coulibaly,Karim Bennani
+"ITF M15 Orange Park, FL Men Doubles",ITF Men,Quarterfinals,17:00,Bobo D / Koch B,Pignaton L C / Vasser O
 ITF M25 Lujan Men,ITF Men,Round of 32,17:08,Ezequiel Monferrer,Julian Cundom
 "ITF W35 Boca Raton, FL 2 Women",ITF Women,Round of 32,17:20,Anita Sahdiieva,Ranah Akua Stoiber
 "ITF W100 Bonita Springs, FL Women",ITF Women,Round of 32,17:24,Haley Giavara,Jazmin Ortenzi
-"UTR PTT Newport Beach Women 10, Group B",UTR Women,,17:30,Lyric Bonilla,Alexandra Wolf
-"UTR PTT Newport Beach Women 10, Group B",UTR Women,,17:30,Addy Rogin,Alexandra Wolf
-"UTR PTT Newport Beach Women 10, Group A",UTR Women,,17:30,Veronica Miroshnichenko,Anna Cherico
-"UTR PTT Newport Beach Women 10, Group A",UTR Women,,17:30,Kavya Kongara,Tanvi Pandey
-"UTR PTT Newport Beach Women 10, Group B",UTR Women,,17:30,Amy Lee,Alexandra Wolf
-"UTR PTT Newport Beach Women 10, Group B",UTR Women,,17:30,Lyric Bonilla,Amy Lee
-"ITF W100 Bonita Springs, FL Women Doubles",ITF Women,Round of 16,17:30,Fita Boluda Á / Romero Gormaz L,Reasco Gonzalez M E / Vidmanova D
-"UTR PTT Newport Beach Women 10, Group B",UTR Women,,17:30,Delilah Rizvi,Bella Jacutin-Mariona
-"Abidjan 2, Cote d Ivoire, Doubles",Challenger,Quarterfinals,17:30,Geerts M / Visker N,Mansouri S / Perez B
-"UTR PTT Newport Beach Women 10, Group B",UTR Women,,17:30,Amy Lee,Bella Jacutin-Mariona
-"UTR PTT Newport Beach Women 10, Group B",UTR Women,,17:30,Delilah Rizvi,Amy Lee
-"UTR PTT Newport Beach Men 10, Group A",UTR Men,,17:30,Tomas Quesada Perez,Matthew Vos
 "UTR PTT Newport Beach Men 10, Group B",UTR Men,,17:30,Dylan Varughese,Dev Mangat
 "UTR PTT Newport Beach Men 10, Group C",UTR Men,,17:30,Pavel Bushuev,Harrison Satara
+"UTR PTT Newport Beach Women 10, Group B",UTR Women,,17:30,Delilah Rizvi,Addy Rogin
+"UTR PTT Newport Beach Women 10, Group A",UTR Women,,17:30,Veronica Miroshnichenko,Anna Cherico
 "UTR PTT Newport Beach Men 10, Group D",UTR Men,,17:30,Thomas Edwards,Elijah Strode
 "UTR PTT Newport Beach Men 10, Group D",UTR Men,,17:30,Elijah Strode,Jose Murariu
 "UTR PTT Newport Beach Men 10, Group D",UTR Men,,17:30,Elijah Strode,Adam (2004) Duda
-"UTR PTT Newport Beach Women 10, Group B",UTR Women,,17:30,Delilah Rizvi,Addy Rogin
+"UTR PTT Newport Beach Women 10, Group B",UTR Women,,17:30,Amy Lee,Alexandra Wolf
+"UTR PTT Newport Beach Women 10, Group B",UTR Women,,17:30,Amy Lee,Bella Jacutin-Mariona
+"Abidjan 2, Cote d Ivoire, Doubles",Challenger,Quarterfinals,17:30,Geerts M / Visker N,Mansouri S / Perez B
 "Abidjan 2, Cote d Ivoire",Challenger,Round of 16,17:30,Mert Alkaya,Paul Jubb
+"UTR PTT Newport Beach Women 10, Group B",UTR Women,,17:30,Delilah Rizvi,Amy Lee
+"ITF W100 Bonita Springs, FL Women Doubles",ITF Women,Round of 16,17:30,Fita Boluda Á / Romero Gormaz L,Reasco Gonzalez M E / Vidmanova D
+"UTR PTT Newport Beach Women 10, Group B",UTR Women,,17:30,Addy Rogin,Alexandra Wolf
+"UTR PTT Newport Beach Women 10, Group B",UTR Women,,17:30,Lyric Bonilla,Amy Lee
+"UTR PTT Newport Beach Women 10, Group A",UTR Women,,17:30,Kavya Kongara,Tanvi Pandey
+"UTR PTT Newport Beach Women 10, Group B",UTR Women,,17:30,Lyric Bonilla,Alexandra Wolf
+"UTR PTT Newport Beach Men 10, Group A",UTR Men,,17:30,Tomas Quesada Perez,Matthew Vos
+"UTR PTT Newport Beach Women 10, Group B",UTR Women,,17:30,Delilah Rizvi,Bella Jacutin-Mariona
 ITF M15 Quito 2 Men,ITF Men,Round of 32,17:37,Angel Veliz,Ryan Dickerson
 ITF M15 Villahermosa Men,ITF Men,Round of 16,17:38,Jerry Roddick,Rafael de Alba
 ITF M15 Villahermosa Men,ITF Men,Round of 16,17:38,Oswaldo Alejandro Reyes Tirado,Enmanuel Munoz
@@ -799,15 +801,15 @@ ITF M15 Villahermosa Men,ITF Men,Round of 16,17:41,Rodolfo Jauregui Sainz de Roz
 "ITF M15 Orange Park, FL Men",ITF Men,Round of 32,17:47,Patrick Kotan,William Grant
 ITF W15 Hurghada 3 Women,ITF Women,Round of 32,17:49,Sarafina Olivia Hansen,Darya Volkova
 "La Bisbal D Emporda, Spain",WTA 125,Round of 16,17:50,Marina Bassols Ribera,Aliona Bolsova
-ITF M15 Hurghada 3 Men,ITF Men,Round of 32,17:55,Nicola Rispoli,Andrea Fiorentini
 ITF M15 Hurghada 3 Men,ITF Men,Round of 32,17:55,Filippo Francesco Garbero,Brian Dal Zilio
+ITF M15 Hurghada 3 Men,ITF Men,Round of 32,17:55,Nicola Rispoli,Andrea Fiorentini
 ITF W15 Hurghada 3 Women,ITF Women,Round of 32,17:57,Martyna Zaremba,Ekaterina Tupitsyna
-"ITF M15 Orange Park, FL Men Doubles",ITF Men,Quarterfinals,18:00,Chopra K / Petrovic A,Kotan P / Krall L
-"Abidjan 2, Cote d Ivoire",Challenger,Round of 16,18:00,Gauthier Onclin,Massimo Giunta
 "Madrid, Spain",ATP,Quarterfinals,18:00,Flavio Cobolli,Alexander Zverev
 "Madrid, Spain",WTA,Quarterfinals,18:00,Marta Kostyuk,Linda Noskova
-"Abidjan 2, Cote d Ivoire, Doubles",Challenger,Quarterfinals,18:10,Poulsen O B / Suarez B,Kalyanpur A / Mukund S
+"Abidjan 2, Cote d Ivoire",Challenger,Round of 16,18:00,Gauthier Onclin,Massimo Giunta
+"ITF M15 Orange Park, FL Men Doubles",ITF Men,Quarterfinals,18:00,Chopra K / Petrovic A,Kotan P / Krall L
 ITF M15 Quito 2 Men,ITF Men,Round of 32,18:10,Mauricio Echazu,Diego Giraldo
+"Abidjan 2, Cote d Ivoire, Doubles",Challenger,Quarterfinals,18:10,Poulsen O B / Suarez B,Kalyanpur A / Mukund S
 "Cagliari, Italy",Challenger,Round of 32,18:10,Emilio Nava,Damir Džumhur
 "ITF W35 Boca Raton, FL 2 Women",ITF Women,Round of 32,18:13,Sara Daavettila,Kailey Evans
 "ITF M15 Orange Park, FL Men",ITF Men,Round of 32,18:14,Ryan Colby,Keaton Hance
@@ -816,10 +818,10 @@ ITF W15 Hurghada 3 Women,ITF Women,Round of 32,18:21,Claudia Gasparovic,Lenka Mu
 ITF W15 Hurghada 3 Women,ITF Women,Round of 32,18:22,Timea Gross,Kateryna Lazarenko
 ITF M25 Lujan Men,ITF Men,Round of 32,18:22,Valerio Aboian,Maximo Zeitune
 "Abidjan 2, Cote d Ivoire",Challenger,Round of 16,18:30,Aziz Dougaz,Florent Bax
-"ITF W100 Bonita Springs, FL Women",ITF Women,Round of 16,18:30,Elvina Kalieva,Akasha Urhobo
 "ITF M15 Orange Park, FL Men Doubles",ITF Men,Quarterfinals,18:30,Heck H / Okonkwo O,Benson M / Connel J
-"ITF W100 Bonita Springs, FL Women",ITF Women,Round of 16,18:30,Madison Sieg,Jazmin Ortenzi
 "ITF M15 Orange Park, FL Men Doubles",ITF Men,Quarterfinals,18:30,Bynoe E / Goncalves Ceolin J V,Vance Jac / Vance Jam
+"ITF W100 Bonita Springs, FL Women",ITF Women,Round of 16,18:30,Elvina Kalieva,Akasha Urhobo
+"ITF W100 Bonita Springs, FL Women",ITF Women,Round of 16,18:30,Madison Sieg,Jazmin Ortenzi
 "ITF W35 Boca Raton, FL 2 Women Doubles",ITF Women,Round of 16,18:33,El Jardi D / Walker B,Ivanova D / Vagramov A
 ITF M25 Lujan Men,ITF Men,Round of 32,18:33,Valentino Moriamez,Juan Bautista Torres
 "ITF M15 Orange Park, FL Men",ITF Men,Round of 32,18:41,Joao Vitor Goncalves Ceolin,Christian Langmo
@@ -828,11 +830,11 @@ ITF W15 Hurghada 3 Women,ITF Women,Round of 32,18:50,Ayline Esina Samardžić,An
 ITF W15 Hurghada 3 Women,ITF Women,Round of 32,18:56,Ekaterina Khodzhaeva,Alisa Danilova
 ITF M15 Hurghada 3 Men,ITF Men,Round of 32,18:59,Bader Idrees,Maximilian Figl
 ITF M15 Quito 2 Men Doubles ,ITF Men,Quarterfinals,19:00,Grippo V / Mouilleron Salvo M,Bini V / Rocha V
-"Abidjan 2, Cote d Ivoire, Doubles",Challenger,Quarterfinals,19:00,Singh D / Singh K,Bittoun Kouzmine C / Strombachs R
-"ITF W100 Bonita Springs, FL Women Doubles",ITF Women,Round of 16,19:00,Akli A / Cayetano E,Parrizas Diaz N / Thombare P
-"Abidjan 2, Cote d Ivoire, Doubles",Challenger,Round of 16,19:00,Fondriest M / Vishal Balsekar A,Singh D / Singh K
 ITF M15 Quito 2 Men Doubles ,ITF Men,Quarterfinals,19:00,Cavallo F / de Dios F,Almeida Junior E / Pinheiro Da Cruz G
+"Abidjan 2, Cote d Ivoire, Doubles",Challenger,Round of 16,19:00,Fondriest M / Vishal Balsekar A,Singh D / Singh K
+"Abidjan 2, Cote d Ivoire, Doubles",Challenger,Quarterfinals,19:00,Singh D / Singh K,Bittoun Kouzmine C / Strombachs R
 "ITF W100 Bonita Springs, FL Women Doubles",ITF Women,Round of 16,19:00,Matoula M / Zamarripa A,Carlé M / Mandlik E
+"ITF W100 Bonita Springs, FL Women Doubles",ITF Women,Round of 16,19:00,Akli A / Cayetano E,Parrizas Diaz N / Thombare P
 ITF M25 Lujan Men Doubles,ITF Men,Quarterfinals,19:00,Pagani D / Ratti L,Basel V / del Pino M
 "ITF M15 Orange Park, FL Men",ITF Men,Round of 32,19:16,Kian Vakili,James Connel
 "ITF W100 Bonita Springs, FL Women",ITF Women,Round of 32,19:18,Akasha Urhobo,Thea Frodin
@@ -840,31 +842,31 @@ ITF M25 Lujan Men Doubles,ITF Men,Quarterfinals,19:00,Pagani D / Ratti L,Basel V
 "Abidjan 2, Cote d Ivoire, Doubles",Challenger,Quarterfinals,19:20,Bouchelaghem C / Sanogo E,Hands T / Stewart H
 ITF M15 Villahermosa Men,ITF Men,Round of 16,19:22,Ren Nakamura,Maxwell McKennon
 "ITF W35 Boca Raton, FL 2 Women",ITF Women,Round of 32,19:24,Luna María Cinalli,Amelia Honer
-"UTR PTT Newport Beach Men 10, Group B",UTR Men,,19:30,Adam Chodur,Liam Alvarez
-"UTR PTT Newport Beach Men 10, Group C",UTR Men,,19:30,Andre Alcantara,Pavel Bushuev
 "Madrid, Spain",WTA,Semifinals,19:30,Marta Kostyuk,Anastasia Potapova
-"UTR PTT Newport Beach Women 10, Group C",UTR Women,,19:30,Emily Golovanov,Shakhnoza Khatamova
-"UTR PTT Newport Beach Women 10, Group C",UTR Women,,19:30,Emily Golovanov,Kaia Giribalan
 "UTR PTT Newport Beach Women 10, Group B",UTR Women,,19:30,Addy Rogin,Amy Duong
 "UTR PTT Newport Beach Women 10, Group B",UTR Women,,19:30,Lyric Bonilla,Bella Jacutin-Mariona
+"UTR PTT Newport Beach Women 10, Group C",UTR Women,,19:30,Emily Golovanov,Shakhnoza Khatamova
+"UTR PTT Newport Beach Women 10, Group C",UTR Women,,19:30,Emily Golovanov,Kaia Giribalan
+"UTR PTT Newport Beach Men 10, Group C",UTR Men,,19:30,Andre Alcantara,Pavel Bushuev
+"UTR PTT Newport Beach Men 10, Group B",UTR Men,,19:30,Adam Chodur,Liam Alvarez
 "UTR PTT Newport Beach Men 10, Group A",UTR Men,,19:30,Noah Zamora,Matthew Vos
 "ITF M15 Orange Park, FL Men",ITF Men,Round of 32,19:33,Kaylan Bigun,Donald Nikolas Stoot
 "ITF W35 Boca Raton, FL 2 Women",ITF Women,Round of 32,19:34,Sofia Johnson,Martina Capurro Taborda
-"Abidjan 2, Cote d Ivoire",Challenger,Round of 16,19:40,Michael Geerts,Niels Visker
 ITF M15 Quito 2 Men Doubles ,ITF Men,Round of 16,19:40,Hoeyeraal H / Osorio J S,Hollender N / Pinto L
+"Abidjan 2, Cote d Ivoire",Challenger,Round of 16,19:40,Michael Geerts,Niels Visker
 ITF M25 Lujan Men Doubles,ITF Men,Round of 16,19:40,Fernandez B / Camargo Lima E,Basel V / del Pino M
 ITF M15 Villahermosa Men,ITF Men,Round of 16,19:41,Daniel Milavsky,Agustin Salazar
+ITF M15 Hurghada 3 Men,ITF Men,Round of 32,19:45,Daniil Stepanov,Yurii Dzhavakian
 "Abidjan 2, Cote d Ivoire, Doubles",Challenger,Round of 16,19:45,Lalami Laaroussi Y / Marrero Curbelo I,Poulsen O B / Suarez B
 "UTR PTT Newport Beach Men 10, Group D",UTR Men,,19:45,Evan Shamlian,Adam (2004) Duda
-ITF M15 Hurghada 3 Men,ITF Men,Round of 32,19:45,Daniil Stepanov,Yurii Dzhavakian
 "Madrid, Spain",ATP,Quarterfinals,19:50,Arthur Fils,Jiri Lehečka
 ITF M25 Lujan Men Doubles,ITF Men,Round of 16,19:53,De la Fuente S / Villanueva G,Bruna N / Geschwind F T
 "ITF W35 Boca Raton, FL 2 Women Doubles",ITF Women,Round of 16,19:55,McGinnis A / Chennamsetty S,Gonzalez Daniele J M / Markus C
-ITF M15 Quito 2 Men Doubles ,ITF Men,Quarterfinals,20:00,Palacios S A L / Arias N E R,Hollender N / Pinto L
-"ITF W100 Bonita Springs, FL Women Doubles",ITF Women,Quarterfinals,20:00,Lee G / Palicova B,Karatancheva L / Rogers A
 ITF M15 Quito 2 Men Doubles ,ITF Men,Quarterfinals,20:00,Rubio M / Collado J D,Gomez J S / Urrea A
+ITF M15 Quito 2 Men Doubles ,ITF Men,Quarterfinals,20:00,Palacios S A L / Arias N E R,Hollender N / Pinto L
 ITF M15 Villahermosa Men Doubles,ITF Men,Quarterfinals,20:00,Cabrera A / Wunderlich T,Meneo T / Nakamura R
 ITF M15 Villahermosa Men,ITF Men,Quarterfinals,20:00,Oswaldo Alejandro Reyes Tirado,Volodymyr Gurenko
+"ITF W100 Bonita Springs, FL Women Doubles",ITF Women,Quarterfinals,20:00,Lee G / Palicova B,Karatancheva L / Rogers A
 "ITF W100 Bonita Springs, FL Women Doubles",ITF Women,Round of 16,20:07,Snells J / Vickery S,Lee G / Palicova B
 ITF M15 Quito 2 Men Doubles ,ITF Men,Round of 16,20:10,Braga V / Scramin Do Lago J V,Grippo V / Mouilleron Salvo M
 ITF M15 Quito 2 Men Doubles ,ITF Men,Round of 16,20:13,Palacios S A L / Arias N E R,Maldonado A / Salvador Villagomez J F
@@ -881,8 +883,8 @@ ITF M15 Villahermosa Men,ITF Men,Quarterfinals,21:00,Rodolfo Jauregui Sainz de R
 ITF M25 Lujan Men Doubles,ITF Men,Round of 16,21:19,Garay V / Rocha L,Cundom J / Tenti F
 ITF M15 Villahermosa Men Doubles,ITF Men,Round of 16,21:22,Cruz C / Goity Zapico S,Hou Y / Saiga W
 "ITF M15 Orange Park, FL Men Doubles",ITF Men,Round of 16,21:31,Kruger C / Scott A,Kotan P / Krall L
-ITF M15 Villahermosa Men,ITF Men,Round of 16,21:41,Alejandro Hayen,Artem Alekseychuk
 "ITF M15 Orange Park, FL Men Doubles",ITF Men,Round of 16,21:41,Barton D / Portugal J,Vance Jac / Vance Jam
+ITF M15 Villahermosa Men,ITF Men,Round of 16,21:41,Alejandro Hayen,Artem Alekseychuk
 "ITF M15 Orange Park, FL Men Doubles",ITF Men,Round of 16,21:51,Chopra K / Petrovic A,Cozad R / Goode G
 ITF M15 Villahermosa Men Doubles,ITF Men,Quarterfinals,22:00,Cruz C / Goity Zapico S,Gamborino M / Hammond L
 "ITF W100 Bonita Springs, FL Women Doubles",ITF Women,Round of 16,22:03,Govortsova O / Rus A,Collins K / Giavara H
