@@ -50,10 +50,14 @@ def obtener_calendario_hoy():
             
             timestamp = e.get('startTimestamp')
             hora_local = "Sin hora"
+            fecha = hoy_str  # Default to today
             if timestamp:
-                hora_local = datetime.fromtimestamp(timestamp).strftime("%H:%M")
+                dt = datetime.fromtimestamp(timestamp)
+                hora_local = dt.strftime("%H:%M")
+                fecha = dt.strftime("%Y-%m-%d")
             
             partidos.append({
+                "Fecha": fecha,
                 "Torneo": torneo,
                 "Torneo_ID_Sofascore": torneo_id,
                 "Categoria": categoria,
@@ -69,16 +73,16 @@ def obtener_calendario_hoy():
             
     archivo = os.path.join("datos", "calendario.csv")
     os.makedirs("datos", exist_ok=True)
-    columnas = ["Torneo", "Torneo_ID_Sofascore", "Categoria", "Ronda", "Hora_Aprox", "Jugador_Local", "Jugador_Local_ID_Sofascore", "Jugador_Visitante", "Jugador_Visitante_ID_Sofascore"]
+    columnas = ["Fecha", "Torneo", "Torneo_ID_Sofascore", "Categoria", "Ronda", "Hora_Aprox", "Jugador_Local", "Jugador_Local_ID_Sofascore", "Jugador_Visitante", "Jugador_Visitante_ID_Sofascore"]
 
     if partidos:
         df = pd.DataFrame(partidos)
-        df = df.sort_values(by="Hora_Aprox")
+        df = df.sort_values(by=["Fecha", "Hora_Aprox"])
         df.to_csv(archivo, index=False, encoding='utf-8-sig')
         logging.info(f"\n¡Éxito! Se ha guardado el calendario con {len(partidos)} partidos de hoy en {archivo}.")
         
         print("\n--- Próximos partidos de hoy (Muestra de los siguientes 15) ---")
-        print(df.assign(VS="vs")[['Hora_Aprox', 'Categoria', 'Jugador_Local', 'VS', 'Jugador_Visitante']].head(15).to_string(index=False))
+        print(df.assign(VS="vs")[['Fecha', 'Hora_Aprox', 'Categoria', 'Jugador_Local', 'VS', 'Jugador_Visitante']].head(15).to_string(index=False))
     else:
         df_vacio = pd.DataFrame(columns=columnas)
         df_vacio.to_csv(archivo, index=False, encoding='utf-8-sig')
