@@ -40,10 +40,13 @@ def obtener_calendario_hoy():
     for e in eventos:
         try:
             torneo = e.get('tournament', {}).get('name', 'Desconocido')
+            torneo_id = e.get('tournament', {}).get('id', '')
             categoria = e.get('tournament', {}).get('category', {}).get('name', '')
             
             home = e.get('homeTeam', {}).get('name', 'Unknown')
+            home_id = e.get('homeTeam', {}).get('id', '')
             away = e.get('awayTeam', {}).get('name', 'Unknown')
+            away_id = e.get('awayTeam', {}).get('id', '')
             
             timestamp = e.get('startTimestamp')
             hora_local = "Sin hora"
@@ -52,18 +55,21 @@ def obtener_calendario_hoy():
             
             partidos.append({
                 "Torneo": torneo,
+                "Torneo_ID_Sofascore": torneo_id,
                 "Categoria": categoria,
                 "Ronda": e.get('roundInfo', {}).get('name', ''),
                 "Hora_Aprox": hora_local,
                 "Jugador_Local": home,
-                "Jugador_Visitante": away
+                "Jugador_Local_ID_Sofascore": home_id,
+                "Jugador_Visitante": away,
+                "Jugador_Visitante_ID_Sofascore": away_id
             })
         except Exception:
             pass
             
     archivo = os.path.join("datos", "calendario.csv")
     os.makedirs("datos", exist_ok=True)
-    columnas = ["Torneo", "Categoria", "Ronda", "Hora_Aprox", "Jugador_Local", "Jugador_Visitante"]
+    columnas = ["Torneo", "Torneo_ID_Sofascore", "Categoria", "Ronda", "Hora_Aprox", "Jugador_Local", "Jugador_Local_ID_Sofascore", "Jugador_Visitante", "Jugador_Visitante_ID_Sofascore"]
 
     if partidos:
         df = pd.DataFrame(partidos)
