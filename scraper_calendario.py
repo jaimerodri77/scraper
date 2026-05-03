@@ -1,11 +1,24 @@
 import pandas as pd
 from datetime import datetime
-import time
 import os
 import logging
 from curl_cffi import requests
 
 logging.basicConfig(level=logging.INFO, format="%(message)s")
+
+# Mapeo de groundType (numérico o texto) a etiqueta legible
+SUPERFICIE_MAP = {
+    0: "Dura",
+    1: "Arcilla",
+    2: "Hierba",
+    3: "Moqueta",
+    4: "Indoor Dura",
+    "hard": "Dura",
+    "clay": "Arcilla",
+    "grass": "Hierba",
+    "carpet": "Moqueta",
+    "indoor hard": "Indoor Dura",
+}
 
 def _session():
     s = requests.Session(impersonate="chrome120")
@@ -18,6 +31,7 @@ def _session():
     return s
 
 SESSION = _session()
+_cache_superficie = {}  # torneo_id -> superficie string
 
 def api_get(url):
     try:
@@ -28,64 +42,129 @@ def api_get(url):
         logging.warning(f"Error: {e}")
     return {}
 
+def normalizar_superficie(valor):
+    """Convierte groundType (int o str) a etiqueta legible."""
+    if valor is None:
+        return "Desconocida"
+    # Intentar como entero
+    try:
+        valor_int = int(valor)
+        return SUPERFICIE_MAP.get(valor_int, f"Tipo {valor_int}")
+    except (ValueError, TypeError):
+        pass
+    # Intentar como string (lower)
+    return SUPERFICIE_MAP.get(str(valor).lower(), str(valor).capitalize())
+
+def obtener_superficie_torneo(torneo_id):
+    """
+    Obtiene la superficie de un torneo consultando su endpoint individual.
+    Usa caché para evitar llamadas duplicadas.
+    """
+    if not torneo_id:
+        return "Desconocida"
+    if torneo_id in _cache_superficie:
+        return _cache_superficie[torneo_id]
+
+    url = f"https://api.sofascore.com/api/v1/tournament/{torneo_id}"
+    data = api_get(url)
+
+    ground_type = (
+        data.get("tournament", {}).get("groundType")
+        or data.get("uniqueTournament", {}).get("groundType")
+    )
+    superficie = normalizar_superficie(ground_type)
+    _cache_superficie[torneo_id] = superficie
+    return superficie
+
 def obtener_calendario_hoy():
     hoy_str = datetime.now().strftime("%Y-%m-%d")
     logging.info(f"Obteniendo calendario de partidos para hoy: {hoy_str}...")
-    
+
     url = f"https://api.sofascore.com/api/v1/sport/tennis/scheduled-events/{hoy_str}"
     data = api_get(url)
-    eventos = data.get('events', [])
-    
+    eventos = data.get("events", [])
+
     partidos = []
+    torneos_vistos = set()
+
     for e in eventos:
         try:
-            torneo = e.get('tournament', {}).get('name', 'Desconocido')
-            torneo_id = e.get('tournament', {}).get('id', '')
-            categoria = e.get('tournament', {}).get('category', {}).get('name', '')
-            
-            home = e.get('homeTeam', {}).get('name', 'Unknown')
-            home_id = e.get('homeTeam', {}).get('id', '')
-            away = e.get('awayTeam', {}).get('name', 'Unknown')
-            away_id = e.get('awayTeam', {}).get('id', '')
-            
-            timestamp = e.get('startTimestamp')
+            torneo_data = e.get("tournament", {})
+            torneo = torneo_data.get("name", "Desconocido")
+            torneo_id = torneo_data.get("id", "")
+            categoria = torneo_data.get("category", {}).get("name", "")
+
+            # 1) Intentar extraer superficie directamente del evento
+            ground_type = torneo_data.get("groundType")
+            if ground_type is None:
+                # Buscar en uniqueTournament si viene embebido
+                ground_type = e.get("uniqueTournament", {}).get("groundType")
+
+            if ground_type is not None:
+                superficie = normalizar_superficie(ground_type)
+                _cache_superficie[torneo_id] = superficie  # poblar caché
+            else:
+                # 2) Fallback: llamar al endpoint del torneo (con caché)
+                if torneo_id not in torneos_vistos:
+                    torneos_vistos.add(torneo_id)
+                superficie = obtener_superficie_torneo(torneo_id)
+
+            home = e.get("homeTeam", {}).get("name", "Unknown")
+            home_id = e.get("homeTeam", {}).get("id", "")
+            away = e.get("awayTeam", {}).get("name", "Unknown")
+            away_id = e.get("awayTeam", {}).get("id", "")
+
+            timestamp = e.get("startTimestamp")
             hora_local = "Sin hora"
-            fecha = hoy_str  # Default to today
+            fecha = hoy_str
             if timestamp:
                 dt = datetime.fromtimestamp(timestamp)
                 hora_local = dt.strftime("%H:%M")
                 fecha = dt.strftime("%Y-%m-%d")
-            
+
             partidos.append({
                 "Fecha": fecha,
                 "Torneo": torneo,
                 "Torneo_ID_Sofascore": torneo_id,
                 "Categoria": categoria,
-                "Ronda": e.get('roundInfo', {}).get('name', ''),
+                "Superficie": superficie,
+                "Ronda": e.get("roundInfo", {}).get("name", ""),
                 "Hora_Aprox": hora_local,
                 "Jugador_Local": home,
                 "Jugador_Local_ID_Sofascore": home_id,
                 "Jugador_Visitante": away,
-                "Jugador_Visitante_ID_Sofascore": away_id
+                "Jugador_Visitante_ID_Sofascore": away_id,
             })
         except Exception:
             pass
-            
+
     archivo = os.path.join("datos", "calendario.csv")
     os.makedirs("datos", exist_ok=True)
-    columnas = ["Fecha", "Torneo", "Torneo_ID_Sofascore", "Categoria", "Ronda", "Hora_Aprox", "Jugador_Local", "Jugador_Local_ID_Sofascore", "Jugador_Visitante", "Jugador_Visitante_ID_Sofascore"]
+    columnas = [
+        "Fecha", "Torneo", "Torneo_ID_Sofascore", "Categoria", "Superficie",
+        "Ronda", "Hora_Aprox", "Jugador_Local", "Jugador_Local_ID_Sofascore",
+        "Jugador_Visitante", "Jugador_Visitante_ID_Sofascore",
+    ]
 
     if partidos:
         df = pd.DataFrame(partidos)
         df = df.sort_values(by=["Fecha", "Hora_Aprox"])
-        df.to_csv(archivo, index=False, encoding='utf-8-sig')
-        logging.info(f"\n¡Éxito! Se ha guardado el calendario con {len(partidos)} partidos de hoy en {archivo}.")
-        
+        df.to_csv(archivo, index=False, encoding="utf-8-sig")
+        logging.info(
+            f"\n¡Éxito! Se ha guardado el calendario con {len(partidos)} partidos de hoy en {archivo}."
+        )
+
         print("\n--- Próximos partidos de hoy (Muestra de los siguientes 15) ---")
-        print(df.assign(VS="vs")[['Fecha', 'Hora_Aprox', 'Categoria', 'Jugador_Local', 'VS', 'Jugador_Visitante']].head(15).to_string(index=False))
+        print(
+            df.assign(VS="vs")[
+                ["Fecha", "Hora_Aprox", "Categoria", "Superficie", "Jugador_Local", "VS", "Jugador_Visitante"]
+            ]
+            .head(15)
+            .to_string(index=False)
+        )
     else:
         df_vacio = pd.DataFrame(columns=columnas)
-        df_vacio.to_csv(archivo, index=False, encoding='utf-8-sig')
+        df_vacio.to_csv(archivo, index=False, encoding="utf-8-sig")
         logging.info("No se encontraron partidos programados. El archivo calendario.csv ha sido limpiado.")
 
 if __name__ == "__main__":
