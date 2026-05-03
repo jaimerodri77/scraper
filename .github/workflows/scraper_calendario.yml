@@ -1,12 +1,12 @@
-name: Tennis Scraper Calendario (Test)
+name: Tennis Scraper Diario PRO
 
 on:
-  workflow_dispatch: # Permite ejecución manual
   schedule:
-    - cron: '30 6 * * *' # Ejecutar un poco después del scraper principal (ejemplo)
+    - cron: '5 5,17 * * *' # cada 12 horas 2:05 AM Colombia (más estable que 2:00 exacto)
+  workflow_dispatch:
 
 jobs:
-  scrape_calendario:
+  scrape:
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -14,39 +14,51 @@ jobs:
     steps:
       - name: Checkout repositorio
         uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup Python 3.11
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+          cache: 'pip'
 
       - name: Instalar dependencias
-        run: pip install pandas playwright playwright-stealth
-
-      - name: Instalar Chromium
         run: |
-          python -m playwright install chromium
-          python -m playwright install-deps chromium
+          pip install --upgrade pip
+          pip install -r requirements.txt
 
-      - name: Ejecutar scraper de calendario
+      - name: Conectar a VPN (Cloudflare WARP)
+        run: |
+          curl -fsSL https://pkg.cloudflareclient.com/pubkey.gpg | sudo gpg --yes --dearmor --output /usr/share/keyrings/cloudflare-warp-archive-keyring.gpg
+          echo "deb [signed-by=/usr/share/keyrings/cloudflare-warp-archive-keyring.gpg] https://pkg.cloudflareclient.com/ $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/cloudflare-client.list
+          sudo apt-get update
+          sudo apt-get install -y cloudflare-warp
+
+          warp-cli --accept-tos registration new
+          warp-cli --accept-tos connect
+          sleep 8
+
+          echo "IP actual:"
+          curl -4 ifconfig.me
+
+      
+
+      - name: Ejecutar scraper calendario
         run: python scraper_calendario.py
 
-      - name: Verificar archivo creado
-        run: |
-          echo "=== Carpeta datos ==="
-          ls -lh datos/calendario.csv 2>/dev/null || echo "El archivo calendario.csv NO existe"
-
-      - name: Guardar cambios en el repositorio
+      - name: Guardar datos en repositorio
+        if: always()
         run: |
           git config --global user.email "scraperbot@github.com"
           git config --global user.name "TennisScraperBot"
-          mkdir -p datos
-          git add datos/calendario.csv || true
+
+          git add datos/*.csv || true
+
           if git diff --staged --quiet; then
-            echo "Sin cambios en el calendario."
+            echo "Sin cambios."
             exit 0
           fi
-          git commit -m "Update calendar $(date +'%Y-%m-%d')"
+
+          git commit -m "Update datos: $(date +'%Y-%m-%d %H:%M')"
+
+          git pull --rebase origin main
           git push
