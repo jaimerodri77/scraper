@@ -1,5 +1,5 @@
 ﻿Fecha,Torneo,Torneo_ID_Sofascore,Categoria,Superficie,Ronda,Hora_Aprox,Jugador_Local,Jugador_Local_ID_Sofascore,Jugador_Visitante,Jugador_Visitante_ID_Sofascore
-2026-05-10,"Rome, Italy, Doubles",183384,WTA,Red clay,Round of 32,10:00,Gauff C / McNally C,297333,Sutjiadi A / Tjen J,342777
+2026-05-10,"WTA 1000 Rome, Doubles",183384,WTA,Red clay,Round of 32,10:00,Gauff C / McNally C,297333,Sutjiadi A / Tjen J,342777
 2026-05-10,"Oeiras 4, Portugal, Qualifying",184150,Challenger,Red clay,Qualification Round 1,10:00,Goncalo Marques,456396,Benjamin Hassan,108767
 2026-05-10,"Oeiras 4, Portugal, Qualifying",184150,Challenger,Red clay,Qualification Round 1,10:00,Mitchell Krueger,52276,Viktor Durasovic,96239
 2026-05-10,ITF M15 Kursumlijska Banja Men,150514,ITF Men,Arcilla,Qualifications,10:00,Ajder L.,182042,Aleksa Oparnica,1130998
@@ -34,8 +34,8 @@
 2026-05-10,"Zagreb, Croatia, Qualifying",184116,Challenger,Red clay,Qualification Round 1,10:05,Andrej Nedić,316900,Mirza Bašić,18066
 2026-05-10,ITF M25 Reggio Emilia Men,152070,ITF Men,Arcilla,Qualifications,10:07,Filippo Busciola,553663,Luca Parenti,322057
 2026-05-10,ITF W35 Nottingham 2 Women,151592,ITF Women,Hardcourt outdoor,Final,10:08,Alicia Dudeney,350973,Emily Appleton,168526
-2026-05-10,"Rome, Italy, Doubles",155975,ATP,Red clay,Round of 32,10:10,Cabral F / Salisbury J,1211838,Atmane T / Moutet C,1224154
-2026-05-10,"Rome, Italy, Doubles",155975,ATP,Red clay,Round of 32,10:10,Cabral F / Salisbury J,1211838,Pavlasek A / Rikl P,1210103
+2026-05-10,"ATP Rome Masters, Doubles",155975,ATP,Red clay,Round of 32,10:10,Cabral F / Salisbury J,1211838,Atmane T / Moutet C,1224154
+2026-05-10,"ATP Rome Masters, Doubles",155975,ATP,Red clay,Round of 32,10:10,Cabral F / Salisbury J,1211838,Pavlasek A / Rikl P,1210103
 2026-05-10,ITF M15 Islamabad 2 Men ,183389,ITF Men,Hardcourt outdoor,Final,10:10,Muhammad Shoaib,273183,Arvid Nordquist,207077
 2026-05-10,ITF M25 Reggio Emilia Men,152070,ITF Men,Arcilla,Qualifications,10:11,Noah Perfetti,280123,Alessandro Vignali,1224815
 2026-05-10,ITF W75 Trnava Women,146787,ITF Women,Hardcourt indoor,Qualifications,10:22,Anastasiia Nikolaieva,1224753,Alba Rey Garcia,303880
@@ -43,7 +43,7 @@
 2026-05-10,ITF M15 Prijedor,152127,ITF Men,Arcilla,Qualifications,10:30,Arian Barbic,932463,Max Stollecker,521126
 2026-05-10,ITF M15 Prijedor,152127,ITF Men,Arcilla,Qualifications,10:30,Cooper Ter Meulen,506551,Sergej Topic,504729
 2026-05-10,ITF M15 Prijedor,152127,ITF Men,Arcilla,Qualifications,10:30,Niksa Smiljanic,475820,Marko Knezevic,1094877
-2026-05-10,"Rome, Italy, Doubles",155975,ATP,Red clay,Round of 32,10:35,Schnaitter J / Wallner M,447607,Gonzalez M / Molteni A,149266
+2026-05-10,"ATP Rome Masters, Doubles",155975,ATP,Red clay,Round of 32,10:35,Schnaitter J / Wallner M,447607,Gonzalez M / Molteni A,149266
 2026-05-10,"Tunis, Tunisia, Qualifying",184143,Challenger,Red clay,Qualification Round 1,10:45,Lukas Pokorny,349488,Thomas Faurel,462179
 2026-05-10,"Tunis, Tunisia, Qualifying",184143,Challenger,Red clay,Qualification Round 1,10:45,Pol Martin Tiffon,217448,Rayen Hermassi,372757
 2026-05-10,"Bengaluru 2, India, Qualifying",184097,Challenger,Hardcourt outdoor,Qualification Round 1,10:50,Grigoriy Lomakin,124934,Jeevan Nedunchezhiyan,60920
@@ -82,7 +82,7 @@
 2026-05-10,"Zagreb, Croatia, Qualifying",184116,Challenger,Red clay,Qualification Round 1,11:40,Daniel Elahi Galan,92074,Oskari Paldanius,497592
 2026-05-10,"Zagreb, Croatia, Qualifying",184116,Challenger,Red clay,Qualification Round 1,11:40,Jonas Forejtek,269291,Mert Alkaya,200150
 2026-05-10,ITF M25 Reggio Emilia Men,152070,ITF Men,Arcilla,Qualifications,11:43,Giacomo Crisostomo,390223,Giovanni Curti,1224890
-2026-05-10,"Rome, Italy, Doubles",183384,WTA,Red clay,Round of 32,11:45,Mertens E / Zhang S,319952,Hsieh S-W / Wang X,477274
+2026-05-10,"WTA 1000 Rome, Doubles",183384,WTA,Red clay,Round of 32,11:45,Mertens E / Zhang S,319952,Hsieh S-W / Wang X,477274
 2026-05-10,ITF W75 Zagreb Women,152081,ITF Women,Arcilla,Qualifications,11:45,Lisa Zaar,152106,Ivana Celić,519896
 2026-05-10,"Tunis, Tunisia, Qualifying",184143,Challenger,Red clay,Qualification Round 1,11:55,Denys Klok,118040,Dali Blanch,318573
 2026-05-10,"Tunis, Tunisia, Qualifying",184143,Challenger,Red clay,Qualification Round 1,11:55,Franco Agamenone,65606,Vladyslav Orlov,154570
@@ -103,7 +103,7 @@
 2026-05-10,ITF M15 Hurghada 4 Men,183387,ITF Men,Desconocida,Final,12:08,Leonardo Rossi,378425,Nico Hipfl,446858
 2026-05-10,ITF M25 Nottingham 2 Men,151555,ITF Men,Hardcourt outdoor,Final,12:08,Anton Matusevich,245110,Braden Shick,385591
 2026-05-10,"WTA 1000 Rome, Italy",183033,WTA,Red clay,Round of 32,12:15,Naomi Osaka,66476,Diana Shnaider,318575
-2026-05-10,"Rome, Italy, Doubles",183384,WTA,Red clay,Round of 32,12:15,Perez E / Schuurs D,1163826,Mihalikova T / Nicholls O,523466
+2026-05-10,"WTA 1000 Rome, Doubles",183384,WTA,Red clay,Round of 32,12:15,Perez E / Schuurs D,1163826,Mihalikova T / Nicholls O,523466
 2026-05-10,"Tunis, Tunisia, Qualifying",184143,Challenger,Red clay,Qualification Round 1,12:15,Laurent Lokoli,66002,Miloš Karol,341853
 2026-05-10,"Oeiras 4, Portugal, Qualifying",184150,Challenger,Red clay,Qualification Round 1,12:20,Tiago Torres,283476,Abdullah Shelbayh,307383
 2026-05-10,ITF W75 Trnava Women,146787,ITF Women,Hardcourt indoor,Qualifications,12:23,Lea Belanska,1131888,Ruth Roura Llaverias,451884
@@ -118,8 +118,8 @@
 2026-05-10,ITF W15 Klagenfurt Women,184191,ITF Women,Desconocida,Qualifications,12:30,Kasandra Leoni Djekic,458326,Lisa Gruber,415602
 2026-05-10,ITF W15 Klagenfurt Women,184191,ITF Women,Desconocida,Qualifications,12:30,Nika Štor,1175862,Margherita Marcon,355535
 2026-05-10,"Bengaluru 2, India, Qualifying",184097,Challenger,Hardcourt outdoor,Qualification Round 1,12:35,Alastair Gray,222958,Niki Kaliyanda Poonacha,145936
-2026-05-10,"Rome, Italy, Doubles",183384,WTA,Red clay,Round of 32,12:40,Jovic I / Kalinskaya A,1224236,Hozumi E / Wu F,1130529
-2026-05-10,"Rome, Italy, Doubles",183384,WTA,Red clay,Round of 32,12:45,Grant T C / Ruggeri J,1224235,Cirstea S / Cristian J,1206199
+2026-05-10,"WTA 1000 Rome, Doubles",183384,WTA,Red clay,Round of 32,12:40,Jovic I / Kalinskaya A,1224236,Hozumi E / Wu F,1130529
+2026-05-10,"WTA 1000 Rome, Doubles",183384,WTA,Red clay,Round of 32,12:45,Grant T C / Ruggeri J,1224235,Cirstea S / Cristian J,1206199
 2026-05-10,ITF M25 Reggio Emilia Men,152070,ITF Men,Arcilla,Qualifications,12:54,Giorgio Tabacco,369288,Emanuele Mazzeschi,293699
 2026-05-10,"ATP Rome Masters, Italy",154099,ATP,Red clay,Round of 32,12:55,Karen Khachanov,90080,Botic Van de Zandschulp,102339
 2026-05-10,"ATP Rome Masters, Italy",154099,ATP,Red clay,Round of 32,13:00,Lorenzo Musetti,261015,Francisco Cerundolo,221012
@@ -162,7 +162,7 @@
 2026-05-10,ITF W15 Monzon Women,152074,ITF Women,Dura,Qualifications,13:30,Candela Cimarra Munoz,418054,Isabel Pascual Montalvo,386748
 2026-05-10,ITF W15 Monzon Women,152074,ITF Women,Dura,Qualifications,13:30,Stoney Cooks,455674,P. Rodriguez Carretero,412576
 2026-05-10,"Tunis, Tunisia, Qualifying",184143,Challenger,Red clay,Qualification Round 1,13:35,Edas Butvilas,385592,Paulo Andre Saraiva Dos Santos,272506
-2026-05-10,"Rome, Italy, Doubles",155975,ATP,Red clay,Round of 32,14:00,Galloway R / Gonzalez S,1219625,Arends S / Pel D,309577
+2026-05-10,"ATP Rome Masters, Doubles",155975,ATP,Red clay,Round of 32,14:00,Galloway R / Gonzalez S,1219625,Arends S / Pel D,309577
 2026-05-10,"WTA 1000 Rome, Italy",183033,WTA,Red clay,Round of 32,14:00,Alexandra Eala,327924,Elena Rybakina,186312
 2026-05-10,"Brazzaville, Republic of Congo",182963,Challenger,Red clay,Final,14:00,Florent Bax,226806,Calvin Hemery,81271
 2026-05-10,"Santos, Brazil",182959,Challenger,Red clay,Final,14:00,Hernan Casanova,54975,Franco Roncadelli,240797
@@ -175,14 +175,14 @@
 2026-05-10,"Zagreb, Croatia, Qualifying",184116,Challenger,Red clay,Qualification Round 1,14:10,Norbert Gombos,50139,Tyler Zink,265147
 2026-05-10,ITF M25 Villa Maria Men,183395,ITF Men,Arcilla,Final,14:10,Juan Bautista Torres,315774,Gonzalo Villanueva,85877
 2026-05-10,ITF W75 Trnava Women,146787,ITF Women,Hardcourt indoor,Qualifications,14:10,Vaishnavi Adkar,457906,Tamara Šramková,458319
-2026-05-10,"Rome, Italy, Doubles",155975,ATP,Red clay,Round of 32,14:20,Krawietz K / Puetz T,261098,Cobolli F. / Sonego L,527843
-2026-05-10,"Rome, Italy, Doubles",183384,WTA,Red clay,Round of 32,14:30,Khromacheva I / Olmos G,1212167,Kenin S / Samsonova L,449905
+2026-05-10,"ATP Rome Masters, Doubles",155975,ATP,Red clay,Round of 32,14:20,Krawietz K / Puetz T,261098,Cobolli F. / Sonego L,527843
+2026-05-10,"WTA 1000 Rome, Doubles",183384,WTA,Red clay,Round of 32,14:30,Khromacheva I / Olmos G,1212167,Kenin S / Samsonova L,449905
 2026-05-10,"Cordoba, Argentina, Qualifying",184161,Challenger,Red clay,Qualification Round 1,14:30,Samuel Alejandro Linde Palacios,516077,Tadeo Meneo,481909
 2026-05-10,"Tunis, Tunisia, Qualifying",184143,Challenger,Red clay,Qualification Round 1,14:30,Robin Bertrand,340742,Michael Vrbensky,235930
 2026-05-10,"UTR PTT Concord Men +H 01, 1-4 Playoffs",184028,UTR Men,Red clay,Final,14:30,Aleksa Ciric,294343,Santiago Perez,195954
 2026-05-10,"UTR PTT Concord Men +H 01, 9-12 Playoffs",184035,UTR Men,Red clay,Semifinals,14:30,Zachary Cohen,519121,William Bartram,467766
 2026-05-10,"UTR PTT Concord Men +H 01, 17-20 Playoffs",184036,UTR Men,Red clay,Final,14:30,Noah Tauma,938331,Rahul Sachdev,497640
-2026-05-10,"Rome, Italy, Doubles",183384,WTA,Red clay,Round of 32,14:40,Hunter S / Pegula J,1206195,Ostapenko J / Routliffe E,1083377
+2026-05-10,"WTA 1000 Rome, Doubles",183384,WTA,Red clay,Round of 32,14:40,Hunter S / Pegula J,1206195,Ostapenko J / Routliffe E,1083377
 2026-05-10,"Zagreb, Croatia, Qualifying",184116,Challenger,Red clay,Qualification Round 1,14:40,Denis Yevseyev,50847,Dimitar Kuzmanov,51009
 2026-05-10,ITF W75 Trnava Women,146787,ITF Women,Hardcourt indoor,Qualifications,14:42,Miriana Tona,104929,Daria Gorska,353586
 2026-05-10,"Zagreb, Croatia, Qualifying",184116,Challenger,Red clay,Qualification Round 1,14:45,Nerman Fatić,63090,Joshua Sheehy,257597
@@ -205,13 +205,12 @@
 2026-05-10,ITF M15 Vero Beach Men,150510,ITF Men,Arcilla,Final,15:18,Alex Rybakov,101157,Joaquim Almeida,509586
 2026-05-10,"UTR PTT Concord Men +H 01, 13-16 Playoffs",184032,UTR Men,Red clay,Final,15:25,Henry Ren,523622,Omar Rhazali,1151304
 2026-05-10,"Cordoba, Argentina, Qualifying",184161,Challenger,Red clay,Qualification Round 1,15:30,Connor Huertas Del Pino,161868,Bautista de la Pena,500984
-2026-05-10,ITF W75 Trnava Women,146787,ITF Women,Hardcourt indoor,Qualifications,15:35,Vanesa Mrazova,1138454,Milana Zhabrailova,265233
-2026-05-10,"Rome, Italy, Doubles",155975,ATP,Red clay,Round of 32,15:45,Forti F / Romano F,424816,Erler A / Miedler L,387801
+2026-05-10,"ATP Rome Masters, Doubles",155975,ATP,Red clay,Round of 32,15:45,Forti F / Romano F,424816,Erler A / Miedler L,387801
 2026-05-10,"UTR PTT Concord Men +H 01, 5-8 Playoffs",184033,UTR Men,Red clay,Final,15:45,Carlos Guerrero Alvarez,375083,Graeme Angus,1130979
 2026-05-10,"ATP Rome Masters, Italy",154099,ATP,Red clay,Round of 32,15:50,Learner Tien,412818,Alexander Bublik,163480
 2026-05-10,"ATP Rome Masters, Italy",154099,ATP,Red clay,Round of 32,15:50,Tommy Paul,138546,Luciano Darderi,308084
 2026-05-10,ITF W75 Trnava Women,146787,ITF Women,Hardcourt indoor,Qualifications,15:54,Laura Hietaranta,314836,Nadezhda Shamenkova,828542
-2026-05-10,"Rome, Italy, Doubles",183384,WTA,Red clay,Round of 32,16:00,Andreeva M / Shnaider D,556070,Kichenok L / Krawczyk D,330395
+2026-05-10,"WTA 1000 Rome, Doubles",183384,WTA,Red clay,Round of 32,16:00,Andreeva M / Shnaider D,556070,Kichenok L / Krawczyk D,330395
 2026-05-10,ITF M15 Kursumlijska Banja Men,150514,ITF Men,Arcilla,Qualifications,16:00,Amar Huseinović,384014,Andrea Pavia,425552
 2026-05-10,ITF M15 Kursumlijska Banja Men,150514,ITF Men,Arcilla,Qualifications,16:00,Nikola Jović,477315,Filip Kosinski,482091
 2026-05-10,ITF M15 Kursumlijska Banja Men,150514,ITF Men,Arcilla,Qualifications,16:00,Ognjen Milenović,1224844,Andreas Messis,1081487
@@ -232,6 +231,11 @@
 2026-05-10,ITF M15 Kursumlijska Banja Men,150514,ITF Men,Arcilla,Qualifications,18:00,Mateya Stanisavljević,515240,Rodion Chetverikov,451625
 2026-05-10,"WTA 1000 Rome, Italy",183033,WTA,Red clay,Round of 32,18:20,Laura Siegemund,37508,Karolína Plíšková,20732
 2026-05-10,"ATP Rome Masters, Italy",154099,ATP,Red clay,Round of 32,18:30,Matteo Arnaldi,299538,Rafael Jodar,458834
+2026-05-11,ITF M25 Reggio Emilia Men,152070,ITF Men,Arcilla,Qualifications,00:00,Andrea Zanini,1092039,Alessandro Battiston,457898
+2026-05-11,ITF M25 Reggio Emilia Men,152070,ITF Men,Arcilla,Qualifications,00:00,Guelfo Borghini Baldovinetti,303293,Silvio Mencaglia,478972
+2026-05-11,ITF W75 Trnava Women,146787,ITF Women,Hardcourt indoor,Qualifications,00:00,Nahia Berecoechea,318258,Karolina Mrazikova,375539
+2026-05-11,ITF W75 Trnava Women,146787,ITF Women,Hardcourt indoor,Qualifications,00:00,Radka Zelníčková,276310,Kali Supova,496039
+2026-05-11,ITF W75 Trnava Women,146787,ITF Women,Hardcourt indoor,Qualifications,00:00,Vanesa Mrazova,1138454,Milana Zhabrailova,265233
 2026-05-11,"UTR PTT Melbourne Men 04, Group B",183918,UTR Men,Hardcourt outdoor,,00:00,Jeremy Beale,138850,Elijah Dikkenberg,929981
 2026-05-11,"UTR PTT Melbourne Men 04, Group B",183918,UTR Men,Hardcourt outdoor,,00:00,Jonas Hahn,464324,Elijah Dikkenberg,929981
 2026-05-11,"UTR PTT Melbourne Men 04, Group B",183918,UTR Men,Hardcourt outdoor,,00:00,Jonas Hahn,464324,Jeremy Beale,138850
@@ -251,22 +255,25 @@
 2026-05-11,ITF M15 Andong Men,152765,ITF Men,Hardcourt outdoor,Qualifications,01:00,Hoyoung Roh,469696,Taeha Jang,256696
 2026-05-11,ITF M15 Andong Men,152765,ITF Men,Hardcourt outdoor,Qualifications,01:00,Ko Suzuki,141914,Adavait Mantri,468645
 2026-05-11,ITF M15 Andong Men,152765,ITF Men,Hardcourt outdoor,Qualifications,01:00,Seungwon Oh,1224805,Min Seong Kim,319216
+2026-05-11,ITF W15 Toyama Women,152149,ITF Women,Dura,Qualifications,01:00,Hana Matsumura,467271,Yui Watanabe,1089935
+2026-05-11,ITF W15 Toyama Women,152149,ITF Women,Dura,Qualifications,01:00,Hannah Allen,522318,Yukina Saigo,99775
+2026-05-11,ITF W15 Toyama Women,152149,ITF Women,Dura,Qualifications,01:00,Honami Sodeyama,230987,Michiru Furuya,151380
+2026-05-11,ITF W15 Toyama Women,152149,ITF Women,Dura,Qualifications,01:00,Riho Goto,1221919,Nao Yoshida,929083
+2026-05-11,ITF W15 Toyama Women,152149,ITF Women,Dura,Qualifications,01:00,Sachi Kato,1225155,Xu Yunzhang,1225162
 2026-05-11,ITF W35 Andong Women,152773,ITF Women,Hardcourt outdoor,Qualifications,01:00,Amy Zhu,58483,Hyeong-ju Han,417316
 2026-05-11,ITF W35 Andong Women,152773,ITF Women,Hardcourt outdoor,Qualifications,01:00,Ashleigh Harvey,928974,Min Young Choi,1095307
 2026-05-11,ITF W35 Andong Women,152773,ITF Women,Hardcourt outdoor,Qualifications,01:00,Eun Se Jang,151258,Seo Yun Choi,478151
 2026-05-11,ITF W35 Andong Women,152773,ITF Women,Hardcourt outdoor,Qualifications,01:00,Yujin Kim,486072,Yu Bin Park,510367
-2026-05-11,"UTR PTT Melbourne Men 04, Group A",183915,UTR Men,Hardcourt outdoor,,01:10,Marcus Schoeman,394128,Casey Ambler,470396
-2026-05-11,"UTR PTT Melbourne Men 04, Group D",183917,UTR Men,Hardcourt outdoor,,01:10,Brendan Loh,462057,Jera Staley,282057
-2026-05-11,"UTR PTT Melbourne Men 04, Group D",183917,UTR Men,Hardcourt outdoor,,01:10,Noah Brownrigg,859196,Aryan Karnani,1091180
-2026-05-11,"UTR PTT Melbourne Women 04, Group A",183932,UTR Women,Hardcourt outdoor,,01:10,Kaylah McPhee,119496,Aliyah Dwyer,403366
-2026-05-11,"UTR PTT Melbourne Women 04, Group B",183930,UTR Women,Hardcourt outdoor,,01:10,Marfa Solovei,464830,Caitlin Baker,415197
-2026-05-11,"UTR PTT Melbourne Women 04, Group D",183928,UTR Women,Hardcourt outdoor,,01:10,Mahta Khanloo,319572,Jasmine Adams,309602
+2026-05-11,ITF W75 Kurume Women,184270,ITF Women,Desconocida,Qualifications,01:08,Yui Tashiro,1225093,Anri Nagata,197534
+2026-05-11,ITF W75 Kurume Women,184270,ITF Women,Desconocida,Qualifications,01:09,Tanaka Nagi,1222477,Yui Ohwaki,508394
+2026-05-11,ITF W75 Kurume Women,184270,ITF Women,Desconocida,Qualifications,01:09,Koharu Ito,1091819,Himari Sato,230629
+2026-05-11,ITF W75 Kurume Women,184270,ITF Women,Desconocida,Qualifications,01:09,Mari Muto,1091890,Miku Kitaoka,1093829
+2026-05-11,ITF W75 Kurume Women,184270,ITF Women,Desconocida,Qualifications,01:09,Kokono Sakaguchi,1216931,Natsuho Arakawa,151384
+2026-05-11,"UTR PTT Melbourne Women 04, Group A",183932,UTR Women,Hardcourt outdoor,,01:55,Kaylah McPhee,119496,Aliyah Dwyer,403366
 2026-05-11,ITF M15 Andong Men,152765,ITF Men,Hardcourt outdoor,Qualifications,02:00,Geonhyung Kim,1224808,Avner Wong,1141263
 2026-05-11,ITF M15 Andong Men,152765,ITF Men,Hardcourt outdoor,Qualifications,02:00,Hyesu Kim,522238,Yuki Ikeda,321315
 2026-05-11,ITF M15 Andong Men,152765,ITF Men,Hardcourt outdoor,Qualifications,02:00,Min Ho Ko,1151887,Ju Hun Choo,1224806
 2026-05-11,ITF M15 Andong Men,152765,ITF Men,Hardcourt outdoor,Qualifications,02:00,Yunseok Jang,386252,Sehun Park,1133691
-2026-05-11,ITF M15 Nakhon Pathom Men,157408,ITF Men,Hardcourt outdoor,Qualifications,02:00,Anthony Susanto,192909,Phopthum Sriwong,1219368
-2026-05-11,ITF M15 Nakhon Pathom Men,157408,ITF Men,Hardcourt outdoor,Qualifications,02:00,Ha Minh Duc Vu,1222112,Ariyaphol Leekul,1224809
 2026-05-11,ITF M15 Wuning Men,158397,ITF Men,Hardcourt outdoor,Qualifications,02:00,Ashton McLeod,938073,Vitali Shvets,1079297
 2026-05-11,ITF M15 Wuning Men,158397,ITF Men,Hardcourt outdoor,Qualifications,02:00,Mingliang Yue,492566,Wenze Li,467798
 2026-05-11,ITF M15 Wuning Men,158397,ITF Men,Hardcourt outdoor,Qualifications,02:00,Noritaka Koizumi,491950,Xianfeng Chen,1084853
@@ -275,6 +282,7 @@
 2026-05-11,ITF M15 Wuning Men,158397,ITF Men,Hardcourt outdoor,Qualifications,02:00,Yua Taka,467031,Jilong Huang,519078
 2026-05-11,ITF M15 Wuning Men,158397,ITF Men,Hardcourt outdoor,Qualifications,02:00,Yuan Cheng Yang,1113918,David Qariaqus,282048
 2026-05-11,ITF W15 Luan Women ,157445,ITF Women,Hardcourt outdoor,Qualifications,02:00,Gio Jang,383459,Yi-En Hua,1224818
+2026-05-11,ITF W15 Luan Women ,157445,ITF Women,Hardcourt outdoor,Qualifications,02:00,Jinyu Zhou,1224901,Yuqi Wang,291757
 2026-05-11,ITF W15 Luan Women ,157445,ITF Women,Hardcourt outdoor,Qualifications,02:00,Junlu Sun,489761,Sitong Chen,825377
 2026-05-11,ITF W15 Luan Women ,157445,ITF Women,Hardcourt outdoor,Qualifications,02:00,Ken Chen,825379,Ye Xin Tang,1078966
 2026-05-11,ITF W15 Luan Women ,157445,ITF Women,Hardcourt outdoor,Qualifications,02:00,Le Yi Liu,290571,Ryeong Gyeong Park,204799
@@ -282,10 +290,6 @@
 2026-05-11,ITF W15 Luan Women ,157445,ITF Women,Hardcourt outdoor,Qualifications,02:00,Na Ri Kim,72860,Ziyu Zhou,1219278
 2026-05-11,ITF W15 Luan Women ,157445,ITF Women,Hardcourt outdoor,Qualifications,02:00,Peien Deng,1114215,Chuyi Yang,1150372
 2026-05-11,ITF W15 Luan Women ,157445,ITF Women,Hardcourt outdoor,Qualifications,02:00,Sunam Jeong,96881,Yuxuan Luo,328567
-2026-05-11,ITF W15 Nakhon Pathom Women,157447,ITF Women,Desconocida,Qualifications,02:00,Alisa Kuzmina,935212,Amira Kaztugan,486459
-2026-05-11,ITF W15 Nakhon Pathom Women,157447,ITF Women,Desconocida,Qualifications,02:00,Ching Laam Lai,488132,Yeseo Lee,1219398
-2026-05-11,ITF W15 Nakhon Pathom Women,157447,ITF Women,Desconocida,Qualifications,02:00,Gyeong Seo Lee,417332,Lulwa Naswardhani,1224880
-2026-05-11,ITF W15 Nakhon Pathom Women,157447,ITF Women,Desconocida,Qualifications,02:00,Saumrita Jagatdeo Verma,801446,Mariya Zharkikh,1219295
 2026-05-11,ITF W35 Andong Women,152773,ITF Women,Hardcourt outdoor,Qualifications,02:00,Mana Kawamura,230648,Juae Shin,417334
 2026-05-11,ITF W35 Andong Women,152773,ITF Women,Hardcourt outdoor,Qualifications,02:00,Mi Jeong Kwon,96883,Soo Ha Jang,417318
 2026-05-11,ITF W35 Andong Women,152773,ITF Women,Hardcourt outdoor,Qualifications,02:00,Onyu Choi,446432,Rinon Okuwaki,385833
@@ -293,28 +297,46 @@
 2026-05-11,"UTR PTT Phan Thiet Men +H 02, Group A",183924,UTR Men,Desconocida,,02:00,Vishal Prakash,1094427,Michael (2007) Smith,1211841
 2026-05-11,"UTR PTT Phan Thiet Men +H 02, Group B",183922,UTR Men,Desconocida,,02:00,Sam Ryan Ziegann,263659,Ke Hau Hung,487152
 2026-05-11,"UTR PTT Phan Thiet Men +H 02, Group C",183923,UTR Men,Desconocida,,02:00,Ayush Sharma,393597,Jatin Nain,1173535
+2026-05-11,ITF W15 Nakhon Pathom Women,157447,ITF Women,Desconocida,Qualifications,02:09,Saumrita Jagatdeo Verma,801446,Mariya Zharkikh,1219295
+2026-05-11,ITF W15 Nakhon Pathom Women,157447,ITF Women,Desconocida,Qualifications,02:09,Alisa Kuzmina,935212,Amira Kaztugan,486459
+2026-05-11,ITF M15 Nakhon Pathom Men,157408,ITF Men,Hardcourt outdoor,Qualifications,02:12,Anthony Susanto,192909,Phopthum Sriwong,1219368
+2026-05-11,ITF M15 Nakhon Pathom Men,157408,ITF Men,Hardcourt outdoor,Qualifications,02:12,Ha Minh Duc Vu,1222112,Ariyaphol Leekul,1224809
+2026-05-11,ITF W15 Nakhon Pathom Women,157447,ITF Women,Desconocida,Qualifications,02:13,Gyeong Seo Lee,417332,Lulwa Naswardhani,1224880
+2026-05-11,ITF W15 Nakhon Pathom Women,157447,ITF Women,Desconocida,Qualifications,02:13,Ching Laam Lai,488132,Yeseo Lee,1219398
+2026-05-11,ITF W75 Kurume Women,184270,ITF Women,Desconocida,Qualifications,02:22,Hana Otsubo,450621,Alexandra Osborne,276809
+2026-05-11,"UTR PTT Melbourne Men 04, Group A",183915,UTR Men,Hardcourt outdoor,,02:25,Marcus Schoeman,394128,Casey Ambler,470396
 2026-05-11,"UTR PTT Melbourne Men 04, Group A",183915,UTR Men,Hardcourt outdoor,,02:30,Asher Brownrigg,1118700,Luca Connaughton,1083984
-2026-05-11,"UTR PTT Melbourne Men 04, Group A",183915,UTR Men,Hardcourt outdoor,,02:30,Nicholas Jovanovski,210936,Luca Connaughton,1083984
-2026-05-11,"UTR PTT Melbourne Men 04, Group B",183918,UTR Men,Hardcourt outdoor,,02:30,Nikolas Baker,1055343,Arjun Balakrishnan,857588
-2026-05-11,"UTR PTT Melbourne Women 04, Group A",183932,UTR Women,Hardcourt outdoor,,02:30,Shiho Shibata,254286,Lexie Weir,246671
-2026-05-11,"UTR PTT Melbourne Women 04, Group D",183928,UTR Women,Hardcourt outdoor,,02:30,Sara Mickoska,464824,Charlotte Vanstone McGrath,464323
-2026-05-11,ITF M15 Nakhon Pathom Men,157408,ITF Men,Hardcourt outdoor,Qualifications,03:00,Krittin Koaykul,295608,Kamonpanyakorn Thadpong,1109617
-2026-05-11,ITF M15 Nakhon Pathom Men,157408,ITF Men,Hardcourt outdoor,Qualifications,03:00,Moksh Puri,1173534,Renaldi Aqila A Salim,460783
-2026-05-11,ITF M15 Nakhon Pathom Men,157408,ITF Men,Hardcourt outdoor,Qualifications,03:00,Poonthong Komopisut,419481,Priyanshu Choudhary,936811
-2026-05-11,ITF M15 Nakhon Pathom Men,157408,ITF Men,Hardcourt outdoor,Qualifications,03:00,Tsz Fu Wong,502875,Riku Higashi,1224752
+2026-05-11,"UTR PTT Melbourne Women 04, Group D",183928,UTR Women,Hardcourt outdoor,,02:40,Mahta Khanloo,319572,Jasmine Adams,309602
+2026-05-11,ITF W75 Kurume Women,184270,ITF Women,Desconocida,Qualifications,02:50,Junri Namigata,18978,Tenika McGiffin,208604
+2026-05-11,ITF W15 Toyama Women,152149,ITF Women,Dura,Qualifications,03:00,Amane Hattori,520170,Akina Shiga,510346
+2026-05-11,ITF W15 Toyama Women,152149,ITF Women,Dura,Qualifications,03:00,Haruka Nishimura,1139377,Yuna Sugiyama,469638
+2026-05-11,ITF W15 Toyama Women,152149,ITF Women,Dura,Qualifications,03:00,Kanna Soeda,484892,Rena Tanaka,485705
+2026-05-11,ITF W15 Toyama Women,152149,ITF Women,Dura,Qualifications,03:00,Nalu Himeno,297193,Ayaho Okude Okude,1153017
+2026-05-11,ITF W15 Toyama Women,152149,ITF Women,Dura,Qualifications,03:00,Tomoka Umeda,1225157,Natsumi Shioya,256079
+2026-05-11,"UTR PTT Melbourne Women 04, Group A",183932,UTR Women,Hardcourt outdoor,,03:00,Shiho Shibata,254286,Lexie Weir,246671
+2026-05-11,"UTR PTT Melbourne Women 04, Group B",183930,UTR Women,Hardcourt outdoor,,03:00,Marfa Solovei,464830,Caitlin Baker,415197
+2026-05-11,ITF W75 Kurume Women,184270,ITF Women,Desconocida,Qualifications,03:16,Yukino Sugita,1222478,Sera Nishimoto,264952
+2026-05-11,ITF W75 Kurume Women,184270,ITF Women,Desconocida,Qualifications,03:19,Dalayna Hewitt,201870,Himari Sato,230629
+2026-05-11,ITF M15 Nakhon Pathom Men,157408,ITF Men,Hardcourt outdoor,Qualifications,03:24,Tsz Fu Wong,502875,Riku Higashi,1224752
 2026-05-11,ITF M15 Andong Men,152765,ITF Men,Hardcourt outdoor,Qualifications,03:30,Chikaya Sato,1084376,Harry Roberts,453445
 2026-05-11,ITF M15 Andong Men,152765,ITF Men,Hardcourt outdoor,Qualifications,03:30,Kazuma Kawachi,82441,Ku Keon Kang,98095
 2026-05-11,ITF M15 Andong Men,152765,ITF Men,Hardcourt outdoor,Qualifications,03:30,Wanseok Kang,319321,Yong Joon Park,522462
 2026-05-11,ITF M15 Andong Men,152765,ITF Men,Hardcourt outdoor,Qualifications,03:30,Yeonsu Jeong,446445,Jeong Woo Kim,1224807
+2026-05-11,ITF M15 Nakhon Pathom Men,157408,ITF Men,Hardcourt outdoor,Qualifications,03:30,R. Rajshekhar Raman,204735,Pannawat Suttisomboon,506261
+2026-05-11,ITF W15 Toyama Women,152149,ITF Women,Dura,Qualifications,03:30,Koharu Niimi,401377,Ayane Tosaka,493445
+2026-05-11,ITF W15 Toyama Women,152149,ITF Women,Dura,Qualifications,03:30,Lisa Kamigata,1096040,Chelsea Stergiopoulos,495029
+2026-05-11,ITF W15 Toyama Women,152149,ITF Women,Dura,Qualifications,03:30,Miu Muramatsu,1225149,Hwiwon Wi,381437
+2026-05-11,ITF W15 Toyama Women,152149,ITF Women,Dura,Qualifications,03:30,Suzuna Oigawa,415596,Mio Kijima,487206
+2026-05-11,ITF W15 Toyama Women,152149,ITF Women,Dura,Qualifications,03:30,Yura Ishida,1225158,Kokoa Nakao,519918
 2026-05-11,ITF W35 Andong Women,152773,ITF Women,Hardcourt outdoor,Qualifications,03:30,Dabin Kim,79249,Ha Yoon Son,447709
 2026-05-11,ITF W35 Andong Women,152773,ITF Women,Hardcourt outdoor,Qualifications,03:30,Dain Lee,169588,Sihyeong Cho,297169
 2026-05-11,ITF W35 Andong Women,152773,ITF Women,Hardcourt outdoor,Qualifications,03:30,Han-Bit Lee,217181,Jiho Shin,256083
 2026-05-11,ITF W35 Andong Women,152773,ITF Women,Hardcourt outdoor,Qualifications,03:30,Nanari Katsumi,288499,Jiyoung Seo,417325
-2026-05-11,"UTR PTT Phan Thiet Men +H 02, Group A",183924,UTR Men,Desconocida,,03:30,Giorgi Giorgadze,388348,Marshall Tutu,49643
-2026-05-11,"UTR PTT Phan Thiet Men +H 02, Group B",183922,UTR Men,Desconocida,,03:30,Bryan Dickson,1161033,Jacob Kailiang Shen,1141138
-2026-05-11,"UTR PTT Phan Thiet Men +H 02, Group D",183921,UTR Men,Desconocida,,03:30,Lohithaksha Bathrinath,339989,Radu Ioan PoPa,203686
-2026-05-11,ITF M15 Nakhon Pathom Men,157408,ITF Men,Hardcourt outdoor,Qualifications,04:00,R. Rajshekhar Raman,204735,Pannawat Suttisomboon,506261
-2026-05-11,ITF M15 Nakhon Pathom Men,157408,ITF Men,Hardcourt outdoor,Qualifications,04:00,Tanakorn Srirat,241966,Perawat Sukjai,1219306
+2026-05-11,"UTR PTT Melbourne Men 04, Group D",183917,UTR Men,Hardcourt outdoor,,03:30,Noah Brownrigg,859196,Aryan Karnani,1091180
+2026-05-11,ITF M15 Nakhon Pathom Men,157408,ITF Men,Hardcourt outdoor,Qualifications,03:34,Krittin Koaykul,295608,Kamonpanyakorn Thadpong,1109617
+2026-05-11,ITF M15 Nakhon Pathom Men,157408,ITF Men,Hardcourt outdoor,Qualifications,03:48,Poonthong Komopisut,419481,Priyanshu Choudhary,936811
+2026-05-11,"UTR PTT Phan Thiet Men +H 02, Group A",183924,UTR Men,Desconocida,,03:50,Giorgi Giorgadze,388348,Marshall Tutu,49643
+2026-05-11,"UTR PTT Phan Thiet Men +H 02, Group D",183921,UTR Men,Desconocida,,03:50,Lohithaksha Bathrinath,339989,Radu Ioan PoPa,203686
 2026-05-11,ITF M15 Wuning Men,158397,ITF Men,Hardcourt outdoor,Qualifications,04:00,Haruto Ishikawa,500385,Yi Wei Zhang,253811
 2026-05-11,ITF M15 Wuning Men,158397,ITF Men,Hardcourt outdoor,Qualifications,04:00,Runkai Bai,549528,Zijiang Yang,254231
 2026-05-11,ITF M15 Wuning Men,158397,ITF Men,Hardcourt outdoor,Qualifications,04:00,Shion Yamada,1162071,Dingzheng Nima,322104
@@ -324,11 +346,21 @@
 2026-05-11,ITF M15 Wuning Men,158397,ITF Men,Hardcourt outdoor,Qualifications,04:00,Zhiheng Xia,478915,Charlie Pade,490672
 2026-05-11,ITF W15 Luan Women ,157445,ITF Women,Hardcourt outdoor,Qualifications,04:00,Daria Shubina,486461,Ye Eun Kim,476462
 2026-05-11,ITF W15 Luan Women ,157445,ITF Women,Hardcourt outdoor,Qualifications,04:00,Jiayue Pan,1072754,Dami Lee,171058
-2026-05-11,ITF W15 Luan Women ,157445,ITF Women,Hardcourt outdoor,Qualifications,04:00,Jinyu Zhou,1224901,Yuqi Wang,291757
 2026-05-11,ITF W15 Luan Women ,157445,ITF Women,Hardcourt outdoor,Qualifications,04:00,Lingyou Ge,1138453,Sebin Eom,447303
 2026-05-11,ITF W15 Luan Women ,157445,ITF Women,Hardcourt outdoor,Qualifications,04:00,SU Jin Kim,297168,Chengwei Han,479766
 2026-05-11,ITF W15 Luan Women ,157445,ITF Women,Hardcourt outdoor,Qualifications,04:00,Wanbing Wang,554309,Yinuo Huang,1116200
 2026-05-11,ITF W15 Luan Women ,157445,ITF Women,Hardcourt outdoor,Qualifications,04:00,Yuhan Chen,526177,Junjie Sun,1178667
+2026-05-11,"UTR PTT Phan Thiet Men +H 02, Group B",183922,UTR Men,Desconocida,,04:05,Bryan Dickson,1161033,Jacob Kailiang Shen,1141138
+2026-05-11,ITF M15 Nakhon Pathom Men,157408,ITF Men,Hardcourt outdoor,Qualifications,04:07,Moksh Puri,1173534,Renaldi Aqila A Salim,460783
+2026-05-11,ITF W75 Kurume Women,184270,ITF Women,Desconocida,Qualifications,04:08,Nagi Hanatani,117948,Yui Ohwaki,508394
+2026-05-11,"UTR PTT Melbourne Women 04, Group D",183928,UTR Women,Hardcourt outdoor,,04:10,Sara Mickoska,464824,Charlotte Vanstone McGrath,464323
+2026-05-11,ITF M15 Nakhon Pathom Men,157408,ITF Men,Hardcourt outdoor,Qualifications,04:19,Tanakorn Srirat,241966,Perawat Sukjai,1219306
+2026-05-11,ITF W75 Kurume Women,184270,ITF Women,Desconocida,Qualifications,04:21,Hiroko Kuwata,64315,Natsuho Arakawa,151384
+2026-05-11,"UTR PTT Melbourne Men 04, Group A",183915,UTR Men,Hardcourt outdoor,,04:25,Nicholas Jovanovski,210936,Luca Connaughton,1083984
+2026-05-11,"UTR PTT Melbourne Men 04, Group D",183917,UTR Men,Hardcourt outdoor,,04:25,Brendan Loh,462057,Jera Staley,282057
+2026-05-11,ITF M15 Wuning Men,158397,ITF Men,Hardcourt outdoor,Qualifications,04:30,Eric Jr. Olivarez,146068,Ryuichiro Nakano,467030
+2026-05-11,ITF W75 Kurume Women,184270,ITF Women,Desconocida,Qualifications,04:38,Sayaka Ishii,414511,Anri Nagata,197534
+2026-05-11,ITF W75 Kurume Women,184270,ITF Women,Desconocida,Qualifications,04:39,Rinko Matsuda,406163,Miku Kitaoka,1093829
 2026-05-11,ITF M15 Andong Men,152765,ITF Men,Hardcourt outdoor,Qualifications,05:00,Homin Kwag,296322,Suk Ann,255363
 2026-05-11,ITF M15 Andong Men,152765,ITF Men,Hardcourt outdoor,Qualifications,05:00,Hyeondeok Yoon,411636,Thomas Edwards,1169588
 2026-05-11,ITF M15 Andong Men,152765,ITF Men,Hardcourt outdoor,Qualifications,05:00,Seonyong Han,1165646,Yongjun Shim,296318
@@ -338,7 +370,8 @@
 2026-05-11,ITF W35 Andong Women,152773,ITF Women,Hardcourt outdoor,Qualifications,05:00,Jooyeon Jeong,196972,Eunji Lee,158838
 2026-05-11,ITF W35 Andong Women,152773,ITF Women,Hardcourt outdoor,Qualifications,05:00,Minyoung Park,1224873,Kseniya Yersh,236916
 2026-05-11,"UTR PTT Phan Thiet Men +H 02, Group C",183923,UTR Men,Desconocida,,05:00,Corban Crowther,337897,Cheng En Yu,1081995
-2026-05-11,"UTR PTT Phan Thiet Men +H 02, Group D",183921,UTR Men,Desconocida,,05:00,Alexander Chepik,155984,Minhthien Nguyen,417302
+2026-05-11,"UTR PTT Phan Thiet Men +H 02, Group C",183923,UTR Men,Desconocida,,05:10,Luke Cripps,508315,Cheng En Yu,1081995
+2026-05-11,"UTR PTT Melbourne Men 04, Group B",183918,UTR Men,Hardcourt outdoor,,05:15,Nikolas Baker,1055343,Arjun Balakrishnan,857588
 2026-05-11,"Bengaluru 2, India, Qualifying",184097,Challenger,Hardcourt outdoor,Qualification Final,05:30,Adil Kalyanpur,214341,Christopher Papa,307122
 2026-05-11,"Bengaluru 2, India, Qualifying",184097,Challenger,Hardcourt outdoor,Qualification Final,05:30,Naoya Honda,460273,Ryotaro Taguchi,459761
 2026-05-11,"Bengaluru 2, India, Qualifying",184097,Challenger,Hardcourt outdoor,Qualification Final,05:30,Ronit Karki,1096044,Parth Aggarwal,197410
@@ -347,14 +380,16 @@
 2026-05-11,ITF M15 Kursumlijska Banja Men,150514,ITF Men,Arcilla,Qualifications,06:00,Nikola Jović,477315,Jiang Yi Qing,1092167
 2026-05-11,ITF M15 Kursumlijska Banja Men,150514,ITF Men,Arcilla,Qualifications,06:00,Vuk Radjenovic,423931,Mark Laubic,550196
 2026-05-11,ITF M15 Kursumlijska Banja Men,150514,ITF Men,Arcilla,Qualifications,06:00,Vyacheslav Ovchinnikov,345758,Nemanja Šapić,1177459
-2026-05-11,ITF M15 Wuning Men,158397,ITF Men,Hardcourt outdoor,Qualifications,06:00,Eric Jr. Olivarez,146068,Ryuichiro Nakano,467030
 2026-05-11,ITF M15 Wuning Men,158397,ITF Men,Hardcourt outdoor,Qualifications,06:00,Xiuyuan Guo,1174722,Boxiong Zhang,1112034
-2026-05-11,ITF W15 Kursumlijska Banja Women,150541,ITF Women,Arcilla,Qualifications,06:00,Alexa Karatancheva,1131774,Milica Stošović,475210
 2026-05-11,ITF W15 Kursumlijska Banja Women,150541,ITF Women,Arcilla,Qualifications,06:00,Gaja Đuričković,1095863,Mariya Yemshanova,1080366
-2026-05-11,ITF W15 Kursumlijska Banja Women,150541,ITF Women,Arcilla,Qualifications,06:00,Valeria Garnevska,1096950,Kristina Kovgan,489675
-2026-05-11,"Bengaluru 2, India, Qualifying",184097,Challenger,Hardcourt outdoor,Qualification Final,06:40,Alastair Gray,222958,Volodymyr Iakubenko,374580
-2026-05-11,"Bengaluru 2, India, Qualifying",184097,Challenger,Hardcourt outdoor,Qualification Final,06:40,Grigoriy Lomakin,124934,Aditya Vishal Balsekar,399557
-2026-05-11,"Bengaluru 2, India, Qualifying",184097,Challenger,Hardcourt outdoor,Qualification Final,06:40,Taiyo Yamanaka,298618,Tomohiro Masabayashi,154486
+2026-05-11,"UTR PTT Phan Thiet Men +H 02, Group D",183921,UTR Men,Desconocida,,06:00,Alexander Chepik,155984,Minhthien Nguyen,417302
+2026-05-11,ITF M25 Kutaisi Men,184245,ITF Men,Dura,Qualifications,06:04,Harry Jordan,453463,Nikoloz Mughalashvili,1225132
+2026-05-11,ITF M25 Kutaisi Men,184245,ITF Men,Dura,Qualifications,06:07,Andre Megrabian,391780,Ilham Bakhshaliev,464362
+2026-05-11,ITF M25 Kutaisi Men,184245,ITF Men,Dura,Qualifications,06:08,Zachary Mintz,338511,Sviatoslav Lutkovskii,338955
+2026-05-11,ITF W15 Kursumlijska Banja Women,150541,ITF Women,Arcilla,Qualifications,06:09,Alexa Karatancheva,1131774,Milica Stošović,475210
+2026-05-11,ITF W15 Kursumlijska Banja Women,150541,ITF Women,Arcilla,Qualifications,06:11,Valeria Garnevska,1096950,Kristina Kovgan,489675
+2026-05-11,ITF M25 Kutaisi Men,184245,ITF Men,Dura,Qualifications,06:57,Ivan Zaytsev,292741,Rati Beriashvili,1225137
+2026-05-11,"Bengaluru 2, India, Qualifying",184097,Challenger,Hardcourt outdoor,Qualification Final,07:00,Alastair Gray,222958,Volodymyr Iakubenko,374580
 2026-05-11,ITF M15 Prijedor,152127,ITF Men,Arcilla,Qualifications,07:00,Adam Gabor Szoke,447338,Antonio Voljavec,465597
 2026-05-11,ITF M15 Prijedor,152127,ITF Men,Arcilla,Qualifications,07:00,Arian Barbic,932463,Edoardo Zanada,290530
 2026-05-11,ITF M15 Prijedor,152127,ITF Men,Arcilla,Qualifications,07:00,Mak Miković,464353,Jan Kupčič,332110
@@ -365,19 +400,25 @@
 2026-05-11,ITF W15 Bucharest Women,146312,ITF Women,Hardcourt indoor,Qualifications,07:00,Luna Dinoto Fernandez,388936,Alexia Ioana Tatu,517895
 2026-05-11,ITF W15 Bucharest Women,146312,ITF Women,Hardcourt indoor,Qualifications,07:00,Simona Cucu,553597,Teodora Miron,1110093
 2026-05-11,ITF W15 Bucharest Women,146312,ITF Women,Hardcourt indoor,Qualifications,07:00,Sofia Prutean,517894,Alessandra Anghel,417277
+2026-05-11,ITF W15 Toyama Women,152149,ITF Women,Dura,Qualifications,07:00,Yuka Matsumoto,316167,Yuzuki Miya,1225159
 2026-05-11,"UTR PTT Le Cap d Agde Men 01, Group A",183956,UTR Men,Desconocida,,07:00,Timeo Bretin,480713,Thomas Kostka,315571
 2026-05-11,"UTR PTT Le Cap d Agde Men 01, Group A",183956,UTR Men,Desconocida,,07:00,Timeo Bretin,480713,Lenny Galley,1224984
 2026-05-11,"UTR PTT Le Cap d Agde Men 01, Group A",183956,UTR Men,Desconocida,,07:00,Zen Uehling,1135567,Benjamin Pietri,192342
 2026-05-11,"UTR PTT Le Cap d Agde Men 01, Group A",183956,UTR Men,Desconocida,,07:00,Zen Uehling,1135567,Yassine Smiej,292042
+2026-05-11,ITF W75 Kurume Women,184270,ITF Women,Desconocida,Qualifications,07:10,Kisa Yoshioka,179248,Sera Nishimoto,264952
+2026-05-11,ITF W75 Kurume Women,184270,ITF Women,Desconocida,Qualifications,07:10,Gabriella da Silva Fick,215775,Alexandra Osborne,276809
+2026-05-11,ITF W75 Kurume Women,184270,ITF Women,Desconocida,Qualifications,07:19,Yuno Kitahara,469640,Junri Namigata,18978
+2026-05-11,ITF M25 Kutaisi Men,184245,ITF Men,Dura,Qualifications,07:26,Francisco Faria,177688,Iosif Shalmiev,1174938
 2026-05-11,ITF M25 Vic Men,152096,ITF Men,Arcilla,Qualifications,07:30,Anton Marchenko,453444,Michael Alejandro Beltran Rubio,316919
 2026-05-11,ITF M25 Vic Men,152096,ITF Men,Arcilla,Qualifications,07:30,Benjamín Pérez Mora,1138330,Ilan Zheng-Xiong Hediger,487299
 2026-05-11,ITF M25 Vic Men,152096,ITF Men,Arcilla,Qualifications,07:30,Izan Corretja,506996,Liam Delicata,384961
 2026-05-11,ITF M25 Vic Men,152096,ITF Men,Arcilla,Qualifications,07:30,Julio Cesar Porras,390263,P. Roche Alcaya,468513
 2026-05-11,ITF M25 Vic Men,152096,ITF Men,Arcilla,Qualifications,07:30,Karthik Anand,476476,Carles Rojas,407390
 2026-05-11,ITF M25 Vic Men,152096,ITF Men,Arcilla,Qualifications,07:30,Keaton Hance,498414,J. Gonzalez Noriega,446522
-2026-05-11,ITF W15 Monzon Women,152074,ITF Women,Dura,Qualifications,07:30,Amanda Montes Khaghani,266237,Sofia Montesinos,501202
 2026-05-11,ITF W15 Monzon Women,152074,ITF Women,Dura,Qualifications,07:30,Sonia Cassani,263669,Laura Ollich,1224889
 2026-05-11,ITF W15 Monzon Women,152074,ITF Women,Dura,Qualifications,07:30,Sophie Martin,382884,Victoria Lazarova,369297
+2026-05-11,ITF W15 Monzon Women,152074,ITF Women,Dura,Qualifications,07:37,Amanda Montes Khaghani,266237,Sofia Montesinos,501202
+2026-05-11,"Bengaluru 2, India, Qualifying",184097,Challenger,Hardcourt outdoor,Qualification Final,08:00,Grigoriy Lomakin,124934,Aditya Vishal Balsekar,399557
 2026-05-11,"Zagreb, Croatia, Qualifying",184116,Challenger,Red clay,Qualification Final,08:00,Andrej Nedić,316900,Thiago Monteiro,47603
 2026-05-11,"Zagreb, Croatia, Qualifying",184116,Challenger,Red clay,Qualification Final,08:00,George Loffhagen,258978,Dominic Stricker,296369
 2026-05-11,"Zagreb, Croatia, Qualifying",184116,Challenger,Red clay,Qualification Final,08:00,Michele Ribecai,462168,Thanasi Kokkinakis,71280
@@ -396,38 +437,41 @@
 2026-05-11,ITF M15 Kursumlijska Banja Men,150514,ITF Men,Arcilla,Qualifications,08:00,Ognjen Jagrovic,490735,Mustapha El Natour,491804
 2026-05-11,ITF M15 Kursumlijska Banja Men,150514,ITF Men,Arcilla,Qualifications,08:00,Rodion Chetverikov,451625,Andreas Loizas,455677
 2026-05-11,ITF M15 Kursumlijska Banja Men,150514,ITF Men,Arcilla,Qualifications,08:00,Tom Sickenberger,482637,Andrea Pavia,425552
-2026-05-11,ITF M25 Louny Men,184185,ITF Men,Desconocida,Qualifications,08:00,Adam Soukup,476486,Stephanos Schinas,96615
-2026-05-11,ITF M25 Louny Men,184185,ITF Men,Desconocida,Qualifications,08:00,Jan Hrazdil,400523,Henry Lieberman,283495
-2026-05-11,ITF M25 Louny Men,184185,ITF Men,Desconocida,Qualifications,08:00,Jonas Pelle Hartenstein,424726,Patrik Homola,401386
+2026-05-11,ITF M25 Kutaisi Men,184245,ITF Men,Dura,Qualifications,08:00,Alex Solonenko,265777,Vano Losaberidze,927343
+2026-05-11,ITF M25 Kutaisi Men,184245,ITF Men,Dura,Qualifications,08:00,Daniil Dinits,1179043,Fidel Nweke,414954
+2026-05-11,ITF M25 Kutaisi Men,184245,ITF Men,Dura,Qualifications,08:00,Gabriel Gomez,455053,Mikhail Osipov,425514
 2026-05-11,ITF M25 Reggio Emilia Men,152070,ITF Men,Arcilla,Qualifications,08:00,Gian Marco Ortenzi,256878,Cosimo Banti,410567
 2026-05-11,ITF M25 Reggio Emilia Men,152070,ITF Men,Arcilla,Qualifications,08:00,Jacopo Bilardo,418787,Andrea Zanini,1092039
-2026-05-11,ITF M25 Reggio Emilia Men,152070,ITF Men,Arcilla,Qualifications,08:00,Niccolo Ciavarella,373234,Luca Parenti,322057
 2026-05-11,ITF M25 Reggio Emilia Men,152070,ITF Men,Arcilla,Qualifications,08:00,Noah Perfetti,280123,Silvio Mencaglia,478972
 2026-05-11,ITF W15 Klagenfurt Women,184191,ITF Women,Desconocida,Qualifications,08:00,Adela Moravcova,288510,Sarah Kanduth,415607
 2026-05-11,ITF W15 Klagenfurt Women,184191,ITF Women,Desconocida,Qualifications,08:00,Greta Rizzetto,400775,Ines Faltinger,351129
 2026-05-11,ITF W15 Klagenfurt Women,184191,ITF Women,Desconocida,Qualifications,08:00,Kaja Najzer,468009,Kasandra Leoni Djekic,458326
 2026-05-11,ITF W15 Klagenfurt Women,184191,ITF Women,Desconocida,Qualifications,08:00,Lena Ramharter,415600,Sameeksha Shroff,404429
-2026-05-11,ITF W15 Kursumlijska Banja Women,150541,ITF Women,Arcilla,Qualifications,08:00,Chiara Fornasieri,380569,Stela Džimović,801445
 2026-05-11,ITF W15 Kursumlijska Banja Women,150541,ITF Women,Arcilla,Qualifications,08:00,Klara Vaja,489680,Andzhelina Kostova,830567
-2026-05-11,ITF W15 Kursumlijska Banja Women,150541,ITF Women,Arcilla,Qualifications,08:00,Mariia Masiianskaia,401513,Galatea Ferro,1134202
 2026-05-11,ITF W15 Kursumlijska Banja Women,150541,ITF Women,Arcilla,Qualifications,08:00,Nala Kovacic,470160,Aleksandra Mateva,391748
 2026-05-11,ITF W15 Kursumlijska Banja Women,150541,ITF Women,Arcilla,Qualifications,08:00,Tea Nikčević,329531,Stella Remander,324582
-2026-05-11,ITF W75 Trnava Women,146787,ITF Women,Hardcourt indoor,Qualifications,08:00,Maria Martinez Vaquero,303297,Martina Trevisan,153860
-2026-05-11,ITF W75 Trnava Women,146787,ITF Women,Hardcourt indoor,Qualifications,08:00,Martina Okalova,164852,Laura Svatikova,54961
-2026-05-11,ITF W75 Trnava Women,146787,ITF Women,Hardcourt indoor,Qualifications,08:00,Miriana Tona,104929,Alba Rey Garcia,303880
-2026-05-11,ITF W75 Trnava Women,146787,ITF Women,Hardcourt indoor,Qualifications,08:00,Nahia Berecoechea,318258,Petra Sedlackova,231010
-2026-05-11,ITF W75 Zagreb Women,152081,ITF Women,Arcilla,Qualifications,08:00,Anouck Vrancken Peeters,407873,Victoria Borodulina,250861
-2026-05-11,ITF W75 Zagreb Women,152081,ITF Women,Arcilla,Qualifications,08:00,Denislava Glushkova,300559,Beatris Spasova,297198
-2026-05-11,ITF W75 Zagreb Women,152081,ITF Women,Arcilla,Qualifications,08:00,Erika Andreeva,336222,Milana Rasan-Buha,1091710
-2026-05-11,ITF W75 Zagreb Women,152081,ITF Women,Arcilla,Qualifications,08:00,Manon Leonard,215329,Helena Mužinić,469576
+2026-05-11,ITF W35 Hurghada Women,184247,ITF Women,Dura,Qualifications,08:00,Maxine Sophie Kammerer,378437,Anna Hsu,507635
 2026-05-11,"UTR PTT Stirling Men 02, Group B",183986,UTR Men,Desconocida,,08:00,Finlay Watters,1163494,Liam Hignett,298051
 2026-05-11,"UTR PTT Stirling Men 02, Group D",183987,UTR Men,Desconocida,,08:00,Robert Cowley,497043,Samuel Zlotnik,1224126
 2026-05-11,"UTR PTT Stirling Women 02, Group A",183972,UTR Women,Desconocida,,08:00,Alma Abazi,1224121,Katherine Barnes,269334
 2026-05-11,"UTR PTT Stirling Women 02, Group D",183973,UTR Women,Desconocida,,08:00,Jessica Gear,1224123,Ema Baraniakova,391214
-2026-05-11,"UTR PTT Le Cap d Agde Men 01, Group B",183961,UTR Men,Desconocida,,08:10,Gabriel Jacquemin,1224075,Louka Krynen,524910
-2026-05-11,"UTR PTT Le Cap d Agde Men 01, Group D",183958,UTR Men,Desconocida,,08:10,Julien Dando,289145,Joris Moret,301546
+2026-05-11,ITF M25 Reggio Emilia Men,152070,ITF Men,Arcilla,Qualifications,08:04,Niccolo Ciavarella,373234,Luca Parenti,322057
+2026-05-11,ITF M25 Kutaisi Men,184245,ITF Men,Dura,Qualifications,08:06,Oscar Andres Martinez De Freitas,1225133,Davit Zogranian,1095561
+2026-05-11,ITF W75 Zagreb Women,152081,ITF Women,Arcilla,Qualifications,08:06,Manon Leonard,215329,Helena Mužinić,469576
+2026-05-11,ITF W15 Kursumlijska Banja Women,150541,ITF Women,Arcilla,Qualifications,08:07,Chiara Fornasieri,380569,Stela Džimović,801445
+2026-05-11,ITF M25 Louny Men,184185,ITF Men,Desconocida,Qualifications,08:08,Jonas Pelle Hartenstein,424726,Patrik Homola,401386
+2026-05-11,ITF W75 Zagreb Women,152081,ITF Women,Arcilla,Qualifications,08:08,Denislava Glushkova,300559,Beatris Spasova,297198
+2026-05-11,ITF M25 Louny Men,184185,ITF Men,Desconocida,Qualifications,08:09,Adam Soukup,476486,Stephanos Schinas,96615
+2026-05-11,ITF M25 Louny Men,184185,ITF Men,Desconocida,Qualifications,08:09,Jan Hrazdil,400523,Henry Lieberman,283495
+2026-05-11,ITF W75 Zagreb Women,152081,ITF Women,Arcilla,Qualifications,08:10,Erika Andreeva,336222,Milana Rasan-Buha,1091710
+2026-05-11,ITF W75 Zagreb Women,152081,ITF Women,Arcilla,Qualifications,08:12,Anouck Vrancken Peeters,407873,Victoria Borodulina,250861
+2026-05-11,"Bengaluru 2, India, Qualifying",184097,Challenger,Hardcourt outdoor,Qualification Final,08:15,Taiyo Yamanaka,298618,Tomohiro Masabayashi,154486
+2026-05-11,ITF W35 Bastad Women,152135,ITF Women,Arcilla,Qualifications,08:15,Ida Johansson,399678,Louise Kerstin Marie Ternstrom,496944
+2026-05-11,ITF W35 Bastad Women,152135,ITF Women,Arcilla,Qualifications,08:15,Isabel Skoog,463773,Elvi Holm Gustafsson,1225141
+2026-05-11,ITF W35 Bastad Women,152135,ITF Women,Arcilla,Qualifications,08:15,Matilde Stamborg,1139917,June Bjork,414358
+2026-05-11,ITF W35 Bastad Women,152135,ITF Women,Arcilla,Qualifications,08:15,Nathalie Mackay Westling,1225152,Ylenia Zocco,1083641
+2026-05-11,ITF W15 Kursumlijska Banja Women,150541,ITF Women,Arcilla,Qualifications,08:19,Mariia Masiianskaia,401513,Galatea Ferro,1134202
 2026-05-11,"Bengaluru 2, India",183755,Challenger,Hardcourt outdoor,Round of 32,08:30,Dominik Palan,291263,Maan Kesharwani,455662
-2026-05-11,"Bengaluru 2, India",183755,Challenger,Hardcourt outdoor,Round of 32,08:30,Maximus Jones,336621,Sidharth Rawat,65608
 2026-05-11,"Valencia, Spain, Qualifying",184223,Challenger,Red clay,Qualification Round 1,08:30,Nicolai Budkov Kjaer,483188,Sergi Fita Juan,417268
 2026-05-11,"Bordeaux, France, Qualifying",184228,Challenger,Red clay,Qualification Round 1,08:30,Daniel Jade,503985,Elias Ymer,83661
 2026-05-11,"Bordeaux, France, Qualifying",184228,Challenger,Red clay,Qualification Round 1,08:30,Rei Sakamoto,413296,Matteo Martineau,145122
@@ -437,19 +481,21 @@
 2026-05-11,ITF M25 Vic Men,152096,ITF Men,Arcilla,Qualifications,08:30,R. Ubals Pairo,519094,Marc Vives Martinez,498355
 2026-05-11,ITF M25 Vic Men,152096,ITF Men,Arcilla,Qualifications,08:30,Riku Kato,831225,Marc Martin Roca,1107849
 2026-05-11,ITF M25 Vic Men,152096,ITF Men,Arcilla,Qualifications,08:30,Thomas Gerbaud,489705,Patric Prinoth,84203
-2026-05-11,"Rome, Italy, Doubles",155975,ATP,Red clay,Round of 32,09:00,Andreozzi G / Guinard M,1121813,Doumbia S / Reboul F,196794
-2026-05-11,"Rome, Italy, Doubles",155975,ATP,Red clay,Round of 32,09:00,Melo M / Zverev A,267017,Arevalo M / Pavic M,502852
-2026-05-11,"Rome, Italy, Doubles",155975,ATP,Red clay,Round of 32,09:00,Romboli F / Smith J-P,1080114,Doumbia S / Reboul F,196794
+2026-05-11,ITF W75 Trnava Women,146787,ITF Women,Hardcourt indoor,Qualifications,08:30,Maria Martinez Vaquero,303297,Martina Trevisan,153860
+2026-05-11,ITF W75 Trnava Women,146787,ITF Women,Hardcourt indoor,Qualifications,08:30,Martina Okalova,164852,Laura Svatikova,54961
+2026-05-11,ITF W75 Trnava Women,146787,ITF Women,Hardcourt indoor,Qualifications,08:30,Miriana Tona,104929,Alba Rey Garcia,303880
+2026-05-11,ITF W75 Trnava Women,146787,ITF Women,Hardcourt indoor,Qualifications,08:30,Nahia Berecoechea,318258,Petra Sedlackova,231010
+2026-05-11,"UTR PTT Le Cap d Agde Men 01, Group B",183961,UTR Men,Desconocida,,08:30,Gabriel Jacquemin,1224075,Louka Krynen,524910
+2026-05-11,"UTR PTT Le Cap d Agde Men 01, Group D",183958,UTR Men,Desconocida,,08:30,Julien Dando,289145,Joris Moret,301546
+2026-05-11,ITF W35 Bastad Women,152135,ITF Women,Arcilla,Qualifications,08:45,Nuppu Palm,457146,Vladlena Bokova,299543
+2026-05-11,"ATP Rome Masters, Doubles",155975,ATP,Red clay,Round of 32,09:00,Andreozzi G / Guinard M,1121813,Doumbia S / Reboul F,196794
+2026-05-11,"ATP Rome Masters, Doubles",155975,ATP,Red clay,Round of 32,09:00,Melo M / Zverev A,267017,Arevalo M / Pavic M,502852
+2026-05-11,"ATP Rome Masters, Doubles",155975,ATP,Red clay,Round of 32,09:00,Romboli F / Smith J-P,1080114,Doumbia S / Reboul F,196794
 2026-05-11,"ATP Rome Masters, Italy",154099,ATP,Red clay,Round of 32,09:00,Andrey Rublev,106755,Alejandro Davidovich Fokina,157456
 2026-05-11,"ATP Rome Masters, Italy",154099,ATP,Red clay,Round of 32,09:00,Mattia Bellucci,294337,Martin Landaluce,417196
 2026-05-11,"WTA 1000 Rome, Italy",183033,WTA,Red clay,Round of 16,09:00,Sorana Cirstea,19728,Linda Noskova,274049
-2026-05-11,"Rome, Italy, Doubles",183384,WTA,Red clay,Round of 32,09:00,Bucsa C / Melichar-Martinez N,1109146,Maleckova J / Skoch M,258048
-2026-05-11,"Rome, Italy, Doubles",183384,WTA,Red clay,Round of 32,09:00,Jiang X / Xu Y,1206192,Danilina A / Muhammad A,466056
-2026-05-11,"Oeiras 4, Portugal",183696,Challenger,Red clay,Round of 32,09:00,Cristian Garin,64570,Lautaro Midon,397014
-2026-05-11,"Oeiras 4, Portugal",183696,Challenger,Red clay,Round of 32,09:00,Facundo Diaz Acosta,264372,Hugo Dellien,57289
-2026-05-11,"Oeiras 4, Portugal",183696,Challenger,Red clay,Round of 32,09:00,Genaro Alberto Olivieri,169486,Nishesh Basavareddy,407164
-2026-05-11,"Oeiras 4, Portugal",183696,Challenger,Red clay,Round of 32,09:00,Tiago Pereira,409264,Gastao Elias,15858
-2026-05-11,"Oeiras 4, Portugal",183696,Challenger,Red clay,Round of 32,09:00,Vilius Gaubas,322022,Frederico Ferreira Silva,66484
+2026-05-11,"WTA 1000 Rome, Doubles",183384,WTA,Red clay,Round of 32,09:00,Bucsa C / Melichar-Martinez N,1109146,Maleckova J / Skoch M,258048
+2026-05-11,"WTA 1000 Rome, Doubles",183384,WTA,Red clay,Round of 32,09:00,Jiang X / Xu Y,1206192,Danilina A / Muhammad A,466056
 2026-05-11,"Valencia, Spain, Qualifying",184223,Challenger,Red clay,Qualification Round 1,09:00,Fajing Sun,163438,Alejo Sanchez Quilez,451920
 2026-05-11,"Valencia, Spain, Qualifying",184223,Challenger,Red clay,Qualification Round 1,09:00,Jakub Paul,213979,Stefano Napolitano,42152
 2026-05-11,"Tunis, Tunisia, Qualifying",184143,Challenger,Red clay,Qualification Final,09:00,Franco Agamenone,65606,Antoine Ghibaudo,339606
@@ -501,6 +547,7 @@
 2026-05-11,"UTR PTT Stirling Men 02, Group C",183985,UTR Men,Desconocida,,09:10,Cian McDonnell,530869,Conor Flynn,1150440
 2026-05-11,"UTR PTT Stirling Women 02, Group A",183972,UTR Women,Desconocida,,09:10,Terezia Baraniakova,390977,Kate Gardiner,324620
 2026-05-11,"UTR PTT Stirling Women 02, Group B",183974,UTR Women,Desconocida,,09:10,Madison Frahn,205874,Halle Pringle,470422
+2026-05-11,"Bengaluru 2, India",183755,Challenger,Hardcourt outdoor,Round of 32,09:25,Maximus Jones,336621,Sidharth Rawat,65608
 2026-05-11,ITF M15 Prijedor,152127,ITF Men,Arcilla,Qualifications,09:30,Ivan Biletić,414865,Dmitry Bessonov,478947
 2026-05-11,ITF M15 Prijedor,152127,ITF Men,Arcilla,Qualifications,09:30,Lorenzo Comino,828064,Dusan Milanovic,286479
 2026-05-11,ITF M15 Prijedor,152127,ITF Men,Arcilla,Qualifications,09:30,Nicolo Toffanin,294351,Valeriy Martishev,305654
@@ -515,13 +562,13 @@
 2026-05-11,ITF W75 Zagreb Women,152081,ITF Women,Arcilla,Qualifications,09:30,Caijsa Wilda Hennemann,221793,Ela Plošnik,467765
 2026-05-11,ITF W75 Zagreb Women,152081,ITF Women,Arcilla,Qualifications,09:30,Giorgia Pedone,355536,Beatrise Zeltina,421954
 2026-05-11,ITF W75 Zagreb Women,152081,ITF Women,Arcilla,Qualifications,09:30,Lisa Zaar,152106,Ria Derniković,362569
-2026-05-11,"UTR PTT Le Cap d Agde Men 01, Group C",183955,UTR Men,Desconocida,,09:30,Tomas Rengel Sierra,172358,Filip Malis,526211
-2026-05-11,"UTR PTT Le Cap d Agde Men 01, Group D",183958,UTR Men,Desconocida,,09:30,Jules Auffray,419607,Noah Boutleux,496748
-2026-05-11,"Bengaluru 2, India",183755,Challenger,Hardcourt outdoor,Round of 32,09:40,Alex Hernandez,258977,Yuta Kawahashi,216820
 2026-05-11,"Bengaluru 2, India",183755,Challenger,Hardcourt outdoor,Round of 32,09:40,Dev Javia,339448,Ognjen Milić,479273
 2026-05-11,"Valencia, Spain, Qualifying",184223,Challenger,Red clay,Qualification Round 1,09:40,Taro Daniel,48632,Raul Brancaccio,201847
 2026-05-11,"Bordeaux, France, Qualifying",184228,Challenger,Red clay,Qualification Round 1,09:40,Martin Damm Jr,51345,Jelle Sels,56361
+2026-05-11,"Bordeaux, France, Qualifying",184228,Challenger,Red clay,Qualification Round 1,09:40,Martin Damm Jr,51345,Coleman Wong,289106
 2026-05-11,"Bordeaux, France, Qualifying",184228,Challenger,Red clay,Qualification Round 1,09:40,Pierre Delage,213081,Hugo Grenier,107357
+2026-05-11,"UTR PTT Le Cap d Agde Men 01, Group C",183955,UTR Men,Desconocida,,09:40,Tomas Rengel Sierra,172358,Filip Malis,526211
+2026-05-11,"UTR PTT Le Cap d Agde Men 01, Group D",183958,UTR Men,Desconocida,,09:40,Jules Auffray,419607,Noah Boutleux,496748
 2026-05-11,"Oeiras 4, Portugal, Qualifying",184150,Challenger,Red clay,Qualification Round 1,10:00,Andres Martin,321862,James Watt,459208
 2026-05-11,"Oeiras 4, Portugal, Qualifying",184150,Challenger,Red clay,Qualification Round 1,10:00,Francisco Rocha,228155,Garrett Johns,239967
 2026-05-11,"Oeiras 4, Portugal, Qualifying",184150,Challenger,Red clay,Qualification Round 1,10:00,Joao Silva,458344,David Jorda Sanchis,57155
@@ -531,10 +578,6 @@
 2026-05-11,ITF M15 Kursumlijska Banja Men,150514,ITF Men,Arcilla,Qualifications,10:00,Aleksa Oparnica,1130998,Nikola Lulic,516799
 2026-05-11,ITF M15 Kursumlijska Banja Men,150514,ITF Men,Arcilla,Qualifications,10:00,Erik Gahnstrom,517977,Uros Zivkovic,478957
 2026-05-11,ITF M15 Kursumlijska Banja Men,150514,ITF Men,Arcilla,Qualifications,10:00,Jakub Krawczyk,487197,Luka Todorovic,289172
-2026-05-11,ITF M25 Reggio Emilia Men,152070,ITF Men,Arcilla,Qualifications,10:00,Filippo Mazzola,478083,Daniel Bagnolini,308287
-2026-05-11,ITF M25 Reggio Emilia Men,152070,ITF Men,Arcilla,Qualifications,10:00,Giacomo Crisostomo,390223,Flavio Bocci,1171533
-2026-05-11,ITF M25 Reggio Emilia Men,152070,ITF Men,Arcilla,Qualifications,10:00,Giorgio Tabacco,369288,Giammarco Gandolfi,406661
-2026-05-11,ITF M25 Reggio Emilia Men,152070,ITF Men,Arcilla,Qualifications,10:00,Luigi Valletta,1129715,Lorenzo Beraldo,446469
 2026-05-11,ITF M25 Vic Men,152096,ITF Men,Arcilla,Qualifications,10:00,Esteban Talavera Cortes,522287,Guillem Campos Perez,510402
 2026-05-11,ITF M25 Vic Men,152096,ITF Men,Arcilla,Qualifications,10:00,Filippo Giovannini,119316,Hugo Garcia Gomez,1127947
 2026-05-11,ITF M25 Vic Men,152096,ITF Men,Arcilla,Qualifications,10:00,Hugo Sanz Muela,418068,Hugo Ruiz Rodriguez,464855
@@ -543,20 +586,30 @@
 2026-05-11,ITF W15 Klagenfurt Women,184191,ITF Women,Desconocida,Qualifications,10:00,Panna Bartha,394375,Meta Marenk,360301
 2026-05-11,ITF W15 Klagenfurt Women,184191,ITF Women,Desconocida,Round of 32,10:00,Paula Cembranos,419528,Milena Ciocan,490934
 2026-05-11,ITF W15 Klagenfurt Women,184191,ITF Women,Desconocida,Qualifications,10:00,Sofia Alekseeva,1095094,Miriam-Katharina Opris,467753
-2026-05-11,"Rome, Italy, Doubles",155975,ATP,Red clay,Round of 32,10:10,Harrison C / Skupski N,1163807,Luz O / Matos R,311665
+2026-05-11,ITF M25 Reggio Emilia Men,152070,ITF Men,Arcilla,Qualifications,10:04,Giorgio Tabacco,369288,Giammarco Gandolfi,406661
+2026-05-11,ITF M25 Reggio Emilia Men,152070,ITF Men,Arcilla,Qualifications,10:06,Filippo Mazzola,478083,Daniel Bagnolini,308287
+2026-05-11,ITF M25 Reggio Emilia Men,152070,ITF Men,Arcilla,Qualifications,10:06,Giacomo Crisostomo,390223,Flavio Bocci,1171533
+2026-05-11,ITF M25 Reggio Emilia Men,152070,ITF Men,Arcilla,Qualifications,10:06,Luigi Valletta,1129715,Lorenzo Beraldo,446469
+2026-05-11,"ATP Rome Masters, Doubles",155975,ATP,Red clay,Round of 32,10:10,Harrison C / Skupski N,1163807,Luz O / Matos R,311665
 2026-05-11,"ATP Rome Masters, Italy",154099,ATP,Red clay,Round of 32,10:10,Brandon Nakashima,235576,Nikoloz Basilashvili,26204
 2026-05-11,"ATP Rome Masters, Italy",154099,ATP,Red clay,Round of 32,10:10,Frances Tiafoe,101101,Andrea Pellegrino,93597
-2026-05-11,"Rome, Italy, Doubles",183384,WTA,Red clay,Round of 32,10:10,Eikeri U / Gleason Q,381165,Kichenok N / Krunic A,418870
+2026-05-11,"WTA 1000 Rome, Doubles",183384,WTA,Red clay,Round of 32,10:10,Eikeri U / Gleason Q,381165,Kichenok N / Krunic A,418870
 2026-05-11,"Tunis, Tunisia, Qualifying",184143,Challenger,Red clay,Qualification Final,10:10,Edas Butvilas,385592,Kilian Feldbausch,377489
 2026-05-11,"Parma, Italy",183766,WTA 125,Red clay,Round of 32,10:10,Lois Boisson,293708,Dominika Salkova,336308
 2026-05-11,"Parma, Italy, Qualifying",184224,WTA 125,Red clay,Qualification Round 1,10:10,Gabriela Cé,45605,Deborah Chiesa,55793
+2026-05-11,ITF W35 Bastad Women,152135,ITF Women,Arcilla,Qualifications,10:15,Anabelle Teikari,1225094,Julia Hofmann,1163029
+2026-05-11,ITF W35 Bastad Women,152135,ITF Women,Arcilla,Qualifications,10:15,Irina Fetecău,93661,Emina Honic,1222366
+2026-05-11,ITF W35 Bastad Women,152135,ITF Women,Arcilla,Qualifications,10:15,Nicole Saidizand,1139916,Thale Myhre,557196
 2026-05-11,"WTA 1000 Rome, Italy",183033,WTA,Red clay,Round of 16,10:30,Coco Gauff,264983,Iva Jovic,420632
 2026-05-11,"Tunis, Tunisia, Qualifying",184143,Challenger,Red clay,Qualification Final,10:30,Enrico Dalla Valle,106153,Laurent Lokoli,66002
 2026-05-11,"Tunis, Tunisia, Qualifying",184143,Challenger,Red clay,Qualification Final,10:30,Michael Vrbensky,235930,Dali Blanch,318573
 2026-05-11,"Parma, Italy",183766,WTA 125,Red clay,Round of 32,10:30,Hanne Vandewinkel,383994,Whitney Osuigwe,223130
 2026-05-11,ITF M25 Louny Men,184185,ITF Men,Desconocida,Qualifications,10:30,Jakub Filip,416494,Matyas Kozlovsky,927347
 2026-05-11,ITF M25 Louny Men,184185,ITF Men,Desconocida,Qualifications,10:30,Oleksii Krutykh,232615,Jonas Gundacker,463252
-2026-05-11,"Oeiras 4, Portugal, Qualifying",184150,Challenger,Red clay,Qualification Round 1,10:45,Mario Gonzalez Fernandez,283488,Cezar Cretu,196920
+2026-05-11,ITF W35 Bastad Women,152135,ITF Women,Arcilla,Qualifications,10:30,Elin Siewertz,1222365,Olivia Gram,300984
+2026-05-11,ITF W35 Bastad Women,152135,ITF Women,Arcilla,Qualifications,10:30,Julia Orswall,419595,Daria Litvinova,526198
+2026-05-11,ITF W35 Bastad Women,152135,ITF Women,Arcilla,Qualifications,10:30,Mika Testart,1225148,Olga Golas,349923
+2026-05-11,"Bengaluru 2, India",183755,Challenger,Hardcourt outdoor,Round of 32,10:35,Alex Hernandez,258977,Yuta Kawahashi,216820
 2026-05-11,"Oeiras 4, Portugal, Qualifying",184150,Challenger,Red clay,Qualification Round 1,10:45,Zhizhen Zhang,75813,Joao Domingues,57327
 2026-05-11,"Bordeaux, France, Qualifying",184228,Challenger,Red clay,Qualification Round 1,10:50,Sumit Nagal,131566,Pierre-Hugues Herbert,44553
 2026-05-11,"WTA 1000 Rome, Italy",183033,WTA,Red clay,Round of 16,11:00,Anna Kalinskaya,179146,Jelena Ostapenko,64496
@@ -565,6 +618,7 @@
 2026-05-11,"Zagreb, Croatia",183704,Challenger,Red clay,Round of 32,11:00,Marco Cecchinato,44549,Harry Wendelken,267242
 2026-05-11,"Valencia, Spain, Qualifying",184223,Challenger,Red clay,Qualification Round 1,11:00,Mario Mansilla Diez,227442,Stefan Kozlov,77007
 2026-05-11,"Bordeaux, France, Qualifying",184228,Challenger,Red clay,Qualification Round 1,11:00,Andrey Chepelev,188944,Chun-Hsin Tseng,207034
+2026-05-11,"Oeiras 4, Portugal, Qualifying",184150,Challenger,Red clay,Qualification Round 1,11:00,Mario Gonzalez Fernandez,283488,Cezar Cretu,196920
 2026-05-11,"Paris, France",183772,WTA 125,Red clay,Round of 32,11:00,Alina Korneeva,396293,Katie Volynets,256104
 2026-05-11,"Paris, France",183772,WTA 125,Red clay,Round of 32,11:00,Maddison Inglis,99405,Anastasia Zakharova,255391
 2026-05-11,"Paris, France",183772,WTA 125,Red clay,Round of 32,11:00,Renata Zarazua,111189,Tiantsoa Rakotomanga Rajaonah,385274
@@ -585,43 +639,42 @@
 2026-05-11,ITF W75 Trnava Women Doubles,146788,ITF Women,Hardcourt indoor,Round of 16,11:00,Nehria N / Nikolaieva A,1225042,Hejtmanek A J / Svatikova L,1225038
 2026-05-11,"Oeiras 4, Portugal, Qualifying",184150,Challenger,Red clay,Qualification Final,11:10,Lorenzo Carboni,462062,Laslo Djere,97231
 2026-05-11,"Oeiras 4, Portugal, Qualifying",184150,Challenger,Red clay,Qualification Final,11:10,Mitchell Krueger,52276,Benjamin Hassan,108767
-2026-05-11,"Rome, Italy, Doubles",155975,ATP,Red clay,Round of 32,11:20,Arribage T / Olivetti A,1133433,Michelsen A / Tien L,419119
-2026-05-11,"Rome, Italy, Doubles",155975,ATP,Red clay,Round of 32,11:20,Krajicek A / Mektic N,302676,Cerundolo F / Darderi L,1132462
+2026-05-11,"ATP Rome Masters, Doubles",155975,ATP,Red clay,Round of 32,11:20,Arribage T / Olivetti A,1133433,Michelsen A / Tien L,419119
+2026-05-11,"ATP Rome Masters, Doubles",155975,ATP,Red clay,Round of 32,11:20,Krajicek A / Mektic N,302676,Cerundolo F / Darderi L,1132462
 2026-05-11,"WTA 1000 Rome, Italy",183033,WTA,Red clay,Round of 16,11:20,Elise Mertens,78551,Mirra Andreeva,406776
 2026-05-11,"Parma, Italy",183766,WTA 125,Red clay,Round of 32,11:20,Alycia Parks,221410,Mary Stoiana,340542
 2026-05-11,"Parma, Italy",183766,WTA 125,Red clay,Round of 32,11:20,Marta Lombardini,555377,Jessica Bouzas Maneiro,275105
 2026-05-11,ITF W15 Monzon Women,152074,ITF Women,Dura,Qualifications,11:30,Adriana Monlleo Ramos,498347,B. Miret Avante,374069
 2026-05-11,ITF W15 Monzon Women,152074,ITF Women,Dura,Qualifications,11:30,Aleksandra Iankovskaia,415582,Isabel Pascual Montalvo,386748
-2026-05-11,ITF W15 Monzon Women,152074,ITF Women,Dura,Qualifications,11:30,Gloria Pop,825470,Yana Tsion Leonova,1174720
 2026-05-11,"UTR PTT Le Cap d Agde Men 01, Group B",183961,UTR Men,Desconocida,,11:30,Valentin Lapalu,338893,Lucas Bouquet,135084
 2026-05-11,"UTR PTT Le Cap d Agde Men 01, Group C",183955,UTR Men,Desconocida,,11:30,Botond Nagy,520931,Marwan Haida-Lamrani,930037
+2026-05-11,ITF W15 Monzon Women,152074,ITF Women,Dura,Qualifications,11:37,Gloria Pop,825470,Yana Tsion Leonova,1174720
 2026-05-11,"Parma, Italy",183766,WTA 125,Red clay,Round of 32,11:40,Kaja Juvan,196856,Moyuka Uchijima,253356
 2026-05-11,"Oeiras 4, Portugal",183696,Challenger,Red clay,Round of 32,11:55,Henrique Rocha,341820,Roman Safiullin,124930
-2026-05-11,"Oeiras 4, Portugal, Qualifying",184150,Challenger,Red clay,Qualification Final,11:55,Alejandro Moro Canas,250857,Tiago Torres,283476
 2026-05-11,"Tunis, Tunisia",183703,Challenger,Red clay,Round of 32,12:00,Kaichi Uchida,82579,Max Houkes,277179
 2026-05-11,"Tunis, Tunisia",183703,Challenger,Red clay,Round of 32,12:00,Niels McDonald,484006,Daniil Glinka,210033
 2026-05-11,"Tunis, Tunisia",183703,Challenger,Red clay,Round of 32,12:00,Tristan Boyer,232036,Aziz Dougaz,172482
 2026-05-11,"Valencia, Spain, Qualifying",184223,Challenger,Red clay,Qualification Round 1,12:00,Alejandro Juan Mano,407389,Henri Squire,208225
 2026-05-11,"Valencia, Spain, Qualifying",184223,Challenger,Red clay,Qualification Round 1,12:00,Remy Bertola,145108,Carlos Sanchez Jover,196922
 2026-05-11,"Bordeaux, France, Qualifying",184228,Challenger,Red clay,Qualification Round 1,12:00,Lloyd Harris,157808,Maxime Chazal,17065
-2026-05-11,ITF M25 Hurghada Men,184189,ITF Men,Desconocida,Qualifications,12:00,Aaron Funk,486469,Rishit Dakhane,373237
-2026-05-11,ITF M25 Hurghada Men,184189,ITF Men,Desconocida,Qualifications,12:00,Ioannis Kountourakis,277721,Svarmanyu Singh,1164310
-2026-05-11,ITF M25 Hurghada Men,184189,ITF Men,Desconocida,Qualifications,12:00,Ivan Gretskiy,459133,Zubin Omar,380575
-2026-05-11,ITF M25 Hurghada Men,184189,ITF Men,Desconocida,Qualifications,12:00,Shanker Heisnam,510890,Pablo Perez Ramos,336147
-2026-05-11,ITF M25 Reggio Emilia Men,152070,ITF Men,Arcilla,Round of 32,12:00,Gabriele Bosio,227434,Giuseppe La Vela,290531
 2026-05-11,ITF W15 Monzon Women,152074,ITF Women,Dura,Qualifications,12:00,Aaddi Gupta,414241,P. Rodriguez Carretero,412576
-2026-05-11,ITF M25 Reggio Emilia Men Doubles,152083,ITF Men,Arcilla,Round of 16,12:00,Angelini L / Pecci A,1225047,Coccioli A / Lorusso L,455404
 2026-05-11,ITF M25 Reggio Emilia Men Doubles,152083,ITF Men,Arcilla,Round of 16,12:00,Beraldo L / Perfetti N,488252,Parenti L / Taddia L,386345
 2026-05-11,ITF M25 Reggio Emilia Men Doubles,152083,ITF Men,Arcilla,Round of 16,12:00,Mencaglia S / Ortenzi G M,1118599,Compagnucci T / Kivattsev K,1091958
+2026-05-11,ITF M25 Kutaisi Men,184245,ITF Men,Dura,Qualifications,12:04,J. Malango Ondo,405119,Tamaz Areshidze,1225156
+2026-05-11,ITF M25 Reggio Emilia Men Doubles,152083,ITF Men,Arcilla,Round of 16,12:04,Angelini L / Pecci A,1225047,Coccioli A / Lorusso L,455404
+2026-05-11,ITF M25 Reggio Emilia Men,152070,ITF Men,Arcilla,Round of 32,12:06,Gabriele Bosio,227434,Giuseppe La Vela,290531
+2026-05-11,ITF M25 Kutaisi Men,184245,ITF Men,Dura,Qualifications,12:07,George Margiev,1225129,Adam Kaczmarek,417266
+2026-05-11,ITF M25 Kutaisi Men,184245,ITF Men,Dura,Qualifications,12:08,Aditya Kothari,489701,Harel Tarshish,1176115
 2026-05-11,"ATP Rome Masters, Italy",154099,ATP,Red clay,Round of 32,12:10,Mariano Navone,271389,Hamad Medjedović,321404
 2026-05-11,"Zagreb, Croatia",183704,Challenger,Red clay,Round of 32,12:10,Arthur Fery,321789,Vitaliy Sachko,100069
+2026-05-11,"Oeiras 4, Portugal, Qualifying",184150,Challenger,Red clay,Qualification Final,12:10,Alejandro Moro Canas,250857,Tiago Torres,283476
 2026-05-11,"Paris, France",183772,WTA 125,Red clay,Round of 32,12:10,Chloe Paquet,46591,Maya Joint,376006
 2026-05-11,"Paris, France",183772,WTA 125,Red clay,Round of 32,12:10,McCartney Kessler,233214,Yulia Putintseva,45545
 2026-05-11,"Paris, France",183772,WTA 125,Red clay,Round of 32,12:10,Talia Gibson,308088,Aliaksandra Sasnovich,45902
 2026-05-11,"Oeiras 4, Portugal",183696,Challenger,Red clay,Round of 32,12:20,Darwin Blanch,407392,Jack Pinnington Jones,321790
-2026-05-11,"Rome, Italy, Doubles",155975,ATP,Red clay,Round of 32,12:30,Bhambri Y / Venus M,106573,Bolelli S / Vavassori A,375182
-2026-05-11,"Rome, Italy, Doubles",155975,ATP,Red clay,Round of 32,12:30,Bublik A / Polmans M,376377,Nys H / Roger-Vasselin E,417992
-2026-05-11,"Rome, Italy, Doubles",155975,ATP,Red clay,Round of 32,12:30,Heliovaara H / Patten H,512574,Paul T / Quinn E,1162994
+2026-05-11,"ATP Rome Masters, Doubles",155975,ATP,Red clay,Round of 32,12:30,Bhambri Y / Venus M,106573,Bolelli S / Vavassori A,375182
+2026-05-11,"ATP Rome Masters, Doubles",155975,ATP,Red clay,Round of 32,12:30,Bublik A / Polmans M,376377,Nys H / Roger-Vasselin E,417992
+2026-05-11,"ATP Rome Masters, Doubles",155975,ATP,Red clay,Round of 32,12:30,Heliovaara H / Patten H,512574,Paul T / Quinn E,1162994
 2026-05-11,ITF W15 Klagenfurt Women Doubles,184192,ITF Women,Desconocida,Round of 16,12:30,Bordas P / Kovalchuk K,1224968,Kaegi Z / Stor N,1224974
 2026-05-11,ITF W15 Klagenfurt Women Doubles,184192,ITF Women,Desconocida,Round of 16,12:30,Cembranos P / Tsygourova K,1224969,Gruber L / Ramharter L,1224934
 2026-05-11,ITF W15 Klagenfurt Women Doubles,184192,ITF Women,Desconocida,Round of 16,12:30,Marcon M / Rizzetto G,1224949,Beuing L / Picorusevic E L,1224933
@@ -642,6 +695,12 @@
 2026-05-11,ITF M15 Prijedor,152127,ITF Men,Arcilla,Qualifications,13:00,Piet Luis Pinter,513245,Diego Laporta Osante,423631
 2026-05-11,ITF M15 Prijedor,152127,ITF Men,Arcilla,Qualifications,13:00,Vid Mohar,480029,Achilles Belkovics,478962
 2026-05-11,ITF M15 Prijedor,152127,ITF Men,Arcilla,Qualifications,13:00,Vladan Tadić,286480,Cadence Benchetrit,1094883
+2026-05-11,ITF M25 Hurghada Men,184189,ITF Men,Desconocida,Qualifications,13:00,Aaron Funk,486469,Rishit Dakhane,373237
+2026-05-11,ITF M25 Hurghada Men,184189,ITF Men,Desconocida,Qualifications,13:00,Ioannis Kountourakis,277721,Svarmanyu Singh,1164310
+2026-05-11,ITF M25 Hurghada Men,184189,ITF Men,Desconocida,Qualifications,13:00,Ivan Gretskiy,459133,Zubin Omar,380575
+2026-05-11,ITF M25 Hurghada Men,184189,ITF Men,Desconocida,Qualifications,13:00,Shanker Heisnam,510890,Pablo Perez Ramos,336147
+2026-05-11,ITF W35 Hurghada Women,184247,ITF Women,Dura,Qualifications,13:00,Sasha Kovacevic,395258,Michele Adamczewska,463249
+2026-05-11,ITF W35 Hurghada Women,184247,ITF Women,Dura,Qualifications,13:00,Wilva Chan,493354,Francesca De Matteo,1222397
 2026-05-11,ITF W15 Klagenfurt Women Doubles,184192,ITF Women,Desconocida,Round of 16,13:00,Auer S / Horacek S,1224971,Djekic K L / Sabadi L,1224932
 2026-05-11,"Oeiras 4, Portugal",183696,Challenger,Red clay,Round of 32,13:05,Billy Harris,111837,Petr Brunclik,414847
 2026-05-11,"Oeiras 4, Portugal",183696,Challenger,Red clay,Round of 32,13:05,Tomás Barrios Vera,132834,Michael Zheng,385285
@@ -650,111 +709,145 @@
 2026-05-11,"WTA 1000 Rome, Italy",183033,WTA,Red clay,Round of 16,13:20,Jessica Pegula,44834,Anastasia Potapova,210831
 2026-05-11,"Oeiras 4, Portugal",183696,Challenger,Red clay,Round of 32,13:30,Jurij Rodionov,200159,Colton Smith,391865
 2026-05-11,"Bordeaux, France, Qualifying",184228,Challenger,Red clay,Qualification Round 1,13:30,Clement Tabur,206602,Geoffrey Blancaneaux,141882
-2026-05-11,"Rome, Italy, Doubles",155975,ATP,Red clay,Round of 32,13:40,Cash R / Tracy J,400848,Cash J / Glasspool L,928406
-2026-05-11,"Rome, Italy, Doubles",183384,WTA,Red clay,Round of 32,13:40,Errani S / Paolini J,315001,G. Maduzzi / V. Paganetti,497725
-2026-05-11,"Rome, Italy, Doubles",183384,WTA,Red clay,Round of 32,13:40,Kato M / Klepac A,1224237,Siegemund L / Zvonareva V,355846
+2026-05-11,"ATP Rome Masters, Doubles",155975,ATP,Red clay,Round of 32,13:40,Cash R / Tracy J,400848,Cash J / Glasspool L,928406
+2026-05-11,"WTA 1000 Rome, Doubles",183384,WTA,Red clay,Round of 32,13:40,Errani S / Paolini J,315001,G. Maduzzi / V. Paganetti,497725
+2026-05-11,"WTA 1000 Rome, Doubles",183384,WTA,Red clay,Round of 32,13:40,Kato M / Klepac A,1224237,Siegemund L / Zvonareva V,355846
 2026-05-11,"UTR PTT Stirling Men 02, Group C",183985,UTR Men,Desconocida,,13:40,William McLennaghan,384010,Tyler Stice,282497
 2026-05-11,"UTR PTT Stirling Men 02, Group D",183987,UTR Men,Desconocida,,13:40,James Mackinlay,275952,Dylan Leeman,801432
 2026-05-11,"UTR PTT Stirling Women 02, Group C",183981,UTR Women,Desconocida,,13:40,Alice Zelley,1224122,Mille Haagensen,236243
 2026-05-11,"UTR PTT Stirling Women 02, Group D",183973,UTR Women,Desconocida,,13:40,Izzy Burrow,1077796,Emma Sawkings,1077330
 2026-05-11,"Tunis, Tunisia",183703,Challenger,Red clay,Round of 32,14:00,Maxim Mrva,450846,Federico Cinà,421761
 2026-05-11,"Parma, Italy",183766,WTA 125,Red clay,Round of 32,14:00,Barbora Krejčiková,60398,Victoria Jimenez Kasintseva,339456
-2026-05-11,ITF M25 Hurghada Men,184189,ITF Men,Desconocida,Qualifications,14:00,Adam Bajurko,486465,Makar Elesin,497582
-2026-05-11,ITF M25 Hurghada Men,184189,ITF Men,Desconocida,Qualifications,14:00,Charles Chen,407397,Finn Reilly,1127932
-2026-05-11,ITF M25 Hurghada Men,184189,ITF Men,Desconocida,Qualifications,14:00,Mahir Dalwani,260174,Omar Farahat,1219458
-2026-05-11,ITF M25 Hurghada Men,184189,ITF Men,Desconocida,Qualifications,14:00,Marwan Ehab,1151314,Borys Zgola,326730
-2026-05-11,ITF M25 Hurghada Men,184189,ITF Men,Desconocida,Qualifications,14:00,Omar Morsy,284071,Mikhail Khodorchenko,1114228
-2026-05-11,ITF M25 Hurghada Men,184189,ITF Men,Desconocida,Qualifications,14:00,Rahul Lokesh,1162860,Eyad Reda Ezzat Mohamed Sherif,1157601
-2026-05-11,ITF M25 Hurghada Men,184189,ITF Men,Desconocida,Qualifications,14:00,Zachary Sands,1080203,Yassin Ahmed Wageh,1125912
-2026-05-11,ITF W75 Trnava Women,146787,ITF Women,Hardcourt indoor,Round of 32,14:00,Yasmin Vavrova,1081971,Anouk Koevermans,296390
+2026-05-11,ITF M15 Maringá Men,184243,ITF Men,Arcilla,Qualifications,14:00,Bernardo Fusero Costodio,1225128,Juan Ignacio Barraza,980364
+2026-05-11,ITF M15 Maringá Men,184243,ITF Men,Arcilla,Qualifications,14:00,Henrique Ortenblad Nogueira,530943,Gabriel Augusto Carvalho,1112174
+2026-05-11,ITF M15 Maringá Men,184243,ITF Men,Arcilla,Qualifications,14:00,Petr Iamachkine,224590,Juan Dominguez Collado,480644
+2026-05-11,ITF M15 Maringá Men,184243,ITF Men,Arcilla,Qualifications,14:00,Victor Braga,402032,Glauco Pinheiro Da Cruz Junior,1111838
+2026-05-11,ITF W35 Bethany Beach Women,152139,ITF Women,Arcilla,Qualifications,14:00,Asima Sazanova,375171,Kaitlyn Carnicella,476570
+2026-05-11,ITF W35 Bethany Beach Women,152139,ITF Women,Arcilla,Qualifications,14:00,Hana Evans,130466,Sumvruta Iyengar,224630
+2026-05-11,ITF W35 Bethany Beach Women,152139,ITF Women,Arcilla,Qualifications,14:00,Isabella Marton,422802,Daniella Sales,1225140
+2026-05-11,ITF W35 Bethany Beach Women,152139,ITF Women,Arcilla,Qualifications,14:00,Kate Agnew,1225143,Kelly Keller,417428
+2026-05-11,ITF W35 Bethany Beach Women,152139,ITF Women,Arcilla,Qualifications,14:00,Ligaya Murray,1095886,Amanda Nava Elkin,251345
+2026-05-11,ITF W35 Bethany Beach Women,152139,ITF Women,Arcilla,Qualifications,14:00,Luna María Cinalli,450716,Carolina Castro,556248
+2026-05-11,ITF W35 Bethany Beach Women,152139,ITF Women,Arcilla,Qualifications,14:00,Maya Bayat,1225145,Jane Dunyon,505360
+2026-05-11,ITF W35 Bethany Beach Women,152139,ITF Women,Arcilla,Qualifications,14:00,Reiley Rhodes,1225154,Kira Matushkina,462159
 2026-05-11,ITF M25 Reggio Emilia Men Doubles,152083,ITF Men,Arcilla,Round of 16,14:00,Bilardo J / Giunta M,1097996,Bagnolini D / Banti C,1225046
 2026-05-11,ITF W15 Monzon Women Doubles,152080,ITF Women,Desconocida,Quarterfinals,14:00,Cooks S / Perez Lerchundi A,1224972,Pascual Montalvo I / Sharabura K,1224930
 2026-05-11,ITF W15 Monzon Women Doubles,152080,ITF Women,Desconocida,Round of 16,14:00,Pereira De Aguiar G / Trujillo Garnica M,1224929,Martin S / Quintero Zaugg A,1224970
 2026-05-11,ITF W75 Trnava Women Doubles,146788,ITF Women,Hardcourt indoor,Round of 16,14:00,Chudejova M / Kusy J,1225041,Gorska D / Sedlackova P,1225039
-2026-05-11,ITF W75 Trnava Women Doubles,146788,ITF Women,Hardcourt indoor,Round of 16,14:00,Pirohova D / Supova K,1225040,Hietaranta L / Vargova N,531527
 2026-05-11,"UTR PTT Concord Men +H 01, 17-20 Playoffs",184036,UTR Men,Red clay,Semifinals,14:00,Michael Fernandez,462219,Noah Tauma,938331
 2026-05-11,"UTR PTT Concord Women +H 01, 13-16 Playoffs",184009,UTR Women,Red clay,Semifinals,14:00,Juliette Nask,1091478,Marylove Edwards,1077686
+2026-05-11,ITF M25 Kutaisi Men,184245,ITF Men,Dura,Qualifications,14:04,Luciano Barbarino,496069,David Asatiani,315564
+2026-05-11,ITF M25 Kutaisi Men,184245,ITF Men,Dura,Qualifications,14:07,Ori Hillel,1225160,Aleksandr Chistiakov,1161998
+2026-05-11,ITF M25 Kutaisi Men,184245,ITF Men,Dura,Qualifications,14:08,Radimir Lutkovskii,338956,Kai Cowcher,482558
 2026-05-11,"ATP Rome Masters, Italy",154099,ATP,Red clay,Round of 32,14:10,Pablo Llamas Ruiz,264358,Daniil Medvedev,163504
 2026-05-11,"Cordoba, Argentina, Qualifying",184161,Challenger,Red clay,Qualification Final,14:10,Connor Huertas Del Pino,161868,Arklon Huertas Del Pino Cordova,266259
 2026-05-11,"Cordoba, Argentina, Qualifying",184161,Challenger,Red clay,Qualification Final,14:10,Ignacio Monzon,107483,Nicolas Zanellato,381917
 2026-05-11,"Cordoba, Argentina, Qualifying",184161,Challenger,Red clay,Qualification Final,14:10,Tomas Farjat,270414,Valentin Garay,460293
 2026-05-11,"Oeiras 4, Portugal",183696,Challenger,Red clay,Round of 32,14:15,Liam Draxl,223513,Emilio Nava,232057
-2026-05-11,"Rome, Italy, Doubles",183384,WTA,Red clay,Round of 32,14:30,Bouzkova M / Panova A,1093064,Dabrowski G / Stefani L,368858
+2026-05-11,"WTA 1000 Rome, Doubles",183384,WTA,Red clay,Round of 32,14:30,Bouzkova M / Panova A,1093064,Dabrowski G / Stefani L,368858
 2026-05-11,ITF M25 Reggio Emilia Men,152070,ITF Men,Arcilla,Round of 32,14:30,Petros Tsitsipas,192852,Michele Mecarelli,487990
-2026-05-11,"Rome, Italy, Doubles",155975,ATP,Red clay,Round of 32,14:50,Kittay B / Seggerman R,1171954,Doumbia S / Reboul F,196794
+2026-05-11,ITF W75 Trnava Women,146787,ITF Women,Hardcourt indoor,Round of 32,14:30,Yasmin Vavrova,1081971,Anouk Koevermans,296390
+2026-05-11,ITF W75 Trnava Women Doubles,146788,ITF Women,Hardcourt indoor,Round of 16,14:30,Pirohova D / Supova K,1225040,Hietaranta L / Vargova N,531527
+2026-05-11,"ATP Rome Masters, Doubles",155975,ATP,Red clay,Round of 32,14:50,Kittay B / Seggerman R,1171954,Doumbia S / Reboul F,196794
 2026-05-11,"Zagreb, Croatia",183704,Challenger,Red clay,Round of 32,15:00,Alvaro Guillen Meza,269909,Josip Šimundža,380568
 2026-05-11,"Valencia, Spain, Qualifying",184223,Challenger,Red clay,Qualification Round 1,15:00,Timofey Skatov,229275,Carlos Lopez Montagud,201244
 2026-05-11,"Parma, Italy",183766,WTA 125,Red clay,Round of 32,15:00,Lisa Pigato,276767,Lucia Bronzetti,110055
+2026-05-11,ITF M25 Hurghada Men,184189,ITF Men,Desconocida,Qualifications,15:00,Adam Bajurko,486465,Makar Elesin,497582
+2026-05-11,ITF M25 Hurghada Men,184189,ITF Men,Desconocida,Qualifications,15:00,Charles Chen,407397,Finn Reilly,1127932
+2026-05-11,ITF M25 Hurghada Men,184189,ITF Men,Desconocida,Qualifications,15:00,Mahir Dalwani,260174,Omar Farahat,1219458
+2026-05-11,ITF M25 Hurghada Men,184189,ITF Men,Desconocida,Qualifications,15:00,Marwan Ehab,1151314,Borys Zgola,326730
+2026-05-11,ITF M25 Hurghada Men,184189,ITF Men,Desconocida,Qualifications,15:00,Omar Morsy,284071,Mikhail Khodorchenko,1114228
+2026-05-11,ITF M25 Hurghada Men,184189,ITF Men,Desconocida,Qualifications,15:00,Rahul Lokesh,1162860,Eyad Reda Ezzat Mohamed Sherif,1157601
+2026-05-11,ITF M25 Hurghada Men,184189,ITF Men,Desconocida,Qualifications,15:00,Zachary Sands,1080203,Yassin Ahmed Wageh,1125912
+2026-05-11,"ITF M25 Pensacola, FL Men",152100,ITF Men,Arcilla,Qualifications,15:00,Anuj Watane,246043,Tygen Goldammer,556494
+2026-05-11,"ITF M25 Pensacola, FL Men",152100,ITF Men,Arcilla,Qualifications,15:00,Colter Amey,1225139,Zachery Foster,1130969
+2026-05-11,"ITF M25 Pensacola, FL Men",152100,ITF Men,Arcilla,Qualifications,15:00,Davide Tortora,289232,Gabriel Garcia,1152400
+2026-05-11,"ITF M25 Pensacola, FL Men",152100,ITF Men,Arcilla,Qualifications,15:00,Drew Van Orderlain,101119,Saheb Sodhi,1107921
+2026-05-11,"ITF M25 Pensacola, FL Men",152100,ITF Men,Arcilla,Qualifications,15:00,Ilyas Milad Fahim,519372,Marcell Dawson,1225144
+2026-05-11,"ITF M25 Pensacola, FL Men",152100,ITF Men,Arcilla,Qualifications,15:00,Luka Butera,1044106,Matei Varbanciu,519877
 2026-05-11,ITF W15 Monzon Women,152074,ITF Women,Dura,Round of 32,15:00,Carlotta Moccia,302568,Stefaniya Pushkar,489805
+2026-05-11,ITF W35 Bethany Beach Women,152139,ITF Women,Arcilla,Qualifications,15:00,Chloe Courtnage,1225138,Ana Maria Rincon,1165670
+2026-05-11,ITF W35 Bethany Beach Women,152139,ITF Women,Arcilla,Qualifications,15:00,Françoise Abanda,74445,Calla McGill,476549
+2026-05-11,ITF W35 Bethany Beach Women,152139,ITF Women,Arcilla,Qualifications,15:00,June Greene,1092561,Eva Frissora,421130
+2026-05-11,ITF W35 Bethany Beach Women,152139,ITF Women,Arcilla,Qualifications,15:00,Kallista Liu,479889,Julie Bedard,424847
+2026-05-11,ITF W35 Bethany Beach Women,152139,ITF Women,Arcilla,Qualifications,15:00,Paola Lopez,496191,Alice Otis,1108966
+2026-05-11,ITF W35 Bethany Beach Women,152139,ITF Women,Arcilla,Qualifications,15:00,Zoe Hitt,192369,Gaia Montecchi,1225142
+2026-05-11,ITF W35 Hurghada Women,184247,ITF Women,Dura,Qualifications,15:00,Anne Marthe Keuya,496744,Beatrice Veltri,1123792
+2026-05-11,ITF W35 Hurghada Women,184247,ITF Women,Dura,Qualifications,15:00,Line Billeter,1225131,Marie Lou Peyre,482559
+2026-05-11,ITF W35 Hurghada Women,184247,ITF Women,Dura,Qualifications,15:00,Meira Geras,1174809,Sofia Fernandez Figueras,478993
+2026-05-11,ITF W35 Hurghada Women,184247,ITF Women,Dura,Qualifications,15:00,Snigdha Patibandla,507552,Teodora Vlajić,1165557
 2026-05-11,ITF M25 Reggio Emilia Men Doubles,152083,ITF Men,Arcilla,Round of 16,15:00,Iannaccone F / Tabacco G,478327,Pieri S / Valle F,1109611
 2026-05-11,"Parma, Italy",183766,WTA 125,Red clay,Round of 32,15:10,Federica Urgesi,362614,Maja Chwalinska,211014
 2026-05-11,"WTA 1000 Rome, Italy",183033,WTA,Red clay,Round of 16,16:00,Naomi Osaka,66476,Iga Swiatek,228272
 2026-05-11,"Cordoba, Argentina",183763,Challenger,Red clay,Round of 32,16:00,Fernando Cavallo,403914,Eduardo Ribeiro,199488
 2026-05-11,"Cordoba, Argentina",183763,Challenger,Red clay,Round of 32,16:00,Juan Manuel La Serna,379442,Maximo Zeitune,460294
 2026-05-11,"Cordoba, Argentina, Doubles",183765,Challenger,Red clay,Round of 16,16:00,Collarini A / Kicker N,212907,Goity Zapico S / Meneo T,1224939
-2026-05-11,ITF M25 Hurghada Men,184189,ITF Men,Desconocida,Qualifications,16:00,Brian Dal Zilio,504723,Julian Desousa,355537
-2026-05-11,ITF M25 Hurghada Men,184189,ITF Men,Desconocida,Qualifications,16:00,Filippo Francesco Garbero,526201,Danila Folkheims,1222070
-2026-05-11,ITF M25 Hurghada Men,184189,ITF Men,Desconocida,Qualifications,16:00,Hitesh Chauhan,510354,Omaansh Choudhary Saharia,1174773
+2026-05-11,ITF M15 Maringá Men,184243,ITF Men,Arcilla,Qualifications,16:00,Andre Souza,1130474,Pedro Andre De Almeida Santos,1225134
+2026-05-11,ITF M15 Maringá Men,184243,ITF Men,Arcilla,Qualifications,16:00,Lucca Pinto,389092,Gabriel Batagin,210551
+2026-05-11,ITF M15 Maringá Men,184243,ITF Men,Arcilla,Qualifications,16:00,Valentino Grippo,497617,Mateus Napoli da Silveira,1128322
+2026-05-11,ITF M15 Maringá Men,184243,ITF Men,Arcilla,Qualifications,16:00,Victor Bini,303492,Tomas Dummer Macedo,1207671
 2026-05-11,ITF W15 Monzon Women,152074,ITF Women,Dura,Round of 32,16:00,Celia Anson Sánchez,469079,Carmen Gallardo Guevara,287781
+2026-05-11,ITF M25 Kutaisi Men,184245,ITF Men,Dura,Qualifications,16:04,Mikhail Kulyagin,1210074,Lucas Gustin,468505
 2026-05-11,"ATP Rome Masters, Italy",154099,ATP,Red clay,Round of 32,17:00,Flavio Cobolli,273680,Thiago Agustin Tirante,221515
+2026-05-11,ITF M15 Maringá Men,184243,ITF Men,Arcilla,Qualifications,17:00,Breno Braga,402031,Brian Zerwes Tremblay,1110307
+2026-05-11,ITF M15 Maringá Men,184243,ITF Men,Arcilla,Qualifications,17:00,Leonardo Ebert Santos,1225130,Valentino Conte,518231
+2026-05-11,ITF M15 Maringá Men,184243,ITF Men,Arcilla,Qualifications,17:00,Victor De Castro Rocha,414275,Manuel Mouilleron Salvo,322053
+2026-05-11,ITF M25 Hurghada Men,184189,ITF Men,Desconocida,Qualifications,17:00,Brian Dal Zilio,504723,Julian Desousa,355537
+2026-05-11,ITF M25 Hurghada Men,184189,ITF Men,Desconocida,Qualifications,17:00,Filippo Francesco Garbero,526201,Danila Folkheims,1222070
+2026-05-11,ITF M25 Hurghada Men,184189,ITF Men,Desconocida,Qualifications,17:00,Hitesh Chauhan,510354,Omaansh Choudhary Saharia,1174773
+2026-05-11,"ITF M25 Pensacola, FL Men",152100,ITF Men,Arcilla,Qualifications,17:00,Alex Finkelstein,418820,Tyler Schofield,1219600
+2026-05-11,"ITF M25 Pensacola, FL Men",152100,ITF Men,Arcilla,Qualifications,17:00,Benjamin Saltman,1089921,Youssef Kadiri Hassani,420997
+2026-05-11,"ITF M25 Pensacola, FL Men",152100,ITF Men,Arcilla,Qualifications,17:00,Dakotah Bobo,505878,Matthew Shearer,459451
+2026-05-11,"ITF M25 Pensacola, FL Men",152100,ITF Men,Arcilla,Qualifications,17:00,Eli Stephenson,477383,Anirudh Rao,405583
+2026-05-11,"ITF M25 Pensacola, FL Men",152100,ITF Men,Arcilla,Qualifications,17:00,Francisco Montana,406832,Ying Hou,328559
+2026-05-11,"ITF M25 Pensacola, FL Men",152100,ITF Men,Arcilla,Qualifications,17:00,Nicolas Simkin,1225153,Ryan Haviland,130382
 2026-05-11,ITF M25 Reggio Emilia Men,152070,ITF Men,Arcilla,Round of 32,17:00,Manuel Mazza,204255,Ioannis Xilas,317445
 2026-05-11,"Cordoba, Argentina",183763,Challenger,Red clay,Round of 32,17:10,Santiago De la Fuente,286518,Murkel Dellien,82133
 2026-05-11,"Cordoba, Argentina",183763,Challenger,Red clay,Round of 32,17:10,Valerio Aboian,297139,Carlos Maria Zarate,511702
 2026-05-11,ITF W15 Monzon Women,152074,ITF Women,Dura,Round of 32,17:30,Marine Szostak,245059,Eliana Blake,1093926
 2026-05-11,"UTR PTT Newport Beach Men 11, Group A",184042,UTR Men,Hardcourt outdoor,,17:30,Maciej Rajski,111783,Noble Renfrow,1097759
 2026-05-11,"UTR PTT Newport Beach Men 11, Group C",184092,UTR Men,Hardcourt outdoor,,17:30,Yashwin Krishnakumar,1151349,Max Fardanesh,482677
-2026-05-11,"UTR PTT Melbourne Women 04, Group C",183927,UTR Women,Hardcourt outdoor,,17:30,Yashwin Krishnakumar,1151349,Max Fardanesh,482677
 2026-05-11,"UTR PTT Newport Beach Women 11, Group A",184040,UTR Women,Hardcourt outdoor,,17:30,Zoe Olmos,930167,Mia Soso,1224240
 2026-05-11,"UTR PTT Newport Beach Women 11, Group C",184038,UTR Women,Hardcourt outdoor,,17:30,Julia Seversen,1055433,Amy Duong,1091366
 2026-05-11,"Cordoba, Argentina, Doubles",183765,Challenger,Red clay,Round of 16,18:00,Pucinelli de Almeida M / Zanellato N,510100,Monzon I / Villalon Valdes N,1224937
-2026-05-11,ITF M25 Hurghada Men,184189,ITF Men,Desconocida,Qualifications,18:00,Daniil Ovcharenko,1131662,Yash Chaurasia,288542
-2026-05-11,ITF M25 Hurghada Men,184189,ITF Men,Desconocida,Qualifications,18:00,Vincent Dullinger,935216,Renaud Lefevre,331921
 2026-05-11,"WTA 1000 Rome, Italy",183033,WTA,Red clay,Round of 16,18:30,Karolína Plíšková,20732,Elena Rybakina,186312
+2026-05-11,ITF M25 Hurghada Men,184189,ITF Men,Desconocida,Qualifications,19:00,Daniil Ovcharenko,1131662,Yash Chaurasia,288542
+2026-05-11,ITF M25 Hurghada Men,184189,ITF Men,Desconocida,Qualifications,19:00,Vincent Dullinger,935216,Renaud Lefevre,331921
+2026-05-11,"ITF M25 Pensacola, FL Men",152100,ITF Men,Arcilla,Qualifications,19:00,Juan David Velasquez,373979,Hiroki Sakagawa,282474
+2026-05-11,"ITF M25 Pensacola, FL Men",152100,ITF Men,Arcilla,Qualifications,19:00,Lucca C Pignaton,498391,Lazar Markovic,217472
+2026-05-11,"ITF M25 Pensacola, FL Men",152100,ITF Men,Arcilla,Qualifications,19:00,Martin Maldonado,329562,Mateo Martinez,398072
+2026-05-11,"ITF M25 Pensacola, FL Men",152100,ITF Men,Arcilla,Qualifications,19:00,Oren Vasser,422771,Daniel Prado Contreras,269792
 2026-05-11,"UTR PTT Newport Beach Men 11, Group B",184041,UTR Men,Hardcourt outdoor,,19:30,Noah Zamora,418894,Justin Riley Anson,1166677
 2026-05-11,"UTR PTT Newport Beach Men 11, Group B",184041,UTR Men,Hardcourt outdoor,,19:30,William Chase Thompson,460122,Jonty Giesen,501557
 2026-05-11,"UTR PTT Newport Beach Women 11, Group B",184039,UTR Women,Hardcourt outdoor,,19:30,Eduarda Piai,45603,Sonya Goldberg,1133058
 2026-05-11,"UTR PTT Newport Beach Women 11, Group D",184037,UTR Women,Hardcourt outdoor,,19:30,Solia Valentine,1089932,Marika Jones,334167
 2026-05-11,"UTR PTT Newport Beach Women 11, Group D",184037,UTR Women,Hardcourt outdoor,,19:30,Solia Valentine,1089932,Charlotte Kim,1224453
+2026-05-11,ITF M15 Maringá Men,184243,ITF Men,Arcilla,Qualifications,20:00,Gustavo Albieri,1083345,Felipe Garla,1110264
+2026-05-11,ITF M15 Maringá Men,184243,ITF Men,Arcilla,Qualifications,20:00,Jackson Pereira Xavier,508353,Santiago Pesino,1106168
+2026-05-11,ITF M15 Maringá Men,184243,ITF Men,Arcilla,Qualifications,20:00,Ryan Augusto Dos Santos,402459,Luka Bojicic Ono,386759
 2026-05-11,"Cordoba, Argentina",183763,Challenger,Red clay,Round of 32,21:00,Juan Ignacio Gallego,496769,Ryan Dickerson,332537
+2026-05-11,ITF M15 Maringá Men,184243,ITF Men,Arcilla,Qualifications,21:00,Eugenio Almeida Junior,319973,Marvin Spiering,826078
+2026-05-11,ITF M15 Maringá Men,184243,ITF Men,Arcilla,Qualifications,21:00,Felipe de Dios,379443,Lucas Zancheta,1174960
 2026-05-12,"UTR PTT Melbourne Men 04, Group A",183915,UTR Men,Hardcourt outdoor,,00:00,Asher Brownrigg,1118700,Scott Jones,224087
 2026-05-12,"UTR PTT Melbourne Men 04, Group A",183915,UTR Men,Hardcourt outdoor,,00:00,Asher Brownrigg,1118700,Casey Ambler,470396
-2026-05-12,"UTR PTT Melbourne Men 04, Group A",183915,UTR Men,Hardcourt outdoor,,00:00,Luca Connaughton,1083984,Scott Jones,224087
-2026-05-12,"UTR PTT Melbourne Men 04, Group A",183915,UTR Men,Hardcourt outdoor,,00:00,Luca Connaughton,1083984,Casey Ambler,470396
-2026-05-12,"UTR PTT Melbourne Men 04, Group A",183915,UTR Men,Hardcourt outdoor,,00:00,Marcus Schoeman,394128,Scott Jones,224087
 2026-05-12,"UTR PTT Melbourne Men 04, Group A",183915,UTR Men,Hardcourt outdoor,,00:00,Marcus Schoeman,394128,Luca Connaughton,1083984
-2026-05-12,"UTR PTT Melbourne Men 04, Group A",183915,UTR Men,Hardcourt outdoor,,00:00,Nicholas Jovanovski,210936,Casey Ambler,470396
 2026-05-12,"UTR PTT Melbourne Men 04, Group A",183915,UTR Men,Hardcourt outdoor,,00:00,Nicholas Jovanovski,210936,Scott Jones,224087
-2026-05-12,"UTR PTT Melbourne Men 04, Group B",183918,UTR Men,Hardcourt outdoor,,00:00,Jeremy Beale,138850,Wihan van der Merwe,1168726
-2026-05-12,"UTR PTT Melbourne Men 04, Group B",183918,UTR Men,Hardcourt outdoor,,00:00,Jeremy Beale,138850,Arjun Balakrishnan,857588
-2026-05-12,"UTR PTT Melbourne Men 04, Group B",183918,UTR Men,Hardcourt outdoor,,00:00,Jonas Hahn,464324,Wihan van der Merwe,1168726
-2026-05-12,"UTR PTT Melbourne Men 04, Group B",183918,UTR Men,Hardcourt outdoor,,00:00,Jonas Hahn,464324,Arjun Balakrishnan,857588
-2026-05-12,"UTR PTT Melbourne Men 04, Group B",183918,UTR Men,Hardcourt outdoor,,00:00,Nikolas Baker,1055343,Jeremy Beale,138850
-2026-05-12,"UTR PTT Melbourne Men 04, Group B",183918,UTR Men,Hardcourt outdoor,,00:00,Nikolas Baker,1055343,Wihan van der Merwe,1168726
 2026-05-12,"UTR PTT Melbourne Men 04, Group C",183913,UTR Men,Hardcourt outdoor,,00:00,Marcus Nield,500269,Lachlan King,1158134
-2026-05-12,"UTR PTT Melbourne Men 04, Group C",183913,UTR Men,Hardcourt outdoor,,00:00,Marcus Nield,500269,Emmanuel Valsamis,1091678
-2026-05-12,"UTR PTT Melbourne Men 04, Group C",183913,UTR Men,Hardcourt outdoor,,00:00,Sam Wensley,502105,Lachlan King,1158134
-2026-05-12,"UTR PTT Melbourne Men 04, Group C",183913,UTR Men,Hardcourt outdoor,,00:00,Sam Wensley,502105,Emmanuel Valsamis,1091678
-2026-05-12,"UTR PTT Melbourne Men 04, Group C",183913,UTR Men,Hardcourt outdoor,,00:00,Valentino de Pellegrin,264367,Sam Wensley,502105
-2026-05-12,"UTR PTT Melbourne Men 04, Group C",183913,UTR Men,Hardcourt outdoor,,00:00,Valentino de Pellegrin,264367,Lachlan King,1158134
-2026-05-12,"UTR PTT Melbourne Men 04, Group D",183917,UTR Men,Hardcourt outdoor,,00:00,Aryan Karnani,1091180,Hugo Castello,1084334
-2026-05-12,"UTR PTT Melbourne Men 04, Group D",183917,UTR Men,Hardcourt outdoor,,00:00,Aryan Karnani,1091180,Jera Staley,282057
-2026-05-12,"UTR PTT Melbourne Men 04, Group D",183917,UTR Men,Hardcourt outdoor,,00:00,Brendan Loh,462057,Hugo Castello,1084334
-2026-05-12,"UTR PTT Melbourne Men 04, Group D",183917,UTR Men,Hardcourt outdoor,,00:00,Brendan Loh,462057,Aryan Karnani,1091180
-2026-05-12,"UTR PTT Melbourne Men 04, Group D",183917,UTR Men,Hardcourt outdoor,,00:00,Noah Brownrigg,859196,Hugo Castello,1084334
-2026-05-12,"UTR PTT Melbourne Men 04, Group D",183917,UTR Men,Hardcourt outdoor,,00:00,Noah Brownrigg,859196,Jera Staley,282057
-2026-05-12,"UTR PTT Melbourne Women 04, Group A",183932,UTR Women,Hardcourt outdoor,,00:00,Kaylah McPhee,119496,Lexie Weir,246671
 2026-05-12,"UTR PTT Melbourne Women 04, Group A",183932,UTR Women,Hardcourt outdoor,,00:00,Shiho Shibata,254286,Aliyah Dwyer,403366
-2026-05-12,"UTR PTT Melbourne Women 04, Group B",183930,UTR Women,Hardcourt outdoor,,00:00,Belle Thompson,207587,Caitlin Baker,415197
-2026-05-12,"UTR PTT Melbourne Women 04, Group B",183930,UTR Women,Hardcourt outdoor,,00:00,Marfa Solovei,464830,Grace Cadwallader,1089801
 2026-05-12,"UTR PTT Melbourne Women 04, Group C",183927,UTR Women,Hardcourt outdoor,,00:00,Isabella Crossman,457871,Arabelle Mancini,1117586
-2026-05-12,"UTR PTT Melbourne Women 04, Group C",183927,UTR Women,Hardcourt outdoor,,00:00,Pauline MA,1211840,Nikita Desai,1170228
 2026-05-12,"UTR PTT Melbourne Women 04, Group D",183928,UTR Women,Hardcourt outdoor,,00:00,Mahta Khanloo,319572,Charlotte Vanstone McGrath,464323
-2026-05-12,"UTR PTT Melbourne Women 04, Group D",183928,UTR Women,Hardcourt outdoor,,00:00,Sara Mickoska,464824,Jasmine Adams,309602
+2026-05-12,ITF W15 Toyama Women,152149,ITF Women,Dura,Qualifications,01:00,Akina Shiga,510346,Michiru Furuya,151380
+2026-05-12,ITF W15 Toyama Women,152149,ITF Women,Dura,Qualifications,01:00,Ayaho Okude Okude,1153017,Yuna Sugiyama,469638
+2026-05-12,ITF W15 Toyama Women,152149,ITF Women,Dura,Qualifications,01:00,Hana Matsumura,467271,Yukina Saigo,99775
+2026-05-12,ITF W15 Toyama Women,152149,ITF Women,Dura,Qualifications,01:00,Riho Goto,1221919,Xu Yunzhang,1225162
+2026-05-12,"UTR PTT Melbourne Men 04, Group B",183918,UTR Men,Hardcourt outdoor,,01:10,Jonas Hahn,464324,Wihan van der Merwe,1168726
+2026-05-12,"UTR PTT Melbourne Men 04, Group B",183918,UTR Men,Hardcourt outdoor,,01:10,Nikolas Baker,1055343,Jeremy Beale,138850
+2026-05-12,"UTR PTT Melbourne Men 04, Group D",183917,UTR Men,Hardcourt outdoor,,01:10,Noah Brownrigg,859196,Hugo Castello,1084334
+2026-05-12,"UTR PTT Melbourne Women 04, Group B",183930,UTR Women,Hardcourt outdoor,,01:10,Belle Thompson,207587,Caitlin Baker,415197
+2026-05-12,"UTR PTT Melbourne Women 04, Group B",183930,UTR Women,Hardcourt outdoor,,01:10,Marfa Solovei,464830,Grace Cadwallader,1089801
+2026-05-12,"UTR PTT Melbourne Women 04, Group D",183928,UTR Women,Hardcourt outdoor,,01:10,Sara Mickoska,464824,Jasmine Adams,309602
 2026-05-12,"UTR PTT Newport Beach Men 11, Group A",184042,UTR Men,Hardcourt outdoor,,01:30,Jacob Olar,414868,Miles Clark,479120
 2026-05-12,"UTR PTT Newport Beach Men 11, Group C",184092,UTR Men,Hardcourt outdoor,,01:30,Jerald Carroll,1224243,Jake Fellows,479833
-2026-05-12,"UTR PTT Newport Beach Men 11, Group D",184093,UTR Men,Hardcourt outdoor,,01:30,Duncan McCall,501559,Adam Bain,1044104
-2026-05-12,"UTR PTT Newport Beach Men 11, Group D",184093,UTR Men,Hardcourt outdoor,,01:30,Evan Lee,480725,Roman Venger,360261
-2026-05-12,"UTR PTT Melbourne Women 04, Group C",183927,UTR Women,Hardcourt outdoor,,01:30,Jerald Carroll,1224243,Jake Fellows,479833
 2026-05-12,"UTR PTT Melbourne Women 04, Group D",183928,UTR Women,Hardcourt outdoor,,01:30,Duncan McCall,501559,Adam Bain,1044104
 2026-05-12,"UTR PTT Melbourne Women 04, Group D",183928,UTR Women,Hardcourt outdoor,,01:30,Evan Lee,480725,Roman Venger,360261
 2026-05-12,"UTR PTT Newport Beach Women 11, Group A",184040,UTR Women,Hardcourt outdoor,,01:30,Hana Gamracy,480654,Lily Fairclough,341789
@@ -762,42 +855,51 @@
 2026-05-12,"UTR PTT Newport Beach Women 11, Group B",184039,UTR Women,Hardcourt outdoor,,01:30,Yen Nhi Huynh,1224239,Zdena Safarova,292918
 2026-05-12,"UTR PTT Newport Beach Women 11, Group C",184038,UTR Women,Hardcourt outdoor,,01:30,Shakhnoza Khatamova,148242,Ella Olofson,1122505
 2026-05-12,"UTR PTT Newport Beach Women 11, Group D",184037,UTR Women,Hardcourt outdoor,,01:30,Charlize Celebrini,553598,Yulia Zhytelna,284046
-2026-05-12,"UTR PTT Phan Thiet Men +H 02, Group A",183924,UTR Men,Desconocida,,02:00,Michael (2007) Smith,1211841,Marshall Tutu,49643
-2026-05-12,"UTR PTT Phan Thiet Men +H 02, Group A",183924,UTR Men,Desconocida,,02:00,Michael (2007) Smith,1211841,Giorgi Giorgadze,388348
+2026-05-12,ITF M15 Nakhon Pathom Men,157408,ITF Men,Hardcourt outdoor,Round of 32,02:00,Anton Shepp,337877,Thantub Suksumrarn,231540
+2026-05-12,ITF M15 Nakhon Pathom Men,157408,ITF Men,Hardcourt outdoor,Round of 32,02:00,Hyeon Chung,83211,Khomtat Kitthachok,318074
+2026-05-12,ITF M15 Nakhon Pathom Men,157408,ITF Men,Hardcourt outdoor,Round of 32,02:00,Isaac Becroft,290624,Muhamad Rifqi Fitriadi,238735
+2026-05-12,ITF W15 Luan Women ,157445,ITF Women,Hardcourt outdoor,Qualifications,02:00,Lingyou Ge,1138453,Dami Lee,171058
+2026-05-12,ITF W15 Luan Women ,157445,ITF Women,Hardcourt outdoor,Qualifications,02:00,Na Ri Kim,72860,Lu Mengqiao,1174963
+2026-05-12,ITF W15 Luan Women ,157445,ITF Women,Hardcourt outdoor,Qualifications,02:00,Sai Ma,553144,Ye Xin Tang,1078966
+2026-05-12,ITF W15 Luan Women ,157445,ITF Women,Hardcourt outdoor,Qualifications,02:00,Sunam Jeong,96881,Junlu Sun,489761
+2026-05-12,ITF W15 Nakhon Pathom Women,157447,ITF Women,Desconocida,Round of 32,02:00,Maahi Shah,505314,Junhan Zhang,449791
+2026-05-12,ITF W15 Nakhon Pathom Women,157447,ITF Women,Desconocida,Round of 32,02:00,Naho Sato,244423,Tanuchaporn Yongmod,228635
+2026-05-12,ITF W15 Nakhon Pathom Women,157447,ITF Women,Desconocida,Round of 32,02:00,Thasaporn Naklo,244424,Ksenia Krupenina,1125959
 2026-05-12,"UTR PTT Phan Thiet Men +H 02, Group A",183924,UTR Men,Desconocida,,02:00,Michael (2007) Smith,1211841,Thanh Minh Truong,1165123
-2026-05-12,"UTR PTT Phan Thiet Men +H 02, Group A",183924,UTR Men,Desconocida,,02:00,Thanh Minh Truong,1165123,Marshall Tutu,49643
-2026-05-12,"UTR PTT Phan Thiet Men +H 02, Group A",183924,UTR Men,Desconocida,,02:00,Thanh Minh Truong,1165123,Giorgi Giorgadze,388348
 2026-05-12,"UTR PTT Phan Thiet Men +H 02, Group A",183924,UTR Men,Desconocida,,02:00,Vishal Prakash,1094427,Giorgi Giorgadze,388348
-2026-05-12,"UTR PTT Phan Thiet Men +H 02, Group A",183924,UTR Men,Desconocida,,02:00,Vishal Prakash,1094427,Thanh Minh Truong,1165123
-2026-05-12,"UTR PTT Phan Thiet Men +H 02, Group A",183924,UTR Men,Desconocida,,02:00,Vishal Prakash,1094427,Marshall Tutu,49643
-2026-05-12,"UTR PTT Phan Thiet Men +H 02, Group B",183922,UTR Men,Desconocida,,02:00,Bryan Dickson,1161033,Ke Hau Hung,487152
-2026-05-12,"UTR PTT Phan Thiet Men +H 02, Group B",183922,UTR Men,Desconocida,,02:00,Bryan Dickson,1161033,Sam Ryan Ziegann,263659
-2026-05-12,"UTR PTT Phan Thiet Men +H 02, Group B",183922,UTR Men,Desconocida,,02:00,Bryan Dickson,1161033,Minh Phat Nguyen,417305
-2026-05-12,"UTR PTT Phan Thiet Men +H 02, Group B",183922,UTR Men,Desconocida,,02:00,Jacob Kailiang Shen,1141138,Sam Ryan Ziegann,263659
-2026-05-12,"UTR PTT Phan Thiet Men +H 02, Group B",183922,UTR Men,Desconocida,,02:00,Jacob Kailiang Shen,1141138,Ke Hau Hung,487152
-2026-05-12,"UTR PTT Phan Thiet Men +H 02, Group B",183922,UTR Men,Desconocida,,02:00,Jacob Kailiang Shen,1141138,Minh Phat Nguyen,417305
-2026-05-12,"UTR PTT Phan Thiet Men +H 02, Group B",183922,UTR Men,Desconocida,,02:00,Minh Phat Nguyen,417305,Ke Hau Hung,487152
-2026-05-12,"UTR PTT Phan Thiet Men +H 02, Group B",183922,UTR Men,Desconocida,,02:00,Minh Phat Nguyen,417305,Sam Ryan Ziegann,263659
-2026-05-12,"UTR PTT Phan Thiet Men +H 02, Group C",183923,UTR Men,Desconocida,,02:00,Cheng En Yu,1081995,Ayush Sharma,393597
-2026-05-12,"UTR PTT Phan Thiet Men +H 02, Group C",183923,UTR Men,Desconocida,,02:00,Cheng En Yu,1081995,Jatin Nain,1173535
 2026-05-12,"UTR PTT Phan Thiet Men +H 02, Group C",183923,UTR Men,Desconocida,,02:00,Cheng En Yu,1081995,Tran Quoc Cuong,418023
-2026-05-12,"UTR PTT Phan Thiet Men +H 02, Group C",183923,UTR Men,Desconocida,,02:00,Cheng En Yu,1081995,Dai Khanh Nguyen,417301
 2026-05-12,"UTR PTT Phan Thiet Men +H 02, Group C",183923,UTR Men,Desconocida,,02:00,Corban Crowther,337897,Ayush Sharma,393597
 2026-05-12,"UTR PTT Phan Thiet Men +H 02, Group C",183923,UTR Men,Desconocida,,02:00,Corban Crowther,337897,Tran Quoc Cuong,418023
 2026-05-12,"UTR PTT Phan Thiet Men +H 02, Group C",183923,UTR Men,Desconocida,,02:00,Corban Crowther,337897,Jatin Nain,1173535
 2026-05-12,"UTR PTT Phan Thiet Men +H 02, Group C",183923,UTR Men,Desconocida,,02:00,Corban Crowther,337897,Dai Khanh Nguyen,417301
-2026-05-12,"UTR PTT Phan Thiet Men +H 02, Group C",183923,UTR Men,Desconocida,,02:00,Dai Khanh Nguyen,417301,Ayush Sharma,393597
-2026-05-12,"UTR PTT Phan Thiet Men +H 02, Group C",183923,UTR Men,Desconocida,,02:00,Dai Khanh Nguyen,417301,Jatin Nain,1173535
 2026-05-12,"UTR PTT Phan Thiet Men +H 02, Group C",183923,UTR Men,Desconocida,,02:00,Tran Quoc Cuong,418023,Jatin Nain,1173535
 2026-05-12,"UTR PTT Phan Thiet Men +H 02, Group C",183923,UTR Men,Desconocida,,02:00,Tran Quoc Cuong,418023,Ayush Sharma,393597
-2026-05-12,"UTR PTT Phan Thiet Men +H 02, Group D",183921,UTR Men,Desconocida,,02:00,Alexander Chepik,155984,Tarun Karra,409907
-2026-05-12,"UTR PTT Phan Thiet Men +H 02, Group D",183921,UTR Men,Desconocida,,02:00,Alexander Chepik,155984,Radu Ioan PoPa,203686
-2026-05-12,"UTR PTT Phan Thiet Men +H 02, Group D",183921,UTR Men,Desconocida,,02:00,Alexander Chepik,155984,Lohithaksha Bathrinath,339989
-2026-05-12,"UTR PTT Phan Thiet Men +H 02, Group D",183921,UTR Men,Desconocida,,02:00,Minhthien Nguyen,417302,Radu Ioan PoPa,203686
-2026-05-12,"UTR PTT Phan Thiet Men +H 02, Group D",183921,UTR Men,Desconocida,,02:00,Minhthien Nguyen,417302,Lohithaksha Bathrinath,339989
-2026-05-12,"UTR PTT Phan Thiet Men +H 02, Group D",183921,UTR Men,Desconocida,,02:00,Minhthien Nguyen,417302,Tarun Karra,409907
-2026-05-12,"UTR PTT Phan Thiet Men +H 02, Group D",183921,UTR Men,Desconocida,,02:00,Tarun Karra,409907,Lohithaksha Bathrinath,339989
-2026-05-12,"UTR PTT Phan Thiet Men +H 02, Group D",183921,UTR Men,Desconocida,,02:00,Tarun Karra,409907,Radu Ioan PoPa,203686
+2026-05-12,"UTR PTT Melbourne Men 04, Group C",183913,UTR Men,Hardcourt outdoor,,02:30,Valentino de Pellegrin,264367,Sam Wensley,502105
+2026-05-12,"UTR PTT Melbourne Men 04, Group D",183917,UTR Men,Hardcourt outdoor,,02:30,Brendan Loh,462057,Aryan Karnani,1091180
+2026-05-12,"UTR PTT Melbourne Women 04, Group A",183932,UTR Women,Hardcourt outdoor,,02:30,Kaylah McPhee,119496,Lexie Weir,246671
+2026-05-12,"UTR PTT Melbourne Women 04, Group C",183927,UTR Women,Hardcourt outdoor,,02:30,Pauline MA,1211840,Nikita Desai,1170228
+2026-05-12,ITF W15 Nakhon Pathom Women,157447,ITF Women,Desconocida,Round of 32,03:00,Amittalai Prasutnawin,403153,Elyse Tse,340585
+2026-05-12,ITF W15 Nakhon Pathom Women,157447,ITF Women,Desconocida,Round of 32,03:00,Monique Barry,246283,Elsa Wan,377942
+2026-05-12,ITF W15 Toyama Women,152149,ITF Women,Dura,Qualifications,03:00,Koharu Niimi,401377,Kokoa Nakao,519918
+2026-05-12,ITF W15 Toyama Women,152149,ITF Women,Dura,Qualifications,03:00,Rena Tanaka,485705,Tomoka Umeda,1225157
+2026-05-12,ITF W15 Toyama Women,152149,ITF Women,Dura,Qualifications,03:00,Suzuna Oigawa,415596,Lisa Kamigata,1096040
+2026-05-12,ITF W15 Toyama Women,152149,ITF Women,Dura,Qualifications,03:00,Yuka Matsumoto,316167,Hwiwon Wi,381437
+2026-05-12,ITF W15 Toyama Women,152149,ITF Women,Dura,Round of 32,03:30,Kurumi Tamura,468999,Tori Kinard,44978
+2026-05-12,ITF W15 Toyama Women,152149,ITF Women,Dura,Round of 32,03:30,Mutsumi Uemura,452518,Minami Suzuki,936770
+2026-05-12,ITF W15 Toyama Women,152149,ITF Women,Dura,Round of 32,03:30,Na Hyun Kang,318632,Sae Noguchi,933644
+2026-05-12,ITF W15 Toyama Women,152149,ITF Women,Dura,Round of 32,03:30,Yuzuha Negishi,506371,Chia Yi Tsao,405545
+2026-05-12,"UTR PTT Phan Thiet Men +H 02, Group D",183921,UTR Men,Desconocida,,03:30,Alexander Chepik,155984,Lohithaksha Bathrinath,339989
+2026-05-12,ITF M15 Nakhon Pathom Men,157408,ITF Men,Hardcourt outdoor,Round of 32,04:00,James van Herzeele,418750,Arjun Mehrotra,214978
+2026-05-12,ITF W15 Luan Women ,157445,ITF Women,Hardcourt outdoor,Qualifications,04:00,Gio Jang,383459,Peien Deng,1114215
+2026-05-12,ITF W15 Luan Women ,157445,ITF Women,Hardcourt outdoor,Qualifications,04:00,Ryeong Gyeong Park,204799,Yinuo Huang,1116200
+2026-05-12,ITF W15 Luan Women ,157445,ITF Women,Hardcourt outdoor,Qualifications,04:00,Yuhan Chen,526177,Daria Shubina,486461
+2026-05-12,ITF W15 Nakhon Pathom Women,157447,ITF Women,Desconocida,Round of 32,04:00,Ekaterina Kuznetsova,392652,Pornnapat Hongjumradsin,530784
+2026-05-12,ITF W15 Nakhon Pathom Women,157447,ITF Women,Desconocida,Round of 32,04:00,Kamonwan Yodpetch,412110,Chiara Di Tommaso,310080
+2026-05-12,ITF W15 Nakhon Pathom Women,157447,ITF Women,Desconocida,Round of 32,04:00,Lunda Kumhom,235115,Suryanshi Shekhawat,1123765
+2026-05-12,ITF W15 Luan Women ,157445,ITF Women,Hardcourt outdoor,Round of 32,05:00,Xiao Tang,553145,Shiyu Ye,478921
+2026-05-12,ITF W15 Luan Women ,157445,ITF Women,Hardcourt outdoor,Round of 32,05:00,Xichen Zhao,305444,Ke Ren,447370
+2026-05-12,ITF W15 Luan Women ,157445,ITF Women,Hardcourt outdoor,Round of 32,05:00,Xiran Lan,527963,Yuyao Li,489760
+2026-05-12,"UTR PTT Phan Thiet Men +H 02, Group D",183921,UTR Men,Desconocida,,05:00,Minhthien Nguyen,417302,Tarun Karra,409907
 2026-05-12,"Bengaluru 2, India",183755,Challenger,Hardcourt outdoor,Round of 32,05:30,Digvijay Pratap Singh,191183,Philip Sekulic,299481
 2026-05-12,"Bengaluru 2, India",183755,Challenger,Hardcourt outdoor,Round of 32,05:30,Ilya Ivashka,89320,Kuan-Yi Lee,169596
 2026-05-12,"Bengaluru 2, India",183755,Challenger,Hardcourt outdoor,Round of 32,05:30,Kokoro Isomura,367815,Karan Singh,378554
@@ -812,6 +914,22 @@
 2026-05-12,"Bengaluru 2, India, Doubles",183761,Challenger,Hardcourt outdoor,Round of 16,05:30,Hans K / Kesharwani M,1224775,Hsu J C E / Papa C,1224776
 2026-05-12,"Bengaluru 2, India, Doubles",183761,Challenger,Hardcourt outdoor,Round of 16,05:30,K. Isomura / R. Matsuda,464474,Kaliyanda Poonacha N / Myneni S,1048149
 2026-05-12,"Bengaluru 2, India, Doubles",183761,Challenger,Hardcourt outdoor,Round of 16,05:30,Palan D / Singh D P,334418,Barry C / Charlton J,1224770
+2026-05-12,ITF M15 Nakhon Pathom Men,157408,ITF Men,Hardcourt outdoor,Round of 32,05:30,Credit Chaiyarin,301996,Alan Magadan,272535
+2026-05-12,ITF W15 Nakhon Pathom Women,157447,ITF Women,Desconocida,Round of 32,05:30,Jemma Carbis,380475,Yuka Hosoki,197536
+2026-05-12,ITF W15 Nakhon Pathom Women,157447,ITF Women,Desconocida,Round of 32,05:30,Mariya Zharkikh,1219295,Kanako Osafune,119508
+2026-05-12,ITF M15 Nakhon Pathom Men Doubles,157411,ITF Men,Hardcourt outdoor,Round of 16,05:30,Choudhary P / Minh Duc Vu H,1225201,Puri M / Aqila A Salim R,1225198
+2026-05-12,ITF M15 Nakhon Pathom Men Doubles,157411,ITF Men,Hardcourt outdoor,Round of 16,05:30,Koaykul K / Navasirisomboon J,333638,Charusorn P / Pantaratorn K,1120869
+2026-05-12,ITF M15 Nakhon Pathom Men Doubles,157411,ITF Men,Hardcourt outdoor,Round of 16,05:30,Sukjai P / Sukjai P,1225199,Komolpisut P / Suttisomboon P,1225200
+2026-05-12,ITF W15 Toyama Women Doubles,152150,ITF Women,Dura,Round of 16,05:30,Goto N / Sawashiro K,479446,Moon J / Ying Shek C,1225164
+2026-05-12,ITF W15 Toyama Women Doubles,152150,ITF Women,Dura,Round of 16,05:30,Matsumoto Y / Nimi K,1225166,Desvignes E M / Kim C,1225163
+2026-05-12,ITF W15 Toyama Women,152149,ITF Women,Dura,Round of 32,07:00,Ho-ching Wu,70794,Tsuki Shibutani,1225165
+2026-05-12,ITF W15 Toyama Women,152149,ITF Women,Dura,Round of 32,07:00,Riko Kikawada,462156,Yui Chikaraishi,197532
+2026-05-12,ITF M15 Nakhon Pathom Men Doubles,157411,ITF Men,Hardcourt outdoor,Round of 16,07:00,Chizhuk D / Ergeneman G,1225195,Malaszszak M / Fu Wong T,1225197
+2026-05-12,ITF M15 Nakhon Pathom Men Doubles,157411,ITF Men,Hardcourt outdoor,Round of 16,07:00,Khantiweerawat T / Srirat T,831027,Becroft I / Shepp A,1106141
+2026-05-12,ITF M15 Nakhon Pathom Men Doubles,157411,ITF Men,Hardcourt outdoor,Round of 16,07:00,Sornlaksup P / Suksumrarn T,1043005,Nithithananont N / Thadpong K,1222469
+2026-05-12,ITF W15 Nakhon Pathom Women Doubles,157451,ITF Women,Hardcourt outdoor,Round of 16,07:00,Cheung K Y / Gale L,1219644,Chanta A / Naklo T,1123526
+2026-05-12,ITF W15 Nakhon Pathom Women Doubles,157451,ITF Women,Hardcourt outdoor,Round of 16,07:00,Laam Lai C / Wan E,1225194,Thongkum P / Yongmod T,494221
+2026-05-12,ITF W15 Nakhon Pathom Women Doubles,157451,ITF Women,Hardcourt outdoor,Round of 16,07:00,Lee Y / Seo Lee G,1219650,Shah M / Jagatdeo Verma S,1225196
 2026-05-12,"UTR PTT Le Cap d Agde Men 01, Group A",183956,UTR Men,Desconocida,,07:00,Lenny Galley,1224984,Pierre Antoine Tailleu,379430
 2026-05-12,"UTR PTT Le Cap d Agde Men 01, Group A",183956,UTR Men,Desconocida,,07:00,Lenny Galley,1224984,Zen Uehling,1135567
 2026-05-12,"UTR PTT Le Cap d Agde Men 01, Group A",183956,UTR Men,Desconocida,,07:00,Lenny Galley,1224984,Yassine Smiej,292042
@@ -852,8 +970,8 @@
 2026-05-12,"UTR PTT Le Cap d Agde Men 01, Group D",183958,UTR Men,Desconocida,,07:00,Noah Boutleux,496748,Joris Moret,301546
 2026-05-12,"UTR PTT Le Cap d Agde Men 01, Group D",183958,UTR Men,Desconocida,,07:00,Sacha Grandvincent,493426,Julien Dando,289145
 2026-05-12,"UTR PTT Le Cap d Agde Men 01, Group D",183958,UTR Men,Desconocida,,07:00,Sacha Grandvincent,493426,Joris Moret,301546
-2026-05-12,"Rome, Italy, Doubles",155975,ATP,Red clay,Round of 16,08:00,Galloway R / Gonzalez S,1219625,Granollers M / Zeballos H,325097
-2026-05-12,"Rome, Italy, Doubles",155975,ATP,Red clay,Round of 16,08:00,Krawietz K / Puetz T,261098,Erler A / Miedler L,387801
+2026-05-12,"ATP Rome Masters, Doubles",155975,ATP,Red clay,Round of 16,08:00,Galloway R / Gonzalez S,1219625,Granollers M / Zeballos H,325097
+2026-05-12,"ATP Rome Masters, Doubles",155975,ATP,Red clay,Round of 16,08:00,Krawietz K / Puetz T,261098,Erler A / Miedler L,387801
 2026-05-12,"Zagreb, Croatia",183704,Challenger,Red clay,Round of 32,08:00,Diego Dedura-Palomero,484219,Emanuel Ivanišević,510399
 2026-05-12,"Zagreb, Croatia",183704,Challenger,Red clay,Round of 32,08:00,Jan Choinski,105607,Juan Pablo Ficovich,113979
 2026-05-12,"Zagreb, Croatia",183704,Challenger,Red clay,Round of 32,08:00,Luka Mikrut,349090,Justin Engel,403148
@@ -961,9 +1079,14 @@
 2026-05-12,"ATP Rome Masters, Italy",154099,ATP,Red clay,Round of 16,09:00,Lorenzo Musetti,261015,Casper Ruud,119248
 2026-05-12,"ATP Rome Masters, Italy",154099,ATP,Red clay,Round of 16,09:00,Luciano Darderi,308084,Alexander Zverev,57163
 2026-05-12,"ATP Rome Masters, Italy",154099,ATP,Red clay,Round of 16,09:00,Rafael Jodar,458834,Learner Tien,412818
-2026-05-12,"Rome, Italy, Doubles",183384,WTA,Red clay,Round of 32,09:00,Cocciaretto E / Fernandez L,1171654,Siniakova K / Townsend T,518399
-2026-05-12,"Rome, Italy, Doubles",183384,WTA,Red clay,Round of 16,09:00,Hsieh S-W / Wang X,477274,Andreeva M / Shnaider D,556070
-2026-05-12,"Rome, Italy, Doubles",183384,WTA,Red clay,Round of 16,09:00,Perez E / Schuurs D,1163826,Jovic I / Kalinskaya A,1224236
+2026-05-12,"WTA 1000 Rome, Doubles",183384,WTA,Red clay,Round of 32,09:00,Cocciaretto E / Fernandez L,1171654,Siniakova K / Townsend T,518399
+2026-05-12,"WTA 1000 Rome, Doubles",183384,WTA,Red clay,Round of 16,09:00,Hsieh S-W / Wang X,477274,Andreeva M / Shnaider D,556070
+2026-05-12,"WTA 1000 Rome, Doubles",183384,WTA,Red clay,Round of 16,09:00,Perez E / Schuurs D,1163826,Jovic I / Kalinskaya A,1224236
+2026-05-12,"Oeiras 4, Portugal",183696,Challenger,Red clay,Round of 32,09:00,Cristian Garin,64570,Lautaro Midon,397014
+2026-05-12,"Oeiras 4, Portugal",183696,Challenger,Red clay,Round of 32,09:00,Facundo Diaz Acosta,264372,Hugo Dellien,57289
+2026-05-12,"Oeiras 4, Portugal",183696,Challenger,Red clay,Round of 32,09:00,Genaro Alberto Olivieri,169486,Nishesh Basavareddy,407164
+2026-05-12,"Oeiras 4, Portugal",183696,Challenger,Red clay,Round of 32,09:00,Tiago Pereira,409264,Gastao Elias,15858
+2026-05-12,"Oeiras 4, Portugal",183696,Challenger,Red clay,Round of 32,09:00,Vilius Gaubas,322022,Frederico Ferreira Silva,66484
 2026-05-12,"Tunis, Tunisia",183703,Challenger,Red clay,Round of 32,09:00,Bernard Tomic,17080,Aziz Ouakaa,202557
 2026-05-12,"Tunis, Tunisia",183703,Challenger,Red clay,Round of 32,09:00,Gilles Arnaud Bailly,406654,Harold Mayot,248846
 2026-05-12,"Tunis, Tunisia",183703,Challenger,Red clay,Round of 32,09:00,Jay Clarke,197809,Moez Echargui,153826
@@ -982,3 +1105,4 @@
 2026-05-12,"Tunis, Tunisia, Doubles",183710,Challenger,Red clay,Round of 16,09:00,Chetouane M / Nsairi S,1224922,Barton H / Vrbensky M,1091655
 2026-05-12,"Tunis, Tunisia, Doubles",183710,Challenger,Red clay,Round of 16,09:00,Ouakaa A / Simakin I,1224921,Britto L / Saraiva dos Santos P,465080
 2026-05-12,"Tunis, Tunisia, Doubles",183710,Challenger,Red clay,Round of 16,09:00,Pokorny L / Poljak D,507209,Hermassi R / Nagoudi A,1224925
+2026-05-12,ITF W15 Luan Women ,157445,ITF Women,Hardcourt outdoor,Qualifications,11:00,Jinyu Zhou,1224901,SU Jin Kim,297168
