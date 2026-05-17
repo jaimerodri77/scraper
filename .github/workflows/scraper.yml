@@ -1,9 +1,8 @@
 name: Tennis Scraper Diario PRO
 
 on:
-  schedule:
-    - cron: '5 5,11,17,23 * * *' # cada 6 horas: 12:05 AM, 6:05 AM, 12:05 PM, 6:05 PM Colombia
-  workflow_dispatch:
+  workflow_dispatch:   # Solo ejecución manual
+
 
 jobs:
   scrape:
