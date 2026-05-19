@@ -1,7 +1,11 @@
 name: Tennis Scraper Diario PRO
 
 on:
-  workflow_dispatch:   # Solo ejecución manual
+  schedule:
+    # Se ejecuta a las 01:10 y 13:10 UTC
+    # Esto equivale a las 20:10 y 08:10 hora Colombia
+    - cron: '10 1,13 * * *' 
+  workflow_dispatch:
 
 
 jobs:
