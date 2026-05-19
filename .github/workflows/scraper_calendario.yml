@@ -3,7 +3,7 @@ name: Calendario Diario PRO
 on:
   schedule:
     # Se ejecuta cada 6 horas (00:00, 06:00, 12:00, 18:00 UTC)
-    - cron: '0 */6 * * *'
+    - cron: '5 */6 * * *'
   workflow_dispatch: # Permite ejecutarlo manualmente desde la pestaña Actions
 
 jobs:
