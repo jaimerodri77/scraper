@@ -1,9 +1,7 @@
 name: Tennis Scraper Jugadores
 
 on:
-  schedule:
-    # Corre a las 11:00 UTC diariamente (1 hora después del scraper de partidos)
-    - cron: '0 11 * * *'
+  
   workflow_dispatch:
 
 jobs:
