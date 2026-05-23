@@ -209,11 +209,11 @@
 2026-05-23,ITF W100 Takasaki Women Doubles,168946,ITF Women,Desconocida,Semifinals,02:11,Lee Y-H / Wong H Y C,507857,Ren Y / Sema E,1228451
 2026-05-23,ITF M15 Gimcheon Men,168892,ITF Men,Hardcourt outdoor,Semifinals,02:14,Yunseok Jang,386252,Dong Ju Kim,257615
 2026-05-23,ITF M15 Gimcheon Men,168892,ITF Men,Hardcourt outdoor,Semifinals,02:15,Sanhui Shin,204529,Tai Leonard Sach,280163
-2026-05-23,ITF W100 Takasaki Women Doubles,168946,ITF Women,Desconocida,Quarterfinals,03:00,Hewitt D / Serban R G,1228447,Matsuda M / Yamazaki I,469855
 2026-05-23,ITF M15 Luan Men,149281,ITF Men,Hardcourt outdoor,Semifinals,03:10,Noritaka Koizumi,491950,Jake Delaney,79223
 2026-05-23,ITF W35 Changwon 2 Women Doubles,185076,ITF Women,Hardcourt outdoor,Semifinals,03:10,Nagata A / Sato N,335283,H Im / E Kim,1177710
 2026-05-23,ITF M15 Luan Men,149281,ITF Men,Hardcourt outdoor,Semifinals,03:12,Qian Sun,281439,Kosuke Ogura,288283
 2026-05-23,ITF W100 Takasaki Women,168945,ITF Women,Dura,Semifinals,03:30,Haruka Kaji,80535,Valentina Ryser,251811
+2026-05-23,ITF W100 Takasaki Women Doubles,168946,ITF Women,Desconocida,Quarterfinals,03:35,Hewitt D / Serban R G,1228447,Matsuda M / Yamazaki I,469855
 2026-05-23,ITF M15 Gaborone Men,184183,ITF Men,Desconocida,Semifinals,04:00,Alec Beckley,305655,Constantin Bittoun Kouzmine,170964
 2026-05-23,ITF M15 Gaborone Men,184183,ITF Men,Desconocida,Semifinals,04:00,Robert Strombachs,263699,Cooper Williams,385858
 2026-05-23,ITF W15 Toyama 2 Women,185082,ITF Women,Hardcourt outdoor,Semifinals,04:00,Hiromi Abe,301128,Sara Yoshida,519917
@@ -306,8 +306,8 @@
 2026-05-23,"UTR PTT Ahaus Men 01, 9-12 Playoffs",185820,UTR Men,Red clay,Semifinals,10:30,Sep de Visser,530841,Amadatus Admiraal,230995
 2026-05-23,"UTR PTT Ahaus Women 01, 1-4 Playoffs",185834,UTR Women,Red clay,Semifinals,10:30,Annemarie Lazar,387843,Valentina Khrebtova,276797
 2026-05-23,"UTR PTT Ahaus Women 01, 5-8 Playoffs",185843,UTR Women,Red clay,Semifinals,10:30,Polina Kuharenko,463777,Daniela Ciobanu,54401
+2026-05-23,"Bengaluru 3, India, Doubles",184785,Challenger,Hardcourt outdoor,Final,10:40,Bar Biryukov P / Lomakin G,831181,Kalyanpur A / Mukund S,246182
 2026-05-23,"Istanbul, Turkiye",184722,Challenger,Red clay,Final,11:00,Andrej Nedić,316900,David Jorda Sanchis,57155
-2026-05-23,"Bengaluru 3, India, Doubles",184785,Challenger,Hardcourt outdoor,Final,11:00,Bar Biryukov P / Lomakin G,831181,Kalyanpur A / Mukund S,246182
 2026-05-23,ITF M15 Kayseri Men Doubles,153321,ITF Men,Dura,Round of 16,11:00,Azkara A / Gokpinar H C,1228669,Azoidis D / Gadecki T N,1228671
 2026-05-23,ITF M15 Kayseri Men Doubles,153321,ITF Men,Dura,Round of 16,11:00,Manukyan V / Markov V,1228657,Bulut E / Sengul B,1162854
 2026-05-23,ITF W15 Monastir Women Doubles,143784,ITF Women,Hardcourt outdoor,Final,11:00,Moyano L / Petretic L,1222618,Bertacchi A / Moccia C,1228292
@@ -357,7 +357,19 @@
 2026-05-23,"UTR PTT Tuscaloosa Women 01, 5-8 Playoffs",185715,UTR Women,Hardcourt outdoor,Match for 3rd place,15:50,Olivia Carneiro,399688,Germany Davis,1095884
 2026-05-23,"UTR PTT Tuscaloosa Women 01, 9-12 Playoffs",185716,UTR Women,Hardcourt outdoor,Final,15:50,Audrey Aulia,484773,McKenzie Shelton,1227862
 2026-05-23,ITF M15 Maringa Men,184243,ITF Men,Arcilla,Semifinals,16:00,Mateus Alves,204776,Herman Hoeyeraal,234881
+2026-05-23,"UTR PTT Newport Beach Men 12, 1-4 Playoffs",185892,UTR Men,Hardcourt outdoor,Semifinals,17:30,Blu Baker,290989,Reece Falck,337896
+2026-05-23,"UTR PTT Newport Beach Men 12, 1-4 Playoffs",185892,UTR Men,Hardcourt outdoor,Semifinals,17:30,Karl Kazuma Lee,265567,Xavier Calvelo,531185
+2026-05-23,"UTR PTT Newport Beach Men 12, 5-8 Playoffs",185891,UTR Men,Hardcourt outdoor,Semifinals,17:30,Bjorn Swenson,396046,Aaron Eliscu,1227858
+2026-05-23,"UTR PTT Newport Beach Men 12, 5-8 Playoffs",185891,UTR Men,Hardcourt outdoor,Semifinals,17:30,Mitchell Stewart,199414,Charlie Camus,378006
+2026-05-23,"UTR PTT Newport Beach Men 12, 9-12 Playoffs",185894,UTR Men,Hardcourt outdoor,Semifinals,17:30,Gray Kelley,1091679,Miles Clark,479120
+2026-05-23,"UTR PTT Newport Beach Men 12, 9-12 Playoffs",185894,UTR Men,Hardcourt outdoor,Semifinals,17:30,Kaj Quirijns,377487,Antreas Djakouris,252748
+2026-05-23,"UTR PTT Newport Beach Men 12, 13-16 Playoffs",185895,UTR Men,Hardcourt outdoor,Semifinals,17:30,Ford McCollum,1124064,George Hakopian,1099306
+2026-05-23,"UTR PTT Newport Beach Men 12, 13-16 Playoffs",185895,UTR Men,Hardcourt outdoor,Semifinals,17:30,Pavel Bushuev,1122584,Tyler Lee,523909
 2026-05-23,ITF M15 Maringa Men Doubles,184244,ITF Men,Arcilla,Final,18:00,Cundom J / Del Pino M,1223204,J. Loureiro / R. A. D. Santos,497060
+2026-05-23,"UTR PTT Newport Beach Women 12, 1-4 Playoff",185885,UTR Women,Hardcourt outdoor,Semifinals,21:00,Alexia Harmon,457200,Bianca Eva Molnar,401452
+2026-05-23,"UTR PTT Newport Beach Women 12, 1-4 Playoff",185885,UTR Women,Hardcourt outdoor,Semifinals,21:00,Veronica Miroshnichenko,130628,Scarlett Nicholson,396117
+2026-05-23,"UTR PTT Newport Beach Women 12, 5-8 Playoff",185887,UTR Women,Hardcourt outdoor,Semifinals,21:00,Anastasia Grechkina,391744,Raegan Farm,1129205
+2026-05-23,"UTR PTT Newport Beach Women 12, 5-8 Playoff",185887,UTR Women,Hardcourt outdoor,Semifinals,23:00,Nadia Elle Valdez,1046271,Anya Arora,1083269
 2026-05-24,"French Open, Paris, France",185245,ATP,Red clay,Round of 128,09:00,Alejandro Davidovich Fokina,157456,Damir Džumhur,49172
 2026-05-24,"French Open, Paris, France",185245,ATP,Red clay,Round of 128,09:00,James Duckworth,39711,Gabriel Diallo,280151
 2026-05-24,"French Open, Paris, France",185245,ATP,Red clay,Round of 128,09:00,Karen Khachanov,90080,Arthur Gea,383987
